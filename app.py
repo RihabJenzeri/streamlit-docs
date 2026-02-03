@@ -51,6 +51,10 @@ st.markdown("""
         width: 100%;
         cursor: pointer;
         transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
     }
     
     .stButton > button:hover {
@@ -58,19 +62,37 @@ st.markdown("""
         transform: translateY(-2px);
         border-color: #FFD700;
     }
+    
+    .pdf-btn {
+        background: rgba(76, 175, 80, 0.2) !important;
+        border-color: #4CAF50 !important;
+    }
+    
+    .pdf-btn:hover {
+        background: rgba(76, 175, 80, 0.3) !important;
+        border-color: #2E7D32 !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
-# ========== رابط الصورة ==========
+# ========== روابط الملفات ==========
 image_url = f"{BASE_URL}mes_documents/Medicofi/Société%20ApniDoc%20(en%20France)/Flyer%20ApniDoc.png"
+pdf_url = f"{BASE_URL}mes_documents/Portfolio%20Ines%20HARRABI%202024.pdf"
+pdf_name = "Portfolio Ines HARRABI 2024.pdf"
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
     st.markdown("<h1>📂 Mes Dossiers</h1>", unsafe_allow_html=True)
     
+    # زر Medicofi
     if st.button("🏥 Medicofi", key="medicofi"):
         st.session_state.page = "medicofi"
         st.rerun()
+    
+    # زر PDF Portfolio
+    if st.button("📄 Portfolio Ines HARRABI 2024", key="portfolio"):
+        # يفتح PDF في نافذة جديدة
+        st.markdown(f'<meta http-equiv="refresh" content="0; url={pdf_url}">', unsafe_allow_html=True)
 
 elif st.session_state.page == "medicofi":
     if st.button("← Retour"):
