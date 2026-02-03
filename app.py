@@ -1,4 +1,5 @@
 import streamlit as st
+import webbrowser
 
 # ========== الإعدادات ==========
 GITHUB_USER = "RihabJenzeri"
@@ -34,12 +35,20 @@ st.markdown("""
         font-size: 20px;
         width: 100%;
         cursor: pointer;
+        transition: all 0.3s;
     }
     
-    .image-link {
-        display: block;
-        text-align: center;
-        margin: 20px 0;
+    .folder-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+    
+    .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 30px 0;
+        gap: 15px;
     }
     
     .thumbnail {
@@ -55,29 +64,39 @@ st.markdown("""
     
     .thumbnail:hover {
         transform: scale(1.05);
-        border-color: #FFD700;
         box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+        border-color: #FFD700;
     }
     
-    .action-buttons {
+    .click-hint {
+        color: #FFD700;
+        font-size: 14px;
+        text-align: center;
+        margin-top: 5px;
+    }
+    
+    .buttons-container {
         display: flex;
         gap: 15px;
-        justify-content: center;
         margin-top: 20px;
+        justify-content: center;
     }
     
     .action-btn {
         background: rgba(255, 255, 255, 0.15);
         color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
         padding: 10px 20px;
         border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        cursor: pointer;
         text-decoration: none;
         transition: all 0.3s;
+        display: inline-block;
     }
     
     .action-btn:hover {
         background: rgba(255, 255, 255, 0.25);
+        transform: translateY(-2px);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -90,7 +109,7 @@ file_name = "Flyer_ApniDoc.png"
 if st.session_state.page == "accueil":
     st.markdown("<h1>📂 Mes Dossiers</h1>", unsafe_allow_html=True)
     
-    if st.button("🏥 Medicofi"):
+    if st.button("🏥 Medicofi", key="medicofi"):
         st.session_state.page = "medicofi"
         st.rerun()
 
@@ -112,24 +131,24 @@ elif st.session_state.page == "apnidoc":
     
     st.markdown("<h1>🇫🇷 Société ApniDoc</h1>", unsafe_allow_html=True)
     
-    # رابط للصورة يفتح في نافذة جديدة
-    st.markdown(f"""
-    <div class="image-link">
-        <a href="{image_url}" target="_blank">
-            <img src="{image_url}" class="thumbnail" alt="Flyer ApniDoc">
-        </a>
-        <p style="color: #FFD700; margin-top: 10px;">👆 Cliquez sur l'image pour l'ouvrir en grand</p>
-    </div>
-    """, unsafe_allow_html=True)
+    # عرض الصورة مع زر النقر
+    col1, col2, col3 = st.columns([1, 2, 1])
     
-    # أزرار إضافية
-    st.markdown(f"""
-    <div class="action-buttons">
-        <a href="{image_url}" target="_blank" class="action-btn">
-            🔍 Ouvrir dans un nouvel onglet
-        </a>
-        <a href="{image_url}" download="{file_name}" class="action-btn">
-            📥 Télécharger
-        </a>
-    </div>
-    """, unsafe_allow_html=True)
+    with col2:
+        # عرض الصورة المصغرة
+        st.image(image_url, width=300, caption="Flyer ApniDoc")
+        
+        st.markdown('<p class="click-hint">👆 Cliquez sur les boutons ci-dessous</p>', unsafe_allow_html=True)
+        
+        # زر لفتح الصورة في نافذة جديدة
+        if st.button("🔍 Voir en grand (nouvel onglet)", use_container_width=True):
+            webbrowser.open_new_tab(image_url)
+        
+        # زر التحميل
+        st.markdown(f"""
+        <div style="margin-top: 10px;">
+            <a href="{image_url}" download="{file_name}" class="action-btn" style="width: 100%; text-align: center; display: block;">
+                📥 Télécharger l'image
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
