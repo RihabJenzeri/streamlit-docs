@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 
-st.title("Mes documents")
+st.title("Mes Rihab")
 
 UPLOAD_DIR = "documents"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
