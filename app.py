@@ -47,8 +47,8 @@ st.markdown("""
     }
     
     .small-image {
-        width: 100px;
-        height: 100px;
+        width: 500px;
+        height: 500px;
         object-fit: cover;
         border: 3px solid white;
         border-radius: 10px;
@@ -91,18 +91,4 @@ elif st.session_state.page == "apnidoc":
     st.markdown(f'<img src="{image_url}" class="small-image" alt="Flyer ApniDoc">', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
     
-    # زر التحميل بسيط
-    st.markdown(f"""
-    <div style="text-align: center; margin-top: 20px;">
-        <a href="{image_url}" download style="
-            color: white;
-            text-decoration: none;
-            background: #4CAF50;
-            padding: 8px 16px;
-            border-radius: 5px;
-            display: inline-block;
-        ">
-            📥 Télécharger
-        </a>
-    </div>
-    """, unsafe_allow_html=True)
+  
