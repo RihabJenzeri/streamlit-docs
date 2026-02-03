@@ -1,5 +1,4 @@
 import streamlit as st
-import webbrowser
 
 # ========== الإعدادات ==========
 GITHUB_USER = "RihabJenzeri"
@@ -42,68 +41,11 @@ st.markdown("""
         background: rgba(255, 255, 255, 0.2);
         transform: translateY(-2px);
     }
-    
-    .image-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 30px 0;
-        gap: 15px;
-    }
-    
-    .thumbnail {
-        width: 300px;
-        height: 300px;
-        object-fit: contain;
-        border: 3px solid white;
-        border-radius: 15px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    }
-    
-    .thumbnail:hover {
-        transform: scale(1.05);
-        box-shadow: 0 12px 35px rgba(0,0,0,0.4);
-        border-color: #FFD700;
-    }
-    
-    .click-hint {
-        color: #FFD700;
-        font-size: 14px;
-        text-align: center;
-        margin-top: 5px;
-    }
-    
-    .buttons-container {
-        display: flex;
-        gap: 15px;
-        margin-top: 20px;
-        justify-content: center;
-    }
-    
-    .action-btn {
-        background: rgba(255, 255, 255, 0.15);
-        color: white;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        padding: 10px 20px;
-        border-radius: 8px;
-        cursor: pointer;
-        text-decoration: none;
-        transition: all 0.3s;
-        display: inline-block;
-    }
-    
-    .action-btn:hover {
-        background: rgba(255, 255, 255, 0.25);
-        transform: translateY(-2px);
-    }
 </style>
 """, unsafe_allow_html=True)
 
 # ========== رابط الصورة ==========
 image_url = f"{BASE_URL}mes_documents/Medicofi/Société%20ApniDoc%20(en%20France)/Flyer%20ApniDoc.png"
-file_name = "Flyer_ApniDoc.png"
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
@@ -130,6 +72,5 @@ elif st.session_state.page == "apnidoc":
         st.rerun()
     
     st.markdown("<h1>🇫🇷 Société ApniDoc</h1>", unsafe_allow_html=True)
+    
     st.image(image_url, width=300, caption="Flyer ApniDoc")
-        
-        
