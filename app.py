@@ -1,97 +1,82 @@
 import streamlit as st
+import requests
 
 # ========== إعدادات ==========
 GITHUB_USER = "RihabJenzeri"
 REPO_NAME = "streamlit-docs"
 BRANCH = "main"
+BASE_URL = f"https://api.github.com/repos/{GITHUB_USER}/{REPO_NAME}/contents/"
 
-# ========== حالة التطبيق ==========
-if 'page' not in st.session_state:
-    st.session_state.page = "accueil"
-
-# ========== تنسيق ==========
-st.markdown("""
-<style>
-    .stApp { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-    h1, h2, h3 { color: white !important; }
-    .folder-btn { 
-        background: rgba(255,255,255,0.15); 
-        color: white; 
-        border: 2px solid rgba(255,255,255,0.3);
-        border-radius: 10px;
-        padding: 20px;
-        font-size: 24px;
-        margin: 10px;
-        width: 100%;
-    }
-</style>
-""", unsafe_allow_html=True)
-
-# ========== الصفحات ==========
-if st.session_state.page == "accueil":
-    st.title("📂 Mes Dossiers")
+# ========== دالة للتحقق من الملفات ==========
+def check_github_files():
+    st.title("🔍 التحقق من ملفات GitHub")
     
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        if st.button("🏥 Medicofi", key="medicofi", use_container_width=True):
-            st.session_state.page = "medicofi"
-            st.rerun()
-
-elif st.session_state.page == "medicofi":
-    st.button("← Retour", on_click=lambda: st.session_state.update(page="accueil"))
-    st.title("🏥 Medicofi")
-    
-    # اختر المسار الصحيح هنا بعد التحقق
-    # الخيار 1: إذا كان الاسم به مسافات
-    image_path = "mes_documents/Medicofi/Société ApniDoc (en France)/Flyer ApniDoc.jpg"
-    
-    # الخيار 2: إذا غيرت الاسم
-    # image_path = "mes_documents/Medicofi/ApniDoc_France/Flyer_ApniDoc.jpg"
-    
-    image_url = f"https://raw.githubusercontent.com/{GITHUB_USER}/{REPO_NAME}/{BRANCH}/{image_path}"
-    
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        st.subheader("🖼️ Flyer ApniDoc")
-        try:
-            st.image(image_url, use_container_width=True)
-            st.success("✅ Image chargée avec succès!")
-            
-            # زر التحميل
-            st.markdown(f'<a href="{image_url}" download style="text-decoration: none;">'
-                       f'<button style="background:#4CAF50;color:white;padding:10px 20px;border:none;border-radius:5px;cursor:pointer;">'
-                       f'📥 Télécharger l\'image</button></a>', 
-                       unsafe_allow_html=True)
-            
-        except Exception as e:
-            st.error(f"❌ Erreur: Impossible de charger l'image")
-            st.info(f"URL essayée: {image_url}")
-            st.info("🔧 Solution: Vérifiez le nom du fichier sur GitHub")
-    
-    with col2:
-        st.subheader("📁 Autres dossiers")
-        if st.button("📊 Rapports Annuels", use_container_width=True):
-            st.info("Ce dossier sera disponible bientôt")
-        
-        if st.button("📈 Présentations", use_container_width=True):
-            st.info("Ce dossier sera disponible bientôt")
-
-# ========== معلومات التصحيح ==========
-with st.expander("🔧 Informations de débogage"):
-    st.write("**Repository:**", f"{GITHUB_USER}/{REPO_NAME}")
-    st.write("**Branch:**", BRANCH)
-    st.write("**URL de base:**", f"https://raw.githubusercontent.com/{GITHUB_USER}/{REPO_NAME}/{BRANCH}/")
-    
-    # اختبار اتصال
-    import requests
-    test_url = f"https://api.github.com/repos/{GITHUB_USER}/{REPO_NAME}"
     try:
-        response = requests.get(test_url)
+        # جلب محتويات الريبو
+        response = requests.get(BASE_URL, headers={"Accept": "application/vnd.github.v3+json"})
+        
         if response.status_code == 200:
-            st.success("✅ Connection GitHub OK")
+            contents = response.json()
+            st.success("✅ تم الاتصال بـ GitHub بنجاح")
+            
+            # عرض المجلدات والملفات
+            st.subheader("📂 محتويات الريبو:")
+            for item in contents:
+                if item['type'] == 'dir':
+                    st.write(f"📁 **{item['name']}**")
+                    # يمكن عرض محتويات المجلد
+                    sub_response = requests.get(item['url'])
+                    if sub_response.status_code == 200:
+                        sub_contents = sub_response.json()
+                        for sub_item in sub_contents:
+                            st.write(f"   └─ {sub_item['name']} ({sub_item['type']})")
+                else:
+                    st.write(f"📄 {item['name']}")
         else:
-            st.error(f"❌ Erreur de connection: {response.status_code}")
-    except:
-        st.error("❌ Impossible de se connecter à GitHub")
+            st.error(f"❌ خطأ في الاتصال: {response.status_code}")
+            
+    except Exception as e:
+        st.error(f"❌ خطأ: {str(e)}")
+
+# ========== دالة لعرض الصورة مباشرة ==========
+def display_image_simple():
+    st.title("🖼️ اختبار عرض الصورة")
+    
+    # اختبار مسارات مختلفة
+    test_paths = [
+        "mes_documents/Medicofi/Société ApniDoc (en France)/Flyer ApniDoc.jpg",
+        "mes_documents/Medicofi/ApniDoc_France/Flyer_ApniDoc.jpg",
+        "mes_documents/Medicofi/Societe_ApniDoc_France/Flyer_ApniDoc.jpg",
+        "mes_documents/Medicofi/ApniDoc/Flyer.jpg",
+    ]
+    
+    for path in test_paths:
+        image_url = f"https://raw.githubusercontent.com/{GITHUB_USER}/{REPO_NAME}/{BRANCH}/{path}"
+        
+        st.subheader(f"اختبار: {path}")
+        st.code(image_url)
+        
+        # اختبار إذا كان الملف موجود
+        try:
+            response = requests.head(image_url)
+            if response.status_code == 200:
+                st.success("✅ الملف موجود!")
+                st.image(image_url, caption=path, use_container_width=True)
+                break  # توقف عند أول صورة تعمل
+            else:
+                st.warning(f"⚠️ الملف غير موجود (الكود: {response.status_code})")
+        except Exception as e:
+            st.error(f"❌ خطأ: {str(e)}")
+        
+        st.markdown("---")
+
+# ========== التطبيق الرئيسي ==========
+st.set_page_config(page_title="GitHub File Checker", layout="wide")
+
+tab1, tab2 = st.tabs(["🔍 تحقق من الملفات", "🖼️ اختبار الصور"])
+
+with tab1:
+    check_github_files()
+
+with tab2:
+    display_image_simple()
