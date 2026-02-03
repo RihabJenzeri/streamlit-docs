@@ -9,23 +9,14 @@ BASE_URL = f"https://raw.githubusercontent.com/{GITHUB_USER}/{REPO_NAME}/main/"
 if 'page' not in st.session_state:
     st.session_state.page = "accueil"
 
-# ========== تنسيق مع إخفاء الشريط ==========
+# ========== تنسيق ==========
 st.markdown("""
 <style>
-    /* إخفاء شريط Streamlit الافتراضي */
     #MainMenu {visibility: hidden;}
     header {visibility: hidden;}
     footer {visibility: hidden;}
-    
-    /* إخفاء زر القائمة في الزاوية */
     .stDeployButton {display:none;}
-    
-    /* إخفاء أيقونة القائمة في الزاوية اليمنى العليا */
     #stDecoration {display:none;}
-    
-    /* إخفاء عناصر واجهة Streamlit الإضافية */
-    .st-emotion-cache-1dp5vir {display: none;}
-    .st-emotion-cache-z5fcl4 {padding-top: 0rem;}
     
     .stApp {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -40,7 +31,7 @@ st.markdown("""
         font-size: 2.5rem;
     }
     
-    .stButton > button {
+    .file-item {
         background: rgba(255, 255, 255, 0.1);
         color: white;
         border: 2px solid rgba(255, 255, 255, 0.2);
@@ -51,26 +42,25 @@ st.markdown("""
         width: 100%;
         cursor: pointer;
         transition: all 0.3s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
+        text-align: center;
+        display: block;
+        text-decoration: none;
     }
     
-    .stButton > button:hover {
+    .file-item:hover {
         background: rgba(255, 255, 255, 0.2);
         transform: translateY(-2px);
         border-color: #FFD700;
     }
     
-    .pdf-btn {
-        background: rgba(76, 175, 80, 0.2) !important;
-        border-color: #4CAF50 !important;
+    .pdf-item {
+        background: rgba(76, 175, 80, 0.2);
+        border-color: #4CAF50;
     }
     
-    .pdf-btn:hover {
-        background: rgba(76, 175, 80, 0.3) !important;
-        border-color: #2E7D32 !important;
+    .pdf-item:hover {
+        background: rgba(76, 175, 80, 0.3);
+        border-color: #2E7D32;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -78,21 +68,28 @@ st.markdown("""
 # ========== روابط الملفات ==========
 image_url = f"{BASE_URL}mes_documents/Medicofi/Société%20ApniDoc%20(en%20France)/Flyer%20ApniDoc.png"
 pdf_url = f"{BASE_URL}mes_documents/Portfolio%20Ines%20HARRABI%202024.pdf"
-pdf_name = "Portfolio Ines HARRABI 2024.pdf"
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
     st.markdown("<h1>📂 Mes Dossiers</h1>", unsafe_allow_html=True)
     
     # زر Medicofi
-    if st.button("🏥 Medicofi", key="medicofi"):
-        st.session_state.page = "medicofi"
-        st.rerun()
+    st.markdown(f"""
+    <a href="#" onclick="event.preventDefault(); window.parent.postMessage({{'type': 'streamlit:setComponentValue', 'value': 'medicofi'}}, '*');" class="file-item">
+        🏥 Medicofi
+    </a>
+    """, unsafe_allow_html=True)
     
     # زر PDF Portfolio
-    if st.button("📄 Portfolio Ines HARRABI 2024", key="portfolio"):
-        # يفتح PDF في نافذة جديدة
-        st.markdown(f'<meta http-equiv="refresh" content="0; url={pdf_url}">', unsafe_allow_html=True)
+    st.markdown(f"""
+    <a href="{pdf_url}" target="_self" class="file-item pdf-item">
+        📄 Portfolio Ines HARRABI 2024
+    </a>
+    """, unsafe_allow_html=True)
+    
+    # زر JavaScript للتنقل
+    if st.button("", key="hidden_button", type="secondary"):
+        pass
 
 elif st.session_state.page == "medicofi":
     if st.button("← Retour"):
