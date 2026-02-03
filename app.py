@@ -131,11 +131,4 @@ elif st.session_state.page == "apnidoc":
     
     st.markdown("<h1>🇫🇷 Société ApniDoc</h1>", unsafe_allow_html=True)
     
-    # عرض الصورة مع زر النقر
-    col1, col2, col3 = st.columns([1, 2, 1])
-    
  
-        
-        
-        
-   
