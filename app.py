@@ -47,8 +47,8 @@ st.markdown("""
     }
     
     .small-image {
-        width: 500px;
-        height: 500px;
+        width: 400px;
+        height: 400px;
         object-fit: cover;
         border: 3px solid white;
         border-radius: 10px;
