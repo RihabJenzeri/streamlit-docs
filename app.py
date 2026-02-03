@@ -134,21 +134,8 @@ elif st.session_state.page == "apnidoc":
     # عرض الصورة مع زر النقر
     col1, col2, col3 = st.columns([1, 2, 1])
     
-    with col2:
-        # عرض الصورة المصغرة
-        st.image(image_url, width=300, caption="Flyer ApniDoc")
+ 
         
-        st.markdown('<p class="click-hint">👆 Cliquez sur les boutons ci-dessous</p>', unsafe_allow_html=True)
         
-        # زر لفتح الصورة في نافذة جديدة
-        if st.button("🔍 Voir en grand (nouvel onglet)", use_container_width=True):
-            webbrowser.open_new_tab(image_url)
         
-        # زر التحميل
-        st.markdown(f"""
-        <div style="margin-top: 10px;">
-            <a href="{image_url}" download="{file_name}" class="action-btn" style="width: 100%; text-align: center; display: block;">
-                📥 Télécharger l'image
-            </a>
-        </div>
-        """, unsafe_allow_html=True)
+   
