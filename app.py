@@ -3,16 +3,19 @@ import os
 
 st.title("Mes Rihab")
 
-UPLOAD_DIR = "documents"
-os.makedirs(UPLOAD_DIR, exist_ok=True)
+# المجلد اللي فيه الملفات
+BASE_DIR = "documents"
+os.makedirs(BASE_DIR, exist_ok=True)
 
-uploaded_file = st.file_uploader("Uploader un fichier")
+st.subheader("Fichiers et dossiers disponibles:")
 
-if uploaded_file:
-    with open(os.path.join(UPLOAD_DIR, uploaded_file.name), "wb") as f:
-        f.write(uploaded_file.getbuffer())
-    st.success("Fichier sauvegardé")
-
-st.subheader("Fichiers disponibles")
-for file in os.listdir(UPLOAD_DIR):
-    st.write(file)
+# استعراض المجلدات والملفات
+for item in os.listdir(BASE_DIR):
+    item_path = os.path.join(BASE_DIR, item)
+    if os.path.isdir(item_path):
+        st.write(f"📁 Dossier: {item}")
+        # لو تحب تعرض الملفات داخل هذا المجلد مباشرة:
+        for f in os.listdir(item_path):
+            st.write(f"    - {f}")
+    else:
+        st.write(f"📄 Fichier: {item}")
