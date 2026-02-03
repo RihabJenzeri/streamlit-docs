@@ -9,9 +9,24 @@ BASE_URL = f"https://raw.githubusercontent.com/{GITHUB_USER}/{REPO_NAME}/main/"
 if 'page' not in st.session_state:
     st.session_state.page = "accueil"
 
-# ========== تنسيق ==========
+# ========== تنسيق مع إخفاء الشريط ==========
 st.markdown("""
 <style>
+    /* إخفاء شريط Streamlit الافتراضي */
+    #MainMenu {visibility: hidden;}
+    header {visibility: hidden;}
+    footer {visibility: hidden;}
+    
+    /* إخفاء زر القائمة في الزاوية */
+    .stDeployButton {display:none;}
+    
+    /* إخفاء أيقونة القائمة في الزاوية اليمنى العليا */
+    #stDecoration {display:none;}
+    
+    /* إخفاء عناصر واجهة Streamlit الإضافية */
+    .st-emotion-cache-1dp5vir {display: none;}
+    .st-emotion-cache-z5fcl4 {padding-top: 0rem;}
+    
     .stApp {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         font-family: 'Arial', sans-serif;
@@ -22,9 +37,10 @@ st.markdown("""
         color: white;
         text-align: center;
         margin-bottom: 30px;
+        font-size: 2.5rem;
     }
     
-    .folder-btn {
+    .stButton > button {
         background: rgba(255, 255, 255, 0.1);
         color: white;
         border: 2px solid rgba(255, 255, 255, 0.2);
@@ -37,9 +53,10 @@ st.markdown("""
         transition: all 0.3s;
     }
     
-    .folder-btn:hover {
+    .stButton > button:hover {
         background: rgba(255, 255, 255, 0.2);
         transform: translateY(-2px);
+        border-color: #FFD700;
     }
 </style>
 """, unsafe_allow_html=True)
