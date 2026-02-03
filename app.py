@@ -130,8 +130,6 @@ elif st.session_state.page == "apnidoc":
         st.rerun()
     
     st.markdown("<h1>🇫🇷 Société ApniDoc</h1>", unsafe_allow_html=True)
-    
-    
-        st.image(image_url, width=300, caption="Flyer ApniDoc")
+    st.image(image_url, width=300, caption="Flyer ApniDoc")
         
         
