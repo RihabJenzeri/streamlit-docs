@@ -8,11 +8,10 @@ BASE_URL = f"https://raw.githubusercontent.com/{GITHUB_USER}/{REPO_NAME}/main/"
 # ========== حالة التطبيق ==========
 if 'page' not in st.session_state:
     st.session_state.page = "accueil"
+if 'show_large_image' not in st.session_state:
+    st.session_state.show_large_image = False
 
-if 'show_big_image' not in st.session_state:
-    st.session_state.show_big_image = False
-
-# ========== تنسيق ==========
+# ========== تنسيق مع JavaScript للنافذة المنبثقة ==========
 st.markdown("""
 <style>
     .stApp {
@@ -47,121 +46,143 @@ st.markdown("""
     
     .image-container {
         display: flex;
-        justify-content: center;
-        margin: 20px 0;
+        flex-direction: column;
+        align-items: center;
+        margin: 30px 0;
     }
     
-    .small-image {
-        width: 400px;
-        height: 400px;
+    .thumbnail {
+        width: 300px;
+        height: 300px;
         object-fit: contain;
         border: 3px solid white;
         border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         cursor: pointer;
         transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     }
     
-    .small-image:hover {
-        transform: scale(1.02);
-        box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    .thumbnail:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 35px rgba(0,0,0,0.4);
         border-color: #FFD700;
     }
     
-    .big-image-overlay {
+    .click-hint {
+        color: #FFD700;
+        font-size: 14px;
+        margin-top: 10px;
+        text-align: center;
+    }
+    
+    /* نافذة الصورة الكبيرة */
+    .modal {
+        display: none;
         position: fixed;
-        top: 0;
+        z-index: 1000;
         left: 0;
+        top: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        display: flex;
+        background-color: rgba(0,0,0,0.9);
         justify-content: center;
         align-items: center;
-        z-index: 1000;
     }
     
-    .big-image-container {
-        position: relative;
+    .modal-content {
         max-width: 90%;
         max-height: 90%;
-    }
-    
-    .big-image {
-        width: 100%;
-        height: auto;
-        max-height: 80vh;
         border-radius: 10px;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        box-shadow: 0 0 40px rgba(255,255,255,0.2);
     }
     
     .close-btn {
         position: absolute;
-        top: -40px;
-        right: -10px;
-        background: rgba(255, 255, 255, 0.2);
+        top: 20px;
+        right: 30px;
         color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 50%;
-        font-size: 20px;
+        font-size: 40px;
+        font-weight: bold;
         cursor: pointer;
-        transition: all 0.3s;
+        transition: 0.3s;
     }
     
     .close-btn:hover {
-        background: rgba(255, 255, 255, 0.3);
-        transform: scale(1.1);
+        color: #FFD700;
+        transform: scale(1.2);
     }
     
-    .download-btn {
-        display: inline-block;
+    .download-large {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
         background: #4CAF50;
         color: white;
-        padding: 10px 20px;
-        border-radius: 8px;
+        padding: 12px 25px;
+        border-radius: 25px;
         text-decoration: none;
-        margin-top: 15px;
         font-weight: bold;
+        box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
         transition: all 0.3s;
     }
     
-    .download-btn:hover {
-        background: #45a049;
-        transform: translateY(-2px);
+    .download-large:hover {
+        background: #2E7D32;
+        transform: translateX(-50%) scale(1.1);
     }
 </style>
+
+<div id="imageModal" class="modal">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="fullImage">
+    <a id="downloadLink" class="download-large" download>📥 Télécharger en grand</a>
+</div>
+
+<script>
+function openModal(imageUrl, fileName) {
+    const modal = document.getElementById('imageModal');
+    const fullImage = document.getElementById('fullImage');
+    const downloadLink = document.getElementById('downloadLink');
+    
+    fullImage.src = imageUrl;
+    downloadLink.href = imageUrl;
+    downloadLink.download = fileName;
+    modal.style.display = 'flex';
+    
+    // Fermer avec la touche Échap
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        if (evt.keyCode === 27) {
+            closeModal();
+        }
+    };
+}
+
+function closeModal() {
+    document.getElementById('imageModal').style.display = 'none';
+    document.onkeydown = null;
+}
+
+// Fermer en cliquant en dehors de l'image
+window.onclick = function(event) {
+    const modal = document.getElementById('imageModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+</script>
 """, unsafe_allow_html=True)
 
 # ========== رابط الصورة ==========
 image_url = f"{BASE_URL}mes_documents/Medicofi/Société%20ApniDoc%20(en%20France)/Flyer%20ApniDoc.png"
-
-# ========== نافذة الصورة الكبيرة ==========
-if st.session_state.show_big_image:
-    st.markdown("""
-    <div class="big-image-overlay">
-        <div class="big-image-container">
-            <button class="close-btn" onclick="this.nextElementSibling.click()">✕</button>
-            <img src="{}" class="big-image" alt="Flyer ApniDoc">
-            <div style="text-align: center; margin-top: 20px;">
-                <a href="{}" download="Flyer_ApniDoc.png" class="download-btn">
-                    📥 Télécharger l'image
-                </a>
-            </div>
-        </div>
-    </div>
-    """.format(image_url, image_url), unsafe_allow_html=True)
-    
-    # زر إغلاق مخفي
-    if st.button("✕ Fermer", key="close_big_image", type="primary"):
-        st.session_state.show_big_image = False
-        st.rerun()
+file_name = "Flyer_ApniDoc.png"
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
     st.markdown("<h1>📂 Mes Dossiers</h1>", unsafe_allow_html=True)
     
-    if st.button("Medicofi", key="medicofi"):
+    if st.button("🏥 Medicofi", key="medicofi"):
         st.session_state.page = "medicofi"
         st.rerun()
 
@@ -170,9 +191,9 @@ elif st.session_state.page == "medicofi":
         st.session_state.page = "accueil"
         st.rerun()
     
-    st.markdown("<h1>Medicofi</h1>", unsafe_allow_html=True)
+    st.markdown("<h1>🏥 Medicofi</h1>", unsafe_allow_html=True)
     
-    if st.button("Société ApniDoc (en France)"):
+    if st.button("🇫🇷 Société ApniDoc (en France)"):
         st.session_state.page = "apnidoc"
         st.rerun()
 
@@ -181,65 +202,33 @@ elif st.session_state.page == "apnidoc":
         st.session_state.page = "medicofi"
         st.rerun()
     
-    st.markdown("<h1>Société ApniDoc</h1>", unsafe_allow_html=True)
+    st.markdown("<h1>🇫🇷 Société ApniDoc</h1>", unsafe_allow_html=True)
     
-    # عرض الصورة 500x500
-    st.markdown("""
+    # عرض الصورة المصغرة القابلة للنقر
+    st.markdown(f"""
     <div class="image-container">
-        <img src="{}" class="small-image" alt="Flyer ApniDoc" 
-             onclick="this.nextElementSibling.click()">
+        <img src="{image_url}" 
+             class="thumbnail" 
+             alt="Flyer ApniDoc"
+             onclick="openModal('{image_url}', '{file_name}')">
+        <div class="click-hint">👆 Cliquez pour agrandir l'image</div>
     </div>
-    """.format(image_url), unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
     
-    # زر مخفي لفتح الصورة الكبيرة
-    if st.button("🖼️ Ouvrir en grand", key="open_big_image"):
-        st.session_state.show_big_image = True
-        st.rerun()
-    
-    # زر تحميل
-    st.markdown("""
+    # زر تحميل بسيط
+    st.markdown(f"""
     <div style="text-align: center; margin-top: 20px;">
-        <a href="{}" download="Flyer_ApniDoc.png" class="download-btn">
-            📥 Télécharger
+        <a href="{image_url}" download="{file_name}" style="
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s;
+        ">
+            📥 Télécharger l'image
         </a>
     </div>
-    """.format(image_url), unsafe_allow_html=True)
-
-# ========== JavaScript للتفاعل ==========
-st.markdown("""
-<script>
-    // جعل الصورة قابلة للنقر
-    const smallImage = document.querySelector('.small-image');
-    if (smallImage) {
-        smallImage.style.cursor = 'pointer';
-        smallImage.addEventListener('click', function() {
-            // البحث عن الزر المخفي والنقر عليه
-            const buttons = document.querySelectorAll('button');
-            for (let btn of buttons) {
-                if (btn.textContent.includes('Ouvrir en grand')) {
-                    btn.click();
-                    break;
-                }
-            }
-        });
-    }
-    
-    // إغلاق الصورة الكبيرة بالضغط على ESC
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const closeBtn = document.querySelector('.close-btn');
-            if (closeBtn) closeBtn.click();
-        }
-    });
-    
-    // إغلاق الصورة الكبيرة بالضغط خارجها
-    document.addEventListener('click', function(e) {
-        const overlay = document.querySelector('.big-image-overlay');
-        const container = document.querySelector('.big-image-container');
-        if (overlay && !container.contains(e.target) && !e.target.classList.contains('small-image')) {
-            const closeBtn = document.querySelector('.close-btn');
-            if (closeBtn) closeBtn.click();
-        }
-    });
-</script>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
