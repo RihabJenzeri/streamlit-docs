@@ -15,20 +15,15 @@ if 'current_device' not in st.session_state:
 # ========== CSS PERSONNALISÉ POUR LE MENU ==========
 st.markdown("""
 <style>
-/* Menu avec dégradé radial */
-.stMenu {
-    background: transparent;
-    border-radius: 0;
-}
-
-[data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"]:first-child {
+/* Container principal pour le menu */
+.menu-container {
     background-image: 
         radial-gradient(circle at 0% 0%, #ffbdfa 0, transparent 55%), 
         radial-gradient(circle at 100% 0%, #6cd4ff 0, transparent 50%), 
         radial-gradient(circle at 20% 90%, #34d399 0, transparent 55%);
     padding: 20px 40px;
     border-radius: 0;
-    margin-bottom: 30px;
+    margin: -50px -16px 30px -16px;
     min-height: 100px;
     display: flex;
     align-items: center;
@@ -50,6 +45,7 @@ st.markdown("""
     justify-content: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    margin-left: 20px;
 }
 
 .profile-circle:hover {
@@ -64,22 +60,30 @@ st.markdown("""
 }
 
 /* Style des boutons de navigation */
-div[data-testid="column"] button {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    font-weight: 500;
-    border-radius: 12px;
-    padding: 10px 20px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.menu-button {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    font-weight: 500 !important;
+    border-radius: 12px !important;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    margin: 0 5px !important;
+    min-width: 120px !important;
 }
 
-div[data-testid="column"] button:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+.menu-button:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15) !important;
+    color: white !important;
+}
+
+/* Style pour les conteneurs de boutons */
+.stButton > button {
+    border: none;
 }
 
 /* Style des titres et texte */
@@ -93,41 +97,66 @@ h1, h2, h3 {
     margin: 0 auto;
     padding: 20px;
 }
+
+/* Ajustement pour le layout */
+.block-container {
+    padding-top: 0 !important;
+}
+
+/* Centrer le contenu du menu */
+.menu-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-buttons {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    justify-content: center;
+}
 </style>
 """, unsafe_allow_html=True)
 
 # ========== MENU DE NAVIGATION AVEC DÉGRADÉ ==========
 def create_menu():
     # Création du menu avec dégradé radial
-    col1, col2, col3, col4, col5 = st.columns([3, 2, 2, 2, 1])
+    st.markdown('<div class="menu-container">', unsafe_allow_html=True)
+    st.markdown('<div class="menu-content">', unsafe_allow_html=True)
     
-    # Colonne vide pour l'espacement à gauche
-    with col1:
-        st.markdown('<div style="height: 40px;"></div>', unsafe_allow_html=True)
+    # Colonne pour les boutons de navigation
+    col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
     
     # Boutons de navigation
-    with col2:
-        if st.button("🏠 Accueil", key="menu_accueil"):
+    with col1:
+        if st.button("🏠 Accueil", key="menu_accueil", help="Retour à l'accueil"):
             st.session_state.page = "accueil"
             st.rerun()
     
-    with col3:
-        if st.button("🏥 Medicofi", key="menu_medicofi"):
+    with col2:
+        if st.button("🏥 Medicofi", key="menu_medicofi", help="Accéder à Medicofi"):
             st.session_state.page = "medicofi"
             st.rerun()
     
-    with col4:
-        if st.button("📄 Portfolio", key="menu_portfolio"):
+    with col3:
+        if st.button("📄 Portfolio", key="menu_portfolio", help="Voir le portfolio PDF"):
             st.session_state.page = "pdf_viewer"
             st.rerun()
     
-    # Cercle de profil à droite
-    with col5:
+    with col4:
+        # Cercle de profil à droite
         st.markdown("""
         <div class="profile-circle">
             <div class="profile-icon">👤</div>
         </div>
         """, unsafe_allow_html=True)
+    
+    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 # Afficher le menu sur toutes les pages
 create_menu()
