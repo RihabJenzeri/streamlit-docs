@@ -32,22 +32,6 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     color: #888888;
     font-size: 14px;
 }
-/* Style pour l'image en arrière-plan */
-.background-banner {
-    background-image: url('https://raw.githubusercontent.com/RihabJenzeri/streamlit-docs/main/mes_documents/Behance%20Cover.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 300px;
-    position: relative;
-    margin-top: 60px;
-}
-.overlay-content {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -141,15 +125,14 @@ if "page" in query_params:
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
-    # Bannière avec l'image en arrière-plan
-    st.markdown("""
-    <div class="background-banner">
-        <div class="overlay-content">
-        </div>
+    # Image en pleine largeur DIRECTEMENT sous le menu
+    st.markdown(f"""
+    <div style="width: 100%; margin-top: 60px; position: relative;">
+        <img src="{behance_cover_url}" style="width: 100%; height: 400px; object-fit: cover; display: block;">
     </div>
     """, unsafe_allow_html=True)
     
-    st.markdown("<p class='caption-text' style='text-align: center; margin-top: 10px;'>Behance Cover</p>", unsafe_allow_html=True)
+    st.markdown("<p class='caption-text' style='text-align: center; margin: 10px 0;'>Behance Cover</p>", unsafe_allow_html=True)
     
     st.title("📂 MES DOSSIERS")
     st.subheader("Portfolio Professionnel & Projets Design")
