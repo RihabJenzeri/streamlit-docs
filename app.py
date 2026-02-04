@@ -155,7 +155,7 @@ header {visibility: hidden;}
 .contact-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(251, 189, 250, 0.3);
-    background-color: #FBBDFA; /* Couleur rose au hover */
+    background-color: #fff2ff; /* Couleur rose au hover */
     border-color: #FBBDFA;
     color: white !important; /* Texte blanc au hover */
 }
