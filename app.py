@@ -32,41 +32,60 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     color: #888888;
     font-size: 14px;
 }
-/* Menu avec dégradé radial */
-.full-width-navbar {
-    background-image: radial-gradient(circle at 0% 0%, #fbBDFA 0, transparent 55%), 
-                      radial-gradient(circle at 100% 0%, #6cd4ff 0, transparent 50%), 
-                      radial-gradient(circle at 20% 90%, #34d399 0, transparent 55%);
-    height: 60px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 20px;
-}
-.profile-circle-large {
-    width: 45px;
-    height: 45px;
-    background-color: white;
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    cursor: pointer;
-}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
 
-# ========== AFFICHER LE MENU DIRECTEMENT ==========
-st.markdown("""
-<div class="full-width-navbar">
-    <div class="profile-circle-large"></div>
-</div>
-""", unsafe_allow_html=True)
+# ========== MENU DE NAVIGATION SIMPLE AVEC DÉGRADÉ ==========
+def create_menu():
+    # Style CSS pour le menu avec dégradé radial
+    menu_style = """
+    <style>
+    .full-width-navbar {
+        background-image: radial-gradient(circle at 0% 0%, #fbBDFA 0, transparent 55%), 
+                          radial-gradient(circle at 100% 0%, #6cd4ff 0, transparent 50%), 
+                          radial-gradient(circle at 20% 90%, #34d399 0, transparent 55%);
+        height: 60px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 20px;
+    }
+    .profile-circle-large {
+        width: 45px;
+        height: 45px;
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        cursor: pointer;
+    }
+    /* Fond semi-transparent sous l'image */
+    .image-background {
+        background-color: rgba(0, 0, 0, 0.03);
+        width: 100%;
+        padding: 20px 0;
+        margin-top: 60px;
+    }
+    </style>
+    """
+    
+    st.markdown(menu_style, unsafe_allow_html=True)
+    
+    # Navbar avec seulement le dégradé et le cercle de profil
+    st.markdown("""
+    <div class="full-width-navbar">
+        <div class="profile-circle-large"></div>
+    </div>
+    """, unsafe_allow_html=True)
+
+# Afficher le menu
+create_menu()
 
 # ========== روابط الملفات ==========
 def get_image_url(path):
@@ -113,10 +132,12 @@ if "page" in query_params:
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
-    # Ajouter l'image Behance Cover en grand format DIRECTEMENT sous le menu
+    # Ajouter l'image Behance Cover avec fond semi-transparent
     st.markdown(f"""
-    <div style="width: 100%; margin-top: 60px;">
-        <img src="{behance_cover_url}" style="width: 100%; max-height: 400px; object-fit: contain;">
+    <div class="image-background">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <img src="{behance_cover_url}" style="width: 100%; max-height: 400px; object-fit: contain; display: block; margin: 0 auto;">
+        </div>
     </div>
     """, unsafe_allow_html=True)
     
