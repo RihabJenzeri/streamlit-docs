@@ -159,8 +159,7 @@ if st.session_state.page == "accueil":
     st.markdown(f"""
     <div class="slide-container">
         <img src="{behance_cover_url}" class="slide-image">
-        <div class="slide-caption">Behance Cover</div>
-    </div>
+     </div>
     """, unsafe_allow_html=True)
     
     # Espace après le slide
