@@ -52,7 +52,6 @@ header {visibility: hidden;}
 }
 .slide-image {
     width: 100%;
-    # height: 400px;
     object-fit: cover;
 }
 /* Style pour la carte de profil */
@@ -67,7 +66,7 @@ header {visibility: hidden;}
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .st-emotion-cache-tn0cau {
-    gap: 0.61rem !important;  /* Changez cette valeur selon vos besoins */
+    gap: 0.61rem !important;
 }
 .profile-content {
     display: flex;
@@ -83,7 +82,7 @@ header {visibility: hidden;}
     height: 170px;
     border-radius: 50%;
     padding: 3px;
-    border: 3px solid #E4E4E4; /* Bordure rose */
+    border: 3px solid #E4E4E4;
 }
 .avatar-image {
     width: 100%;
@@ -103,33 +102,23 @@ header {visibility: hidden;}
 }
 .profile-info {
     flex: 1;
-    min-width: 0; /* Permet au contenu de s'adapter */
+    min-width: 0;
 }
 
-/* Pour s'assurer que les boutons ne dépassent pas */
-.contact-links {
-    max-width: 100%;
-}
-.profile-title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #202124 !important;
-    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.profile-subtitle {
-    font-size: 16px;
-    color: #666666;
-    margin-bottom: 20px;
-    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+/* STYLES POUR LES BOUTONS DE CONTACT */
 .contact-links {
     display: flex;
-    flex-wrap: nowrap; /* Empêche le retour à la ligne */
+    flex-wrap: nowrap;
     gap: 10px;
-    justify-content: flex-start; /* Aligne les boutons au début */
     width: 100%;
-    overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
+    overflow-x: auto;
+    padding-bottom: 5px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.contact-links::-webkit-scrollbar {
+    display: none;
 }
 
 .contact-btn {
@@ -143,59 +132,66 @@ header {visibility: hidden;}
     font-size: 14px;
     transition: all 0.3s ease;
     font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #f5f5f5; /* Couleur grise */
+    background-color: #f5f5f5;
     color: #202124 !important;
     border: 1px solid #e0e0e0;
     cursor: pointer;
-    white-space: nowrap; /* Empêche le texte de se couper sur plusieurs lignes */
-    flex-shrink: 0; /* Empêche les boutons de rétrécir */
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: fit-content;
 }
 
-/* Effet hover pour tous les boutons (sauf WhatsApp) */
-.contact-btn:hover {
+.contact-icon {
+    width: 18px;
+    height: 18px;
+    stroke: #202124;
+    transition: all 0.3s ease;
+}
+
+/* Effet hover pour Email, LinkedIn, Behance */
+.contact-email:hover,
+.contact-linkedin:hover,
+.contact-behance:hover {
+    background-color: #fff2ff !important;
+    border-color: #FBBDFA !important;
+    color: white !important;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(251, 189, 250, 0.3);
-    background-color: #fff2ff; /* Couleur rose au hover */
-    border-color: #FBBDFA;
-    color: white !important; /* Texte blanc au hover */
-}
-
-/* Icônes blanches au hover */
-.contact-btn:hover .contact-icon {
-    stroke: white;
-}
-
-.contact-email {
-    background-color: rgba(251, 189, 250, 0.2);
-    color: #202124 !important;
-}
-.contact-linkedin {
-    background-color: rgba(32, 33, 36, 0.05);
-    color: #202124 !important;
-}
-.contact-github {
-    background-color: rgba(32, 33, 36, 0.05);
-    color: #202124 !important;
-}
-.contact-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-/* Icônes blanches au hover */
-.contact-btn:hover .contact-icon {
-    stroke: white;
 }
 
 /* Effet hover spécifique pour WhatsApp */
 .contact-whatsapp:hover {
-    background-color: #25D366 !important; /* Vert WhatsApp spécifique */
+    background-color: #25D366 !important;
     border-color: #25D366 !important;
     color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
 }
 
-.contact-whatsapp:hover .contact-icon {
-    stroke: white;
+/* Icônes blanches au hover */
+.contact-btn:hover .contact-icon {
+    stroke: white !important;
 }
+
+/* Effet de clic */
+.contact-btn:active {
+    transform: translateY(0);
+}
+
+.profile-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #202124 !important;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.profile-subtitle {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 /* Styles pour les titres Streamlit */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -206,13 +202,30 @@ h1, h2, h3, h4, h5, h6 {
 p, div, span {
     font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
+
+/* Pour les écrans mobiles */
+@media (max-width: 768px) {
+    .contact-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    .profile-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .contact-links {
+        justify-content: center;
+    }
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
 
 # ========== MENU DE NAVIGATION SIMPLE AVEC DÉGRADÉ ==========
 def create_menu():
-    # Style CSS pour le menu avec dégradé radial
     menu_style = """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
@@ -245,66 +258,10 @@ def create_menu():
         cursor: pointer;
         font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
-    .contact-icon {
-    width: 18px;
-    height: 18px;
-    stroke: #202124;
-    transition: all 0.3s ease;
-}
-
-.contact-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-decoration: none !important;
-    font-weight: 500;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #f5f5f5; /* Couleur grise */
-    color: #202124 !important;
-    border: 1px solid #e0e0e0;
-    cursor: pointer;
-}
-
-.contact-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(251, 189, 250, 0.3);
-    background-color: #FBBDFA; /* Couleur rose au hover */
-    border-color: #FBBDFA;
-}
-
-.contact-btn:hover .contact-icon {
-    stroke: white; /* Icône blanche au hover */
-}
-
-.contact-btn:active {
-    transform: translateY(0);
-    background-color: #f0a0ef; /* Couleur rose plus foncée au clic */
-}
-
-.contact-email:hover { background-color: #FBBDFA; border-color: #FBBDFA; }
-.contact-linkedin:hover { background-color: #FBBDFA; border-color: #FBBDFA; }
-.contact-github:hover { background-color: #FBBDFA; border-color: #FBBDFA; }
-.contact-whatsapp:hover { background-color: #25D366; border-color: #25D366; } /* Vert WhatsApp spécifique */
-
-.contact-whatsapp:hover .contact-icon {
-    stroke: white;
-}
     </style>
     """
     
     st.markdown(menu_style, unsafe_allow_html=True)
-    
-    # Navbar avec seulement le dégradé et le cercle de profil
     st.markdown("""
     <div class="full-width-navbar">
     </div>
@@ -395,11 +352,12 @@ if st.session_state.page == "accueil":
             </svg>
             LinkedIn
         </a>
-        <a href="https://github.com/inesharrabi" target="_blank" class="contact-btn contact-github">
+        <a href="https://behance.net/inesharrabi" target="_blank" class="contact-btn contact-behance">
             <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                <path d="M22 12h-4v4h4v-4z"/>
+                <path d="M18 8v8M14 8v8M10 10h2c1.1 0 2 .9 2 2s-.9 2-2 2h-2M2 12h4M6 10v4"/>
             </svg>
-            GitHub
+            Behance
         </a>
         <a href="https://wa.me/1234567890" target="_blank" class="contact-btn contact-whatsapp">
             <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
