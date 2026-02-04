@@ -12,246 +12,154 @@ if 'page' not in st.session_state:
 if 'current_device' not in st.session_state:
     st.session_state.current_device = None
 
-# ========== CSS PERSONNALISÉ ==========
+# ========== CSS PERSONNALISÉ POUR LE MENU ==========
 st.markdown("""
 <style>
-/* Reset et fond général */
-.stApp {
-    background-color: #000000 !important;
-    color: #ffffff !important;
+/* Container principal pour le menu */
+.menu-container {
+    background-image: 
+        radial-gradient(circle at 0% 0%, #ffbdfa 0, transparent 55%), 
+        radial-gradient(circle at 100% 0%, #6cd4ff 0, transparent 50%), 
+        radial-gradient(circle at 20% 90%, #34d399 0, transparent 55%);
+    padding: 20px 40px;
+    border-radius: 0;
+    margin: -50px -16px 30px -16px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Container principal */
-.main-container {
+/* Icône de profil dans un cercle à droite */
+.profile-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffffff55, #ffffff22);
+    backdrop-filter: blur(10px);
+    border: 2px solid #ffffff44;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-left: 20px;
+}
+
+.profile-circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.profile-icon {
+    font-size: 28px;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Style des boutons de navigation */
+.menu-button {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    font-weight: 500 !important;
+    border-radius: 12px !important;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    margin: 0 5px !important;
+    min-width: 120px !important;
+}
+
+.menu-button:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15) !important;
+    color: white !important;
+}
+
+/* Style pour les conteneurs de boutons */
+.stButton > button {
+    border: none;
+}
+
+/* Style des titres et texte */
+h1, h2, h3 {
+    color: #2c3e50;
+}
+
+/* Style pour le conteneur principal */
+.main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    min-height: 100vh;
 }
 
-/* Header avec background vert/noir */
-.app-header {
-    background: linear-gradient(135deg, #0a1929 0%, #001e3c 100%);
-    padding: 15px 30px;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 20px rgba(0, 100, 255, 0.1);
+/* Ajustement pour le layout */
+.block-container {
+    padding-top: 0 !important;
+}
+
+/* Centrer le contenu du menu */
+.menu-content {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Titre principal */
-.main-title {
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0;
-}
-
-/* Navigation moderne */
-.nav-container {
+.menu-buttons {
     display: flex;
     gap: 10px;
-    align-items: center;
-}
-
-.nav-button {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    color: #ffffff !important;
-    border-radius: 8px !important;
-    padding: 8px 16px !important;
-    font-size: 14px !important;
-    transition: all 0.3s ease !important;
-}
-
-.nav-button:hover {
-    background: rgba(255, 255, 255, 0.2) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 4px 12px rgba(0, 150, 255, 0.2) !important;
-}
-
-/* Bouton de profil */
-.profile-btn {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    color: #ffffff !important;
-    border-radius: 50% !important;
-    width: 40px !important;
-    height: 40px !important;
-    padding: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-/* Contenu principal */
-.content-area {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 30px;
-    margin-top: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Section des dossiers */
-.folders-section {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.folders-title {
-    color: #ffffff;
-    font-size: 28px;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.folders-subtitle {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 16px;
-    margin-bottom: 40px;
-}
-
-/* Boutons des dossiers */
-.folder-buttons-container {
-    display: flex;
+    flex: 1;
     justify-content: center;
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.folder-btn {
-    background: linear-gradient(135deg, #0066cc 0%, #004d99 100%) !important;
-    border: none !important;
-    color: white !important;
-    border-radius: 12px !important;
-    padding: 20px 40px !important;
-    font-size: 16px !important;
-    font-weight: 500 !important;
-    min-width: 200px !important;
-    transition: all 0.3s ease !important;
-    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3) !important;
-}
-
-.folder-btn:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4) !important;
-    background: linear-gradient(135deg, #0077e6 0%, #0059b3 100%) !important;
-}
-
-/* Style pour les titres de page */
-.page-title {
-    color: #ffffff;
-    font-size: 32px;
-    margin-bottom: 20px;
-    font-weight: 600;
-    text-align: center;
-}
-
-/* Style pour les boutons de retour */
-.back-button {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    color: #ffffff !important;
-    border-radius: 8px !important;
-    padding: 10px 20px !important;
-    margin-bottom: 20px !important;
-}
-
-/* Image container */
-.image-container {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 20px;
-    margin: 20px 0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Style pour les cartes */
-.card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 20px;
-    margin: 10px 0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
-
-.card:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 100, 255, 0.2);
-}
-
-/* Style pour les séparateurs */
-hr {
-    border-color: rgba(255, 255, 255, 0.1) !important;
-    margin: 30px 0 !important;
-}
-
-/* Style pour les légendes */
-.caption-text {
-    color: rgba(255, 255, 255, 0.7) !important;
-    font-size: 14px !important;
-    text-align: center !important;
-    margin-top: 10px !important;
-}
-
-/* Réduire le padding par défaut de Streamlit */
-.block-container {
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-}
-
-/* Style pour les liens */
-a {
-    color: #66b3ff !important;
-    text-decoration: none !important;
-}
-
-a:hover {
-    color: #99ccff !important;
-    text-decoration: underline !important;
 }
 </style>
 """, unsafe_allow_html=True)
 
-# ========== HEADER SIMPLE ==========
-def create_header():
-    # Header avec navigation
-    st.markdown('<div class="app-header">', unsafe_allow_html=True)
+# ========== MENU DE NAVIGATION AVEC DÉGRADÉ ==========
+def create_menu():
+    # Création du menu avec dégradé radial
+    st.markdown('<div class="menu-container">', unsafe_allow_html=True)
+    st.markdown('<div class="menu-content">', unsafe_allow_html=True)
     
-    col1, col2, col3, col4, col5 = st.columns([2, 1, 1, 1, 1])
+    # Colonne pour les boutons de navigation
+    col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
     
+    # Boutons de navigation
     with col1:
-        st.markdown('<div class="main-title">📁 MES DOSSIERS</div>', unsafe_allow_html=True)
-    
-    with col2:
-        if st.button("Accueil", key="header_accueil", help="Retour à l'accueil"):
+        if st.button("🏠 Accueil", key="menu_accueil", help="Retour à l'accueil"):
             st.session_state.page = "accueil"
             st.rerun()
     
-    with col3:
-        if st.button("Medicofi", key="header_medicofi", help="Accéder à Medicofi"):
+    with col2:
+        if st.button("🏥 Medicofi", key="menu_medicofi", help="Accéder à Medicofi"):
             st.session_state.page = "medicofi"
             st.rerun()
     
-    with col4:
-        if st.button("Portfolio", key="header_portfolio", help="Voir le portfolio PDF"):
+    with col3:
+        if st.button("📄 Portfolio", key="menu_portfolio", help="Voir le portfolio PDF"):
             st.session_state.page = "pdf_viewer"
             st.rerun()
     
-    with col5:
-        if st.button("👤", key="header_profile", help="Profil"):
-            # Vous pouvez ajouter une action pour le profil ici
-            st.info("Fonctionnalité profil à venir")
+    with col4:
+        # Cercle de profil à droite
+        st.markdown("""
+        <div class="profile-circle">
+            <div class="profile-icon">👤</div>
+        </div>
+        """, unsafe_allow_html=True)
     
     st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
-# Afficher le header
-create_header()
+# Afficher le menu sur toutes les pages
+create_menu()
 
 # ========== روابط الملفات ==========
 def get_image_url(path):
@@ -295,117 +203,93 @@ if "page" in query_params:
     st.session_state.page = query_params["page"]
 
 # ========== CONTENU PRINCIPAL ==========
-st.markdown('<div class="main-container">', unsafe_allow_html=True)
+st.markdown('<div class="main">', unsafe_allow_html=True)
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
-    st.markdown('<div class="content-area">', unsafe_allow_html=True)
-    
-    st.markdown('<div class="folders-section">', unsafe_allow_html=True)
-    st.markdown('<h1 class="folders-title">MES DOSSIERS</h1>', unsafe_allow_html=True)
-    st.markdown('<p class="folders-subtitle">Portfolio Professionnel & Projets Design</p>', unsafe_allow_html=True)
+    st.title("📂 MES DOSSIERS")
+    st.subheader("Portfolio Professionnel & Projets Design")
     
     col1, col2 = st.columns(2)
     
     with col1:
-        if st.button("🏥 MEDICOFI", key="home_medicofi", use_container_width=True):
+        if st.button("🏥 MEDICOFI", use_container_width=True):
             st.session_state.page = "medicofi"
             st.rerun()
     
     with col2:
-        if st.button("📄 PORTFOLIO PDF", key="home_portfolio", use_container_width=True):
+        if st.button("📄 PORTFOLIO PDF", use_container_width=True):
             st.session_state.page = "pdf_viewer"
             st.rerun()
-    
-    st.markdown('</div>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
 
 elif st.session_state.page == "medicofi":
-    st.markdown('<div class="content-area">', unsafe_allow_html=True)
-    
-    if st.button("← RETOUR", key="back_from_medicofi"):
+    if st.button("← RETOUR"):
         st.session_state.page = "accueil"
         st.rerun()
     
-    st.markdown('<h1 class="page-title">🏥 MEDICOFI</h1>', unsafe_allow_html=True)
+    st.title("🏥 MEDICOFI")
     
-    if st.button("🇫🇷 SOCIÉTÉ APNIDOC (EN FRANCE)", key="medicofi_apnidoc", use_container_width=True):
+    if st.button("🇫🇷 SOCIÉTÉ APNIDOC (EN FRANCE)", use_container_width=True):
         st.session_state.page = "apnidoc"
         st.rerun()
-    
-    st.markdown('</div>', unsafe_allow_html=True)
 
 elif st.session_state.page == "apnidoc":
-    st.markdown('<div class="content-area">', unsafe_allow_html=True)
-    
-    if st.button("← RETOUR", key="back_from_apnidoc"):
+    if st.button("← RETOUR"):
         st.session_state.page = "medicofi"
         st.rerun()
     
-    st.markdown('<h1 class="page-title">🇫🇷 SOCIÉTÉ APNIDOC</h1>', unsafe_allow_html=True)
+    st.title("🇫🇷 SOCIÉTÉ APNIDOC")
     
     # Flyer Image
-    st.markdown('<div class="image-container">', unsafe_allow_html=True)
     st.image(flyer_url, use_container_width=True)
-    st.markdown('<p class="caption-text">📄 Flyer ApniDoc</p>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.caption("📄 Flyer ApniDoc")
     
     st.markdown("---")
     
     # Design Interface Button
-    if st.button("🎨 DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", key="apnidoc_design", use_container_width=True):
+    if st.button("🎨 DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_width=True):
         st.session_state.page = "design_folders"
         st.rerun()
-    
-    st.markdown('</div>', unsafe_allow_html=True)
 
 elif st.session_state.page == "design_folders":
-    st.markdown('<div class="content-area">', unsafe_allow_html=True)
-    
-    if st.button("← RETOUR", key="back_from_design"):
+    if st.button("← RETOUR"):
         st.session_state.page = "apnidoc"
         st.rerun()
     
-    st.markdown('<h1 class="page-title">🎨 DESIGN INTERFACE WEB SITE APNIDOC</h1>', unsafe_allow_html=True)
+    st.title("🎨 DESIGN INTERFACE WEB SITE APNIDOC")
     
     # Website Link Section
-    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.markdown("---")
     st.markdown("### 🌐 Site Web ApniDoc")
     st.write("(Le site web est déjà en ligne, mais il est toujours en cours de développement.)")
     st.markdown("🔗 **[Visiter https://apnidoc.fr/](https://apnidoc.fr/)**")
-    st.markdown('</div>', unsafe_allow_html=True)
-    
     st.markdown("---")
     
     # Device Selection
-    st.markdown("### Choisissez un format :")
+    st.subheader("Choisissez un format :")
     
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        if st.button("🖥️ DESKTOP", key="device_desktop", use_container_width=True):
+        if st.button("🖥️ DESKTOP", use_container_width=True):
             st.session_state.current_device = "Desktop"
             st.session_state.page = "device_images"
             st.rerun()
     
     with col2:
-        if st.button("📱 IPAD", key="device_ipad", use_container_width=True):
+        if st.button("📱 IPAD", use_container_width=True):
             st.session_state.current_device = "iPad"
             st.session_state.page = "device_images"
             st.rerun()
     
     with col3:
-        if st.button("📱 PHONE", key="device_phone", use_container_width=True):
+        if st.button("📱 PHONE", use_container_width=True):
             st.session_state.current_device = "Phone"
             st.session_state.page = "device_images"
             st.rerun()
-    
-    st.markdown('</div>', unsafe_allow_html=True)
 
 elif st.session_state.page == "device_images":
-    st.markdown('<div class="content-area">', unsafe_allow_html=True)
-    
-    if st.button("← RETOUR", key="back_from_device"):
+    if st.button("← RETOUR"):
         st.session_state.page = "design_folders"
         st.session_state.current_device = None
         st.rerun()
@@ -417,7 +301,7 @@ elif st.session_state.page == "device_images":
         "Phone": "📱"
     }
     
-    st.markdown(f'<h1 class="page-title">{device_icons.get(device, "📱")} DESIGN {device.upper()}</h1>', unsafe_allow_html=True)
+    st.title(f"{device_icons.get(device, '📱')} DESIGN {device.upper()}")
     
     # Display images
     if device in design_images:
@@ -425,21 +309,16 @@ elif st.session_state.page == "device_images":
             img_url = get_image_url(img_path)
             img_name = img_path.split('/')[-1].replace('.png', '').replace('_', ' ')
             
-            st.markdown('<div class="image-container">', unsafe_allow_html=True)
             st.image(img_url, use_container_width=True)
-            st.markdown(f'<p class="caption-text">{img_name}</p>', unsafe_allow_html=True)
-            st.markdown('</div>', unsafe_allow_html=True)
-    
-    st.markdown('</div>', unsafe_allow_html=True)
+            st.caption(img_name)
+            st.markdown("---")
 
 elif st.session_state.page == "pdf_viewer":
-    st.markdown('<div class="content-area">', unsafe_allow_html=True)
-    
-    if st.button("← RETOUR", key="back_from_pdf"):
+    if st.button("← RETOUR"):
         st.session_state.page = "accueil"
         st.rerun()
     
-    st.markdown('<h1 class="page-title">📄 PORTFOLIO INES HARRABI 2024</h1>', unsafe_allow_html=True)
+    st.title("📄 PORTFOLIO INES HARRABI 2024")
     
     # PDF Viewer
     st.markdown(f'<iframe width="100%" height="800" src="{google_viewer_url}"></iframe>', unsafe_allow_html=True)
@@ -449,16 +328,14 @@ elif st.session_state.page == "pdf_viewer":
     
     with col1:
         st.markdown(f'<a href="{pdf_url_raw}" download="Portfolio_Ines_HARRABI_2024.pdf" style="text-decoration: none;">', unsafe_allow_html=True)
-        if st.button("📥 Télécharger le PDF", key="download_pdf", use_container_width=True):
+        if st.button("📥 Télécharger le PDF", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
     
     with col2:
         st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none;">', unsafe_allow_html=True)
-        if st.button("🔗 Ouvrir dans Google Viewer", key="open_viewer", use_container_width=True):
+        if st.button("🔗 Ouvrir dans Google Viewer", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
-    
-    st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
