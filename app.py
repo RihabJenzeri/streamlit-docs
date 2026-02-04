@@ -57,7 +57,7 @@ header {visibility: hidden;}
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .st-emotion-cache-tn0cau {
-    gap: 1rem !important;  /* Changez cette valeur selon vos besoins */
+    gap: 0.61rem !important;  /* Changez cette valeur selon vos besoins */
 }
 .profile-content {
     display: flex;
