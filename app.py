@@ -62,7 +62,22 @@ header {visibility: hidden;}
     padding: 25px;
     margin: -30px auto 30px auto;
     max-width: 1000px; /* Agrandi pour accommoder les 4 boutons */
-    width: 90%; /* Correction: 90% au lieu de 1000% */
+    width: 1000%; /* Correction: 90% au lieu de 1000% */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+/* Nouvelle carte avec dégradé radial */
+.gradient-card {
+    background:
+        radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
+        radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
+        #fdfefe;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 1000px;
+    width: 90%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -126,10 +141,11 @@ header {visibility: hidden;}
     flex-wrap: nowrap;
     gap: 10px;
     justify-content: flex-start;
-    width: 100%;
-    overflow: visible; /* Pas de scroll */
+    width: 115%;
+    overflow: visible;
+    position: relative;
+    right: 10px;
 }
-
 .contact-icon {
     width: 18px;
     height: 18px;
@@ -189,7 +205,7 @@ header {visibility: hidden;}
 
 /* Ajustement pour les écrans plus petits */
 @media (max-width: 768px) {
-    .profile-card {
+    .profile-card, .gradient-card {
         max-width: 95%;
         padding: 20px;
     }
@@ -336,7 +352,6 @@ if st.session_state.page == "accueil":
                     <div class="avatar-circle">
                         <img src="{profile_image_url}" class="avatar-image" alt="Photo de profil">
                     </div>
-                    <div class="status-dot"></div>
                 </div>
                 <div class="profile-info">
                     <h1 class="profile-title">My Portfolio</h1>
@@ -379,25 +394,85 @@ if st.session_state.page == "accueil":
     </div>
     """, unsafe_allow_html=True)
     
-    # Espace après la carte de profil
-    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    # # Espace après la carte de profil
+    # st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     
-    # Contenu normal
-    st.title("📂 MES DOSSIERS")
-    st.subheader("Portfolio Professionnel & Projets Design")
+    # # Contenu normal
+    # st.title("📂 MES DOSSIERS")
+    # st.subheader("Portfolio Professionnel & Projets Design")
     
-    col1, col2 = st.columns(2)
+    # col1, col2 = st.columns(2)
     
-    with col1:
-        if st.button("🏥 MEDICOFI", use_container_width=True):
-            st.session_state.page = "medicofi"
-            st.rerun()
+    # with col1:
+    #     if st.button("🏥 MEDICOFI", use_container_width=True):
+    #         st.session_state.page = "medicofi"
+    #         st.rerun()
     
-    with col2:
-        if st.button("📄 PORTFOLIO PDF", use_container_width=True):
-            st.session_state.page = "pdf_viewer"
-            st.rerun()
+    # with col2:
+    #     if st.button("📄 PORTFOLIO PDF", use_container_width=True):
+    #         st.session_state.page = "pdf_viewer"
+    #         st.rerun()
+    
+  st.markdown("""
+<div style="display: flex; justify-content: center;">
+    <div class="gradient-card">
+        <h2 style="text-align: center; color: #202124; margin-bottom: 20px;">📂 MES DOSSIERS</h2>
+        <p style="text-align: center; color: #666666; margin-bottom: 30px; font-size: 16px;">Portfolio Professionnel & Projets Design</p>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <div style="flex: 1; min-width: 300px;">
+                <div style="text-align: center;">
+                    <div style="margin-bottom: 15px;">
+                        <a href="#" onclick="window.location.href='?page=medicofi'; return false;" style="text-decoration: none; color: inherit;">
+                            <div style="background-color: #f5f5f5; padding: 25px; border-radius: 15px; transition: all 0.3s ease; cursor: pointer; border: 1px solid #e0e0e0;">
+                                <div style="font-size: 32px; margin-bottom: 10px;">🏥</div>
+                                <h3 style="color: #202124; margin-bottom: 10px;">MEDICOFI</h3>
+                                <p style="color: #666666; font-size: 14px;">Projets médicaux et design d'interfaces santé</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="flex: 1; min-width: 300px;">
+                <div style="text-align: center;">
+                    <div style="margin-bottom: 15px;">
+                        <a href="#" onclick="window.location.href='?page=pdf_viewer'; return false;" style="text-decoration: none; color: inherit;">
+                            <div style="background-color: #f5f5f5; padding: 25px; border-radius: 15px; transition: all 0.3s ease; cursor: pointer; border: 1px solid #e0e0e0;">
+                                <div style="font-size: 32px; margin-bottom: 10px;">📄</div>
+                                <h3 style="color: #202124; margin-bottom: 10px;">PORTFOLIO PDF</h3>
+                                <p style="color: #666666; font-size: 14px;">Portfolio complet en format PDF téléchargeable</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
+<script>
+// Effet hover pour les cartes cliquables
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.gradient-card a div');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 10px 25px rgba(251, 189, 250, 0.2)';
+            this.style.backgroundColor = '#fff2ff';
+            this.style.borderColor = '#FBBDFA';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
+            this.style.backgroundColor = '#f5f5f5';
+            this.style.borderColor = '#e0e0e0';
+        });
+    });
+});
+</script>
+""", unsafe_allow_html=True)
 elif st.session_state.page == "medicofi":
     if st.button("← RETOUR"):
         st.session_state.page = "accueil"
