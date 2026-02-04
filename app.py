@@ -61,7 +61,7 @@ header {visibility: hidden;}
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 25px;
-    margin: -10px auto 30px auto;
+    margin: -30px auto 30px auto;
     max-width: 800px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
