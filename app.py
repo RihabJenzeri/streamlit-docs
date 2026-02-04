@@ -103,6 +103,12 @@ header {visibility: hidden;}
 }
 .profile-info {
     flex: 1;
+    min-width: 0; /* Permet au contenu de s'adapter */
+}
+
+/* Pour s'assurer que les boutons ne dépassent pas */
+.contact-links {
+    max-width: 100%;
 }
 .profile-title {
     font-size: 28px;
