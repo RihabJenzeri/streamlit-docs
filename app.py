@@ -401,18 +401,6 @@ if st.session_state.page == "accueil":
     st.title("📂 MES DOSSIERS")
     st.subheader("Portfolio Professionnel & Projets Design")
     
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        if st.button("🏥 MEDICOFI", use_container_width=True):
-            st.session_state.page = "medicofi"
-            st.rerun()
-    
-    with col2:
-        if st.button("📄 PORTFOLIO PDF", use_container_width=True):
-            st.session_state.page = "pdf_viewer"
-            st.rerun()
-    
     # NOUVELLE CARTE AVEC DÉGRADÉ RADIAL (en dessous)
     st.markdown("""
     <div style="display: flex; justify-content: center;">
@@ -434,6 +422,17 @@ if st.session_state.page == "accueil":
             </div>
         </div>
     </div>
+     col1, col2 = st.columns(2)
+    
+    with col1:
+        if st.button("🏥 MEDICOFI", use_container_width=True):
+            st.session_state.page = "medicofi"
+            st.rerun()
+    
+    with col2:
+        if st.button("📄 PORTFOLIO PDF", use_container_width=True):
+            st.session_state.page = "pdf_viewer"
+            st.rerun()
     """, unsafe_allow_html=True)
 
 elif st.session_state.page == "medicofi":
