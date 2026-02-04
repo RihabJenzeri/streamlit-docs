@@ -42,8 +42,8 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     position: relative;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    margin-top: 60px;
-    height: 500px;
+        # margin-top: 60px;
+        # height: 500px;
     overflow: hidden;
 }
 .slide-image {
@@ -61,79 +61,6 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     font-size: 16px;
-}
-/* Style pour la carte de profil */
-.profile-card {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(20px);
-    border-radius: 24px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    padding: 32px;
-    max-width: 900px;
-    margin: -60px auto 30px auto;
-    position: relative;
-}
-.profile-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid white;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-.profile-name {
-    font-size: 28px;
-    font-weight: 700;
-    color: #202124;
-    margin-bottom: 8px;
-}
-.profile-title {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
-}
-.profile-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-}
-.profile-button-contact {
-    background: rgba(251, 189, 250, 0.2);
-    color: #202124;
-}
-.profile-button-contact:hover {
-    background: rgba(251, 189, 250, 0.4);
-}
-.profile-button-social {
-    background: rgba(32, 33, 36, 0.05);
-    color: #202124;
-}
-.profile-button-social:hover {
-    background: rgba(32, 33, 36, 0.1);
-}
-.button-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-}
-@media (min-width: 640px) {
-    .profile-avatar {
-        width: 120px;
-        height: 120px;
-    }
-    .button-container {
-        justify-content: flex-start;
-    }
 }
 </style>
 """
@@ -214,9 +141,8 @@ design_images = {
     ]
 }
 
-# URLs pour les images
+# URL pour l'image Behance Cover
 behance_cover_url = get_image_url("Behance Cover.jpg")
-profile_image_url = get_image_url("image.png")  # Nouvelle image de profil
 flyer_url = get_image_url("Medicofi/Société ApniDoc (en France)/Flyer ApniDoc.png")
 pdf_url_raw = f"{BASE_URL}mes_documents/Portfolio%20Ines%20HARRABI%202024.pdf"
 pdf_url_encoded = urllib.parse.quote(pdf_url_raw, safe='')
@@ -233,56 +159,11 @@ if st.session_state.page == "accueil":
     st.markdown(f"""
     <div class="slide-container">
         <img src="{behance_cover_url}" class="slide-image">
-    </div>
+     </div>
     """, unsafe_allow_html=True)
     
-    # Carte de profil avec l'image réelle
-    st.markdown(f"""
-    <div class="profile-card">
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 24px;">
-            <!-- Avatar avec image réelle -->
-            <div style="position: relative;">
-                <div style="width: 120px; height: 120px; border-radius: 50%; 
-                            background: linear-gradient(135deg, #FBBDFA, #9D4EDD); 
-                            padding: 4px;">
-                    <img src="{profile_image_url}" 
-                         class="profile-avatar" 
-                         alt="Photo de profil">
-                </div>
-                <div style="position: absolute; bottom: 5px; right: 5px; 
-                            width: 24px; height: 24px; 
-                            background-color: #34D399; 
-                            border-radius: 50%; 
-                            border: 3px solid white;"></div>
-            </div>
-            
-            <!-- Informations -->
-            <div style="text-align: center; width: 100%;">
-                <h1 class="profile-name">Mon Portfolio</h1>
-                <p class="profile-title">Designer & Développeuse Web Créative</p>
-                
-                <!-- Boutons -->
-                <div class="button-container">
-                    <a href="mailto:contact@example.com" 
-                       class="profile-button profile-button-contact">
-                       📧 Contact
-                    </a>
-                    <a href="#" 
-                       class="profile-button profile-button-social">
-                       🔗 LinkedIn
-                    </a>
-                    <a href="#" 
-                       class="profile-button profile-button-social">
-                       🎨 GitHub
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Espace après la carte
-    st.markdown("<div style='height: 40px;'></div>", unsafe_allow_html=True)
+    # Espace après le slide
+    st.markdown("<div style='height: 30px;'></div>", unsafe_allow_html=True)
     
     # Contenu normal
     st.title("📂 MES DOSSIERS")
