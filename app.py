@@ -32,13 +32,6 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     color: #888888;
     font-size: 14px;
 }
-/* Style pour l'image en grand format */
-.full-width-image {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    margin-top: 60px;
-}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -71,9 +64,6 @@ def create_menu():
         border-radius: 50%;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         cursor: pointer;
-    }
-    .main-content {
-        margin-top: 60px;
     }
     </style>
     """
@@ -135,10 +125,10 @@ if "page" in query_params:
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
-    # Ajouter l'image Behance Cover en grand format (pleine largeur)
+    # Ajouter l'image Behance Cover en grand format DIRECTEMENT sous le menu
     st.markdown(f"""
-    <div style="width: 100%; height: 350px; overflow: hidden; margin-top: 60px;">
-        <img src="{behance_cover_url}" style="width: 100%; height: 100%; object-fit: cover;">
+    <div style="width: 100%; margin-top: 60px;">
+        <img src="{behance_cover_url}" style="width: 100%; max-height: 400px; object-fit: contain;">
     </div>
     """, unsafe_allow_html=True)
     
