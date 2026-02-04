@@ -32,34 +32,6 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     color: #888888;
     font-size: 14px;
 }
-/* Style pour les sections avec puces */
-.section-container {
-    margin: 40px auto;
-    max-width: 800px;
-}
-.section-title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
-}
-.section-subtitle {
-    font-size: 16px;
-    color: #888888;
-    margin-bottom: 30px;
-    text-align: center;
-}
-.list-item {
-    display: flex;
-    align-items: center;
-    margin: 15px 0;
-    padding-left: 20px;
-}
-.bullet-point {
-    color: #666666;
-    font-size: 24px;
-    margin-right: 15px;
-}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -79,7 +51,7 @@ def create_menu():
         top: 0;
         left: 0;
         right: 0;
-        z-index: 999;
+        z-index: 1000;
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -92,13 +64,6 @@ def create_menu():
         border-radius: 50%;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         cursor: pointer;
-    }
-    /* Fond semi-transparent sous l'image */
-    .image-background {
-        background-color: rgba(0, 0, 0, 0.03);
-        width: 100%;
-        padding: 20px 0;
-        margin-top: 60px;
     }
     </style>
     """
@@ -160,48 +125,51 @@ if "page" in query_params:
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
-    # Ajouter l'image Behance Cover avec fond semi-transparent
+    # Bannière en plein écran avec l'image Behance Cover
     st.markdown(f"""
-    <div class="image-background">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <img src="{behance_cover_url}" style="width: 100%; max-height: 400px; object-fit: contain; display: block; margin: 0 auto;">
+    <div style="
+        width: 100%;
+        height: calc(100vh - 60px);
+        margin-top: 60px;
+        position: relative;
+        overflow: hidden;
+    ">
+        <img src="{behance_cover_url}" 
+             style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+             ">
+        <div style="
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        ">
+            Behance Cover
         </div>
     </div>
     """, unsafe_allow_html=True)
     
-    st.markdown("<p class='caption-text' style='text-align: center; margin-top: 10px;'>Behance Cover</p>", unsafe_allow_html=True)
+    # Espacement après la bannière
+    st.markdown("<div style='margin-top: 40px;'></div>", unsafe_allow_html=True)
     
-    # Section "MES DOSSIERS" avec style
-    st.markdown("""
-    <div class="section-container">
-        <div class="section-title">MES DOSSIERS</div>
-        <div class="section-subtitle">Portfolio Professionnel & Projets Design</div>
-    </div>
-    """, unsafe_allow_html=True)
+    st.title("📂 MES DOSSIERS")
+    st.subheader("Portfolio Professionnel & Projets Design")
     
-    # Créer deux colonnes pour les boutons
     col1, col2 = st.columns(2)
     
     with col1:
-        # Premier item avec puce
-        st.markdown("""
-        <div class="list-item">
-            <span class="bullet-point">•</span>
-        </div>
-        """, unsafe_allow_html=True)
-        
         if st.button("🏥 MEDICOFI", use_container_width=True):
             st.session_state.page = "medicofi"
             st.rerun()
     
     with col2:
-        # Deuxième item avec puce
-        st.markdown("""
-        <div class="list-item">
-            <span class="bullet-point">•</span>
-        </div>
-        """, unsafe_allow_html=True)
-        
         if st.button("📄 PORTFOLIO PDF", use_container_width=True):
             st.session_state.page = "pdf_viewer"
             st.rerun()
