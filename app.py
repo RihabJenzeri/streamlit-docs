@@ -52,17 +52,18 @@ header {visibility: hidden;}
 }
 .slide-image {
     width: 100%;
+    height: 300px;
     object-fit: cover;
 }
-/* Style pour la carte de profil */
+/* Style pour la carte de profil - AGRANDIE */
 .profile-card {
     background: linear-gradient(135deg, rgba(251, 189, 250, 0.1) 0%, rgba(108, 212, 255, 0.1) 100%);
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    padding: 25px;
+    padding: 30px;
     margin: -30px auto 30px auto;
-    max-width: 1000px; /* Agrandi pour accommoder les 4 boutons */
-    width: 90%; /* Corrigé de 1000% à 90% */
+    max-width: 1000px !important; /* Carte agrandie */
+    width: 95%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -72,12 +73,11 @@ header {visibility: hidden;}
 .profile-content {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 30px;
 }
 .profile-avatar {
     position: relative;
-    min-width: 120px;
-    flex-shrink: 0; /* Empêche l'avatar de rétrécir */
+    min-width: 170px;
 }
 .avatar-circle {
     width: 170px;
@@ -104,46 +104,31 @@ header {visibility: hidden;}
 }
 .profile-info {
     flex: 1;
-    min-width: 0; /* Permet au contenu de s'adapter */
-}
-.profile-title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #202124 !important;
-    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.profile-subtitle {
-    font-size: 16px;
-    color: #666666;
-    margin-bottom: 20px;
-    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-/* Styles pour les boutons de contact */
-.contact-links {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 10px;
-    justify-content: flex-start;
-    width: 100%;
-    overflow: visible; /* Pas de scroll */
+    min-width: 0;
 }
 
+/* STYLES DES BOUTONS DE CONTACT */
 .contact-icon {
     width: 18px;
     height: 18px;
     stroke: #202124;
-    stroke-width: 2;
-    fill: none;
     transition: all 0.3s ease;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    justify-content: flex-start;
+    width: 100%;
+    overflow: visible;
 }
 
 .contact-btn {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 8px;
-    padding: 10px 15px;
+    padding: 12px 20px;
     border-radius: 25px;
     text-decoration: none !important;
     font-weight: 500;
@@ -155,60 +140,54 @@ header {visibility: hidden;}
     border: 1px solid #e0e0e0;
     cursor: pointer;
     white-space: nowrap;
-    flex: 1; /* Chaque bouton prend la même largeur */
-    min-width: 0; /* Permet au texte de s'adapter */
-    overflow: hidden;
-    text-overflow: ellipsis;
+    flex-shrink: 0;
+    flex: 1;
+    min-width: 0;
+    justify-content: center;
 }
 
 /* Effet hover pour tous les boutons */
 .contact-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(251, 189, 250, 0.3);
-    background-color: #fff2ff; /* Rose clair demandé */
-    border-color: #FBBDFA;
-    color: #202124 !important; /* Texte reste foncé pour mieux contraster */
-}
-
-/* Icônes restent foncées au hover */
-.contact-btn:hover .contact-icon {
-    stroke: #202124;
-}
-
-/* WhatsApp avec le même hover rose */
-.contact-whatsapp:hover {
-    background-color: #fff2ff !important; /* Même rose que les autres */
+    background-color: #fff2ff !important; /* Couleur rose spécifiée */
     border-color: #FBBDFA !important;
+    color: #202124 !important; /* Texte reste noir */
+}
+
+/* Icônes changent de couleur au hover */
+.contact-btn:hover .contact-icon {
+    stroke: #202124; /* Icône noire au hover */
+}
+
+/* Effet hover spécifique pour WhatsApp */
+.contact-whatsapp:hover {
+    background-color: #25D366 !important;
+    border-color: #25D366 !important;
+    color: white !important;
+}
+
+.contact-whatsapp:hover .contact-icon {
+    stroke: white;
 }
 
 /* Effet de clic */
 .contact-btn:active {
     transform: translateY(0);
-    background-color: #f0e0ef;
 }
 
-/* Ajustement pour les écrans plus petits */
-@media (max-width: 768px) {
-    .profile-card {
-        max-width: 95%;
-        padding: 20px;
-    }
-    
-    .profile-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    
-    .contact-links {
-        flex-wrap: wrap; /* Sur mobile, permet le retour à la ligne */
-        justify-content: center;
-    }
-    
-    .contact-btn {
-        flex: 0 0 calc(50% - 10px); /* 2 boutons par ligne sur mobile */
-        max-width: calc(50% - 10px);
-    }
+.profile-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #202124 !important;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.profile-subtitle {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 25px;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /* Styles pour les titres Streamlit */
@@ -221,13 +200,36 @@ h1, h2, h3, h4, h5, h6 {
 p, div, span {
     font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
+
+/* Responsive pour petits écrans */
+@media (max-width: 768px) {
+    .profile-card {
+        padding: 20px;
+        max-width: 95% !important;
+    }
+    
+    .profile-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .contact-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .contact-btn {
+        flex: 0 0 calc(50% - 6px);
+        margin-bottom: 8px;
+    }
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
 
 # ========== MENU DE NAVIGATION SIMPLE AVEC DÉGRADÉ ==========
 def create_menu():
-    # Style CSS pour le menu avec dégradé radial
     menu_style = """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
@@ -251,21 +253,11 @@ def create_menu():
     padding-right: 20px;
     font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-    .profile-circle-large {
-        width: 45px;
-        height: 45px;
-        background-color: white;
-        border-radius: 50%;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        cursor: pointer;
-        font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
     </style>
     """
     
     st.markdown(menu_style, unsafe_allow_html=True)
     
-    # Navbar avec seulement le dégradé et le cercle de profil
     st.markdown("""
     <div class="full-width-navbar">
     </div>
@@ -320,60 +312,54 @@ if "page" in query_params:
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
-    # Slide image qui sort de la boîte des éléments
+    # Slide image
     st.markdown(f"""
     <div class="slide-container">
         <img src="{behance_cover_url}" class="slide-image">
     </div>
     """, unsafe_allow_html=True)
     
-    # Carte de profil avec photo - CENTRÉE
+    # Carte de profil avec photo
     st.markdown(f"""
-    <div style="display: flex; justify-content: center;">
-        <div class="profile-card">
-            <div class="profile-content">
-                <div class="profile-avatar">
-                    <div class="avatar-circle">
-                        <img src="{profile_image_url}" class="avatar-image" alt="Photo de profil">
-                    </div>
-                    <div class="status-dot"></div>
+    <div class="profile-card">
+        <div class="profile-content">
+            <div class="profile-avatar">
+                <div class="avatar-circle">
+                    <img src="{profile_image_url}" class="avatar-image" alt="Photo de profil">
                 </div>
-                <div class="profile-info">
-                    <h1 class="profile-title">My Portfolio</h1>
-                    <p class="profile-subtitle">Senior Graphic Designer</p>
-                    <div class="contact-links">
-                        <a href="mailto:inesharrabi.dev@gmail.com" class="contact-btn contact-email">
-                            <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
-                            Email
-                        </a>
-                        <a href="https://linkedin.com/in/ines-harrabi" target="_blank" class="contact-btn contact-linkedin">
-                            <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                                <rect x="2" y="9" width="4" height="12"/>
-                                <circle cx="4" cy="4" r="2"/>
-                            </svg>
-                            LinkedIn
-                        </a>
-                        <a href="https://behance.net/inesharrabi" target="_blank" class="contact-btn contact-behance">
-                            <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4v4h4v-4z"/>
-                                <path d="M18 8v8M14 12h4"/>
-                                <path d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                                <path d="M9 9h5"/>
-                            </svg>
-                            Behance
-                        </a>
-                        <a href="https://wa.me/1234567890" target="_blank" class="contact-btn contact-whatsapp">
-                            <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/>
-                            </svg>
-                            WhatsApp
-                        </a>
-                    </div>
+                <div class="status-dot"></div>
+            </div>
+            <div class="profile-info">
+                <h1 class="profile-title">My Portfolio</h1>
+                <p class="profile-subtitle">Senior Graphic Designer</p>
+                <div class="contact-links">
+                    <a href="mailto:inesharrabi.dev@gmail.com" class="contact-btn contact-email">
+                        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        Email
+                    </a>
+                    <a href="https://linkedin.com/in/ines-harrabi" target="_blank" class="contact-btn contact-linkedin">
+                        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://www.behance.net/inesharrabi" target="_blank" class="contact-btn contact-behance">
+                        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4v4h4v-4zm0 0V8h-4v4h4zm-6 4h-4v-4h4v4zm0-6h-4V6h4v4zM6 8h4v4H6V8zm0 6h4v4H6v-4z"/>
+                        </svg>
+                        Behance
+                    </a>
+                    <a href="https://wa.me/1234567890" target="_blank" class="contact-btn contact-whatsapp">
+                        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                        </svg>
+                        WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
