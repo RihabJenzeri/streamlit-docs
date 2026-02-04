@@ -11,44 +11,6 @@ if 'page' not in st.session_state:
     st.session_state.page = "accueil"
 if 'current_device' not in st.session_state:
     st.session_state.current_device = None
-
-# ========== MENU DE NAVIGATION ==========
-def create_menu():
-    current_page = st.session_state.page
-    
-    # Déterminer quelle page principale est active
-    is_accueil = current_page == "accueil"
-    is_medicofi = current_page in ["medicofi", "apnidoc", "design_folders", "device_images"]
-    is_portfolio = current_page == "pdf_viewer"
-    
-    # Menu simple
-    st.markdown("---")
-    col1, col2, col3, col4 = st.columns(4)
-    
-    with col1:
-        if st.button("🏠 Accueil"):
-            st.session_state.page = "accueil"
-            st.rerun()
-    
-    with col2:
-        if st.button("🏥 Medicofi"):
-            st.session_state.page = "medicofi"
-            st.rerun()
-    
-    with col3:
-        if st.button("📄 Portfolio"):
-            st.session_state.page = "pdf_viewer"
-            st.rerun()
-    
-    with col4:
-        if st.button("🌐 Site Web"):
-            st.markdown('<script>window.open("https://apnidoc.fr/", "_blank")</script>', unsafe_allow_html=True)
-    
-    st.markdown("---")
-
-# Afficher le menu sur toutes les pages
-create_menu()
-
 # ========== روابط الملفات ==========
 def get_image_url(path):
     """Generate GitHub raw URL for images"""
