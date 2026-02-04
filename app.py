@@ -4,7 +4,7 @@ import urllib.parse
 # ========== الإعدادات ==========
 GITHUB_USER = "RihabJenzeri"
 REPO_NAME = "streamlit-docs"
-BASE_URL = f"https://raw.githubusercontent.com/{GITHAB_USER}/{REPO_NAME}/main/"
+BASE_URL = f"https://raw.githubusercontent.com/{GITHUB_USER}/{REPO_NAME}/main/"
 
 # ========== حالة التطبيق ==========
 if 'page' not in st.session_state:
