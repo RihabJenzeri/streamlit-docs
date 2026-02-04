@@ -21,6 +21,17 @@ header {visibility: hidden;}
 .stApp {
     background-color: white;
 }
+/* Changer la couleur de police en gris pour tout le texte */
+h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
+    color: #666666 !important;
+}
+.stButton > button {
+    color: #666666;
+}
+.caption-text {
+    color: #888888;
+    font-size: 14px;
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -104,6 +115,8 @@ design_images = {
     ]
 }
 
+# URL pour l'image Behance Cover
+behance_cover_url = get_image_url("Behance Cover.jpg")
 flyer_url = get_image_url("Medicofi/Société ApniDoc (en France)/Flyer ApniDoc.png")
 pdf_url_raw = f"{BASE_URL}mes_documents/Portfolio%20Ines%20HARRABI%202024.pdf"
 pdf_url_encoded = urllib.parse.quote(pdf_url_raw, safe='')
@@ -119,6 +132,10 @@ if "page" in query_params:
 st.markdown("</div>", unsafe_allow_html=True)
 
 if st.session_state.page == "accueil":
+    # Ajouter l'image Behance Cover comme grand slide
+    st.image(behance_cover_url, use_container_width=True)
+    st.markdown("<p class='caption-text' style='text-align: center; margin-top: -10px;'>Behance Cover</p>", unsafe_allow_html=True)
+    
     st.title("📂 MES DOSSIERS")
     st.subheader("Portfolio Professionnel & Projets Design")
     
@@ -154,7 +171,7 @@ elif st.session_state.page == "apnidoc":
     
     # Flyer Image
     st.image(flyer_url, use_container_width=True)
-    st.caption("📄 Flyer ApniDoc")
+    st.markdown("<p class='caption-text'>📄 Flyer ApniDoc</p>", unsafe_allow_html=True)
     
     st.markdown("---")
     
@@ -222,7 +239,7 @@ elif st.session_state.page == "device_images":
             img_name = img_path.split('/')[-1].replace('.png', '').replace('_', ' ')
             
             st.image(img_url, use_container_width=True)
-            st.caption(img_name)
+            st.markdown(f"<p class='caption-text'>{img_name}</p>", unsafe_allow_html=True)
             st.markdown("---")
 
 elif st.session_state.page == "pdf_viewer":
@@ -239,13 +256,13 @@ elif st.session_state.page == "pdf_viewer":
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown(f'<a href="{pdf_url_raw}" download="Portfolio_Ines_HARRABI_2024.pdf" style="text-decoration: none;">', unsafe_allow_html=True)
+        st.markdown(f'<a href="{pdf_url_raw}" download="Portfolio_Ines_HARRABI_2024.pdf" style="text-decoration: none; color: #666666;">', unsafe_allow_html=True)
         if st.button("📥 Télécharger le PDF", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
     
     with col2:
-        st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none;">', unsafe_allow_html=True)
+        st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none; color: #666666;">', unsafe_allow_html=True)
         if st.button("🔗 Ouvrir dans Google Viewer", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
