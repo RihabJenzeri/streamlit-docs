@@ -149,10 +149,10 @@ def create_menu():
     <style>
 .full-width-navbar {
     background:
-        radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
-        radial-gradient(circle at 100% 0%, rgba(140, 210, 255, 0.40), transparent 50%),
-        radial-gradient(circle at 20% 90%, rgba(52, 211, 153, 0.55), transparent 55%),
-        #fdfefe;
+    radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
+    radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
+    #fdfefe;
     height: 50px;
     width: 100%;
     position: fixed;
