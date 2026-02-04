@@ -18,15 +18,8 @@ hide_default_menu = """
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 header {visibility: hidden;}
-/* Arrière-plan pour toute l'application */
 .stApp {
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
-                url('https://raw.githubusercontent.com/RihabJenzeri/streamlit-docs/main/mes_documents/Behance%20Cover.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    min-height: 100vh;
+    background-color: white;
 }
 /* Changer la couleur de police en gris pour tout le texte */
 h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
@@ -34,20 +27,40 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
 }
 .stButton > button {
     color: #666666;
-    background-color: rgba(255, 255, 255, 0.8) !important;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 .caption-text {
     color: #888888;
     font-size: 14px;
 }
-/* Container pour le contenu avec fond semi-transparent */
-.content-container {
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+/* Supprimer les marges et paddings par défaut */
+.block-container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+/* Style pour le slide image */
+.slide-container {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-top: 60px;
+    height: 500px;
+    overflow: hidden;
+}
+.slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slide-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 16px;
 }
 </style>
 """
@@ -82,9 +95,6 @@ def create_menu():
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         cursor: pointer;
     }
-    .main-content {
-        padding-top: 80px;
-    }
     </style>
     """
     
@@ -95,7 +105,6 @@ def create_menu():
     <div class="full-width-navbar">
         <div class="profile-circle-large"></div>
     </div>
-    <div class="main-content">
     """, unsafe_allow_html=True)
 
 # Afficher le menu
@@ -132,6 +141,8 @@ design_images = {
     ]
 }
 
+# URL pour l'image Behance Cover
+behance_cover_url = get_image_url("Behance Cover.jpg")
 flyer_url = get_image_url("Medicofi/Société ApniDoc (en France)/Flyer ApniDoc.png")
 pdf_url_raw = f"{BASE_URL}mes_documents/Portfolio%20Ines%20HARRABI%202024.pdf"
 pdf_url_encoded = urllib.parse.quote(pdf_url_raw, safe='')
@@ -143,13 +154,19 @@ if "page" in query_params:
     st.session_state.page = query_params["page"]
 
 # ========== الصفحات ==========
-# Fermer le div principal
-st.markdown("</div>", unsafe_allow_html=True)
-
 if st.session_state.page == "accueil":
-    # Contenu avec fond semi-transparent
-    st.markdown('<div class="content-container">', unsafe_allow_html=True)
+    # Slide image qui sort de la boîte des éléments
+    st.markdown(f"""
+    <div class="slide-container">
+        <img src="{behance_cover_url}" class="slide-image">
+        <div class="slide-caption">Behance Cover</div>
+    </div>
+    """, unsafe_allow_html=True)
     
+    # Espace après le slide
+    st.markdown("<div style='height: 30px;'></div>", unsafe_allow_html=True)
+    
+    # Contenu normal
     st.title("📂 MES DOSSIERS")
     st.subheader("Portfolio Professionnel & Projets Design")
     
@@ -164,11 +181,8 @@ if st.session_state.page == "accueil":
         if st.button("📄 PORTFOLIO PDF", use_container_width=True):
             st.session_state.page = "pdf_viewer"
             st.rerun()
-    
-    st.markdown('</div>', unsafe_allow_html=True)
 
 elif st.session_state.page == "medicofi":
-    st.markdown('<div class="content-container">', unsafe_allow_html=True)
     if st.button("← RETOUR"):
         st.session_state.page = "accueil"
         st.rerun()
@@ -178,11 +192,8 @@ elif st.session_state.page == "medicofi":
     if st.button("🇫🇷 SOCIÉTÉ APNIDOC (EN FRANCE)", use_container_width=True):
         st.session_state.page = "apnidoc"
         st.rerun()
-    
-    st.markdown('</div>', unsafe_allow_html=True)
 
 elif st.session_state.page == "apnidoc":
-    st.markdown('<div class="content-container">', unsafe_allow_html=True)
     if st.button("← RETOUR"):
         st.session_state.page = "medicofi"
         st.rerun()
@@ -199,11 +210,8 @@ elif st.session_state.page == "apnidoc":
     if st.button("🎨 DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_width=True):
         st.session_state.page = "design_folders"
         st.rerun()
-    
-    st.markdown('</div>', unsafe_allow_html=True)
 
 elif st.session_state.page == "design_folders":
-    st.markdown('<div class="content-container">', unsafe_allow_html=True)
     if st.button("← RETOUR"):
         st.session_state.page = "apnidoc"
         st.rerun()
@@ -239,11 +247,8 @@ elif st.session_state.page == "design_folders":
             st.session_state.current_device = "Phone"
             st.session_state.page = "device_images"
             st.rerun()
-    
-    st.markdown('</div>', unsafe_allow_html=True)
 
 elif st.session_state.page == "device_images":
-    st.markdown('<div class="content-container">', unsafe_allow_html=True)
     if st.button("← RETOUR"):
         st.session_state.page = "design_folders"
         st.session_state.current_device = None
@@ -267,11 +272,8 @@ elif st.session_state.page == "device_images":
             st.image(img_url, use_container_width=True)
             st.markdown(f"<p class='caption-text'>{img_name}</p>", unsafe_allow_html=True)
             st.markdown("---")
-    
-    st.markdown('</div>', unsafe_allow_html=True)
 
 elif st.session_state.page == "pdf_viewer":
-    st.markdown('<div class="content-container">', unsafe_allow_html=True)
     if st.button("← RETOUR"):
         st.session_state.page = "accueil"
         st.rerun()
@@ -295,5 +297,3 @@ elif st.session_state.page == "pdf_viewer":
         if st.button("🔗 Ouvrir dans Google Viewer", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
-    
-    st.markdown('</div>', unsafe_allow_html=True)
