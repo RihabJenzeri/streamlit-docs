@@ -32,6 +32,22 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     color: #888888;
     font-size: 14px;
 }
+/* Style pour l'image en arrière-plan */
+.background-banner {
+    background-image: url('https://raw.githubusercontent.com/RihabJenzeri/streamlit-docs/main/mes_documents/Behance%20Cover.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 300px;
+    position: relative;
+    margin-top: 60px;
+}
+.overlay-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -51,7 +67,7 @@ def create_menu():
         top: 0;
         left: 0;
         right: 0;
-        z-index: 1000;
+        z-index: 999;
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -125,39 +141,15 @@ if "page" in query_params:
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
-    # Bannière en plein écran avec l'image Behance Cover
-    st.markdown(f"""
-    <div style="
-        width: 100%;
-        height: calc(100vh - 60px);
-        margin-top: 60px;
-        position: relative;
-        overflow: hidden;
-    ">
-        <img src="{behance_cover_url}" 
-             style="
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-             ">
-        <div style="
-            position: absolute;
-            bottom: 30px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            color: white;
-            font-size: 14px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-        ">
-            Behance Cover
+    # Bannière avec l'image en arrière-plan
+    st.markdown("""
+    <div class="background-banner">
+        <div class="overlay-content">
         </div>
     </div>
     """, unsafe_allow_html=True)
     
-    # Espacement après la bannière
-    st.markdown("<div style='margin-top: 40px;'></div>", unsafe_allow_html=True)
+    st.markdown("<p class='caption-text' style='text-align: center; margin-top: 10px;'>Behance Cover</p>", unsafe_allow_html=True)
     
     st.title("📂 MES DOSSIERS")
     st.subheader("Portfolio Professionnel & Projets Design")
