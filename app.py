@@ -12,7 +12,7 @@ if 'page' not in st.session_state:
 if 'current_device' not in st.session_state:
     st.session_state.current_device = None
 
-# ========== SUPPRIMER LE MENU PAR DÉFAUT DE STREAMLIT ==========
+# ========== SUPPRIMER LE MENU PAR DÉFAUT DE STREAMLIT ET CHANGER LE BACKGROUND ==========
 hide_default_menu = """
 <style>
 #MainMenu {visibility: hidden;}
@@ -24,6 +24,54 @@ header {visibility: hidden;}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
+
+# ========== MENU DE NAVIGATION SIMPLE AVEC DÉGRADÉ ==========
+def create_menu():
+    # Style CSS pour le menu avec dégradé radial
+    menu_style = """
+    <style>
+    .full-width-navbar {
+        background-image: radial-gradient(circle at 0% 0%, #fbBDFA 0, transparent 55%), 
+                          radial-gradient(circle at 100% 0%, #6cd4ff 0, transparent 50%), 
+                          radial-gradient(circle at 20% 90%, #34d399 0, transparent 55%);
+        height: 60px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 20px;
+    }
+    .profile-circle-large {
+        width: 45px;
+        height: 45px;
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        cursor: pointer;
+    }
+    .main-content {
+        margin-top: 80px;
+    }
+    </style>
+    """
+    
+    st.markdown(menu_style, unsafe_allow_html=True)
+    
+    # Navbar avec seulement le dégradé et le cercle de profil
+    st.markdown("""
+    <div class="full-width-navbar">
+        <div class="profile-circle-large"></div>
+    </div>
+    <div class="main-content">
+    """, unsafe_allow_html=True)
+
+# Afficher le menu
+create_menu()
 
 # ========== روابط الملفات ==========
 def get_image_url(path):
@@ -67,6 +115,9 @@ if "page" in query_params:
     st.session_state.page = query_params["page"]
 
 # ========== الصفحات ==========
+# Fermer le div principal
+st.markdown("</div>", unsafe_allow_html=True)
+
 if st.session_state.page == "accueil":
     st.title("📂 MES DOSSIERS")
     st.subheader("Portfolio Professionnel & Projets Design")
