@@ -61,8 +61,8 @@ header {visibility: hidden;}
     border-radius: 20px;
     padding: 25px;
     margin: -30px auto 30px auto;
-    max-width: 1000px; /* Agrandi pour accommoder les 4 boutons */
-    width: 1000%; /* Correction: 90% au lieu de 1000% */
+    max-width: 1000px;
+    width: 90%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -93,7 +93,7 @@ header {visibility: hidden;}
 .profile-avatar {
     position: relative;
     min-width: 120px;
-    flex-shrink: 0; /* Empêche l'avatar de rétrécir */
+    flex-shrink: 0;
 }
 .avatar-circle {
     width: 170px;
@@ -120,7 +120,7 @@ header {visibility: hidden;}
 }
 .profile-info {
     flex: 1;
-    min-width: 0; /* Permet au contenu de s'adapter */
+    min-width: 0;
 }
 .profile-title {
     font-size: 28px;
@@ -141,16 +141,14 @@ header {visibility: hidden;}
     flex-wrap: nowrap;
     gap: 10px;
     justify-content: flex-start;
-    width: 115%;
+    width: 100%;
     overflow: visible;
-    position: relative;
-    right: 10px;
 }
+
 .contact-icon {
-    width: 18px;
-    height: 18px;
-    stroke: #202124;
-    fill: none; /* Assure que les icônes SVG n'ont pas de remplissage */
+    width: 20px;
+    height: 20px;
+    color: #202124;
     transition: all 0.3s ease;
 }
 
@@ -171,8 +169,8 @@ header {visibility: hidden;}
     border: 1px solid #e0e0e0;
     cursor: pointer;
     white-space: nowrap;
-    flex: 1; /* Chaque bouton prend la même largeur */
-    min-width: 0; /* Permet au texte de s'adapter */
+    flex: 1;
+    min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -181,19 +179,19 @@ header {visibility: hidden;}
 .contact-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(251, 189, 250, 0.3);
-    background-color: #fff2ff; /* Rose clair demandé */
+    background-color: #fff2ff;
     border-color: #FBBDFA;
-    color: #202124 !important; /* Texte reste foncé pour mieux contraster */
+    color: #202124 !important;
 }
 
 /* Icônes restent foncées au hover */
 .contact-btn:hover .contact-icon {
-    stroke: #202124;
+    color: #202124;
 }
 
 /* WhatsApp avec le même hover rose */
 .contact-whatsapp:hover {
-    background-color: #fff2ff !important; /* Même rose que les autres */
+    background-color: #fff2ff !important;
     border-color: #FBBDFA !important;
 }
 
@@ -201,6 +199,101 @@ header {visibility: hidden;}
 .contact-btn:active {
     transform: translateY(0);
     background-color: #f0e0ef;
+}
+
+/* Styles pour la grille de projets */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.project-card {
+    position: relative;
+    background-color: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid #f0f0f0;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    border-color: transparent;
+}
+
+.hover-gradient {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.project-card:hover .hover-gradient {
+    opacity: 0.1;
+}
+
+.project-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.project-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: linear-gradient(to bottom right, #f9f9f9, #f0f0f0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.project-card:hover .project-icon {
+    background: linear-gradient(to bottom right, white, rgba(255, 255, 255, 0.8));
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.project-text {
+    flex: 1;
+}
+
+.project-title {
+    font-weight: 600;
+    color: #202124;
+    margin-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+.project-card:hover .project-title {
+    color: #FBBDFA;
+}
+
+.project-description {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.4;
+}
+
+.project-arrow {
+    width: 20px;
+    height: 20px;
+    color: #d0d0d0;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .project-arrow {
+    color: #FBBDFA;
+    transform: translate(2px, -2px);
 }
 
 /* Ajustement pour les écrans plus petits */
@@ -217,13 +310,17 @@ header {visibility: hidden;}
     }
     
     .contact-links {
-        flex-wrap: wrap; /* Sur mobile, permet le retour à la ligne */
+        flex-wrap: wrap;
         justify-content: center;
     }
     
     .contact-btn {
-        flex: 0 0 calc(50% - 10px); /* 2 boutons par ligne sur mobile */
+        flex: 0 0 calc(50% - 10px);
         max-width: calc(50% - 10px);
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -243,7 +340,6 @@ st.markdown(hide_default_menu, unsafe_allow_html=True)
 
 # ========== MENU DE NAVIGATION SIMPLE AVEC DÉGRADÉ ==========
 def create_menu():
-    # Style CSS pour le menu avec dégradé radial
     menu_style = """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
@@ -267,21 +363,11 @@ def create_menu():
     padding-right: 20px;
     font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-    .profile-circle-large {
-        width: 45px;
-        height: 45px;
-        background-color: white;
-        border-radius: 50%;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        cursor: pointer;
-        font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
     </style>
     """
     
     st.markdown(menu_style, unsafe_allow_html=True)
     
-    # Navbar avec seulement le dégradé et le cercle de profil
     st.markdown("""
     <div class="full-width-navbar">
     </div>
@@ -292,7 +378,6 @@ create_menu()
 
 # ========== روابط الملفات ==========
 def get_image_url(path):
-    """Generate GitHub raw URL for images"""
     return f"{BASE_URL}mes_documents/{urllib.parse.quote(path)}"
 
 # Define all image paths
@@ -336,14 +421,14 @@ if "page" in query_params:
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
-    # Slide image qui sort de la boîte des éléments
+    # Slide image
     st.markdown(f"""
     <div class="slide-container">
         <img src="{behance_cover_url}" class="slide-image">
     </div>
     """, unsafe_allow_html=True)
     
-    # Carte de profil avec photo - CENTRÉE
+    # Carte de profil AVEC ICÔNES CORRIGÉES
     st.markdown(f"""
     <div style="display: flex; justify-content: center;">
         <div class="profile-card">
@@ -358,33 +443,19 @@ if st.session_state.page == "accueil":
                     <p class="profile-subtitle">Senior Graphic Designer</p>
                     <div class="contact-links">
                         <a href="mailto:inesharrabi.dev@gmail.com" class="contact-btn contact-email">
-                            <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
+                            <span class="contact-icon">✉️</span>
                             Email
                         </a>
                         <a href="https://linkedin.com/in/ines-harrabi" target="_blank" class="contact-btn contact-linkedin">
-                            <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                                <rect x="2" y="9" width="4" height="12"/>
-                                <circle cx="4" cy="4" r="2"/>
-                            </svg>
+                            <span class="contact-icon">👔</span>
                             LinkedIn
                         </a>
                         <a href="https://behance.net/inesharrabi" target="_blank" class="contact-btn contact-behance">
-                            <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4v4h4v-4z"/>
-                                <path d="M18 8v8M14 12h4"/>
-                                <path d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                                <path d="M9 9h5"/>
-                            </svg>
+                            <span class="contact-icon">🎨</span>
                             Behance
                         </a>
                         <a href="https://wa.me/1234567890" target="_blank" class="contact-btn contact-whatsapp">
-                            <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                            </svg>
+                            <span class="contact-icon">💬</span>
                             WhatsApp
                         </a>
                     </div>
@@ -394,7 +465,7 @@ if st.session_state.page == "accueil":
     </div>
     """, unsafe_allow_html=True)
     
-    # Espace après la carte de profil
+    # Espace
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     
     # Contenu normal
@@ -413,24 +484,72 @@ if st.session_state.page == "accueil":
             st.session_state.page = "pdf_viewer"
             st.rerun()
     
-    # NOUVELLE CARTE AVEC DÉGRADÉ RADIAL (en dessous)
+    # NOUVELLE SECTION PROJETS AVEC ICÔNES SIMPLES
     st.markdown("""
-    <div style="display: flex; justify-content: center;">
+    <div style="display: flex; justify-content: center; margin-top: 40px;">
         <div class="gradient-card">
-            <h2 style="text-align: center; color: #202124; margin-bottom: 20px;">Mes Compétences</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-                <div style="text-align: center; flex: 1; min-width: 200px;">
-                    <h3 style="color: #202124;">🎨 Design Graphique</h3>
-                    <p style="color: #666666;">Création d'identités visuelles, illustrations, maquettes web et print</p>
-                </div>
-                <div style="text-align: center; flex: 1; min-width: 200px;">
-                    <h3 style="color: #202124;">💻 UI/UX Design</h3>
-                    <p style="color: #666666;">Design d'interfaces utilisateur, expériences utilisateur optimisées</p>
-                </div>
-                <div style="text-align: center; flex: 1; min-width: 200px;">
-                    <h3 style="color: #202124;">📱 Développement Web</h3>
-                    <p style="color: #666666;">Sites web responsives, applications modernes, intégration</p>
-                </div>
+            <h2 style="text-align: center; color: #202124; margin-bottom: 30px;">Mes Projets Récents</h2>
+            
+            <div class="projects-grid">
+                <!-- Projet 1 -->
+                <a href="#" class="project-card">
+                    <div class="hover-gradient" style="background: linear-gradient(to bottom right, #FBBDFA, #6cd4ff);"></div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <span>🎨</span>
+                        </div>
+                        <div class="project-text">
+                            <h3 class="project-title">ApniDoc Website</h3>
+                            <p class="project-description">Design d'interface responsive pour une plateforme médicale</p>
+                        </div>
+                        <div class="project-arrow">→</div>
+                    </div>
+                </a>
+                
+                <!-- Projet 2 -->
+                <a href="#" class="project-card">
+                    <div class="hover-gradient" style="background: linear-gradient(to bottom right, #6cd4ff, #34D399);"></div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <span>💼</span>
+                        </div>
+                        <div class="project-text">
+                            <h3 class="project-title">Brand Identity</h3>
+                            <p class="project-description">Création d'identité visuelle pour une startup tech</p>
+                        </div>
+                        <div class="project-arrow">→</div>
+                    </div>
+                </a>
+                
+                <!-- Projet 3 -->
+                <a href="#" class="project-card">
+                    <div class="hover-gradient" style="background: linear-gradient(to bottom right, #34D399, #FBBDFA);"></div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <span>📱</span>
+                        </div>
+                        <div class="project-text">
+                            <h3 class="project-title">Mobile App UI</h3>
+                            <p class="project-description">Design d'interface pour application mobile de fitness</p>
+                        </div>
+                        <div class="project-arrow">→</div>
+                    </div>
+                </a>
+                
+                <!-- Projet 4 -->
+                <a href="#" class="project-card">
+                    <div class="hover-gradient" style="background: linear-gradient(to bottom right, #FFC107, #FBBDFA);"></div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <span>📊</span>
+                        </div>
+                        <div class="project-text">
+                            <h3 class="project-title">Dashboard Design</h3>
+                            <p class="project-description">Interface de dashboard analytique pour SaaS</p>
+                        </div>
+                        <div class="project-arrow">→</div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
