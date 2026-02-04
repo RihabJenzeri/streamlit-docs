@@ -62,7 +62,7 @@ header {visibility: hidden;}
     padding: 25px;
     margin: -30px auto 30px auto;
     max-width: 1000px; /* Agrandi pour accommoder les 4 boutons */
-    width: 1000%; /* Prend 90% de la largeur disponible */
+    width: 90%; /* Corrigé de 1000% à 90% */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -133,6 +133,8 @@ header {visibility: hidden;}
     width: 18px;
     height: 18px;
     stroke: #202124;
+    stroke-width: 2;
+    fill: none;
     transition: all 0.3s ease;
 }
 
@@ -334,6 +336,7 @@ if st.session_state.page == "accueil":
                     <div class="avatar-circle">
                         <img src="{profile_image_url}" class="avatar-image" alt="Photo de profil">
                     </div>
+                    <div class="status-dot"></div>
                 </div>
                 <div class="profile-info">
                     <h1 class="profile-title">My Portfolio</h1>
@@ -365,7 +368,8 @@ if st.session_state.page == "accueil":
                         </a>
                         <a href="https://wa.me/1234567890" target="_blank" class="contact-btn contact-whatsapp">
                             <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/>
                             </svg>
                             WhatsApp
                         </a>
