@@ -83,7 +83,7 @@ header {visibility: hidden;}
     height: 170px;
     border-radius: 50%;
     padding: 3px;
-    border: 3px solid #202124; /* Bordure rose */
+    border: 3px solid #E4E4E4; /* Bordure rose */
 }
 .avatar-image {
     width: 100%;
@@ -246,7 +246,7 @@ design_images = {
 }
 
 # URL pour les images
-behance_cover_url = get_image_url("Behance Cover.jpg")
+behance_cover_url = get_image_url("Behance Cover F.jpg")
 profile_image_url = get_image_url("image.jpeg")
 flyer_url = get_image_url("Medicofi/Société ApniDoc (en France)/Flyer ApniDoc.png")
 pdf_url_raw = f"{BASE_URL}mes_documents/Portfolio%20Ines%20HARRABI%202024.pdf"
