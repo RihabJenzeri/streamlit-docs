@@ -21,10 +21,6 @@ header {visibility: hidden;}
 .stApp {
     background-color: white;
 }
-/* Changer la couleur de police en gris pour tout le texte */
-h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
-    color: #666666 !important;
-}
 .stButton > button {
     color: #666666;
 }
@@ -153,7 +149,7 @@ def create_menu():
     radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
     radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
     #fdfefe;
-    height: 50px;
+    height: 30px;
     width: 100%;
     position: fixed;
     top: 0;
