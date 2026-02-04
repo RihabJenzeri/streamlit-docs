@@ -32,6 +32,34 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     color: #888888;
     font-size: 14px;
 }
+/* Style pour les sections avec puces */
+.section-container {
+    margin: 40px auto;
+    max-width: 800px;
+}
+.section-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.section-subtitle {
+    font-size: 16px;
+    color: #888888;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.list-item {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    padding-left: 20px;
+}
+.bullet-point {
+    color: #666666;
+    font-size: 24px;
+    margin-right: 15px;
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -143,17 +171,37 @@ if st.session_state.page == "accueil":
     
     st.markdown("<p class='caption-text' style='text-align: center; margin-top: 10px;'>Behance Cover</p>", unsafe_allow_html=True)
     
-    st.title("📂 MES DOSSIERS")
-    st.subheader("Portfolio Professionnel & Projets Design")
+    # Section "MES DOSSIERS" avec style
+    st.markdown("""
+    <div class="section-container">
+        <div class="section-title">MES DOSSIERS</div>
+        <div class="section-subtitle">Portfolio Professionnel & Projets Design</div>
+    </div>
+    """, unsafe_allow_html=True)
     
+    # Créer deux colonnes pour les boutons
     col1, col2 = st.columns(2)
     
     with col1:
+        # Premier item avec puce
+        st.markdown("""
+        <div class="list-item">
+            <span class="bullet-point">•</span>
+        </div>
+        """, unsafe_allow_html=True)
+        
         if st.button("🏥 MEDICOFI", use_container_width=True):
             st.session_state.page = "medicofi"
             st.rerun()
     
     with col2:
+        # Deuxième item avec puce
+        st.markdown("""
+        <div class="list-item">
+            <span class="bullet-point">•</span>
+        </div>
+        """, unsafe_allow_html=True)
+        
         if st.button("📄 PORTFOLIO PDF", use_container_width=True):
             st.session_state.page = "pdf_viewer"
             st.rerun()
