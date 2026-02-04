@@ -147,22 +147,24 @@ def create_menu():
     # Style CSS pour le menu avec dégradé radial
     menu_style = """
     <style>
-    .full-width-navbar {
-        background-image: radial-gradient(circle at 0% 0%, #fbBDFA 0, transparent 55%), 
-                          radial-gradient(circle at 100% 0%, #6cd4ff 0, transparent 50%), 
-                          radial-gradient(circle at 20% 90%, #34d399 0, transparent 55%);
-        height: 50px;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 999;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        padding-right: 20px;
-    }
+.full-width-navbar {
+    background:
+        radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(140, 210, 255, 0.40), transparent 50%),
+        radial-gradient(circle at 20% 90%, rgba(52, 211, 153, 0.55), transparent 55%),
+        #fdfefe;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
     .profile-circle-large {
         width: 45px;
         height: 45px;
