@@ -62,7 +62,7 @@ header {visibility: hidden;}
     padding: 25px;
     margin: -30px auto 30px auto;
     max-width: 1000px; /* Agrandi pour accommoder les 4 boutons */
-    width: 90%; /* Correction: 90% au lieu de 1000% */
+    width: 1000%; /* Correction: 90% au lieu de 1000% */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -141,10 +141,11 @@ header {visibility: hidden;}
     flex-wrap: nowrap;
     gap: 10px;
     justify-content: flex-start;
-    width: 100%;
-    overflow: visible; /* Pas de scroll */
+    width: 115%;
+    overflow: visible;
+    position: relative;
+    right: 10px;
 }
-
 .contact-icon {
     width: 18px;
     height: 18px;
@@ -351,7 +352,6 @@ if st.session_state.page == "accueil":
                     <div class="avatar-circle">
                         <img src="{profile_image_url}" class="avatar-image" alt="Photo de profil">
                     </div>
-                    <div class="status-dot"></div>
                 </div>
                 <div class="profile-info">
                     <h1 class="profile-title">My Portfolio</h1>
