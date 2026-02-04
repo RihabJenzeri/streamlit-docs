@@ -75,7 +75,6 @@ header {visibility: hidden;}
     padding: 3px;
     border: 3px solid #FBBDFA; /* Bordure rose */
 }
-}
 .avatar-image {
     width: 100%;
     height: 100%;
