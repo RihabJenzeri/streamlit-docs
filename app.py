@@ -151,7 +151,7 @@ def create_menu():
         background-image: radial-gradient(circle at 0% 0%, #fbBDFA 0, transparent 55%), 
                           radial-gradient(circle at 100% 0%, #6cd4ff 0, transparent 50%), 
                           radial-gradient(circle at 20% 90%, #34d399 0, transparent 55%);
-        height: 60px;
+        height: 50px;
         width: 100%;
         position: fixed;
         top: 0;
@@ -179,7 +179,6 @@ def create_menu():
     # Navbar avec seulement le dégradé et le cercle de profil
     st.markdown("""
     <div class="full-width-navbar">
-        # <div class="profile-circle-large"></div>
     </div>
     """, unsafe_allow_html=True)
 
