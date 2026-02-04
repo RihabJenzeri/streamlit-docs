@@ -406,4 +406,4 @@ elif st.session_state.page == "pdf_viewer":
         st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none;">', unsafe_allow_html=True)
         if st.button("🔗 Ouvrir dans Google Viewer", use_container_width=True):
             pass
-        st.markdown('</a>', unsafe_allow_html=True)
+        st.markdown('</a>', unsafe_allow_html=True)) 
