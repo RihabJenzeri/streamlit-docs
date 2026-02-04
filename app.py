@@ -32,6 +32,13 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     color: #888888;
     font-size: 14px;
 }
+/* Style pour l'image en grand format */
+.full-width-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    margin-top: 60px;
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -66,7 +73,7 @@ def create_menu():
         cursor: pointer;
     }
     .main-content {
-        margin-top: 80px;
+        margin-top: 60px;
     }
     </style>
     """
@@ -78,7 +85,6 @@ def create_menu():
     <div class="full-width-navbar">
         <div class="profile-circle-large"></div>
     </div>
-    <div class="main-content">
     """, unsafe_allow_html=True)
 
 # Afficher le menu
@@ -128,13 +134,15 @@ if "page" in query_params:
     st.session_state.page = query_params["page"]
 
 # ========== الصفحات ==========
-# Fermer le div principal
-st.markdown("</div>", unsafe_allow_html=True)
-
 if st.session_state.page == "accueil":
-    # Ajouter l'image Behance Cover comme grand slide
-    st.image(behance_cover_url, use_container_width=True)
-    st.markdown("<p class='caption-text' style='text-align: center; margin-top: -10px;'>Behance Cover</p>", unsafe_allow_html=True)
+    # Ajouter l'image Behance Cover en grand format (pleine largeur)
+    st.markdown(f"""
+    <div style="width: 100%; height: 350px; overflow: hidden; margin-top: 60px;">
+        <img src="{behance_cover_url}" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("<p class='caption-text' style='text-align: center; margin-top: 10px;'>Behance Cover</p>", unsafe_allow_html=True)
     
     st.title("📂 MES DOSSIERS")
     st.subheader("Portfolio Professionnel & Projets Design")
