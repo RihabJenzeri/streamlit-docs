@@ -125,27 +125,14 @@ if "page" in query_params:
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
-    # Ajouter l'image Behance Cover comme grand slider DIRECTEMENT sous le menu
-    # 100% largeur et 500px hauteur
+    # Ajouter l'image Behance Cover en grand format DIRECTEMENT sous le menu
     st.markdown(f"""
-    <div style="
-        width: 100%;
-        height: 500px;
-        margin-top: 60px;
-        overflow: hidden;
-        background-color: #f5f5f5;
-    ">
-        <img src="{behance_cover_url}" 
-             style="
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-             ">
+    <div style="width: 100%; margin-top: 60px;">
+        <img src="{behance_cover_url}" style="width: 100%; max-height: 400px; object-fit: contain;">
     </div>
     """, unsafe_allow_html=True)
     
-    st.markdown("<p class='caption-text' style='text-align: center; margin-top: 10px; margin-bottom: 30px;'>Behance Cover</p>", unsafe_allow_html=True)
+    st.markdown("<p class='caption-text' style='text-align: center; margin-top: 10px;'>Behance Cover</p>", unsafe_allow_html=True)
     
     st.title("📂 MES DOSSIERS")
     st.subheader("Portfolio Professionnel & Projets Design")
