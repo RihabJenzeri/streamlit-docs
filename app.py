@@ -42,8 +42,8 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     position: relative;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-        # margin-top: 60px;
-        # height: 500px;
+    margin-top: 60px;
+    height: 500px;
     overflow: hidden;
 }
 .slide-image {
@@ -61,6 +61,112 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     font-size: 16px;
+}
+/* Style pour la carte de profil */
+.profile-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    padding: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    margin: -80px auto 40px auto;
+    max-width: 800px;
+    position: relative;
+    z-index: 10;
+}
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+@media (min-width: 640px) {
+    .profile-content {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+.profile-avatar {
+    position: relative;
+    flex-shrink: 0;
+}
+.profile-image {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #FBBDFA, #9d4edd);
+}
+.online-status {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    background-color: #34D399;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+.profile-info {
+    text-align: center;
+    flex: 1;
+}
+@media (min-width: 640px) {
+    .profile-info {
+        text-align: left;
+    }
+}
+.profile-name {
+    font-size: 28px;
+    font-weight: bold;
+    color: #202124;
+    margin-bottom: 8px;
+}
+.profile-title {
+    color: #666666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.profile-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+@media (min-width: 640px) {
+    .profile-buttons {
+        justify-content: flex-start;
+    }
+}
+.profile-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+.contact-button {
+    background-color: rgba(251, 189, 250, 0.2);
+    color: #202124;
+}
+.contact-button:hover {
+    background-color: rgba(251, 189, 250, 0.4);
+}
+.social-button {
+    background-color: rgba(32, 33, 36, 0.05);
+    color: #202124;
+}
+.social-button:hover {
+    background-color: rgba(32, 33, 36, 0.1);
 }
 </style>
 """
@@ -141,8 +247,9 @@ design_images = {
     ]
 }
 
-# URL pour l'image Behance Cover
+# URL pour les images
 behance_cover_url = get_image_url("Behance Cover.jpg")
+profile_image_url = get_image_url("image.png")  # Votre photo de profil
 flyer_url = get_image_url("Medicofi/Société ApniDoc (en France)/Flyer ApniDoc.png")
 pdf_url_raw = f"{BASE_URL}mes_documents/Portfolio%20Ines%20HARRABI%202024.pdf"
 pdf_url_encoded = urllib.parse.quote(pdf_url_raw, safe='')
@@ -159,13 +266,38 @@ if st.session_state.page == "accueil":
     st.markdown(f"""
     <div class="slide-container">
         <img src="{behance_cover_url}" class="slide-image">
-     </div>
+        <div class="slide-caption">Behance Cover</div>
+    </div>
     """, unsafe_allow_html=True)
     
-    # Espace après le slide
-    st.markdown("<div style='height: 30px;'></div>", unsafe_allow_html=True)
+    # Carte de profil
+    st.markdown(f"""
+    <div class="profile-card">
+        <div class="profile-content">
+            <div class="profile-avatar">
+                <img src="{profile_image_url}" class="profile-image" alt="Photo de profil">
+                <div class="online-status"></div>
+            </div>
+            <div class="profile-info">
+                <h1 class="profile-name">Mon Portfolio</h1>
+                <p class="profile-title">Designer & Développeuse Web Créative</p>
+                <div class="profile-buttons">
+                    <a href="mailto:contact@example.com" class="profile-button contact-button">
+                        <span>📧</span> Contact
+                    </a>
+                    <a href="#" class="profile-button social-button">
+                        <span>🔗</span> LinkedIn
+                    </a>
+                    <a href="#" class="profile-button social-button">
+                        <span>💻</span> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     
-    # Contenu normal
+    # Contenu principal
     st.title("📂 MES DOSSIERS")
     st.subheader("Portfolio Professionnel & Projets Design")
     
