@@ -61,8 +61,8 @@ header {visibility: hidden;}
     border-radius: 20px;
     padding: 25px;
     margin: -30px auto 30px auto;
-    max-width: 900px; /* Agrandi pour accommoder les 4 boutons */
-    width: 90%; /* Prend 90% de la largeur disponible */
+    max-width: 1000px; /* Agrandi pour accommoder les 4 boutons */
+    width: 1000%; /* Prend 90% de la largeur disponible */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -334,7 +334,6 @@ if st.session_state.page == "accueil":
                     <div class="avatar-circle">
                         <img src="{profile_image_url}" class="avatar-image" alt="Photo de profil">
                     </div>
-                    <div class="status-dot"></div>
                 </div>
                 <div class="profile-info">
                     <h1 class="profile-title">My Portfolio</h1>
