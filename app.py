@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
 }
 .slide-image {
     width: 100%;
-    height: 400px;
+    # height: 400px;
     object-fit: cover;
 }
 /* Style pour la carte de profil */
@@ -179,7 +179,7 @@ def create_menu():
     # Navbar avec seulement le dégradé et le cercle de profil
     st.markdown("""
     <div class="full-width-navbar">
-        <div class="profile-circle-large"></div>
+        # <div class="profile-circle-large"></div>
     </div>
     """, unsafe_allow_html=True)
 
