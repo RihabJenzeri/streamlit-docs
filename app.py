@@ -119,9 +119,13 @@ header {visibility: hidden;}
 }
 .contact-links {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Empêche le retour à la ligne */
     gap: 10px;
+    justify-content: flex-start; /* Aligne les boutons au début */
+    width: 100%;
+    overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
 }
+
 .contact-btn {
     display: inline-flex;
     align-items: center;
@@ -133,7 +137,28 @@ header {visibility: hidden;}
     font-size: 14px;
     transition: all 0.3s ease;
     font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #f5f5f5; /* Couleur grise */
+    color: #202124 !important;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+    white-space: nowrap; /* Empêche le texte de se couper sur plusieurs lignes */
+    flex-shrink: 0; /* Empêche les boutons de rétrécir */
 }
+
+/* Effet hover pour tous les boutons (sauf WhatsApp) */
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(251, 189, 250, 0.3);
+    background-color: #FBBDFA; /* Couleur rose au hover */
+    border-color: #FBBDFA;
+    color: white !important; /* Texte blanc au hover */
+}
+
+/* Icônes blanches au hover */
+.contact-btn:hover .contact-icon {
+    stroke: white;
+}
+
 .contact-email {
     background-color: rgba(251, 189, 250, 0.2);
     color: #202124 !important;
@@ -150,7 +175,21 @@ header {visibility: hidden;}
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+/* Icônes blanches au hover */
+.contact-btn:hover .contact-icon {
+    stroke: white;
+}
 
+/* Effet hover spécifique pour WhatsApp */
+.contact-whatsapp:hover {
+    background-color: #25D366 !important; /* Vert WhatsApp spécifique */
+    border-color: #25D366 !important;
+    color: white !important;
+}
+
+.contact-whatsapp:hover .contact-icon {
+    stroke: white;
+}
 /* Styles pour les titres Streamlit */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
