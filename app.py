@@ -42,8 +42,7 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     position: relative;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    margin-top: 60px;
-    height: 500px;
+    height: 400px;
     overflow: hidden;
 }
 .slide-image {
@@ -51,29 +50,17 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     height: 100%;
     object-fit: cover;
 }
-.slide-caption {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    font-size: 16px;
-}
 /* Style pour la carte de profil */
 .profile-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(20px);
     border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-    padding: 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 32px;
+    max-width: 900px;
     margin: -80px auto 40px auto;
-    max-width: 800px;
     position: relative;
-    z-index: 10;
 }
 .profile-content {
     display: flex;
@@ -81,26 +68,26 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     align-items: center;
     gap: 24px;
 }
-@media (min-width: 640px) {
-    .profile-content {
-        flex-direction: row;
-        align-items: center;
-    }
-}
 .profile-avatar {
     position: relative;
-    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
 }
-.profile-image {
-    width: 112px;
-    height: 112px;
+.avatar-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FBBDFA, #9D4EDD);
+    padding: 4px;
+}
+.avatar-image {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid white;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(135deg, #FBBDFA, #9d4edd);
+    background: white;
 }
-.online-status {
+.online-indicator {
     position: absolute;
     bottom: 8px;
     right: 8px;
@@ -112,12 +99,6 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
 }
 .profile-info {
     text-align: center;
-    flex: 1;
-}
-@media (min-width: 640px) {
-    .profile-info {
-        text-align: left;
-    }
 }
 .profile-name {
     font-size: 28px;
@@ -127,8 +108,8 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
 }
 .profile-title {
     color: #666666;
-    font-size: 16px;
     margin-bottom: 20px;
+    font-size: 16px;
 }
 .profile-buttons {
     display: flex;
@@ -136,17 +117,12 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     justify-content: center;
     gap: 12px;
 }
-@media (min-width: 640px) {
-    .profile-buttons {
-        justify-content: flex-start;
-    }
-}
-.profile-button {
+.profile-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     padding: 10px 20px;
-    border-radius: 9999px;
+    border-radius: 50px;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
@@ -154,19 +130,23 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     border: none;
     cursor: pointer;
 }
-.contact-button {
+.btn-contact {
     background-color: rgba(251, 189, 250, 0.2);
     color: #202124;
 }
-.contact-button:hover {
+.btn-contact:hover {
     background-color: rgba(251, 189, 250, 0.4);
 }
-.social-button {
+.btn-social {
     background-color: rgba(32, 33, 36, 0.05);
     color: #202124;
 }
-.social-button:hover {
+.btn-social:hover {
     background-color: rgba(32, 33, 36, 0.1);
+}
+.btn-icon {
+    width: 16px;
+    height: 16px;
 }
 </style>
 """
@@ -249,7 +229,7 @@ design_images = {
 
 # URL pour les images
 behance_cover_url = get_image_url("Behance Cover.jpg")
-profile_image_url = get_image_url("image.png")  # Votre photo de profil
+profile_image_url = get_image_url("image.png")
 flyer_url = get_image_url("Medicofi/Société ApniDoc (en France)/Flyer ApniDoc.png")
 pdf_url_raw = f"{BASE_URL}mes_documents/Portfolio%20Ines%20HARRABI%202024.pdf"
 pdf_url_encoded = urllib.parse.quote(pdf_url_raw, safe='')
@@ -266,7 +246,6 @@ if st.session_state.page == "accueil":
     st.markdown(f"""
     <div class="slide-container">
         <img src="{behance_cover_url}" class="slide-image">
-        <div class="slide-caption">Behance Cover</div>
     </div>
     """, unsafe_allow_html=True)
     
@@ -275,21 +254,36 @@ if st.session_state.page == "accueil":
     <div class="profile-card">
         <div class="profile-content">
             <div class="profile-avatar">
-                <img src="{profile_image_url}" class="profile-image" alt="Photo de profil">
-                <div class="online-status"></div>
+                <div class="avatar-circle">
+                    <img src="{profile_image_url}" class="avatar-image" alt="Profile Photo">
+                </div>
+                <div class="online-indicator"></div>
             </div>
+            
             <div class="profile-info">
                 <h1 class="profile-name">Mon Portfolio</h1>
                 <p class="profile-title">Designer & Développeuse Web Créative</p>
+                
                 <div class="profile-buttons">
-                    <a href="mailto:contact@example.com" class="profile-button contact-button">
-                        <span>📧</span> Contact
+                    <a href="mailto:contact@example.com" class="profile-btn btn-contact">
+                        <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Contact
                     </a>
-                    <a href="#" class="profile-button social-button">
-                        <span>🔗</span> LinkedIn
+                    
+                    <a href="#" class="profile-btn btn-social">
+                        <svg class="btn-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                        </svg>
+                        LinkedIn
                     </a>
-                    <a href="#" class="profile-button social-button">
-                        <span>💻</span> GitHub
+                    
+                    <a href="#" class="profile-btn btn-social">
+                        <svg class="btn-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path>
+                        </svg>
+                        GitHub
                     </a>
                 </div>
             </div>
@@ -297,7 +291,7 @@ if st.session_state.page == "accueil":
     </div>
     """, unsafe_allow_html=True)
     
-    # Contenu principal
+    # Contenu normal
     st.title("📂 MES DOSSIERS")
     st.subheader("Portfolio Professionnel & Projets Design")
     
