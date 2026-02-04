@@ -42,111 +42,101 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     position: relative;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    height: 400px;
     overflow: hidden;
 }
 .slide-image {
     width: 100%;
-    height: 100%;
+    height: 400px;
     object-fit: cover;
 }
 /* Style pour la carte de profil */
 .profile-card {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(20px);
-    border-radius: 24px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(251, 189, 250, 0.1) 0%, rgba(108, 212, 255, 0.1) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    margin: -50px auto 30px auto;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
-    padding: 32px;
-    max-width: 900px;
-    margin: -80px auto 40px auto;
-    position: relative;
 }
 .profile-content {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 24px;
+    gap: 25px;
 }
 .profile-avatar {
     position: relative;
-    width: 120px;
-    height: 120px;
+    min-width: 120px;
 }
 .avatar-circle {
-    width: 100%;
-    height: 100%;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #FBBDFA, #9D4EDD);
-    padding: 4px;
+    background: linear-gradient(135deg, #FBBDFA, #6cd4ff);
+    padding: 5px;
 }
 .avatar-image {
     width: 100%;
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    background: white;
 }
-.online-indicator {
+.status-dot {
     position: absolute;
-    bottom: 8px;
-    right: 8px;
-    width: 24px;
-    height: 24px;
+    bottom: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
     background-color: #34D399;
     border-radius: 50%;
-    border: 3px solid white;
+    border: 4px solid white;
 }
 .profile-info {
-    text-align: center;
-}
-.profile-name {
-    font-size: 28px;
-    font-weight: bold;
-    color: #202124;
-    margin-bottom: 8px;
+    flex: 1;
 }
 .profile-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #202124 !important;
+}
+.profile-subtitle {
+    font-size: 16px;
     color: #666666;
     margin-bottom: 20px;
-    font-size: 16px;
 }
-.profile-buttons {
+.contact-links {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
+    gap: 10px;
 }
-.profile-btn {
+.contact-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     padding: 10px 20px;
-    border-radius: 50px;
-    font-size: 14px;
+    border-radius: 25px;
+    text-decoration: none !important;
     font-weight: 500;
-    text-decoration: none;
+    font-size: 14px;
     transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
 }
-.btn-contact {
+.contact-email {
     background-color: rgba(251, 189, 250, 0.2);
-    color: #202124;
+    color: #202124 !important;
 }
-.btn-contact:hover {
-    background-color: rgba(251, 189, 250, 0.4);
-}
-.btn-social {
+.contact-linkedin {
     background-color: rgba(32, 33, 36, 0.05);
-    color: #202124;
+    color: #202124 !important;
 }
-.btn-social:hover {
-    background-color: rgba(32, 33, 36, 0.1);
+.contact-github {
+    background-color: rgba(32, 33, 36, 0.05);
+    color: #202124 !important;
 }
-.btn-icon {
-    width: 16px;
-    height: 16px;
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 </style>
 """
@@ -249,47 +239,37 @@ if st.session_state.page == "accueil":
     </div>
     """, unsafe_allow_html=True)
     
-    # Carte de profil
+    # Carte de profil avec photo
     st.markdown(f"""
     <div class="profile-card">
         <div class="profile-content">
             <div class="profile-avatar">
                 <div class="avatar-circle">
-                    <img src="{profile_image_url}" class="avatar-image" alt="Profile Photo">
+                    <img src="{profile_image_url}" class="avatar-image" alt="Photo de profil">
                 </div>
-                <div class="online-indicator"></div>
+                <div class="status-dot"></div>
             </div>
-            
             <div class="profile-info">
-                <h1 class="profile-name">Mon Portfolio</h1>
-                <p class="profile-title">Designer & Développeuse Web Créative</p>
-                
-                <div class="profile-buttons">
-                    <a href="mailto:contact@example.com" class="profile-btn btn-contact">
-                        <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
-                        Contact
+                <h1 class="profile-title">Mon Portfolio</h1>
+                <p class="profile-subtitle">Designer & Développeuse Web Créative</p>
+                <div class="contact-links">
+                    <a href="mailto:contact@example.com" class="contact-btn contact-email">
+                        ✉️ Contact
                     </a>
-                    
-                    <a href="#" class="profile-btn btn-social">
-                        <svg class="btn-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
-                        </svg>
-                        LinkedIn
+                    <a href="https://linkedin.com" target="_blank" class="contact-btn contact-linkedin">
+                        🔗 LinkedIn
                     </a>
-                    
-                    <a href="#" class="profile-btn btn-social">
-                        <svg class="btn-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path>
-                        </svg>
-                        GitHub
+                    <a href="https://github.com" target="_blank" class="contact-btn contact-github">
+                        🎨 GitHub
                     </a>
                 </div>
             </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
+    
+    # Espace après la carte de profil
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     
     # Contenu normal
     st.title("📂 MES DOSSIERS")
