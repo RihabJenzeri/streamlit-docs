@@ -62,22 +62,7 @@ header {visibility: hidden;}
     padding: 25px;
     margin: -30px auto 30px auto;
     max-width: 1000px; /* Agrandi pour accommoder les 4 boutons */
-    width: 1000%; /* Correction: 90% au lieu de 1000% */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-}
-/* Nouvelle carte avec dégradé radial */
-.gradient-card {
-    background:
-        radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
-        radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
-        #fdfefe;
-    border-radius: 20px;
-    padding: 25px;
-    margin: 20px auto;
-    max-width: 1000px;
-    width: 90%;
+    width: 90%; /* Correction: 90% au lieu de 1000% */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -141,11 +126,10 @@ header {visibility: hidden;}
     flex-wrap: nowrap;
     gap: 10px;
     justify-content: flex-start;
-    width: 115%;
-    overflow: visible;
-    position: relative;
-    right: 10px;
+    width: 100%;
+    overflow: visible; /* Pas de scroll */
 }
+
 .contact-icon {
     width: 18px;
     height: 18px;
@@ -205,7 +189,7 @@ header {visibility: hidden;}
 
 /* Ajustement pour les écrans plus petits */
 @media (max-width: 768px) {
-    .profile-card, .gradient-card {
+    .profile-card {
         max-width: 95%;
         padding: 20px;
     }
@@ -352,6 +336,7 @@ if st.session_state.page == "accueil":
                     <div class="avatar-circle">
                         <img src="{profile_image_url}" class="avatar-image" alt="Photo de profil">
                     </div>
+                    <div class="status-dot"></div>
                 </div>
                 <div class="profile-info">
                     <h1 class="profile-title">My Portfolio</h1>
@@ -412,29 +397,6 @@ if st.session_state.page == "accueil":
         if st.button("📄 PORTFOLIO PDF", use_container_width=True):
             st.session_state.page = "pdf_viewer"
             st.rerun()
-    
-    # NOUVELLE CARTE AVEC DÉGRADÉ RADIAL (en dessous)
-    st.markdown("""
-    <div style="display: flex; justify-content: center;">
-        <div class="gradient-card">
-            <h2 style="text-align: center; color: #202124; margin-bottom: 20px;">Mes Compétences</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-                <div style="text-align: center; flex: 1; min-width: 200px;">
-                    <h3 style="color: #202124;">🎨 Design Graphique</h3>
-                    <p style="color: #666666;">Création d'identités visuelles, illustrations, maquettes web et print</p>
-                </div>
-                <div style="text-align: center; flex: 1; min-width: 200px;">
-                    <h3 style="color: #202124;">💻 UI/UX Design</h3>
-                    <p style="color: #666666;">Design d'interfaces utilisateur, expériences utilisateur optimisées</p>
-                </div>
-                <div style="text-align: center; flex: 1; min-width: 200px;">
-                    <h3 style="color: #202124;">📱 Développement Web</h3>
-                    <p style="color: #666666;">Sites web responsives, applications modernes, intégration</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
 
 elif st.session_state.page == "medicofi":
     if st.button("← RETOUR"):
