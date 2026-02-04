@@ -155,14 +155,7 @@ if "page" in query_params:
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
-    # Slide image qui sort de la boîte des éléments
-    st.markdown(f"""
-    <div class="slide-container">
-        <img src="{behance_cover_url}" class="slide-image">
-        <div class="slide-caption">Behance Cover</div>
-    </div>
-    """, unsafe_allow_html=True)
-    
+    # Slide image qui sort de la boîte des élément
     # Espace après le slide
     st.markdown("<div style='height: 30px;'></div>", unsafe_allow_html=True)
     
