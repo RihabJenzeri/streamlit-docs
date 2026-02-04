@@ -12,50 +12,74 @@ if 'page' not in st.session_state:
 if 'current_device' not in st.session_state:
     st.session_state.current_device = None
 
-# ========== MENU DE NAVIGATION ==========
+# ========== SUPPRIMER LE MENU PAR DÉFAUT DE STREAMLIT ==========
+hide_default_menu = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+</style>
+"""
+st.markdown(hide_default_menu, unsafe_allow_html=True)
+
+# ========== MENU DE NAVIGATION PERSONNALISÉ ==========
 def create_menu():
     # Style CSS pour le menu avec dégradé radial
     menu_style = """
     <style>
-    .stMenu {
+    .custom-menu {
         background-image: radial-gradient(circle at 0% 0%, #fbBDFA 0, transparent 55%), 
                           radial-gradient(circle at 100% 0%, #6cd4ff 0, transparent 50%), 
                           radial-gradient(circle at 20% 90%, #34d399 0, transparent 55%);
-        padding: 10px 0;
-        border-radius: 0;
+        padding: 15px 0;
+        margin-bottom: 20px;
+        width: 100%;
+        position: relative;
+    }
+    .menu-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .menu-links {
+        display: flex;
+        gap: 30px;
+    }
+    .menu-link {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        font-size: 16px;
+        padding: 5px 0;
+        transition: color 0.3s ease;
+    }
+    .menu-link:hover {
+        color: #000;
     }
     .profile-circle {
         width: 40px;
         height: 40px;
         background-color: #fff;
         border-radius: 50%;
-        float: right;
-        margin-right: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     </style>
     """
     
     st.markdown(menu_style, unsafe_allow_html=True)
     
-    current_page = st.session_state.page
-    
-    # Déterminer quelle page principale est active
-    is_accueil = current_page == "accueil"
-    is_medicofi = current_page in ["medicofi", "apnidoc", "design_folders", "device_images"]
-    is_portfolio = current_page == "pdf_viewer"
-    
-    # Menu avec profil
+    # Menu personnalisé avec dégradé
     st.markdown("""
-    <div style="background-image: radial-gradient(circle at 0% 0%, #fbBDFA 0, transparent 55%), 
-                radial-gradient(circle at 100% 0%, #6cd4ff 0, transparent 50%), 
-                radial-gradient(circle at 20% 90%, #34d399 0, transparent 55%); 
-                padding: 10px 0; margin-bottom: 20px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
-            <div style="display: flex; gap: 20px;">
-                <a href="?page=accueil" style="text-decoration: none; color: #333; font-weight: 500;">Accueil</a>
-                <a href="?page=medicofi" style="text-decoration: none; color: #333; font-weight: 500;">Medicofi</a>
-                <a href="?page=pdf_viewer" style="text-decoration: none; color: #333; font-weight: 500;">Portfolio</a>
-                <a href="https://apnidoc.fr/" target="_blank" style="text-decoration: none; color: #333; font-weight: 500;">Site Web</a>
+    <div class="custom-menu">
+        <div class="menu-content">
+            <div class="menu-links">
+                <a href="?page=accueil" class="menu-link">Accueil</a>
+                <a href="?page=medicofi" class="menu-link">Medicofi</a>
+                <a href="?page=pdf_viewer" class="menu-link">Portfolio</a>
+                <a href="https://apnidoc.fr/" target="_blank" class="menu-link">Site Web</a>
             </div>
             <div class="profile-circle"></div>
         </div>
