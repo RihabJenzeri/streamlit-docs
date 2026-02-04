@@ -72,7 +72,6 @@ header {visibility: hidden;}
     width: 170px;
     height: 165px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #FBBDFA, #6cd4ff);
     padding: 3px;
     border: 3px solid #FBBDFA; /* Bordure rose */
 }
