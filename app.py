@@ -360,25 +360,23 @@ def create_menu():
     current_page = st.session_state.page
     
     # Déterminer quelle page principale est active
-    main_section = "accueil"
-    if current_page in ["medicofi", "apnidoc", "design_folders", "device_images"]:
-        main_section = "medicofi"
-    elif current_page == "pdf_viewer":
-        main_section = "portfolio"
+    is_accueil = current_page == "accueil"
+    is_medicofi = current_page in ["medicofi", "apnidoc", "design_folders", "device_images"]
+    is_portfolio = current_page == "pdf_viewer"
     
     menu_html = f"""
     <div class="top-menu">
         <div class="menu-logo">🎨 RW PORTFOLIO</div>
         <div class="menu-links">
-            <div class="menu-item {'active' if main_section == 'accueil' else ''}" 
+            <div class="menu-item {'active' if is_accueil else ''}" 
                  onclick="window.location.href='?page=accueil'">
                 🏠 Accueil
             </div>
-            <div class="menu-item {'active' if main_section == 'medicofi' else ''}" 
+            <div class="menu-item {'active' if is_medicofi else ''}" 
                  onclick="window.location.href='?page=medicofi'">
                 🏥 Medicofi
             </div>
-            <div class="menu-item {'active' if main_section == 'portfolio' else ''}" 
+            <div class="menu-item {'active' if is_portfolio else ''}" 
                  onclick="window.location.href='?page=pdf_viewer'">
                 📄 Portfolio
             </div>
