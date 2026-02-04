@@ -4,7 +4,7 @@ import urllib.parse
 # ========== الإعدادات ==========
 GITHUB_USER = "RihabJenzeri"
 REPO_NAME = "streamlit-docs"
-BASE_URL = f"https://raw.githubusercontent.com/{GITHUB_USER}/{REPO_NAME}/main/"
+BASE_URL = f"https://raw.githubusercontent.com/{GITHAB_USER}/{REPO_NAME}/main/"
 
 # ========== حالة التطبيق ==========
 if 'page' not in st.session_state:
@@ -51,7 +51,7 @@ def create_menu():
         top: 0;
         left: 0;
         right: 0;
-        z-index: 1000;
+        z-index: 999;
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -64,7 +64,6 @@ def create_menu():
         border-radius: 50%;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         cursor: pointer;
-        z-index: 1001;
     }
     </style>
     """
@@ -126,37 +125,27 @@ if "page" in query_params:
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
-    # Ajouter l'image Behance Cover en PLEIN ÉCRAN comme un slider
+    # Ajouter l'image Behance Cover comme grand slider DIRECTEMENT sous le menu
+    # 100% largeur et 500px hauteur
     st.markdown(f"""
     <div style="
-        width: 100vw;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1;
+        width: 100%;
+        height: 500px;
+        margin-top: 60px;
         overflow: hidden;
+        background-color: #f5f5f5;
     ">
-        <img src="{behance_cover_url}" style="
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        ">
+        <img src="{behance_cover_url}" 
+             style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+             ">
     </div>
-    
-    <div style="
-        position: relative;
-        z-index: 2;
-        margin-top: calc(100vh - 40px);
-        background-color: white;
-        padding-top: 20px;
-        padding-bottom: 40px;
-    ">
     """, unsafe_allow_html=True)
     
-    st.markdown("<p class='caption-text' style='text-align: center; margin-top: 10px;'>Behance Cover</p>", unsafe_allow_html=True)
+    st.markdown("<p class='caption-text' style='text-align: center; margin-top: 10px; margin-bottom: 30px;'>Behance Cover</p>", unsafe_allow_html=True)
     
     st.title("📂 MES DOSSIERS")
     st.subheader("Portfolio Professionnel & Projets Design")
@@ -172,13 +161,8 @@ if st.session_state.page == "accueil":
         if st.button("📄 PORTFOLIO PDF", use_container_width=True):
             st.session_state.page = "pdf_viewer"
             st.rerun()
-    
-    st.markdown("</div>", unsafe_allow_html=True)
 
 elif st.session_state.page == "medicofi":
-    # Pour les autres pages, on ajoute un espace pour le menu
-    st.markdown("<div style='margin-top: 60px;'></div>", unsafe_allow_html=True)
-    
     if st.button("← RETOUR"):
         st.session_state.page = "accueil"
         st.rerun()
@@ -190,9 +174,6 @@ elif st.session_state.page == "medicofi":
         st.rerun()
 
 elif st.session_state.page == "apnidoc":
-    # Pour les autres pages, on ajoute un espace pour le menu
-    st.markdown("<div style='margin-top: 60px;'></div>", unsafe_allow_html=True)
-    
     if st.button("← RETOUR"):
         st.session_state.page = "medicofi"
         st.rerun()
@@ -211,9 +192,6 @@ elif st.session_state.page == "apnidoc":
         st.rerun()
 
 elif st.session_state.page == "design_folders":
-    # Pour les autres pages, on ajoute un espace pour le menu
-    st.markdown("<div style='margin-top: 60px;'></div>", unsafe_allow_html=True)
-    
     if st.button("← RETOUR"):
         st.session_state.page = "apnidoc"
         st.rerun()
@@ -251,9 +229,6 @@ elif st.session_state.page == "design_folders":
             st.rerun()
 
 elif st.session_state.page == "device_images":
-    # Pour les autres pages, on ajoute un espace pour le menu
-    st.markdown("<div style='margin-top: 60px;'></div>", unsafe_allow_html=True)
-    
     if st.button("← RETOUR"):
         st.session_state.page = "design_folders"
         st.session_state.current_device = None
@@ -279,9 +254,6 @@ elif st.session_state.page == "device_images":
             st.markdown("---")
 
 elif st.session_state.page == "pdf_viewer":
-    # Pour les autres pages, on ajoute un espace pour le menu
-    st.markdown("<div style='margin-top: 60px;'></div>", unsafe_allow_html=True)
-    
     if st.button("← RETOUR"):
         st.session_state.page = "accueil"
         st.rerun()
