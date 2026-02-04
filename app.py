@@ -15,23 +15,33 @@ if 'current_device' not in st.session_state:
 # ========== SUPPRIMER LE MENU PAR DÉFAUT DE STREAMLIT ET CHANGER LE BACKGROUND ==========
 hide_default_menu = """
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 header {visibility: hidden;}
 .stApp {
     background-color: white;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 .stButton > button {
     color: #666666;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .caption-text {
     color: #888888;
     font-size: 14px;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 /* Supprimer les marges et paddings par défaut */
 .block-container {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 /* Style pour le slide image */
 .slide-container {
@@ -70,10 +80,10 @@ header {visibility: hidden;}
 }
 .avatar-circle {
     width: 170px;
-    height: 165px;
+    height: 170px;
     border-radius: 50%;
     padding: 3px;
-    border: 3px solid #FBBDFA; /* Bordure rose */
+    border: 3px solid #202124; /* Bordure rose */
 }
 .avatar-image {
     width: 100%;
@@ -99,11 +109,13 @@ header {visibility: hidden;}
     font-weight: bold;
     margin-bottom: 8px;
     color: #202124 !important;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .profile-subtitle {
     font-size: 16px;
     color: #666666;
     margin-bottom: 20px;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .contact-links {
     display: flex;
@@ -120,6 +132,7 @@ header {visibility: hidden;}
     font-weight: 500;
     font-size: 14px;
     transition: all 0.3s ease;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .contact-email {
     background-color: rgba(251, 189, 250, 0.2);
@@ -137,6 +150,17 @@ header {visibility: hidden;}
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+
+/* Styles pour les titres Streamlit */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-weight: 600;
+}
+
+/* Styles pour le texte standard */
+p, div, span {
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -146,6 +170,8 @@ def create_menu():
     # Style CSS pour le menu avec dégradé radial
     menu_style = """
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+    
 .full-width-navbar {
     background:
     radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
@@ -163,6 +189,7 @@ def create_menu():
     align-items: center;
     justify-content: flex-end;
     padding-right: 20px;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
     .profile-circle-large {
         width: 45px;
@@ -171,6 +198,7 @@ def create_menu():
         border-radius: 50%;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         cursor: pointer;
+        font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
     </style>
     """
@@ -250,7 +278,7 @@ if st.session_state.page == "accueil":
                 <div class="status-dot"></div>
             </div>
             <div class="profile-info">
-                <h1 class="profile-title">Mon Portfolio</h1>
+                <h1 class="profile-title">My Portfolio</h1>
                 <p class="profile-subtitle">Designer & Développeuse Web Créative</p>
                 <div class="contact-links">
                     <a href="mailto:contact@example.com" class="contact-btn contact-email">
