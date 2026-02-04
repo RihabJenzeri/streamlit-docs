@@ -218,7 +218,7 @@ design_images = {
 }
 
 # URL pour les images
-behance_cover_url = get_image_url("Behance Cover.jpg")
+behance_cover_url = get_image_url("Behance Cover.jpeg")
 profile_image_url = get_image_url("image.png")
 flyer_url = get_image_url("Medicofi/Société ApniDoc (en France)/Flyer ApniDoc.png")
 pdf_url_raw = f"{BASE_URL}mes_documents/Portfolio%20Ines%20HARRABI%202024.pdf"
