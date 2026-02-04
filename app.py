@@ -42,8 +42,8 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     position: relative;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    margin-top: 60px;
-    height: 500px;
+        # margin-top: 60px;
+        # height: 500px;
     overflow: hidden;
 }
 .slide-image {
