@@ -27,6 +27,77 @@ st.markdown("""
         min-height: 100vh;
     }
     
+    /* ========== MENU DE NAVIGATION ========== */
+    .top-menu {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .menu-logo {
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    
+    .menu-links {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+    }
+    
+    .menu-item {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 10px 20px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+    }
+    
+    .menu-item:hover {
+        background: rgba(255,255,255,0.25);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .menu-item.active {
+        background: white;
+        color: #667eea;
+    }
+    
+    /* Menu mobile */
+    @media (max-width: 768px) {
+        .top-menu {
+            flex-direction: column;
+            gap: 20px;
+            padding: 15px 20px;
+        }
+        
+        .menu-links {
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
+        }
+        
+        .menu-item {
+            width: 100%;
+            text-align: center;
+        }
+    }
+    
     /* Banner Slider Styles */
     .banner-container {
         position: relative;
@@ -215,16 +286,6 @@ st.markdown("""
         box-shadow: 0 15px 40px rgba(33, 150, 243, 0.6);
     }
     
-    .website-btn {
-        background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
-        color: white;
-    }
-    
-    .website-btn:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(255, 152, 0, 0.6);
-    }
-    
     /* Website Link Section */
     .website-section {
         background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
@@ -270,43 +331,6 @@ st.markdown("""
         box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
     }
     
-    /* Device Folder Cards */
-    .device-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-        margin: 30px 0;
-    }
-    
-    .device-card {
-        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-        border-radius: 20px;
-        padding: 30px;
-        text-align: center;
-        border: 2px solid #333;
-        transition: all 0.3s ease;
-        cursor: pointer;
-    }
-    
-    .device-card:hover {
-        border-color: #667eea;
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-    }
-    
-    .device-icon {
-        font-size: 4rem;
-        margin-bottom: 20px;
-    }
-    
-    .device-name {
-        color: white;
-        font-size: 1.5rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-    
     /* Image Gallery */
     .image-gallery {
         display: grid;
@@ -330,6 +354,45 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+
+# ========== MENU DE NAVIGATION ==========
+def create_menu():
+    current_page = st.session_state.page
+    
+    # Déterminer quelle page principale est active
+    main_section = "accueil"
+    if current_page in ["medicofi", "apnidoc", "design_folders", "device_images"]:
+        main_section = "medicofi"
+    elif current_page == "pdf_viewer":
+        main_section = "portfolio"
+    
+    menu_html = f"""
+    <div class="top-menu">
+        <div class="menu-logo">🎨 RW PORTFOLIO</div>
+        <div class="menu-links">
+            <div class="menu-item {'active' if main_section == 'accueil' else ''}" 
+                 onclick="window.location.href='?page=accueil'">
+                🏠 Accueil
+            </div>
+            <div class="menu-item {'active' if main_section == 'medicofi' else ''}" 
+                 onclick="window.location.href='?page=medicofi'">
+                🏥 Medicofi
+            </div>
+            <div class="menu-item {'active' if main_section == 'portfolio' else ''}" 
+                 onclick="window.location.href='?page=pdf_viewer'">
+                📄 Portfolio
+            </div>
+            <div class="menu-item" 
+                 onclick="window.open('https://apnidoc.fr/', '_blank')">
+                🌐 Site Web
+            </div>
+        </div>
+    </div>
+    """
+    st.markdown(menu_html, unsafe_allow_html=True)
+
+# Afficher le menu sur toutes les pages
+create_menu()
 
 # ========== روابط الملفات ==========
 def get_image_url(path):
@@ -366,6 +429,11 @@ flyer_url = get_image_url("Medicofi/Société ApniDoc (en France)/Flyer ApniDoc.
 pdf_url_raw = f"{BASE_URL}mes_documents/Portfolio%20Ines%20HARRABI%202024.pdf"
 pdf_url_encoded = urllib.parse.quote(pdf_url_raw, safe='')
 google_viewer_url = f"https://docs.google.com/viewer?url={pdf_url_encoded}&embedded=true"
+
+# Gérer la navigation par paramètres URL
+query_params = st.query_params
+if "page" in query_params:
+    st.session_state.page = query_params["page"]
 
 # ========== الصفحات ==========
 if st.session_state.page == "accueil":
