@@ -67,84 +67,33 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(20px);
     border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.5);
-    padding: 30px;
+    padding: 32px;
     max-width: 900px;
-    margin: -100px auto 40px;
+    margin: -60px auto 30px auto;
     position: relative;
-    z-index: 10;
-}
-.profile-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-}
-@media (min-width: 768px) {
-    .profile-content {
-        flex-direction: row;
-        align-items: center;
-    }
 }
 .profile-avatar {
-    position: relative;
-}
-.profile-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #FBBDFA 0%, #9d4edd 100%);
-    padding: 4px;
-}
-.profile-image img {
-    width: 100%;
-    height: 100%;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
-.online-status {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    width: 20px;
-    height: 20px;
-    background-color: #34D399;
-    border-radius: 50%;
-    border: 3px solid white;
-}
-.profile-info {
-    text-align: center;
-    flex: 1;
-}
-@media (min-width: 768px) {
-    .profile-info {
-        text-align: left;
-    }
-}
-.profile-title {
+.profile-name {
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 700;
     color: #202124;
     margin-bottom: 8px;
 }
-.profile-subtitle {
-    color: #666666;
+.profile-title {
     font-size: 16px;
+    color: #666;
     margin-bottom: 20px;
 }
-.profile-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-}
-@media (min-width: 768px) {
-    .profile-links {
-        justify-content: flex-start;
-    }
-}
-.profile-link {
+.profile-button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -154,24 +103,37 @@ h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown, .stTitle {
     font-weight: 500;
     text-decoration: none;
     transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
-.contact-link {
-    background-color: rgba(251, 189, 250, 0.2);
+.profile-button-contact {
+    background: rgba(251, 189, 250, 0.2);
     color: #202124;
 }
-.contact-link:hover {
-    background-color: rgba(251, 189, 250, 0.4);
+.profile-button-contact:hover {
+    background: rgba(251, 189, 250, 0.4);
 }
-.social-link {
-    background-color: rgba(32, 33, 36, 0.05);
+.profile-button-social {
+    background: rgba(32, 33, 36, 0.05);
     color: #202124;
 }
-.social-link:hover {
-    background-color: rgba(32, 33, 36, 0.1);
+.profile-button-social:hover {
+    background: rgba(32, 33, 36, 0.1);
 }
-.icon {
-    width: 16px;
-    height: 16px;
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+@media (min-width: 640px) {
+    .profile-avatar {
+        width: 120px;
+        height: 120px;
+    }
+    .button-container {
+        justify-content: flex-start;
+    }
 }
 </style>
 """
@@ -252,9 +214,9 @@ design_images = {
     ]
 }
 
-# URL pour les images
+# URLs pour les images
 behance_cover_url = get_image_url("Behance Cover.jpg")
-profile_image_url = get_image_url("image.png")
+profile_image_url = get_image_url("image.png")  # Nouvelle image de profil
 flyer_url = get_image_url("Medicofi/Société ApniDoc (en France)/Flyer ApniDoc.png")
 pdf_url_raw = f"{BASE_URL}mes_documents/Portfolio%20Ines%20HARRABI%202024.pdf"
 pdf_url_encoded = urllib.parse.quote(pdf_url_raw, safe='')
@@ -271,47 +233,56 @@ if st.session_state.page == "accueil":
     st.markdown(f"""
     <div class="slide-container">
         <img src="{behance_cover_url}" class="slide-image">
-        <div class="slide-caption">Behance Cover</div>
     </div>
     """, unsafe_allow_html=True)
     
-    # Carte de profil
+    # Carte de profil avec l'image réelle
     st.markdown(f"""
     <div class="profile-card">
-        <div class="profile-content">
-            <div class="profile-avatar">
-                <div class="profile-image">
-                    <img src="{profile_image_url}" alt="Photo de profil">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 24px;">
+            <!-- Avatar avec image réelle -->
+            <div style="position: relative;">
+                <div style="width: 120px; height: 120px; border-radius: 50%; 
+                            background: linear-gradient(135deg, #FBBDFA, #9D4EDD); 
+                            padding: 4px;">
+                    <img src="{profile_image_url}" 
+                         class="profile-avatar" 
+                         alt="Photo de profil">
                 </div>
-                <div class="online-status"></div>
+                <div style="position: absolute; bottom: 5px; right: 5px; 
+                            width: 24px; height: 24px; 
+                            background-color: #34D399; 
+                            border-radius: 50%; 
+                            border: 3px solid white;"></div>
             </div>
-            <div class="profile-info">
-                <h1 class="profile-title">Mon Portfolio</h1>
-                <p class="profile-subtitle">Designer & Développeuse Web Créative</p>
-                <div class="profile-links">
-                    <a href="mailto:contact@example.com" class="profile-link contact-link">
-                        <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
-                        Contact
+            
+            <!-- Informations -->
+            <div style="text-align: center; width: 100%;">
+                <h1 class="profile-name">Mon Portfolio</h1>
+                <p class="profile-title">Designer & Développeuse Web Créative</p>
+                
+                <!-- Boutons -->
+                <div class="button-container">
+                    <a href="mailto:contact@example.com" 
+                       class="profile-button profile-button-contact">
+                       📧 Contact
                     </a>
-                    <a href="#" class="profile-link social-link">
-                        <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                        LinkedIn
+                    <a href="#" 
+                       class="profile-button profile-button-social">
+                       🔗 LinkedIn
                     </a>
-                    <a href="#" class="profile-link social-link">
-                        <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        GitHub
+                    <a href="#" 
+                       class="profile-button profile-button-social">
+                       🎨 GitHub
                     </a>
                 </div>
             </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
+    
+    # Espace après la carte
+    st.markdown("<div style='height: 40px;'></div>", unsafe_allow_html=True)
     
     # Contenu normal
     st.title("📂 MES DOSSIERS")
