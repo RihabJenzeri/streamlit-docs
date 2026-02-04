@@ -394,8 +394,6 @@ if st.session_state.page == "accueil":
     </div>
     """, unsafe_allow_html=True)
     
- # ... (le reste du code reste inchangé jusqu'à la section du contenu normal) ...
-
     # Espace après la carte de profil
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     
@@ -416,64 +414,27 @@ if st.session_state.page == "accueil":
             st.rerun()
     
     # NOUVELLE CARTE AVEC DÉGRADÉ RADIAL (en dessous)
-    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
-    
     st.markdown("""
     <div style="display: flex; justify-content: center;">
         <div class="gradient-card">
-            <h2 style="text-align: center; color: #202124; margin-bottom: 20px;">📂 MES DOSSIERS</h2>
-            <p style="text-align: center; color: #666666; margin-bottom: 30px;">Portfolio Professionnel & Projets Design</p>
-            
-            <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
-                <button onclick="location.href='?page=medicofi'" style="
-                    width: 80%;
-                    padding: 15px;
-                    background-color: #f5f5f5;
-                    border: 1px solid #e0e0e0;
-                    border-radius: 12px;
-                    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                    font-size: 16px;
-                    font-weight: 500;
-                    color: #202124;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    text-align: center;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 10px;
-                " onmouseover="this.style.backgroundColor='#fff2ff'; this.style.borderColor='#FBBDFA'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(251, 189, 250, 0.3)'"
-                onmouseout="this.style.backgroundColor='#f5f5f5'; this.style.borderColor='#e0e0e0'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                    🏥 MEDICOFI
-                </button>
-                
-                <button onclick="location.href='?page=pdf_viewer'" style="
-                    width: 80%;
-                    padding: 15px;
-                    background-color: #f5f5f5;
-                    border: 1px solid #e0e0e0;
-                    border-radius: 12px;
-                    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                    font-size: 16px;
-                    font-weight: 500;
-                    color: #202124;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    text-align: center;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 10px;
-                " onmouseover="this.style.backgroundColor='#fff2ff'; this.style.borderColor='#FBBDFA'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(251, 189, 250, 0.3)'"
-                onmouseout="this.style.backgroundColor='#f5f5f5'; this.style.borderColor='#e0e0e0'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                    📄 PORTFOLIO PDF
-                </button>
+            <h2 style="text-align: center; color: #202124; margin-bottom: 20px;">Mes Compétences</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                <div style="text-align: center; flex: 1; min-width: 200px;">
+                    <h3 style="color: #202124;">🎨 Design Graphique</h3>
+                    <p style="color: #666666;">Création d'identités visuelles, illustrations, maquettes web et print</p>
+                </div>
+                <div style="text-align: center; flex: 1; min-width: 200px;">
+                    <h3 style="color: #202124;">💻 UI/UX Design</h3>
+                    <p style="color: #666666;">Design d'interfaces utilisateur, expériences utilisateur optimisées</p>
+                </div>
+                <div style="text-align: center; flex: 1; min-width: 200px;">
+                    <h3 style="color: #202124;">📱 Développement Web</h3>
+                    <p style="color: #666666;">Sites web responsives, applications modernes, intégration</p>
+                </div>
             </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
-
-# ... (le reste du code reste inchangé) ...
 
 elif st.session_state.page == "medicofi":
     if st.button("← RETOUR"):
