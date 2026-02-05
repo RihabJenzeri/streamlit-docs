@@ -899,14 +899,11 @@ if st.button("DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_wid
 # Espace après la carte de profil
 st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
-# ⚠️ ICI - Pas de elif directement après ce bloc ! ⚠️
-# Le elif doit être au même niveau que les autres conditions if/elif
-
-# Le code correct devrait ressembler à :
-elif st.session_state.page == "design_folders":
+elif st.session_state.page == "design_folders":  # ⬅️ Ce elif est au bon niveau
     if st.button("←"):
         st.session_state.page = "apnidoc"
         st.rerun()
+        
 st.title("DESIGN INTERFACE WEB SITE APNIDOC")
 
 # Website Link Section
