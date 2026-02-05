@@ -227,7 +227,7 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
     transform: translateY(0);
     background-color: #f0e0ef;
 }
-.st-emotion-cache-2fgyt4 h3 {
+.st-emotion-cache-2fgyt4 h1 {
     font-size: 2.75rem;
     color: #202124;
     font-weight: 700;
