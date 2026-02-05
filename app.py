@@ -397,21 +397,37 @@ if st.session_state.page == "accueil":
     # Espace après la carte de profil
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     
-    # Contenu normal
-    st.title("📂 MES DOSSIERS")
-    st.subheader("Portfolio Professionnel & Projets Design")
-    
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        if st.button("🏥 MEDICOFI", use_container_width=True):
-            st.session_state.page = "medicofi"
-            st.rerun()
-    
-    with col2:
-        if st.button("📄 PORTFOLIO PDF", use_container_width=True):
-            st.session_state.page = "pdf_viewer"
-            st.rerun()
+   # Remplacez la section "Contenu normal" par ce code :
+
+# Contenu normal
+st.markdown("""
+<div style="display: flex; justify-content: center;">
+    <div class="gradient-card">
+        <h2 style="text-align: center; color: #202124; margin-bottom: 10px;">📂 MES DOSSIERS</h2>
+        <p style="text-align: center; color: #666666; margin-bottom: 25px;">Portfolio Professionnel & Projets Design</p>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# Conteneur pour centrer les boutons
+st.markdown('<div style="max-width: 1000px; margin: 0 auto; width: 90%;">', unsafe_allow_html=True)
+
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button("🏥 MEDICOFI", use_container_width=True):
+        st.session_state.page = "medicofi"
+        st.rerun()
+
+with col2:
+    if st.button("📄 PORTFOLIO PDF", use_container_width=True):
+        st.session_state.page = "pdf_viewer"
+        st.rerun()
+
+st.markdown('</div>', unsafe_allow_html=True)
+
+# Espace entre les sections
+st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     
     # NOUVELLE CARTE AVEC DÉGRADÉ RADIAL (en dessous)
     st.markdown("""
