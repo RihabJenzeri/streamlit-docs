@@ -62,7 +62,7 @@ header {visibility: hidden;}
     padding: 25px;
     margin: -30px auto 30px auto;
     max-width: 1000px;
-    width: 90%;
+    width: 1000%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -77,7 +77,7 @@ header {visibility: hidden;}
     padding: 25px;
     margin-bottom: 50px;
     max-width: 1000px;
-    width: 90%;
+    width: 1000%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -165,7 +165,7 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
 }
 /* Styles pour les boutons de contact */
 .contact-links {
-    display: flex;
+    # display: flex;
     flex-wrap: nowrap;
     gap: 10px;
     justify-content: flex-start;
@@ -470,7 +470,8 @@ if st.session_state.page == "accueil":
             </div>
     """, unsafe_allow_html=True)
     
-    # Utiliser des colonnes Streamlit pour créer les cartes
+  # SUPPRIMER LES PARENTHESES AU DÉBUT ET À LA FIN !
+# Utiliser des colonnes Streamlit pour créer les cartes
     col1, col2 = st.columns(2)
     
     # Carte MEDICOFI
@@ -528,7 +529,7 @@ if st.session_state.page == "accueil":
         if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
             st.session_state.page = "pdf_viewer"
             st.rerun()
-    
+            
     st.markdown("""
         </div>
     </div>
