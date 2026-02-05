@@ -750,36 +750,20 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        # Liste des 8 boutons pour MEDICOFI avec sous-titres
+        # Liste des 8 boutons pour MEDICOFI
         projects_medicofi = [
-            ("Apnidoc company", "Based In France", "apnidoc"),
-            ("PROJET MEDICOFI 2", "Based In France", "medicofi2"),
-            ("PROJET MEDICOFI 3", "Based In France", "medicofi3"),
-            ("PROJET MEDICOFI 4", "Based In France", "medicofi4"),
-            ("PROJET MEDICOFI 5", "Based In France", "medicofi5"),
-            ("PROJET MEDICOFI 6", "Based In France", "medicofi6"),
-            ("PROJET MEDICOFI 7", "Based In France", "medicofi7"),
-            ("PROJET MEDICOFI 8", "Based In France", "medicofi8")
+            ("Apnidoc company", "apnidoc"),
+            ("PROJET MEDICOFI 2", "medicofi2"),
+            ("PROJET MEDICOFI 3", "medicofi3"),
+            ("PROJET MEDICOFI 4", "medicofi4"),
+            ("PROJET MEDICOFI 5", "medicofi5"),
+            ("PROJET MEDICOFI 6", "medicofi6"),
+            ("PROJET MEDICOFI 7", "medicofi7"),
+            ("PROJET MEDICOFI 8", "medicofi8")
         ]
 
-        for title, subtitle, page_key in projects_medicofi:
-            # Utiliser du HTML pour créer un bouton personnalisé
-            button_html = f"""
-            <div style="width: 100%; margin-bottom: 8px;">
-                <div style="font-size: 16px; font-weight: 600; margin-bottom: 2px; text-align: center;">{title}</div>
-                <div style="font-size: 12px; color: #666; text-align: center;">{subtitle}</div>
-            </div>
-            """
-            
-            # Créer un conteneur pour le bouton stylisé
-            container = st.container()
-            container.markdown(button_html, unsafe_allow_html=True)
-            
-            # Bouton invisible qui couvre toute la zone
-            if container.button(f"Go to {page_key}", 
-                                use_container_width=True, 
-                                key=f"medicofi_{page_key}",
-                                type="secondary"):
+        for project_name, page_key in projects_medicofi:
+            if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
                 st.session_state.page = page_key
                 st.rerun()
 
