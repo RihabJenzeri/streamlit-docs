@@ -474,26 +474,24 @@ if st.session_state.page == "accueil":
     
     # Carte MEDICOFI
     with col1:
-       st.markdown("""
+        st.markdown("""
         <div class="folder-card">
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="3" y1="9" x2="21" y2="9"></line>
-                        <line x1="9" y1="21" x2="9" y2="9"></line>
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                     </svg>
                 </div>
                 <div style="flex: 1;">
                     <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">Mes Nouveaux Travaux</h3>
-                    <p style="color: #888; margin: 0; font-size: 14px;">Applications et projets récents</p>
+                <p style="color: #888; margin: 0; font-size: 14px;">Applications et projets récents</p>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </div>
         </div>
-        """)
+        """, unsafe_allow_html=True)
         
         # Bouton MEDICOFI avec JavaScript pour appliquer le style
         if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
