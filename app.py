@@ -304,6 +304,72 @@ p, div, span {
     margin-top: 20px;
     width: 100%;
 }
+# Ajoutez ce code dans votre section hide_default_menu, avant </style>
+
+/* Style spécifique pour le bouton MEDICOFI avec icône */
+.medicofi-button-container {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.medicofi-button-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(251, 189, 250, 0.25);
+    border-color: #FBBDFA;
+}
+
+.medicofi-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.medicofi-icon {
+    background: linear-gradient(135deg, #FFE8F0 0%, #FFD6E8 100%);
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    height: 60px;
+}
+
+.medicofi-text {
+    flex: 1;
+}
+
+.medicofi-title {
+    color: #202124;
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.medicofi-subtitle {
+    color: #888;
+    margin: 0;
+    font-size: 14px;
+}
+
+.medicofi-arrow {
+    margin-left: auto;
+}
+# Ajoutez dans votre section <style>
+
+/* Rendre le bouton MEDICOFI transparent mais cliquable */
+div[data-testid="column"]:nth-child(1) button[kind="primary"] {
+    position: relative;
+    top: -100px;
+    opacity: 0;
+    height: 100px;
+    cursor: pointer;
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -471,32 +537,33 @@ if st.session_state.page == "accueil":
     
     # Utiliser des colonnes Streamlit pour créer les cartes
     col1, col2 = st.columns(2)
-    
-    # Carte MEDICOFI
-    with col1:
-        st.markdown("""
-        <div class="folder-card">
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
-                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                    </svg>
-                </div>
-                <div style="flex: 1;">
-                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">MEDICOFI</h3>
-                    <p style="color: #888; margin: 0; font-size: 14px;">Application de gestion médicale</p>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
+        
+# Carte MEDICOFI
+with col1:
+    # Affichage de la carte stylisée
+    st.markdown("""
+    <div class="medicofi-button-container">
+        <div class="medicofi-content">
+            <div class="medicofi-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E91E63" stroke-width="2">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                 </svg>
             </div>
+            <div class="medicofi-text">
+                <h3 class="medicofi-title">MEDICOFI</h3>
+                <p class="medicofi-subtitle">Application de gestion médicale</p>
+            </div>
+            <svg class="medicofi-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
         </div>
-        """, unsafe_allow_html=True)
-        
-        # Bouton MEDICOFI avec JavaScript pour appliquer le style
-        if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
-            st.session_state.page = "medicofi"
-            st.rerun()
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Bouton invisible par-dessus pour la fonctionnalité
+    if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
+        st.session_state.page = "medicofi"
+        st.rerun()
     
     # Carte PORTFOLIO PDF
     with col2:
