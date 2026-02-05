@@ -902,7 +902,10 @@ elif st.session_state.page == "design_folders":
     </div>
     """, unsafe_allow_html=True)
     
-    st.write("(Le site web est déjà en ligne, mais il est toujours en cours de développement.)")
+    st.write(
+        '<span style="color: #666666;">Le site web est déjà en ligne, mais il est toujours en cours de développement.</span>',
+        unsafe_allow_html=True
+    )
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 8px; margin: 15px 0;">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0563C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
