@@ -622,6 +622,7 @@ if st.session_state.page == "accueil":
 
     # Espace entre les sections
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    
     elif st.session_state.page == "medicofi":
     if st.button("← RETOUR"):
         st.session_state.page = "accueil"
