@@ -868,7 +868,7 @@ elif st.session_state.page == "apnidoc":
 
     st.markdown("---")
 
- # Design Interface Button - Modifié avec SVG
+    # Design Interface Button
     if st.button("DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_width=True):
         st.session_state.page = "design_folders"
         st.rerun()
@@ -878,36 +878,13 @@ elif st.session_state.page == "design_folders":
         st.session_state.page = "apnidoc"
         st.rerun()
 
-    st.title("""<div style="display: flex; align-items: center; gap: 10px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                    <line x1="3" y1="9" x2="21" y2="9"/>
-                    <line x1="9" y1="21" x2="9" y2="9"/>
-                </svg>
-                DESIGN INTERFACE WEB SITE APNIDOC
-                </div>""", unsafe_allow_html=True)
+    st.title("🎨 DESIGN INTERFACE WEB SITE APNIDOC")
 
     # Website Link Section
     st.markdown("---")
-    st.markdown("""<div style="display: flex; align-items: center; gap: 10px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <line x1="2" y1="12" x2="22" y2="12"/>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                </svg>
-                <h3>Site Web ApniDoc</h3>
-                </div>""", unsafe_allow_html=True)
-    
+    st.markdown("### 🌐 Site Web ApniDoc")
     st.write("(Le site web est déjà en ligne, mais il est toujours en cours de développement.)")
-    
-    st.markdown("""<div style="display: flex; align-items: center; gap: 8px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-                </svg>
-                <a href="https://apnidoc.fr/" target="_blank" style="color: #202124; text-decoration: none; font-weight: 500;">Visiter https://apnidoc.fr/</a>
-                </div>""", unsafe_allow_html=True)
-    
+    st.markdown("🔗 **[Visiter https://apnidoc.fr/](https://apnidoc.fr/)**")
     st.markdown("---")
 
     # Device Selection
