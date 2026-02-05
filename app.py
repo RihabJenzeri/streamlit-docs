@@ -927,7 +927,7 @@ elif st.session_state.page == "design_folders":
     st.write("(Le site web est déjà en ligne, mais il est toujours en cours de développement.)")
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 8px; margin: 15px 0;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0563C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
         </svg>
@@ -939,10 +939,10 @@ elif st.session_state.page == "design_folders":
 
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 8px; margin: 15px 0;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="6" width="20" height="12" rx="2"/>
-            <line x1="2" y1="12" x2="22" y2="12"/>
-        </svg>
+        # <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        #     <rect x="2" y="6" width="20" height="12" rx="2"/>
+        #     <line x1="2" y1="12" x2="22" y2="12"/>
+        # </svg>
         <span style="color: #202124; text-decoration: none; font-weight: 500; font-size: 16px;">Forma Responsive</span>
     </div>
     """, unsafe_allow_html=True)
