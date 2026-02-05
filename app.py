@@ -696,49 +696,57 @@ elif st.session_state.page == "medicofi":
                 st.session_state.page = page_key
                 st.rerun()
     
-    # Colonne 2: FREELANCE
-    with col2:
-        st.markdown(f"""
+   # Colonne 2: FREELANCE
+with col2:
+    st.markdown(f"""
+    <div style="
+        background:
+            radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
+            radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
+            radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
+            #fdfefe;
+        border-radius: 20px;
+        padding: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 18px 40px rgba(17, 24, 39, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 250px;
+    ">
         <div style="
-            background:
-                radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
-                radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
-                radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
-                #fdfefe;
-            border-radius: 20px;
-            padding: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 18px 40px rgba(17, 24, 39, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 250px;
+            width: 200px;
+            height: 160px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 5px;
+            border: 2px solid white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            /* Responsive pour mobile */
+            @media (max-width: 768px) {{
+                width: 140px;
+                height: 110px;
+            }}
+            @media (max-width: 480px) {{
+                width: 120px;
+                height: 90px;
+            }}
         ">
-            <div style="
-                width: 200px;
-                height: 160px;
-                border-radius: 12px;  /* Arrondi des coins */
-                overflow: hidden;
-                margin-bottom: 5px;
-                border: 2px solid white;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            ">
-                <img src="{card_image_url}" 
-                     style="width: 100%; height: 100%; object-fit: cover;"
-                     alt="FREELANCE">
-            </div>
-            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;">
-                FREELANCE
-            </h3>
-            <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
-                Projets indépendants
-            </p>
+            <img src="{card_image_url}" 
+                 style="width: 100%; height: 100%; object-fit: cover;"
+                 alt="FREELANCE">
         </div>
-        """, unsafe_allow_html=True)
-        
+        <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;">
+            FREELANCE
+        </h3>
+        <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
+            Projets indépendants
+        </p>
+    </div>
+    """, unsafe_allow_html=True)        
         if st.button("PROJETS FREELANCE", use_container_width=True, key="freelance_btn"):
             st.session_state.page = "freelance"
             st.rerun()
