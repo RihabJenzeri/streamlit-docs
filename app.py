@@ -461,30 +461,6 @@ if st.session_state.page == "accueil":
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     
     # NOUVELLE CARTE MES DOSSIERS avec boutons intégrés
-         st.markdown("""
-        <div style="display: flex; justify-content: center;">
-            <div class="gradient-card" style="padding: 40px 30px; text-align: center;">
-                <p style="color: #666666; font-size: 16px; max-width: 700px; margin: 0 auto;">
-                    As my Behance portfolio is currently being updated, I have gathered here a selected overview of my work.
-                    Below, you will find a PDF featuring my earlier projects, along with a folder showcasing my most recent work.
-                </p>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        st.markdown("<div style='height: 20px'></div>", unsafe_allow_html=True)
-        
-        col_left, col_center, col_right = st.columns([1, 2, 1])
-        
-        with col_center:
-            if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
-                st.session_state.page = "medicofi"
-                st.rerun()
-        
-            st.markdown("<div style='height: 10px'></div>", unsafe_allow_html=True)
-        
-            if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
-                st.session_state.page = "pdf_viewer"
-                st.rerun()
 
     # Utiliser des colonnes Streamlit pour créer les cartes
     col1, col2 = st.columns(2)
