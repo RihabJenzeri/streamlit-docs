@@ -305,6 +305,75 @@ p, div, span {
     margin-top: 20px;
     width: 100%;
 }
+.card-module {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.card-module:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(251, 189, 250, 0.25) !important;
+    border-color: #FBBDFA !important;
+}
+
+.card-layout {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-wrapper {
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.icon-wrapper.medicofi {
+    background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%);
+}
+
+.icon-wrapper.pdf {
+    background: linear-gradient(135deg, #E8F4FF 0%, #D6EBFF 100%);
+}
+
+.icon-size-md {
+    width: 28px;
+    height: 28px;
+}
+
+.icon-size-sm {
+    width: 20px;
+    height: 20px;
+}
+
+.card-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.card-header {
+    color: #202124;
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card-subtitle {
+    color: #888;
+    margin: 0;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -471,36 +540,37 @@ if st.session_state.page == "accueil":
     """, unsafe_allow_html=True)
 
   # SUPPRIMER LES PARENTHESES AU DÉBUT ET À LA FIN !
+  # Utiliser des colonnes Streamlit pour créer les cartes
 # Utiliser des colonnes Streamlit pour créer les cartes
-    col1, col2 = st.columns(2)
+col1, col2 = st.columns(2)
 
-    # Carte MEDICOFI
-    with col1:
-        st.markdown("""
-        <div class="card-module">
-            <div class="card-layout">
-                <div class="icon-wrapper medicofi">
-                    <svg class="icon-size-md" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                </div>
-                <div class="card-content">
-                    <div class="card-header">Mes Nouveaux Travaux</div>
-                    <div class="card-subtitle">Applications et projets récents</div>
-                </div>
-                <svg class="icon-size-sm" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
+# Carte MEDICOFI
+with col1:
+    st.markdown("""
+    <div class="card-module">
+        <div class="card-layout">
+            <div class="icon-wrapper medicofi">
+                <svg class="icon-size-md" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                 </svg>
             </div>
+            <div class="card-content">
+                <div class="card-header">Mes Nouveaux Travaux</div>
+                <div class="card-subtitle">Applications et projets récents</div>
+            </div>
+            <svg class="icon-size-sm" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
         </div>
-        """, unsafe_allow_html=True)
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Bouton MEDICOFI
+    if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
+        st.session_state.page = "medicofi"
+        st.rerun()
 
-        # Bouton MEDICOFI
-        if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
-            st.session_state.page = "medicofi"
-            st.rerun()
-
-   # Carte PORTFOLIO PDF
+# Carte PORTFOLIO PDF
 with col2:
     st.markdown("""
     <div class="card-module">
@@ -524,82 +594,11 @@ with col2:
         </div>
     </div>
     """, unsafe_allow_html=True)
-
-        # Bouton PORTFOLIO PDF
-        if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
-            st.session_state.page = "pdf_viewer"
-            st.rerun()
-        st.markdown("""
-    <style>
-    /* Système de design modulaire */
-    .card-module {
-        background: white;
-        border-radius: 15px;
-        padding: 25px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        transition: all 0.3s ease;
-        border: 1px solid #f0f0f0;
-        width: 100%;
-    }
     
-    .card-module:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(251, 189, 250, 0.25);
-        border-color: #FBBDFA;
-    }
-    
-    .card-layout {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-    
-    .icon-wrapper {
-        padding: 15px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-    }
-    
-    .icon-wrapper.medicofi {
-        background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%);
-    }
-    
-    .icon-wrapper.pdf {
-        background: linear-gradient(135deg, #E8F4FF 0%, #D6EBFF 100%);
-    }
-    
-    .icon-size-md {
-        width: 28px;
-        height: 28px;
-    }
-    
-    .icon-size-sm {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .card-content {
-        flex: 1;
-        min-width: 0;
-    }
-    
-    .card-header {
-        color: #202124;
-        margin: 0 0 5px 0;
-        font-size: 18px;
-        font-weight: 600;
-    }
-    
-    .card-subtitle {
-        color: #888;
-        margin: 0;
-        font-size: 14px;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+    # Bouton PORTFOLIO PDF
+    if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
+        st.session_state.page = "pdf_viewer"
+        st.rerun()
 
     st.markdown("""
         </div>
