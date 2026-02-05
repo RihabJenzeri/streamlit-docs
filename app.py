@@ -82,87 +82,89 @@ header {visibility: hidden;}
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-/* STYLE SPÉCIFIQUE POUR LES BOUTONS "Ouvrir MEDICOFI" ET "Ouvrir PORTFOLIO PDF" */
-div[data-testid="column"]:nth-child(1) .st-emotion-cache-1anq8dj,
-div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj {
-    background: 
-        radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
-        radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
-        #fdfefe !important;
-    color: #202124 !important;
-    border: 1px solid rgba(251, 189, 250, 0.5) !important;
-    font-weight: 600 !important;
-    transition: all 0.3s ease !important;
-    margin-top: 15px !important;
-}
-
-div[data-testid="column"]:nth-child(1) .st-emotion-cache-1anq8dj:hover,
-div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:hover {
-    box-shadow: 0 5px 15px rgba(251, 189, 250, 0.4) !important;
-    transform: translateY(-2px) !important;
-    border-color: rgba(251, 189, 250, 0.8) !important;
-}
-
-div[data-testid="column"]:nth-child(1) .st-emotion-cache-1anq8dj:active,
-div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
-    transform: translateY(0) !important;
-}
-
-/* Alternative plus directe avec JavaScript injection */
-.st-emotion-cache-tn0cau {
-    gap: 0.61rem !important;
-}
-.profile-content {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-.profile-avatar {
-    position: relative;
-    min-width: 120px;
-    flex-shrink: 0;
-}
-.avatar-circle {
-    width: 170px;
-    height: 170px;
-    border-radius: 50%;
-    padding: 3px;
-    border: 3px solid #E4E4E4;
-}
-.avatar-image {
+/* Styles pour les cartes de dossiers */
+.folder-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #f0f0f0;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
 }
-.status-dot {
+.folder-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(251, 189, 250, 0.25) !important;
+    border-color: #FBBDFA !important;
+}
+
+/* Style pour les boutons invisibles des cartes */
+.invisible-button {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    width: 20px;
-    height: 20px;
-    background-color: #34D399;
-    border-radius: 50%;
-    border: 4px solid white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
 }
-.profile-info {
-    flex: 1;
-    min-width: 0;
+
+/* Style pour le contenu de la carte */
+.card-content {
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
 }
-.profile-title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #202124 !important;
-    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+@media (max-width: 768px) {
+    .profile-card, .gradient-card {
+        max-width: 95%;
+        padding: 20px;
+    }
+    
+    .profile-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .contact-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .contact-btn {
+        flex: 0 0 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+    }
+    
+    .cards-grid-container {
+        grid-template-columns: 1fr !important;
+    }
 }
-.profile-subtitle {
-    font-size: 16px;
-    color: #666666;
-    margin-bottom: 20px;
-    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+/* Styles pour les titres Streamlit */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-weight: 600;
 }
+
+/* Styles pour le texte standard */
+p, div, span {
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
 /* Styles pour les boutons de contact */
 .contact-links {
     display: flex;
@@ -227,73 +229,55 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
     background-color: #f0e0ef;
 }
 
-/* Ajustement pour les écrans plus petits */
-@media (max-width: 768px) {
-    .profile-card, .gradient-card {
-        max-width: 95%;
-        padding: 20px;
-    }
-    
-    .profile-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    
-    .contact-links {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .contact-btn {
-        flex: 0 0 calc(50% - 10px);
-        max-width: calc(50% - 10px);
-    }
+.profile-content {
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
-
-/* Styles pour les titres Streamlit */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-    font-weight: 600;
+.profile-avatar {
+    position: relative;
+    min-width: 120px;
+    flex-shrink: 0;
 }
-
-/* Styles pour le texte standard */
-p, div, span {
-    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+.avatar-circle {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    padding: 3px;
+    border: 3px solid #E4E4E4;
 }
-
-/* Styles pour les cartes de dossiers */
-.folder-card {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: 1px solid #f0f0f0;
+.avatar-image {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    border-radius: 50%;
+    object-fit: cover;
 }
-.folder-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(251, 189, 250, 0.25) !important;
-    border-color: #FBBDFA !important;
+.status-dot {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: #34D399;
+    border-radius: 50%;
+    border: 4px solid white;
 }
-
-@media (max-width: 768px) {
-    .cards-grid {
-        grid-template-columns: 1fr !important;
-    }
+.profile-info {
+    flex: 1;
+    min-width: 0;
 }
-
-/* Style pour les boutons de carte */
-.card-button {
-    all: unset;
-    width: 100%;
-    cursor: pointer;
+.profile-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #202124 !important;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.profile-subtitle {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /* Style pour le conteneur de grille */
@@ -460,7 +444,7 @@ if st.session_state.page == "accueil":
     # Espace après la carte de profil
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     
-    # NOUVELLE CARTE MES DOSSIERS avec boutons intégrés
+    # NOUVELLE CARTE MES DOSSIERS avec cartes cliquables
     st.markdown("""
     <div style="display: flex; justify-content: center;">
         <div class="gradient-card" style="padding: 40px 30px;">
@@ -478,245 +462,123 @@ if st.session_state.page == "accueil":
     # Utiliser des colonnes Streamlit pour créer les cartes
     col1, col2 = st.columns(2)
     
-    # Carte MEDICOFI
+    # Carte MEDICOFI cliquable
     with col1:
-        st.markdown("""
-        <div class="folder-card">
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
-                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                    </svg>
-                </div>
-                <div style="flex: 1;">
-                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">MEDICOFI</h3>
-                    <p style="color: #888; margin: 0; font-size: 14px;">Application de gestion médicale</p>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        # Créer un conteneur
+        medicofi_container = st.container()
         
-        # Bouton MEDICOFI avec JavaScript pour appliquer le style
-        if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
-            st.session_state.page = "medicofi"
-            st.rerun()
+        with medicofi_container:
+            # Bouton invisible qui couvre toute la carte
+            if st.button("", key="medicofi_card_invisible", help="Cliquez pour ouvrir MEDICOFI"):
+                st.session_state.page = "medicofi"
+                st.rerun()
+            
+            # Contenu de la carte
+            st.markdown("""
+            <div class="card-content">
+                <div class="folder-card">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">MEDICOFI</h3>
+                            <p style="color: #888; margin: 0; font-size: 14px;">Application de gestion médicale</p>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
     
-    # Carte PORTFOLIO PDF
+    # Carte PORTFOLIO PDF cliquable
     with col2:
-        st.markdown("""
-        <div class="folder-card">
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <div style="background: linear-gradient(135deg, #E8F4FF 0%, #D6EBFF 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14,2 14,8 20,8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <polyline points="10,9 9,9 8,9"/>
-                    </svg>
-                </div>
-                <div style="flex: 1;">
-                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">PORTFOLIO PDF</h3>
-                    <p style="color: #888; margin: 0; font-size: 14px;">Mon portfolio en version PDF</p>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        # Créer un conteneur
+        pdf_container = st.container()
         
-        # Bouton PORTFOLIO PDF
-        if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
-            st.session_state.page = "pdf_viewer"
-            st.rerun()
+        with pdf_container:
+            # Bouton invisible qui couvre toute la carte
+            if st.button("", key="pdf_card_invisible", help="Cliquez pour ouvrir le PDF"):
+                st.session_state.page = "pdf_viewer"
+                st.rerun()
+            
+            # Contenu de la carte
+            st.markdown("""
+            <div class="card-content">
+                <div class="folder-card">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="background: linear-gradient(135deg, #E8F4FF 0%, #D6EBFF 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10,9 9,9 8,9"/>
+                            </svg>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">PORTFOLIO PDF</h3>
+                            <p style="color: #888; margin: 0; font-size: 14px;">Mon portfolio en version PDF</p>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
     
     st.markdown("""
         </div>
     </div>
     """, unsafe_allow_html=True)
     
-    # Injection JavaScript pour cibler les boutons spécifiques
+    # Style supplémentaire pour les boutons invisibles
     st.markdown("""
-    <script>
-    // Attendre que la page soit chargée
-    setTimeout(function() {
-        // Trouver tous les boutons avec la classe spécifique
-        const buttons = document.querySelectorAll('.st-emotion-cache-1anq8dj');
-        
-        // Appliquer le style aux boutons dans les colonnes
-        buttons.forEach((button, index) => {
-            // Vérifier si le bouton est dans la première ou deuxième colonne
-            const parentColumn = button.closest('[data-testid="column"]');
-            if (parentColumn) {
-                const columnIndex = Array.from(parentColumn.parentElement.children).indexOf(parentColumn);
-                
-                // Appliquer le style seulement aux boutons des deux premières colonnes
-                if (columnIndex === 0 || columnIndex === 1) {
-                    button.style.background = 'radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%), radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%), radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%), #fdfefe';
-                    button.style.color = '#202124';
-                    button.style.border = '1px solid rgba(251, 189, 250, 0.5)';
-                    button.style.fontWeight = '600';
-                    
-                    // Ajouter les effets hover
-                    button.addEventListener('mouseenter', function() {
-                        this.style.boxShadow = '0 5px 15px rgba(251, 189, 250, 0.4)';
-                        this.style.transform = 'translateY(-2px)';
-                        this.style.borderColor = 'rgba(251, 189, 250, 0.8)';
-                    });
-                    
-                    button.addEventListener('mouseleave', function() {
-                        this.style.boxShadow = '';
-                        this.style.transform = '';
-                        this.style.borderColor = 'rgba(251, 189, 250, 0.5)';
-                    });
-                    
-                    button.addEventListener('mousedown', function() {
-                        this.style.transform = 'translateY(0)';
-                    });
-                    
-                    button.addEventListener('mouseup', function() {
-                        this.style.transform = 'translateY(-2px)';
-                    });
-                }
-            }
-        });
-    }, 1000); // Délai pour s'assurer que tout est chargé
-    </script>
+    <style>
+    /* Positionnement des boutons invisibles */
+    div[data-testid="column"]:nth-child(1) button[kbd="medicofi_card_invisible"],
+    div[data-testid="column"]:nth-child(2) button[kbd="pdf_card_invisible"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 10;
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: transparent;
+    }
+    
+    /* Positionnement relatif des conteneurs */
+    div[data-testid="column"]:nth-child(1) > div,
+    div[data-testid="column"]:nth-child(2) > div {
+        position: relative;
+    }
+    
+    /* Effet hover sur toute la carte */
+    div[data-testid="column"]:nth-child(1) button[kbd="medicofi_card_invisible"]:hover ~ .card-content .folder-card,
+    div[data-testid="column"]:nth-child(2) button[kbd="pdf_card_invisible"]:hover ~ .card-content .folder-card {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(251, 189, 250, 0.25) !important;
+        border-color: #FBBDFA !important;
+    }
+    
+    /* Animation de clic */
+    div[data-testid="column"]:nth-child(1) button[kbd="medicofi_card_invisible"]:active ~ .card-content .folder-card,
+    div[data-testid="column"]:nth-child(2) button[kbd="pdf_card_invisible"]:active ~ .card-content .folder-card {
+        transform: translateY(-2px);
+    }
+    </style>
     """, unsafe_allow_html=True)
-    # ... (votre code existant) ...
-
-# NOUVELLE CARTE MES DOSSIERS avec boutons intégrés
-st.markdown("""
-<div style="display: flex; justify-content: center;">
-    <div class="gradient-card" style="padding: 40px 30px;">
-        <div style="text-align: center; margin-bottom: 35px;">
-            <h2 style="color: #202124; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-                </svg>
-                MES DOSSIERS
-            </h2>
-            <p style="color: #666666; font-size: 16px;">Portfolio Professionnel & Projets Design</p>
-        </div>
-""", unsafe_allow_html=True)
-
-# Utiliser des colonnes Streamlit pour créer les cartes
-col1, col2 = st.columns(2)
-
-# Carte MEDICOFI - Version avec bouton transparent
-with col1:
-    # Créer un conteneur pour la carte
-    medicofi_container = st.container()
     
-    with medicofi_container:
-        # Bouton invisible qui couvre toute la carte
-        if st.button("", key="medicofi_card_invisible", help="Cliquez pour ouvrir MEDICOFI"):
-            st.session_state.page = "medicofi"
-            st.rerun()
-        
-        # Contenu de la carte (superposé au bouton)
-        st.markdown("""
-        <div style="position: relative; z-index: 1; pointer-events: none;">
-            <div class="folder-card">
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                        </svg>
-                    </div>
-                    <div style="flex: 1;">
-                        <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">MEDICOFI</h3>
-                        <p style="color: #888; margin: 0; font-size: 14px;">Application de gestion médicale</p>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-# Carte PORTFOLIO PDF - Version avec bouton transparent
-with col2:
-    # Créer un conteneur pour la carte
-    pdf_container = st.container()
-    
-    with pdf_container:
-        # Bouton invisible qui couvre toute la carte
-        if st.button("", key="pdf_card_invisible", help="Cliquez pour ouvrir le PDF"):
-            st.session_state.page = "pdf_viewer"
-            st.rerun()
-        
-        # Contenu de la carte (superposé au bouton)
-        st.markdown("""
-        <div style="position: relative; z-index: 1; pointer-events: none;">
-            <div class="folder-card">
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <div style="background: linear-gradient(135deg, #E8F4FF 0%, #D6EBFF 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                            <polyline points="14,2 14,8 20,8"/>
-                            <line x1="16" y1="13" x2="8" y2="13"/>
-                            <line x1="16" y1="17" x2="8" y2="17"/>
-                            <polyline points="10,9 9,9 8,9"/>
-                        </svg>
-                    </div>
-                    <div style="flex: 1;">
-                        <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">PORTFOLIO PDF</h3>
-                        <p style="color: #888; margin: 0; font-size: 14px;">Mon portfolio en version PDF</p>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-# Style pour rendre les boutons invisibles et les positionner
-st.markdown("""
-<style>
-/* Style pour les boutons invisibles des cartes */
-div[data-testid="column"]:nth-child(1) button[kbd="medicofi_card_invisible"],
-div[data-testid="column"]:nth-child(2) button[kbd="pdf_card_invisible"] {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 2;
-    margin: 0;
-    padding: 0;
-    border: none;
-    background: transparent;
-}
-
-/* Ajuster le positionnement des conteneurs */
-div[data-testid="column"]:nth-child(1) > div,
-div[data-testid="column"]:nth-child(2) > div {
-    position: relative;
-}
-
-/* Effet hover sur toute la carte */
-div[data-testid="column"]:nth-child(1) button[kbd="medicofi_card_invisible"]:hover + div .folder-card,
-div[data-testid="column"]:nth-child(2) button[kbd="pdf_card_invisible"]:hover + div .folder-card {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(251, 189, 250, 0.25) !important;
-    border-color: #FBBDFA !important;
-}
-</style>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-    </div>
-</div>
-""", unsafe_allow_html=True)
-
-# ... (le reste de votre code) ...
     # Espace entre les sections
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
