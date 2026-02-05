@@ -629,11 +629,98 @@ elif st.session_state.page == "medicofi":
         st.rerun()
     
     st.title("MEDICOFI")
+    
+    # Créer trois colonnes
+    col1, col2, col3 = st.columns(3)
+    
+    # Colonne 1: MEDICOFI
+    with col1:
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, rgba(251, 189, 250, 0.1) 0%, rgba(108, 212, 255, 0.1) 100%);
+                    border-radius: 15px; padding: 20px; text-align: center; margin-bottom: 15px; height: 180px;
+                    display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="background: white; width: 60px; height: 60px; border-radius: 12px; 
+                        display: flex; align-items: center; justify-content: center; margin-bottom: 15px;
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff80bd" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 16px; font-weight: 600;">MEDICOFI</h3>
+            <p style="color: #666; margin: 0; font-size: 14px;">Société ApniDoc</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        if st.button("SOCIÉTÉ APNIDOC (EN FRANCE)", use_container_width=True, key="medicofi_btn"):
+            st.session_state.page = "apnidoc"
+            st.rerun()
+    
+    # Colonne 2: FREELANCE
+    with col2:
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, rgba(229, 255, 232, 0.2) 0%, rgba(214, 255, 218, 0.2) 100%);
+                    border-radius: 15px; padding: 20px; text-align: center; margin-bottom: 15px; height: 180px;
+                    display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="background: white; width: 60px; height: 60px; border-radius: 12px; 
+                        display: flex; align-items: center; justify-content: center; margin-bottom: 15px;
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+            </div>
+            <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 16px; font-weight: 600;">FREELANCE</h3>
+            <p style="color: #666; margin: 0; font-size: 14px;">Projets indépendants</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        if st.button("PROJETS FREELANCE", use_container_width=True, key="freelance_btn"):
+            st.session_state.page = "freelance"
+            st.rerun()
+    
+    # Colonne 3: TSE
+    with col3:
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, rgba(232, 244, 255, 0.2) 0%, rgba(214, 235, 255, 0.2) 100%);
+                    border-radius: 15px; padding: 20px; text-align: center; margin-bottom: 15px; height: 180px;
+                    display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="background: white; width: 60px; height: 60px; border-radius: 12px; 
+                        display: flex; align-items: center; justify-content: center; margin-bottom: 15px;
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14,2 14,8 20,8"/>
+                </svg>
+            </div>
+            <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 16px; font-weight: 600;">TSE</h3>
+            <p style="color: #666; margin: 0; font-size: 14px;">Projets TSE</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
+            st.session_state.page = "tse"
+            st.rerun()
 
-    if st.button("🇫🇷 SOCIÉTÉ APNIDOC (EN FRANCE)", use_container_width=True):
-        st.session_state.page = "apnidoc"
+# Ajoutez ensuite les pages pour freelance et tse
+elif st.session_state.page == "freelance":
+    if st.button("← RETOUR"):
+        st.session_state.page = "medicofi"
         st.rerun()
+    
+    st.title("👨‍💻 PROJETS FREELANCE")
+    st.write("Contenu des projets Freelance...")
+    # Ajoutez ici votre contenu pour Freelance
 
+elif st.session_state.page == "tse":
+    if st.button("← RETOUR"):
+        st.session_state.page = "medicofi"
+        st.rerun()
+    
+    st.title("📊 PROJETS TSE")
+    st.write("Contenu des projets TSE...")
+    # Ajoutez ici votre contenu pour TSE
+
+# La page apnidoc reste la même
 elif st.session_state.page == "apnidoc":
     if st.button("← RETOUR"):
         st.session_state.page = "medicofi"
