@@ -641,7 +641,7 @@ if st.session_state.page == "accueil":
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
 elif st.session_state.page == "medicofi":
-    if st.button("←"):
+    if st.button("← RETOUR"):
         st.session_state.page = "accueil"
         st.rerun()
 
@@ -741,7 +741,7 @@ elif st.session_state.page == "medicofi":
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="MEDICOFI">
             </div>
-            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;padding-bottom: 5px;">
+            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;">
                 MEDICOFI
             </h3>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
@@ -793,7 +793,7 @@ elif st.session_state.page == "medicofi":
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="FREELANCE">
             </div>
-            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;padding-bottom: 5px;">
+            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;">
                 FREELANCE
             </h3>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
@@ -832,7 +832,7 @@ elif st.session_state.page == "medicofi":
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="TSE">
             </div>
-            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;padding-bottom: 5px;">
+            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;">
                 TSE
             </h3>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
@@ -841,9 +841,9 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
-    st.session_state.page = "tse"
-    st.rerun()
+        if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
+            st.session_state.page = "tse"
+            st.rerun()
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
     if st.button("← RETOUR"):
