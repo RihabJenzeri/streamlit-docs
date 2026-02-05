@@ -884,7 +884,7 @@ elif st.session_state.page == "apnidoc":
     """, unsafe_allow_html=True)
 
     # Flyer Image
-    st.image(flyer_url, use_container_width=True)
+    st.image(flyer_url, width=500)  # ou 400, 450 selon votre préférence
  
     st.markdown("---")
 
