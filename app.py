@@ -789,9 +789,9 @@ for project_name, subtitle, page_key in projects_medicofi:
     st.markdown(button_html, unsafe_allow_html=True)
     
     # Bouton invisible pour déclencher l'action Streamlit
-        if st.button(" ", key=f"btn_{page_key}", type="primary", visible=False):
-            st.session_state.page = page_key
-            st.rerun()
+    if st.button(" ", key=f"btn_{page_key}", type="primary", visible=False):
+        st.session_state.page = page_key
+        st.rerun()
 
     # Colonne 2: FREELANCE
     with col2:
