@@ -7,12 +7,6 @@ REPO_NAME = "streamlit-docs"
 BASE_URL = f"https://raw.githubusercontent.com/{GITHUB_USER}/{REPO_NAME}/main/"
 
 # ========== حالة التطبيق ==========
-# ---------- Get query parameters safely ----------
-query_params = st.query_params  # بدل experimental_get_query_params
-
-if "medicofi" in query_params:
-    st.session_state.page = "medicofi"
-    st.experimental_rerun()
 if 'page' not in st.session_state:
     st.session_state.page = "accueil"
 if 'current_device' not in st.session_state:
@@ -474,20 +468,7 @@ if st.session_state.page == "accueil":
                 <p style="color: #666666; font-size: 16px;">As my Behance portfolio is currently being updated, I have gathered here a selected overview of my work. Below, you will find a PDF featuring my earlier projects, along with a folder showcasing my most recent work.</p>
             </div>
     """, unsafe_allow_html=True)
-    st.markdown("""
-        <style>
-        div[data-testid="column"] button {
-            background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%);
-            border-radius: 12px;
-            color: #202124;
-            font-weight: 600;
-        }
-        div[data-testid="column"] button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(251, 189, 250, 0.4);
-        }
-        </style>
-    """, unsafe_allow_html=True)
+    
     # Utiliser des colonnes Streamlit pour créer les cartes
     col1, col2 = st.columns(2)
     
@@ -516,19 +497,7 @@ if st.session_state.page == "accueil":
         if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
             st.session_state.page = "medicofi"
             st.rerun()
-    st.markdown("""
-    <div class="folder-card" onclick="window.location.href='#medicofi'">
-        <div style="display:flex;align-items:center;gap:15px;">
-            <div style="background: linear-gradient(135deg,#FFE5E5 0%,#FFD6D6 100%);padding:15px;border-radius:12px;display:flex;align-items:center;justify-content:center;">
-                <!-- أيقونة SVG هنا -->
-            </div>
-            <div style="flex:1;">
-                <h3 style="color:#202124;">MEDICOFI</h3>
-                <p style="color:#888;">Application de gestion médicale</p>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    
     # Carte PORTFOLIO PDF
     with col2:
         st.markdown("""
