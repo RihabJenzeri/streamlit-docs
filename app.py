@@ -587,7 +587,136 @@ if st.session_state.page == "accueil":
     }, 1000); // Délai pour s'assurer que tout est chargé
     </script>
     """, unsafe_allow_html=True)
+    # ... (votre code existant) ...
+
+# NOUVELLE CARTE MES DOSSIERS avec boutons intégrés
+st.markdown("""
+<div style="display: flex; justify-content: center;">
+    <div class="gradient-card" style="padding: 40px 30px;">
+        <div style="text-align: center; margin-bottom: 35px;">
+            <h2 style="color: #202124; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                </svg>
+                MES DOSSIERS
+            </h2>
+            <p style="color: #666666; font-size: 16px;">Portfolio Professionnel & Projets Design</p>
+        </div>
+""", unsafe_allow_html=True)
+
+# Utiliser des colonnes Streamlit pour créer les cartes
+col1, col2 = st.columns(2)
+
+# Carte MEDICOFI - Version avec bouton transparent
+with col1:
+    # Créer un conteneur pour la carte
+    medicofi_container = st.container()
     
+    with medicofi_container:
+        # Bouton invisible qui couvre toute la carte
+        if st.button("", key="medicofi_card_invisible", help="Cliquez pour ouvrir MEDICOFI"):
+            st.session_state.page = "medicofi"
+            st.rerun()
+        
+        # Contenu de la carte (superposé au bouton)
+        st.markdown("""
+        <div style="position: relative; z-index: 1; pointer-events: none;">
+            <div class="folder-card">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <div style="flex: 1;">
+                        <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">MEDICOFI</h3>
+                        <p style="color: #888; margin: 0; font-size: 14px;">Application de gestion médicale</p>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+# Carte PORTFOLIO PDF - Version avec bouton transparent
+with col2:
+    # Créer un conteneur pour la carte
+    pdf_container = st.container()
+    
+    with pdf_container:
+        # Bouton invisible qui couvre toute la carte
+        if st.button("", key="pdf_card_invisible", help="Cliquez pour ouvrir le PDF"):
+            st.session_state.page = "pdf_viewer"
+            st.rerun()
+        
+        # Contenu de la carte (superposé au bouton)
+        st.markdown("""
+        <div style="position: relative; z-index: 1; pointer-events: none;">
+            <div class="folder-card">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="background: linear-gradient(135deg, #E8F4FF 0%, #D6EBFF 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                    </div>
+                    <div style="flex: 1;">
+                        <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">PORTFOLIO PDF</h3>
+                        <p style="color: #888; margin: 0; font-size: 14px;">Mon portfolio en version PDF</p>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+# Style pour rendre les boutons invisibles et les positionner
+st.markdown("""
+<style>
+/* Style pour les boutons invisibles des cartes */
+div[data-testid="column"]:nth-child(1) button[kbd="medicofi_card_invisible"],
+div[data-testid="column"]:nth-child(2) button[kbd="pdf_card_invisible"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+/* Ajuster le positionnement des conteneurs */
+div[data-testid="column"]:nth-child(1) > div,
+div[data-testid="column"]:nth-child(2) > div {
+    position: relative;
+}
+
+/* Effet hover sur toute la carte */
+div[data-testid="column"]:nth-child(1) button[kbd="medicofi_card_invisible"]:hover + div .folder-card,
+div[data-testid="column"]:nth-child(2) button[kbd="pdf_card_invisible"]:hover + div .folder-card {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(251, 189, 250, 0.25) !important;
+    border-color: #FBBDFA !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# ... (le reste de votre code) ...
     # Espace entre les sections
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
