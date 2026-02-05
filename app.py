@@ -234,7 +234,20 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
         max-width: 95%;
         padding: 20px;
     }
-
+    .st-emotion-cache-2fgyt4 h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    padding: 1.25rem 0px 1rem;
+}
+.contact-links {
+    flex-wrap: nowrap;
+    gap: 10px;
+    justify-content: flex-start;
+    width: 75%;
+    overflow: visible;
+    position: relative;
+    right: -45px;
+}
     .profile-content {
         flex-direction: column;
         text-align: center;
