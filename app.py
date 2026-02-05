@@ -493,7 +493,7 @@ if st.session_state.page == "accueil":
                     </svg>
                     MES DOSSIERS
                 </h2>
-                <p style="color: #666666; font-size: 16px;">Portfolio Professionnel & Projets Design</p>
+                <p style="color: #666666; font-size: 16px;">As my Behance portfolio is currently being updated, I have gathered here a selected overview of my work. Below, you will find a PDF featuring my earlier projects, along with a folder showcasing my most recent work.</p>
             </div>
     """, unsafe_allow_html=True)
     
