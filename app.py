@@ -519,7 +519,7 @@ if st.session_state.page == "accueil":
         """, unsafe_allow_html=True)
 
         # Bouton MEDICOFI
-        if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
+        if st.button("OPEN", key="medicofi_card_btn", use_container_width=True):
             st.session_state.page = "medicofi"
             st.rerun()
 
@@ -549,7 +549,7 @@ if st.session_state.page == "accueil":
         """, unsafe_allow_html=True)
 
         # Bouton PORTFOLIO PDF
-        if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
+        if st.button("OPEN", key="pdf_card_btn", use_container_width=True):
             st.session_state.page = "pdf_viewer"
             st.rerun()
 
