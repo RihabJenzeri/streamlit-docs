@@ -397,9 +397,22 @@ if st.session_state.page == "accueil":
     # Espace après la carte de profil
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     
-   # Remplacez la section "Contenu normal" par ce code :
-
-# Contenu normal
+    # Contenu normal
+    st.title("📂 MES DOSSIERS")
+    st.subheader("Portfolio Professionnel & Projets Design")
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        if st.button("🏥 MEDICOFI", use_container_width=True):
+            st.session_state.page = "medicofi"
+            st.rerun()
+    
+    with col2:
+        if st.button("📄 PORTFOLIO PDF", use_container_width=True):
+            st.session_state.page = "pdf_viewer"
+            st.rerun()
+    # Contenu normal
 st.markdown("""
 <div style="display: flex; justify-content: center;">
     <div class="gradient-card">
@@ -428,7 +441,6 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # Espace entre les sections
 st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
-    
     # NOUVELLE CARTE AVEC DÉGRADÉ RADIAL (en dessous)
     st.markdown("""
     <div style="display: flex; justify-content: center;">
