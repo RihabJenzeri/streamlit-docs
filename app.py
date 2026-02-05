@@ -869,18 +869,29 @@ elif st.session_state.page == "apnidoc":
         st.session_state.page = "medicofi"
         st.rerun()
 
-    st.title("SOCIÉTÉ APNIDOC")
+    # Titre avec icône SVG de feuille
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 11a9 9 0 0 1 9 9v9"/>
+            <path d="M4 4a16 16 0 0 1 16 16v4"/>
+            <path d="M4 19a9 9 0 0 0 9-9v-4"/>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Flyer Apnidoc</h3>
+    </div>
+    """, unsafe_allow_html=True)
 
     # Flyer Image
     st.image(flyer_url, use_container_width=True)
-    st.markdown("<p class='caption-text'>📄 Flyer ApniDoc</p>", unsafe_allow_html=True)
-
+ 
     st.markdown("---")
 
     # Design Interface Button
     if st.button("DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_width=True):
         st.session_state.page = "design_folders"
         st.rerun()
+        
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
 elif st.session_state.page == "design_folders":
     if st.button("←"):
