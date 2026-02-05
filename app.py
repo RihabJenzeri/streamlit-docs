@@ -276,6 +276,73 @@ p, div, span {
     margin-top: 20px;
     width: 100%;
 }
+
+/* ========== AJOUTEZ CE CSS POUR PERSONNALISER LE BOUTON MEDICOFI ========== */
+/* Style personnalisé pour le bouton MEDICOFI */
+.medicofi-special-btn button {
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 14px 24px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-top: 15px !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Effet au survol */
+.medicofi-special-btn button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.5) !important;
+    background: linear-gradient(135deg, #FF5252 0%, #FF7B7B 100%) !important;
+}
+
+/* Effet au clic */
+.medicofi-special-btn button:active {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.4) !important;
+}
+
+/* Style pour le bouton PORTFOLIO PDF */
+.pdf-special-btn button {
+    background: linear-gradient(135deg, #4A90E2 0%, #63B3ED 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 14px 24px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-top: 15px !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.pdf-special-btn button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.5) !important;
+    background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%) !important;
+}
+
+.pdf-special-btn button:active {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4) !important;
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -472,10 +539,12 @@ if st.session_state.page == "accueil":
         </div>
         """, unsafe_allow_html=True)
         
-        # Bouton invisible pour MEDICOFI
-        if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
+        # Bouton MEDICOFI avec style personnalisé
+        st.markdown('<div class="medicofi-special-btn">', unsafe_allow_html=True)
+        if st.button("🏥 Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
             st.session_state.page = "medicofi"
             st.rerun()
+        st.markdown('</div>', unsafe_allow_html=True)
     
     # Carte PORTFOLIO PDF
     with col2:
@@ -503,10 +572,12 @@ if st.session_state.page == "accueil":
         </div>
         """, unsafe_allow_html=True)
         
-        # Bouton invisible pour PORTFOLIO PDF
-        if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
+        # Bouton PORTFOLIO PDF avec style personnalisé
+        st.markdown('<div class="pdf-special-btn">', unsafe_allow_html=True)
+        if st.button("📄 Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
             st.session_state.page = "pdf_viewer"
             st.rerun()
+        st.markdown('</div>', unsafe_allow_html=True)
     
     st.markdown("""
         </div>
