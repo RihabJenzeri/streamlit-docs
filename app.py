@@ -653,7 +653,7 @@ elif st.session_state.page == "medicofi":
     # URL de l'image
     card_image_url = get_image_url("image.jpeg")
 
-    # CSS pour le responsive et les boutons avec sous-titres
+    # CSS pour le responsive
     responsive_style = """
     <style>
     .responsive-image-container {
@@ -710,36 +710,6 @@ elif st.session_state.page == "medicofi":
             font-size: 11px !important;
         }
     }
-
-    /* Style pour les boutons avec sous-titres */
-    .button-with-subtitle {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left !important;
-        padding: 12px 16px !important;
-    }
-    
-    .button-main-text {
-        font-size: 14px;
-        font-weight: 600;
-        color: #202124;
-        margin-bottom: 2px;
-        font-family: 'Montserrat', sans-serif;
-    }
-    
-    .button-subtitle {
-        font-size: 11px;
-        color: #666;
-        font-weight: 400;
-        font-family: 'Montserrat', sans-serif;
-        line-height: 1.2;
-    }
-    
-    /* Ajustement pour les boutons Streamlit */
-    div[data-testid="stButton"] > button {
-        text-align: left !important;
-    }
     </style>
     """
 
@@ -780,33 +750,20 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        # Liste des 8 boutons pour MEDICOFI avec sous-titres
+        # Liste des 8 boutons pour MEDICOFI
         projects_medicofi = [
-            ("Apnidoc company", "Based In France", "apnidoc"),
-            ("PROJET MEDICOFI 2", "Based In Spain", "medicofi2"),
-            ("PROJET MEDICOFI 3", "Based In Germany", "medicofi3"),
-            ("PROJET MEDICOFI 4", "Based In Italy", "medicofi4"),
-            ("PROJET MEDICOFI 5", "Based In UK", "medicofi5"),
-            ("PROJET MEDICOFI 6", "Based In USA", "medicofi6"),
-            ("PROJET MEDICOFI 7", "Based In Canada", "medicofi7"),
-            ("PROJET MEDICOFI 8", "Based In Australia", "medicofi8")
+            ("Apnidoc company", "apnidoc"),
+            ("PROJET MEDICOFI 2", "medicofi2"),
+            ("PROJET MEDICOFI 3", "medicofi3"),
+            ("PROJET MEDICOFI 4", "medicofi4"),
+            ("PROJET MEDICOFI 5", "medicofi5"),
+            ("PROJET MEDICOFI 6", "medicofi6"),
+            ("PROJET MEDICOFI 7", "medicofi7"),
+            ("PROJET MEDICOFI 8", "medicofi8")
         ]
 
-        for project_name, subtitle, page_key in projects_medicofi:
-            # Créer un bouton HTML avec sous-titre
-            button_html = f"""
-            <div class="button-with-subtitle" style="width: 100%; margin-bottom: 8px;">
-                <div class="button-main-text">{project_name}</div>
-                <div class="button-subtitle">{subtitle}</div>
-            </div>
-            """
-            
-            # Créer un conteneur pour chaque bouton
-            container = st.container()
-            container.markdown(button_html, unsafe_allow_html=True)
-            
-            # Ajouter un bouton invisible qui couvre toute la zone
-            if container.button("", key=f"medicofi_{page_key}", use_container_width=True):
+        for project_name, page_key in projects_medicofi:
+            if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
                 st.session_state.page = page_key
                 st.rerun()
 
