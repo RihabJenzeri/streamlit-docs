@@ -524,7 +524,7 @@ if st.session_state.page == "accueil":
     # Espace après la carte de profil
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
-     # NOUVELLE CARTE MES DOSSIERS avec boutons intégrés
+    # NOUVELLE CARTE MES DOSSIERS avec boutons intégrés
     st.markdown("""
     <div style="display: flex; justify-content: center;">
         <div class="gradient-card" style="padding: 40px 30px;">
