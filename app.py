@@ -261,11 +261,6 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
     left: 10px;
     /* padding: 1.25rem 0px 1rem; */
 }
-.st-emotion-cache-2fgyt4 h3 {
-    font-size: 1.75rem;
-    font-weight: 600;
-    padding: 0.75rem 0px 0.2rem;
-}
     .contact-btn {
         flex: 0 0 calc(50% - 10px);
         max-width: calc(50% - 10px);
