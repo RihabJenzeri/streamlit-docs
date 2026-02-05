@@ -641,7 +641,7 @@ if st.session_state.page == "accueil":
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
 elif st.session_state.page == "medicofi":
-    if st.button("← RETOUR"):
+    if st.button("←"):
         st.session_state.page = "accueil"
         st.rerun()
 
@@ -846,7 +846,7 @@ elif st.session_state.page == "medicofi":
             st.rerun()
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
-    if st.button("← RETOUR"):
+    if st.button("←"):
         st.session_state.page = "medicofi"
         st.rerun()
 
@@ -855,7 +855,7 @@ elif st.session_state.page == "freelance":
     # Ajoutez ici votre contenu pour Freelance
 
 elif st.session_state.page == "tse":
-    if st.button("← RETOUR"):
+    if st.button("←"):
         st.session_state.page = "medicofi"
         st.rerun()
 
@@ -883,7 +883,7 @@ elif st.session_state.page == "apnidoc":
         st.rerun()
 
 elif st.session_state.page == "design_folders":
-    if st.button("← RETOUR"):
+    if st.button("←"):
         st.session_state.page = "apnidoc"
         st.rerun()
 
