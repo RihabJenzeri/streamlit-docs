@@ -540,22 +540,22 @@ if st.session_state.page == "accueil":
     # Carte MEDICOFI
     with col1:
         st.markdown("""
-        <div class="folder-card">
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: absolute; right: 19px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff80bd" stroke-width="2">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            <div class="folder-card">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="background: transparent; border: 1.5px solid #ff80bd; padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: absolute; right: 19px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff80bd" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                    </div>
+                    <div style="flex: 1;">
+                        <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">My New Works</h3>
+                        <p style="color: #888; margin: 0; font-size: 14px;">Recent applications and projects</p>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </div>
-                <div style="flex: 1;">
-                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">My New Works</h3>
-                    <p style="color: #888; margin: 0; font-size: 14px;">Recent applications and projects</p>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
             </div>
-        </div>
         """, unsafe_allow_html=True)
 
         # Bouton MEDICOFI
