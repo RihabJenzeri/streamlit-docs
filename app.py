@@ -268,6 +268,7 @@ p, div, span {
     background: white;
     border-radius: 15px;
     padding: 25px;
+    margin-bottom: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
     cursor: pointer;
