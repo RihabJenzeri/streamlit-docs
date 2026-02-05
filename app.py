@@ -895,15 +895,15 @@ elif st.session_state.page == "apnidoc":
     # Flyer Image
     st.image(flyer_url, use_container_width=True)
     # st.markdown("<p class='caption-text'>📄 Flyer ApniDoc</p>", unsafe_allow_html=True)
-    # Espace après la carte de profil
-    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     st.markdown("---")
 
     # Design Interface Button
     if st.button("DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_width=True):
         st.session_state.page = "design_folders"
         st.rerun()
-
+    # Espace après la carte de profil
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    
 elif st.session_state.page == "design_folders":
     if st.button("← RETOUR"):
         st.session_state.page = "apnidoc"
