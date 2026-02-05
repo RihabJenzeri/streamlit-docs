@@ -239,10 +239,14 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
         text-align: center;
         gap: 20px;
     }
-
     .contact-links {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 10px;
+        width: 75%;
+        overflow: visible;
+        position: relative;
+        right: -45px;
     }
 
     .contact-btn {
