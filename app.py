@@ -238,6 +238,9 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
     font-size: 1.75rem;
     font-weight: 700;
     padding: 1.25rem 0px 1rem;
+    position: relative;
+    right: -10px;
+    }
 }
 .contact-links {
     flex-wrap: nowrap;
@@ -246,7 +249,7 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
     width: 75%;
     overflow: visible;
     position: relative;
-    right: -45px;
+    right: -55px;
 }
     .profile-content {
         flex-direction: column;
