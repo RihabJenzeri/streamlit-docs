@@ -471,6 +471,20 @@ if st.session_state.page == "accueil":
             </div>
         </div>
         """, unsafe_allow_html=True)
+        st.markdown("<div style='height: 20px'></div>", unsafe_allow_html=True)
+        
+        col_left, col_center, col_right = st.columns([1, 2, 1])
+        
+        with col_center:
+            if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
+                st.session_state.page = "medicofi"
+                st.rerun()
+        
+            st.markdown("<div style='height: 10px'></div>", unsafe_allow_html=True)
+        
+            if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
+                st.session_state.page = "pdf_viewer"
+                st.rerun()
 
     # Utiliser des colonnes Streamlit pour créer les cartes
     col1, col2 = st.columns(2)
