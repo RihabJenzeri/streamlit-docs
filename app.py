@@ -335,8 +335,6 @@ if "page" in query_params:
     st.session_state.page = query_params["page"]
 
 # ========== الصفحات ==========
-# ... (le code reste inchangé jusqu'à ici) ...
-
 if st.session_state.page == "accueil":
     # Slide image qui sort de la boîte des éléments
     st.markdown(f"""
@@ -399,37 +397,21 @@ if st.session_state.page == "accueil":
     # Espace après la carte de profil
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     
-    # NOUVELLE CARTE AVEC DÉGRADÉ RADIAL - AVEC BOUTONS STREAMLIT
-    st.markdown("""
-    <div style="display: flex; justify-content: center;">
-        <div class="gradient-card">
-            <h2 style="text-align: center; color: #202124; margin-bottom: 20px;">📂 MES DOSSIERS</h2>
-            <p style="text-align: center; color: #666666; margin-bottom: 30px;">Portfolio Professionnel & Projets Design</p>
-    """, unsafe_allow_html=True)
+    # Contenu normal
+    st.title("📂 MES DOSSIERS")
+    st.subheader("Portfolio Professionnel & Projets Design")
     
-    # Créer un conteneur pour centrer les boutons
-    with st.container():
-        col1, col2, col3 = st.columns([1, 2, 1])
-        with col2:
-            # Bouton MEDICOFI
-            if st.button("🏥 MEDICOFI", use_container_width=True):
-                st.session_state.page = "medicofi"
-                st.rerun()
-            
-            st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
-            
-            # Bouton PORTFOLIO PDF
-            if st.button("📄 PORTFOLIO PDF", use_container_width=True):
-                st.session_state.page = "pdf_viewer"
-                st.rerun()
+    col1, col2 = st.columns(2)
     
-    # Fermer la carte
-    st.markdown("</div></div>", unsafe_allow_html=True)
-
-# ... (le reste du code reste inchangé) ...
+    with col1:
+        if st.button("🏥 MEDICOFI", use_container_width=True):
+            st.session_state.page = "medicofi"
+            st.rerun()
     
-    # Espace après la carte de profil
-    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    with col2:
+        if st.button("📄 PORTFOLIO PDF", use_container_width=True):
+            st.session_state.page = "pdf_viewer"
+            st.rerun()
     
     # NOUVELLE CARTE AVEC DÉGRADÉ RADIAL (en dessous)
     st.markdown("""
