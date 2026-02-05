@@ -710,6 +710,15 @@ elif st.session_state.page == "medicofi":
             font-size: 11px !important;
         }
     }
+    
+    /* Style pour les boutons avec sous-titre */
+    .small-subtitle {
+        font-size: 11px !important;
+        color: #666666 !important;
+        font-weight: 400 !important;
+        line-height: 1.2 !important;
+        margin-top: 2px !important;
+    }
     </style>
     """
 
@@ -750,16 +759,16 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        # Liste des 8 boutons pour MEDICOFI
+        # Liste des 8 boutons pour MEDICOFI avec sous-titres
         projects_medicofi = [
-            ("Apnidoc company", "apnidoc"),
-            ("PROJET MEDICOFI 2", "medicofi2"),
-            ("PROJET MEDICOFI 3", "medicofi3"),
-            ("PROJET MEDICOFI 4", "medicofi4"),
-            ("PROJET MEDICOFI 5", "medicofi5"),
-            ("PROJET MEDICOFI 6", "medicofi6"),
-            ("PROJET MEDICOFI 7", "medicofi7"),
-            ("PROJET MEDICOFI 8", "medicofi8")
+            ("Apnidoc company\nBased in France", "apnidoc"),
+            ("PROJET MEDICOFI 2\nSous-titre 2", "medicofi2"),
+            ("PROJET MEDICOFI 3\nSous-titre 3", "medicofi3"),
+            ("PROJET MEDICOFI 4\nSous-titre 4", "medicofi4"),
+            ("PROJET MEDICOFI 5\nSous-titre 5", "medicofi5"),
+            ("PROJET MEDICOFI 6\nSous-titre 6", "medicofi6"),
+            ("PROJET MEDICOFI 7\nSous-titre 7", "medicofi7"),
+            ("PROJET MEDICOFI 8\nSous-titre 8", "medicofi8")
         ]
 
         for project_name, page_key in projects_medicofi:
@@ -802,7 +811,7 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("PROJETS FREELANCE", use_container_width=True, key="freelance_btn"):
+        if st.button("PROJETS FREELANCE\nVoir tous mes projets freelance", use_container_width=True, key="freelance_btn"):
             st.session_state.page = "freelance"
             st.rerun()
 
