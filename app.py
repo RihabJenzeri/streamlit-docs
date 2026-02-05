@@ -750,20 +750,20 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        # Liste des 8 boutons pour MEDICOFI avec sous-titres
+        # Liste des 8 boutons pour MEDICOFI
         projects_medicofi = [
-            ("Apnidoc company\nBased in France", "apnidoc"),
-            ("PROJET MEDICOFI 2\nLocation 2", "medicofi2"),
-            ("PROJET MEDICOFI 3\nLocation 3", "medicofi3"),
-            ("PROJET MEDICOFI 4\nLocation 4", "medicofi4"),
-            ("PROJET MEDICOFI 5\nLocation 5", "medicofi5"),
-            ("PROJET MEDICOFI 6\nLocation 6", "medicofi6"),
-            ("PROJET MEDICOFI 7\nLocation 7", "medicofi7"),
-            ("PROJET MEDICOFI 8\nLocation 8", "medicofi8")
+            ("Apnidoc company", "apnidoc"),
+            ("PROJET MEDICOFI 2", "medicofi2"),
+            ("PROJET MEDICOFI 3", "medicofi3"),
+            ("PROJET MEDICOFI 4", "medicofi4"),
+            ("PROJET MEDICOFI 5", "medicofi5"),
+            ("PROJET MEDICOFI 6", "medicofi6"),
+            ("PROJET MEDICOFI 7", "medicofi7"),
+            ("PROJET MEDICOFI 8", "medicofi8")
         ]
 
-        for project_text, page_key in projects_medicofi:
-            if st.button(project_text, use_container_width=True, key=f"medicofi_{page_key}"):
+        for project_name, page_key in projects_medicofi:
+            if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
                 st.session_state.page = page_key
                 st.rerun()
 
@@ -840,10 +840,10 @@ elif st.session_state.page == "medicofi":
             </p>
         </div>
         """, unsafe_allow_html=True)
-        
-    if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
-        st.session_state.page = "tse"
-        st.rerun()
+
+        if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
+            st.session_state.page = "tse"
+            st.rerun()
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
     if st.button("←"):
