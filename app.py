@@ -239,6 +239,15 @@ p, div, span {
 }
 
 /* Styles pour les cartes de dossiers */
+.folder-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #f0f0f0;
+}
 .folder-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(251, 189, 250, 0.25) !important;
@@ -249,6 +258,11 @@ p, div, span {
     .gradient-card > div > div {
         grid-template-columns: 1fr !important;
     }
+}
+
+/* Style pour les conteneurs de boutons invisibles */
+.invisible-btn-container {
+    display: none;
 }
 </style>
 """
@@ -425,78 +439,87 @@ if st.session_state.page == "accueil":
             </div>
             
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                <!-- Carte MEDICOFI -->
-                <div class="folder-card" style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; cursor: pointer; border: 1px solid #f0f0f0;">
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                            </svg>
-                        </div>
-                        <div style="flex: 1;">
-                            <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">MEDICOFI</h3>
-                            <p style="color: #888; margin: 0; font-size: 14px;">Application de gestion médicale</p>
-                        </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </div>
+    """, unsafe_allow_html=True)
+    
+    # Utiliser des colonnes Streamlit pour créer les cartes cliquables
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        # Créer un conteneur stylisé pour la carte MEDICOFI
+        medicofi_clicked = st.button("", key="medicofi_card")
+        if medicofi_clicked:
+            st.session_state.page = "medicofi"
+            st.rerun()
+        
+        st.markdown("""
+        <div class="folder-card" onclick="document.getElementById('medicofi-card-btn').click();" style="margin: 0;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
                 </div>
-                
-                <!-- Carte PORTFOLIO PDF -->
-                <div class="folder-card" style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; cursor: pointer; border: 1px solid #f0f0f0;">
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <div style="background: linear-gradient(135deg, #E8F4FF 0%, #D6EBFF 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                <polyline points="14,2 14,8 20,8"/>
-                                <line x1="16" y1="13" x2="8" y2="13"/>
-                                <line x1="16" y1="17" x2="8" y2="17"/>
-                                <polyline points="10,9 9,9 8,9"/>
-                            </svg>
-                        </div>
-                        <div style="flex: 1;">
-                            <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">PORTFOLIO PDF</h3>
-                            <p style="color: #888; margin: 0; font-size: 14px;">Mon portfolio en version PDF</p>
-                        </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </div>
+                <div style="flex: 1;">
+                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">MEDICOFI</h3>
+                    <p style="color: #888; margin: 0; font-size: 14px;">Application de gestion médicale</p>
                 </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        # Créer un conteneur stylisé pour la carte PORTFOLIO PDF
+        pdf_clicked = st.button("", key="pdf_card")
+        if pdf_clicked:
+            st.session_state.page = "pdf_viewer"
+            st.rerun()
+        
+        st.markdown("""
+        <div class="folder-card" onclick="document.getElementById('pdf-card-btn').click();" style="margin: 0;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="background: linear-gradient(135deg, #E8F4FF 0%, #D6EBFF 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10,9 9,9 8,9"/>
+                    </svg>
+                </div>
+                <div style="flex: 1;">
+                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">PORTFOLIO PDF</h3>
+                    <p style="color: #888; margin: 0; font-size: 14px;">Mon portfolio en version PDF</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.markdown("""
             </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
-
-    # Boutons invisibles pour la navigation (placés après la carte)
-    col1, col2 = st.columns(2)
-
-    with col1:
-        if st.button("medicofi_btn", key="medicofi_invisible", label_visibility="hidden"):
-            st.session_state.page = "medicofi"
-            st.rerun()
-
-    with col2:
-        if st.button("pdf_btn", key="pdf_invisible", label_visibility="hidden"):
-            st.session_state.page = "pdf_viewer"
-            st.rerun()
-
-    # JavaScript pour rendre les cartes cliquables
-    st.markdown("""
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const cards = document.querySelectorAll('.folder-card');
-        const buttons = document.querySelectorAll('[key*="invisible"]');
-        
-        if (cards.length >= 2 && buttons.length >= 2) {
-            cards[0].onclick = function() { buttons[0].click(); };
-            cards[1].onclick = function() { buttons[1].click(); };
-        }
-    });
-    </script>
-    """, unsafe_allow_html=True)
-
+    
+    # Boutons invisibles (maintenant avec une approche différente)
+    st.markdown('<div class="invisible-btn-container">', unsafe_allow_html=True)
+    
+    # Boutons pour la navigation
+    if st.button("MEDICOFI", key="medicofi_hidden", label_visibility="hidden"):
+        st.session_state.page = "medicofi"
+        st.rerun()
+    
+    if st.button("PORTFOLIO PDF", key="pdf_hidden", label_visibility="hidden"):
+        st.session_state.page = "pdf_viewer"
+        st.rerun()
+    
+    st.markdown('</div>', unsafe_allow_html=True)
+    
     # Espace entre les sections
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
