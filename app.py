@@ -304,6 +304,21 @@ p, div, span {
     margin-top: 20px;
     width: 100%;
 }
+.stButton > button {
+    background:
+      radial-gradient(circle at 0% 0%, rgba(251,189,250,.55), transparent 55%),
+      radial-gradient(circle at 100% 100%, rgba(140,210,255,.40), transparent 55%),
+      #fdfefe;
+    border-radius: 25px;
+    border: 1px solid rgba(251,189,250,.5);
+    font-weight: 600;
+    transition: all .3s ease;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(251,189,250,.4);
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -473,9 +488,24 @@ if st.session_state.page == "accueil":
       </div>
     </div>
     """, unsafe_allow_html=True)
-
-    # Utiliser des colonnes Streamlit pour créer les cartes
-    col1, col2 = st.columns(2)
+    
+    st.markdown("<div style='height:20px'></div>", unsafe_allow_html=True)
+    
+    col_l, col_c, col_r = st.columns([1,2,1])
+    
+    with col_c:
+        if st.button("Ouvrir MEDICOFI", key="btn_medicofi_center", use_container_width=True):
+            st.session_state.page = "medicofi"
+            st.rerun()
+    
+        st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
+    
+        if st.button("Ouvrir PORTFOLIO PDF", key="btn_pdf_center", use_container_width=True):
+            st.session_state.page = "pdf_viewer"
+            st.rerun()
+    
+        # Utiliser des colonnes Streamlit pour créer les cartes
+        col1, col2 = st.columns(2)
     
     # Carte MEDICOFI
     with col1:
