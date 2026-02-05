@@ -472,10 +472,39 @@ if st.session_state.page == "accueil":
         </div>
         """, unsafe_allow_html=True)
         
-        # Bouton invisible pour MEDICOFI
-        if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
-            st.session_state.page = "medicofi"
-            st.rerun()
+# Dans votre code, modifiez le bouton pour ajouter une classe :
+if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
+    st.session_state.page = "medicofi"
+    st.rerun()
+
+# Puis dans le CSS, ajoutez :
+st.markdown("""
+<style>
+/* Style via classe */
+.medicofi-button button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 12px 20px !important;
+    font-weight: 600 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+}
+
+.medicofi-button button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6) !important;
+}
+
+/* Vous pouvez aussi cibler par la clé unique */
+.stButton > button[data-testid="baseButton-secondary"][aria-label="Ouvrir MEDICOFI"] {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+    /* ... autres styles ... */
+}
+</style>
+""", unsafe_allow_html=True)
     
     # Carte PORTFOLIO PDF
     with col2:
