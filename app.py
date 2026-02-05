@@ -913,7 +913,7 @@ elif st.session_state.page == "design_folders":
             <line x1="2" y1="12" x2="22" y2="12"/>
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
         </svg>
-        <h3 style="margin: 0; color: #FBBDFA;">Site Web ApniDoc</h3>
+        <h3 style="margin: 0; color: #202124;">Site Web ApniDoc</h3>
     </div>
     """, unsafe_allow_html=True)
     
