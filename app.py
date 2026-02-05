@@ -11,9 +11,7 @@ if 'page' not in st.session_state:
     st.session_state.page = "accueil"
 if 'current_device' not in st.session_state:
     st.session_state.current_device = None
-query = st.query_params
-if "page" in query:
-    st.session_state.page = query["page"]
+
 # ========== SUPPRIMER LE MENU PAR DÉFAUT DE STREAMLIT ET CHANGER LE BACKGROUND ==========
 hide_default_menu = """
 <style>
@@ -306,21 +304,6 @@ p, div, span {
     margin-top: 20px;
     width: 100%;
 }
-.stButton > button {
-    background:
-      radial-gradient(circle at 0% 0%, rgba(251,189,250,.55), transparent 55%),
-      radial-gradient(circle at 100% 100%, rgba(140,210,255,.40), transparent 55%),
-      #fdfefe;
-    border-radius: 25px;
-    border: 1px solid rgba(251,189,250,.5);
-    font-weight: 600;
-    transition: all .3s ease;
-}
-
-.stButton > button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(251,189,250,.4);
-}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -359,74 +342,6 @@ def create_menu():
         cursor: pointer;
         font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
-    .folder-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-top: 30px;
-}
-
-.folder-card {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 22px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: all .25s ease;
-}
-
-.folder-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 28px rgba(251,189,250,.35);
-}
-
-.folder-left {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.folder-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: 12px;
-    background: #f4f4f4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.folder-title {
-    font-weight: 600;
-    font-size: 16px;
-    color: #202124;
-}
-
-.folder-desc {
-    font-size: 14px;
-    color: #777;
-}
-
-/* bouton style LinkedIn */
-.folder-btn {
-    padding: 8px 16px;
-    border-radius: 20px;
-    background: #f5f5f5;
-    border: 1px solid #e0e0e0;
-    font-size: 14px;
-    font-weight: 500;
-    color: #202124;
-    text-decoration: none;
-    transition: all .25s ease;
-}
-
-.folder-btn:hover {
-    background: #fff2ff;
-    border-color: #FBBDFA;
-    box-shadow: 0 4px 12px rgba(251,189,250,.4);
-}
     </style>
     """
     
@@ -547,63 +462,15 @@ if st.session_state.page == "accueil":
     
     # NOUVELLE CARTE MES DOSSIERS avec boutons intégrés
     st.markdown("""
-    <div style="display:flex; justify-content:center;">
-      <div class="gradient-card" style="padding:40px 30px; text-align:center;">
-        <p style="color:#666; font-size:16px; max-width:700px; margin:auto;">
-          As my Behance portfolio is currently being updated, I have gathered here
-          a selected overview of my work.
-          Below, you will find a PDF featuring my earlier projects,
-          along with a folder showcasing my most recent work.
-        </p>
-      </div>
-    </div>
+    <div style="display: flex; justify-content: center;">
+        <div class="gradient-card" style="padding: 40px 30px;">
+            <div style="text-align: center; margin-bottom: 35px;">
+                <p style="color: #666666; font-size: 16px;">As my Behance portfolio is currently being updated, I have gathered here a selected overview of my work. Below, you will find a PDF featuring my earlier projects, along with a folder showcasing my most recent work.</p>
+            </div>
     """, unsafe_allow_html=True)
     
-    st.markdown("""
-    <div class="folder-grid">
-    
-      <div class="folder-card">
-        <div class="folder-left">
-          <div class="folder-icon">🏥</div>
-          <div>
-            <div class="folder-title">MEDICOFI</div>
-            <div class="folder-desc">Application de gestion médicale</div>
-          </div>
-        </div>
-        <a href="?page=medicofi" class="folder-btn">Ouvrir</a>
-      </div>
-    
-      <div class="folder-card">
-        <div class="folder-left">
-          <div class="folder-icon">📄</div>
-          <div>
-            <div class="folder-title">PORTFOLIO PDF</div>
-            <div class="folder-desc">Mon portfolio en version PDF</div>
-          </div>
-        </div>
-        <a href="?page=pdf_viewer" class="folder-btn">Ouvrir</a>
-      </div>
-
-</div>
-""", unsafe_allow_html=True)
-
-    st.markdown("<div style='height:20px'></div>", unsafe_allow_html=True)
-    
-    col_l, col_c, col_r = st.columns([1,2,1])
-    
-    with col_c:
-        if st.button("Ouvrir MEDICOFI", key="btn_medicofi_center", use_container_width=True):
-            st.session_state.page = "medicofi"
-            st.rerun()
-    
-        st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
-    
-        if st.button("Ouvrir PORTFOLIO PDF", key="btn_pdf_center", use_container_width=True):
-            st.session_state.page = "pdf_viewer"
-            st.rerun()
-    
-        # Utiliser des colonnes Streamlit pour créer les cartes
-        col1, col2 = st.columns(2)
+    # Utiliser des colonnes Streamlit pour créer les cartes
+    col1, col2 = st.columns(2)
     
     # Carte MEDICOFI
     with col1:
