@@ -950,13 +950,34 @@ elif st.session_state.page == "design_folders":
             st.rerun()
 
     with col2:
-        if st.button("📱 IPAD", use_container_width=True):
+         ipad_html = """
+        <div style="text-align: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12" y2="18"/>
+            </svg>
+        </div>
+        """
+        st.markdown(ipad_html, unsafe_allow_html=True)
+        
+        if st.button("IPAD", use_container_width=True):
             st.session_state.current_device = "iPad"
             st.session_state.page = "device_images"
             st.rerun()
 
     with col3:
-        if st.button("📱 PHONE", use_container_width=True):
+        # Bouton PHONE avec icône SVG
+        phone_html = """
+        <div style="text-align: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12" y2="18"/>
+            </svg>
+        </div>
+        """
+        st.markdown(phone_html, unsafe_allow_html=True)
+        
+        if st.button("PHONE", use_container_width=True):
             st.session_state.current_device = "Phone"
             st.session_state.page = "device_images"
             st.rerun()
