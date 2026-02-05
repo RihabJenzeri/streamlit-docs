@@ -658,8 +658,8 @@ elif st.session_state.page == "medicofi":
     
     @media (max-width: 480px) {
         .responsive-image-container {
-            width: 120px;
-            height: 90px;
+        width: 340px;
+        height: 200px;
         }
     }
     
@@ -682,7 +682,7 @@ elif st.session_state.page == "medicofi":
     @media (max-width: 480px) {
         .responsive-card {
             min-height: 180px !important;
-            padding: 4px !important;
+            padding: 10px !important;
         }
         
         .responsive-card h3 {
