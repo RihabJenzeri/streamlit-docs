@@ -879,7 +879,7 @@ elif st.session_state.page == "apnidoc":
         st.session_state.page = "medicofi"
         st.rerun()
 
-    st.title("SOCIÉTÉ APNIDOC")
+    # st.title("SOCIÉTÉ APNIDOC")
     st.markdown("""
         <div style="display: flex; align-items: center; gap: 10px;">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -894,7 +894,7 @@ elif st.session_state.page == "apnidoc":
     """, unsafe_allow_html=True)
     # Flyer Image
     st.image(flyer_url, use_container_width=True)
-    st.markdown("<p class='caption-text'>📄 Flyer ApniDoc</p>", unsafe_allow_html=True)
+    # st.markdown("<p class='caption-text'>📄 Flyer ApniDoc</p>", unsafe_allow_html=True)
 
     st.markdown("---")
 
