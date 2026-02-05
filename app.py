@@ -653,7 +653,7 @@ elif st.session_state.page == "medicofi":
     # URL de l'image
     card_image_url = get_image_url("image.jpeg")
 
-    # CSS pour le responsive
+    # CSS pour le responsive et les boutons avec sous-titres
     responsive_style = """
     <style>
     .responsive-image-container {
@@ -710,6 +710,36 @@ elif st.session_state.page == "medicofi":
             font-size: 11px !important;
         }
     }
+
+    /* Style pour les boutons avec sous-titres */
+    .button-with-subtitle {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left !important;
+        padding: 12px 16px !important;
+    }
+    
+    .button-main-text {
+        font-size: 14px;
+        font-weight: 600;
+        color: #202124;
+        margin-bottom: 2px;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    .button-subtitle {
+        font-size: 11px;
+        color: #666;
+        font-weight: 400;
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1.2;
+    }
+    
+    /* Ajustement pour les boutons Streamlit */
+    div[data-testid="stButton"] > button {
+        text-align: left !important;
+    }
     </style>
     """
 
@@ -753,49 +783,30 @@ elif st.session_state.page == "medicofi":
         # Liste des 8 boutons pour MEDICOFI avec sous-titres
         projects_medicofi = [
             ("Apnidoc company", "Based In France", "apnidoc"),
-            ("PROJET MEDICOFI 2", "Based In France", "medicofi2"),
-            ("PROJET MEDICOFI 3", "Based In France", "medicofi3"),
-            ("PROJET MEDICOFI 4", "Based In France", "medicofi4"),
-            ("PROJET MEDICOFI 5", "Based In France", "medicofi5"),
-            ("PROJET MEDICOFI 6", "Based In France", "medicofi6"),
-            ("PROJET MEDICOFI 7", "Based In France", "medicofi7"),
-            ("PROJET MEDICOFI 8", "Based In France", "medicofi8")
+            ("PROJET MEDICOFI 2", "Based In Spain", "medicofi2"),
+            ("PROJET MEDICOFI 3", "Based In Germany", "medicofi3"),
+            ("PROJET MEDICOFI 4", "Based In Italy", "medicofi4"),
+            ("PROJET MEDICOFI 5", "Based In UK", "medicofi5"),
+            ("PROJET MEDICOFI 6", "Based In USA", "medicofi6"),
+            ("PROJET MEDICOFI 7", "Based In Canada", "medicofi7"),
+            ("PROJET MEDICOFI 8", "Based In Australia", "medicofi8")
         ]
 
         for project_name, subtitle, page_key in projects_medicofi:
-            # Utiliser HTML pour créer un bouton personnalisé avec sous-titre
-            st.markdown(f"""
-            <div style="margin-bottom: 8px;">
-                <button onclick="window.location.href='#medicofi_{page_key}'" 
-                        style="width: 100%; 
-                               text-align: center; 
-                               padding: 12px; 
-                               background: 
-                                   radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
-                                   radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
-                                   radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
-                                   #fdfefe;
-                               border: 1px solid rgba(255, 255, 255, 0.5);
-                               border-radius: 12px; 
-                               color: #202124; 
-                               font-family: 'Montserrat', sans-serif;
-                               font-weight: 600;
-                               font-size: 16px;
-                               cursor: pointer;
-                               box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-                               transition: all 0.3s ease;">
-                    <div style="line-height: 1.2;">
-                        {project_name}
-                    </div>
-                    <div style="font-size: 12px; color: #666; font-weight: 400; margin-top: 4px;">
-                        {subtitle}
-                    </div>
-                </button>
+            # Créer un bouton HTML avec sous-titre
+            button_html = f"""
+            <div class="button-with-subtitle" style="width: 100%; margin-bottom: 8px;">
+                <div class="button-main-text">{project_name}</div>
+                <div class="button-subtitle">{subtitle}</div>
             </div>
-            """, unsafe_allow_html=True)
+            """
             
-            # Bouton Streamlit caché pour gérer l'action
-            if st.button(" ", key=f"medicofi_{page_key}_hidden", help=project_name):
+            # Créer un conteneur pour chaque bouton
+            container = st.container()
+            container.markdown(button_html, unsafe_allow_html=True)
+            
+            # Ajouter un bouton invisible qui couvre toute la zone
+            if container.button("", key=f"medicofi_{page_key}", use_container_width=True):
                 st.session_state.page = page_key
                 st.rerun()
 
@@ -872,6 +883,7 @@ elif st.session_state.page == "medicofi":
             </p>
         </div>
         """, unsafe_allow_html=True)
+
         if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
             st.session_state.page = "tse"
             st.rerun()
