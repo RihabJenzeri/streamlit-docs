@@ -653,7 +653,7 @@ elif st.session_state.page == "medicofi":
     # URL de l'image
     card_image_url = get_image_url("image.jpeg")
 
-    # CSS pour le responsive et les styles de boutons
+    # CSS pour le responsive
     responsive_style = """
     <style>
     .responsive-image-container {
@@ -710,58 +710,6 @@ elif st.session_state.page == "medicofi":
             font-size: 11px !important;
         }
     }
-
-    /* Styles pour les boutons avec sous-titres */
-    .project-button-container {
-        margin-bottom: 8px;
-    }
-    
-    .project-title {
-        font-size: 16px;
-        font-weight: 600;
-        color: #202124;
-        margin: 0;
-        font-family: 'Montserrat', sans-serif;
-    }
-    
-    .project-subtitle {
-        font-size: 12px;
-        color: #666;
-        margin: 2px 0 0 0;
-        font-family: 'Montserrat', sans-serif;
-        line-height: 1.2;
-    }
-    
-    /* Effet hover pour les boutons */
-    div[data-testid="stButton"] > button {
-        transition: all 0.3s ease;
-        border: 1px solid #e0e0e0;
-    }
-    
-    div[data-testid="stButton"] > button:hover {
-        border: 1px solid #FBBDFA !important;
-        background-color: rgba(251, 189, 250, 0.1) !important;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(251, 189, 250, 0.2);
-    }
-    
-    /* S'assurer que le texte reste noir au hover */
-    div[data-testid="stButton"] > button:hover p,
-    div[data-testid="stButton"] > button:hover h4 {
-        color: #202124 !important;
-    }
-    
-    /* Style pour forcer l'affichage multiligne */
-    .multiline-button {
-        white-space: normal !important;
-        height: auto !important;
-        min-height: 60px !important;
-        padding: 8px 12px !important;
-        text-align: left !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-    }
     </style>
     """
 
@@ -802,63 +750,20 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        # Liste des 8 boutons pour MEDICOFI avec sous-titres
+        # Liste des 8 boutons pour MEDICOFI
         projects_medicofi = [
-            ("Apnidoc company", "Based in France", "apnidoc"),
-            ("PROJET MEDICOFI 2", "Location 2", "medicofi2"),
-            ("PROJET MEDICOFI 3", "Location 3", "medicofi3"),
-            ("PROJET MEDICOFI 4", "Location 4", "medicofi4"),
-            ("PROJET MEDICOFI 5", "Location 5", "medicofi5"),
-            ("PROJET MEDICOFI 6", "Location 6", "medicofi6"),
-            ("PROJET MEDICOFI 7", "Location 7", "medicofi7"),
-            ("PROJET MEDICOFI 8", "Location 8", "medicofi8")
+            ("Apnidoc company", "apnidoc"),
+            ("PROJET MEDICOFI 2", "medicofi2"),
+            ("PROJET MEDICOFI 3", "medicofi3"),
+            ("PROJET MEDICOFI 4", "medicofi4"),
+            ("PROJET MEDICOFI 5", "medicofi5"),
+            ("PROJET MEDICOFI 6", "medicofi6"),
+            ("PROJET MEDICOFI 7", "medicofi7"),
+            ("PROJET MEDICOFI 8", "medicofi8")
         ]
 
-        for project_name, subtitle, page_key in projects_medicofi:
-            # Utiliser markdown pour créer un bouton personnalisé avec HTML
-            st.markdown(f"""
-            <div class="project-button-container">
-                <style>
-                .btn-{page_key} {{
-                    width: 100%;
-                    background-color: #f8f9fa;
-                    border: 1px solid #e0e0e0;
-                    border-radius: 8px;
-                    padding: 12px;
-                    margin-bottom: 8px;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    text-align: left;
-                }}
-                .btn-{page_key}:hover {{
-                    border-color: #FBBDFA !important;
-                    background-color: rgba(251, 189, 250, 0.1) !important;
-                    transform: translateY(-2px);
-                    box-shadow: 0 4px 12px rgba(251, 189, 250, 0.2);
-                }}
-                .btn-title-{page_key} {{
-                    font-size: 16px;
-                    font-weight: 600;
-                    color: #202124;
-                    margin: 0;
-                    font-family: 'Montserrat', sans-serif;
-                }}
-                .btn-subtitle-{page_key} {{
-                    font-size: 12px;
-                    color: #666;
-                    margin: 2px 0 0 0;
-                    font-family: 'Montserrat', sans-serif;
-                }}
-                </style>
-                <div class="btn-{page_key}" onclick="document.getElementById('btn-{page_key}').click()">
-                    <div class="btn-title-{page_key}">{project_name}</div>
-                    <div class="btn-subtitle-{page_key}">{subtitle}</div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-            
-            # Bouton invisible pour déclencher l'action Streamlit
-            if st.button("", key=f"hidden_{page_key}"):
+        for project_name, page_key in projects_medicofi:
+            if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
                 st.session_state.page = page_key
                 st.rerun()
 
@@ -935,6 +840,7 @@ elif st.session_state.page == "medicofi":
             </p>
         </div>
         """, unsafe_allow_html=True)
+
         if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
             st.session_state.page = "tse"
             st.rerun()
