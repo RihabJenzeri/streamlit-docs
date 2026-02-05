@@ -305,6 +305,28 @@ p, div, span {
     margin-top: 20px;
     width: 100%;
 }
+.st-emotion-cache-1anq8dj {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    font-weight: 400;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    min-height: 2.5rem;
+    margin: 0px;
+    line-height: 1.6;
+    text-transform: none;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+    background-color: rgba(172, 177, 195, 0.25);
+    border: 1px solid rgba(250, 250, 250, 0.2);
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
