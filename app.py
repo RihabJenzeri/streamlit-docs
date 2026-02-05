@@ -472,26 +472,26 @@ if st.session_state.page == "accueil":
     # Utiliser des colonnes Streamlit pour créer les cartes
     col1, col2 = st.columns(2)
     
-    # Carte MEDICOFI
-    with col1:
-        st.markdown("""
-        <div class="folder-card">
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
-                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                    </svg>
-                </div>
-                <div style="flex: 1;">
-                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">MEDICOFI</h3>
-                    <p style="color: #888; margin: 0; font-size: 14px;">Application de gestion médicale</p>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
+with col1:
+    st.markdown("""
+    <div class="folder-card">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2196F3" stroke-width="2">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                    <line x1="9" y1="14" x2="15" y2="14" stroke-width="2"/>
                 </svg>
             </div>
+            <div style="flex: 1;">
+                <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">DOCUMENT MANAGER</h3>
+                <p style="color: #888; margin: 0; font-size: 14px;">Cloud-based document organization system</p>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
         </div>
-        """, unsafe_allow_html=True)
+    </div>
+    """, unsafe_allow_html=True)
         
         # Bouton MEDICOFI avec JavaScript pour appliquer le style
         if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
