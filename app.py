@@ -81,30 +81,6 @@ header {visibility: hidden;}
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
-.st-emotion-cache-1anq8dj {
-    position: relative;
-    top: -150px;
-    display: inline-flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    font-weight: 400;
-    padding: 0.75rem 0.75rem;
-    border-radius: 0.9rem;
-    min-height: 9.3rem;
-    margin: 0px;
-    line-height: 1.6;
-    text-transform: none;
-    font-size: inherit;
-    font-family: inherit;
-    color: inherit;
-    width: 100%;
-    cursor: pointer;
-    user-select: none;
-    background-color: rgb(251 189 250 / 0%);
-    border: 1px solid rgba(250, 250, 250, 0.2);
-}
 
 /* STYLE SPÉCIFIQUE POUR LES BOUTONS "Ouvrir MEDICOFI" ET "Ouvrir PORTFOLIO PDF" */
 div[data-testid="column"]:nth-child(1) .st-emotion-cache-1anq8dj,
@@ -493,8 +469,9 @@ if st.session_state.page == "accueil":
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
                     </svg>
+                    MES DOSSIERS
                 </h2>
-                <p style="color: #666666; font-size: 16px;">As my Behance portfolio is currently being updated, I have gathered here a selected overview of my work. Below, you will find a PDF featuring my earlier projects, along with a folder showcasing my most recent work.</p>
+                <p style="color: #666666; font-size: 16px;">Portfolio Professionnel & Projets Design</p>
             </div>
     """, unsafe_allow_html=True)
     
@@ -523,7 +500,7 @@ if st.session_state.page == "accueil":
         """, unsafe_allow_html=True)
         
         # Bouton MEDICOFI avec JavaScript pour appliquer le style
-        if st.button("", key="medicofi_card_btn", use_container_width=True):
+        if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
             st.session_state.page = "medicofi"
             st.rerun()
     
@@ -553,7 +530,7 @@ if st.session_state.page == "accueil":
         """, unsafe_allow_html=True)
         
         # Bouton PORTFOLIO PDF
-        if st.button("", key="pdf_card_btn", use_container_width=True):
+        if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
             st.session_state.page = "pdf_viewer"
             st.rerun()
     
