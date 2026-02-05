@@ -658,12 +658,12 @@ elif st.session_state.page == "medicofi":
             min-height: 250px;
         ">
             <div style="
-                width: 80px;
+                width: 100px;
                 height: 80px;
-                border-radius: 50%;
+                border-radius: 12px;  /* Arrondi des coins */
                 overflow: hidden;
                 margin-bottom: 15px;
-                border: 3px solid white;
+                border: 2px solid white;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             ">
                 <img src="{card_image_url}" 
@@ -718,12 +718,12 @@ elif st.session_state.page == "medicofi":
             min-height: 250px;
         ">
             <div style="
-                width: 80px;
+                width: 100px;
                 height: 80px;
-                border-radius: 50%;
+                border-radius: 12px;  /* Arrondi des coins */
                 overflow: hidden;
                 margin-bottom: 15px;
-                border: 3px solid white;
+                border: 2px solid white;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             ">
                 <img src="{card_image_url}" 
@@ -765,12 +765,12 @@ elif st.session_state.page == "medicofi":
             min-height: 250px;
         ">
             <div style="
-                width: 80px;
+                width: 100px;
                 height: 80px;
-                border-radius: 50%;
+                border-radius: 12px;  /* Arrondi des coins */
                 overflow: hidden;
                 margin-bottom: 15px;
-                border: 3px solid white;
+                border: 2px solid white;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             ">
                 <img src="{card_image_url}" 
