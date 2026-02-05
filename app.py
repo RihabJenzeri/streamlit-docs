@@ -630,20 +630,20 @@ if st.session_state.page == "accueil":
 
     # Espace entre les sections
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
-    
+
 elif st.session_state.page == "medicofi":
     if st.button("← RETOUR"):
         st.session_state.page = "accueil"
         st.rerun()
-    
+
     st.title("My Works")
-    
+
     # Créer trois colonnes
     col1, col2, col3 = st.columns(3)
-    
+
     # URL de l'image
     card_image_url = get_image_url("image.jpeg")
-    
+
     # CSS pour le responsive
     responsive_style = """
     <style>
@@ -656,56 +656,56 @@ elif st.session_state.page == "medicofi":
         border: 2px solid white;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-    
+
     @media (max-width: 768px) {
         .responsive-image-container {
         width: 435px;
         height: 215px;
         }
     }
-    
+
     @media (max-width: 480px) {
         .responsive-image-container {
         width: 370px;
         height: 210px;
         }
     }
- 
+
     /* Responsive pour les cartes sur mobile */
     @media (max-width: 768px) {
         .responsive-card {
             min-height: 200px !important;
             padding: 12px !important;
         }
-        
+
         .responsive-card h3 {
             font-size: 16px !important;
         }
-        
+
         .responsive-card p {
             font-size: 12px !important;
         }
     }
-    
+
     @media (max-width: 480px) {
         .responsive-card {
             min-height: 180px !important;
             padding: 10px !important;
         }
-        
+
         .responsive-card h3 {
             font-size: 14px !important;
         }
-        
+
         .responsive-card p {
             font-size: 11px !important;
         }
     }
     </style>
     """
-    
+
     st.markdown(responsive_style, unsafe_allow_html=True)
-    
+
     # Colonne 1: MEDICOFI (avec 8 projets)
     with col1:
         st.markdown(f"""
@@ -728,7 +728,7 @@ elif st.session_state.page == "medicofi":
             min-height: 250px;
         ">
             <div class="responsive-image-container">
-                <img src="{card_image_url}" 
+                <img src="{card_image_url}"
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="MEDICOFI">
             </div>
@@ -740,7 +740,7 @@ elif st.session_state.page == "medicofi":
             </p>
         </div>
         """, unsafe_allow_html=True)
-        
+
         # Liste des 8 boutons pour MEDICOFI
         projects_medicofi = [
             ("SOCIÉTÉ APNIDOC (EN FRANCE)", "apnidoc"),
@@ -752,12 +752,12 @@ elif st.session_state.page == "medicofi":
             ("PROJET MEDICOFI 7", "medicofi7"),
             ("PROJET MEDICOFI 8", "medicofi8")
         ]
-        
+
         for project_name, page_key in projects_medicofi:
             if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
                 st.session_state.page = page_key
                 st.rerun()
-    
+
     # Colonne 2: FREELANCE
     with col2:
         st.markdown(f"""
@@ -780,7 +780,7 @@ elif st.session_state.page == "medicofi":
             min-height: 250px;
         ">
             <div class="responsive-image-container">
-                <img src="{card_image_url}" 
+                <img src="{card_image_url}"
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="FREELANCE">
             </div>
@@ -792,11 +792,11 @@ elif st.session_state.page == "medicofi":
             </p>
         </div>
         """, unsafe_allow_html=True)
-        
+
         if st.button("PROJETS FREELANCE", use_container_width=True, key="freelance_btn"):
             st.session_state.page = "freelance"
             st.rerun()
-    
+
     # Colonne 3: TSE
     with col3:
         st.markdown(f"""
@@ -819,7 +819,7 @@ elif st.session_state.page == "medicofi":
             min-height: 250px;
         ">
             <div class="responsive-image-container">
-                <img src="{card_image_url}" 
+                <img src="{card_image_url}"
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="TSE">
             </div>
@@ -831,7 +831,7 @@ elif st.session_state.page == "medicofi":
             </p>
         </div>
         """, unsafe_allow_html=True)
-        
+
         if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
             st.session_state.page = "tse"
             st.rerun()
@@ -840,7 +840,7 @@ elif st.session_state.page == "freelance":
     if st.button("← RETOUR"):
         st.session_state.page = "medicofi"
         st.rerun()
-    
+
     st.title("👨‍💻 PROJETS FREELANCE")
     st.write("Contenu des projets Freelance...")
     # Ajoutez ici votre contenu pour Freelance
@@ -849,7 +849,7 @@ elif st.session_state.page == "tse":
     if st.button("← RETOUR"):
         st.session_state.page = "medicofi"
         st.rerun()
-    
+
     st.title("📊 PROJETS TSE")
     st.write("Contenu des projets TSE...")
     # Ajoutez ici votre contenu pour TSE
@@ -878,144 +878,34 @@ elif st.session_state.page == "design_folders":
         st.session_state.page = "apnidoc"
         st.rerun()
 
-    # Design Interface Button - Modifié avec SVG
-    if st.button("DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_width=True):
-        st.session_state.page = "design_folders"
-        st.rerun()
-
-elif st.session_state.page == "design_folders":
-    if st.button("← RETOUR"):
-        st.session_state.page = "apnidoc"
-        st.rerun()
-
-    # Utiliser st.markdown() au lieu de st.title() pour le HTML
-    st.markdown("""<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                    <line x1="3" y1="9" x2="21" y2="9"/>
-                    <line x1="9" y1="21" x2="9" y2="9"/>
-                </svg>
-                <h1 style="margin: 0; color: #202124; font-size: 2rem; font-weight: 700;">DESIGN INTERFACE WEB SITE APNIDOC</h1>
-                </div>""", unsafe_allow_html=True)
+    st.title("🎨 DESIGN INTERFACE WEB SITE APNIDOC")
 
     # Website Link Section
     st.markdown("---")
-    st.markdown("""<div style="display: flex; align-items: center; gap: 10px; margin: 20px 0;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <line x1="2" y1="12" x2="22" y2="12"/>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                </svg>
-                <h3 style="margin: 0; color: #202124;">Site Web ApniDoc</h3>
-                </div>""", unsafe_allow_html=True)
-    
+    st.markdown("### 🌐 Site Web ApniDoc")
     st.write("(Le site web est déjà en ligne, mais il est toujours en cours de développement.)")
-    
-    st.markdown("""<div style="display: flex; align-items: center; gap: 8px; margin: 15px 0;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-                </svg>
-                <a href="https://apnidoc.fr/" target="_blank" style="color: #202124; text-decoration: none; font-weight: 500; font-size: 16px;">Visiter https://apnidoc.fr/</a>
-                </div>""", unsafe_allow_html=True)
-    
+    st.markdown("🔗 **[Visiter https://apnidoc.fr/](https://apnidoc.fr/)**")
     st.markdown("---")
 
     # Device Selection
-    st.markdown("### Choisissez un format :")
+    st.subheader("Choisissez un format :")
 
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        # Pour les boutons avec HTML, il faut créer un bouton personnalisé
-        # Solution: Utiliser st.markdown avec du CSS/JS ou créer un composant personnalisé
-        desktop_html = """
-        <div style="
-            background: linear-gradient(135deg, rgba(251, 189, 250, 0.1) 0%, rgba(108, 212, 255, 0.1) 100%);
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid #e0e0e0;
-            margin-bottom: 10px;
-        "
-        onclick="window.location.href='?page=device_images&device=Desktop'"
-        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(251, 189, 250, 0.3)';"
-        onmouseout="this.style.transform=''; this.style.boxShadow='';"
-        >
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="17" x2="12" y2="21"/>
-            </svg>
-            <div style="font-weight: 600; color: #202124; font-size: 16px;">DESKTOP</div>
-        </div>
-        """
-        st.markdown(desktop_html, unsafe_allow_html=True)
-        
-        # Bouton Streamlit caché pour la fonctionnalité
-        if st.button("DESKTOP", key="desktop_btn", use_container_width=True):
+        if st.button("🖥️ DESKTOP", use_container_width=True):
             st.session_state.current_device = "Desktop"
             st.session_state.page = "device_images"
             st.rerun()
 
     with col2:
-        ipad_html = """
-        <div style="
-            background: linear-gradient(135deg, rgba(251, 189, 250, 0.1) 0%, rgba(108, 212, 255, 0.1) 100%);
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid #e0e0e0;
-            margin-bottom: 10px;
-        "
-        onclick="window.location.href='?page=device_images&device=iPad'"
-        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(251, 189, 250, 0.3)';"
-        onmouseout="this.style.transform=''; this.style.boxShadow='';"
-        >
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                <line x1="12" y1="18" x2="12" y2="18"/>
-            </svg>
-            <div style="font-weight: 600; color: #202124; font-size: 16px;">IPAD</div>
-        </div>
-        """
-        st.markdown(ipad_html, unsafe_allow_html=True)
-        
-        if st.button("IPAD", key="ipad_btn", use_container_width=True):
+        if st.button("📱 IPAD", use_container_width=True):
             st.session_state.current_device = "iPad"
             st.session_state.page = "device_images"
             st.rerun()
 
     with col3:
-        phone_html = """
-        <div style="
-            background: linear-gradient(135deg, rgba(251, 189, 250, 0.1) 0%, rgba(108, 212, 255, 0.1) 100%);
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid #e0e0e0;
-            margin-bottom: 10px;
-        "
-        onclick="window.location.href='?page=device_images&device=Phone'"
-        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(251, 189, 250, 0.3)';"
-        onmouseout="this.style.transform=''; this.style.boxShadow='';"
-        >
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                <line x1="12" y1="18" x2="12" y2="18"/>
-            </svg>
-            <div style="font-weight: 600; color: #202124; font-size: 16px;">PHONE</div>
-        </div>
-        """
-        st.markdown(phone_html, unsafe_allow_html=True)
-        
-        if st.button("PHONE", key="phone_btn", use_container_width=True):
+        if st.button("📱 PHONE", use_container_width=True):
             st.session_state.current_device = "Phone"
             st.session_state.page = "device_images"
             st.rerun()
@@ -1027,33 +917,13 @@ elif st.session_state.page == "device_images":
         st.rerun()
 
     device = st.session_state.current_device
-    
-    # SVG icons pour chaque device
-    device_svgs = {
-        "Desktop": """<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                        <line x1="8" y1="21" x2="16" y2="21"/>
-                        <line x1="12" y1="17" x2="12" y2="21"/>
-                    </svg>""",
-        "iPad": """<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                    <line x1="12" y1="18" x2="12" y2="18"/>
-                </svg>""",
-        "Phone": """<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                    <line x1="12" y1="18" x2="12" y2="18"/>
-                </svg>"""
+    device_icons = {
+        "Desktop": "🖥️",
+        "iPad": "📱",
+        "Phone": "📱"
     }
-    
-    device_icon = device_svgs.get(device, """<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                    <line x1="12" y1="18" x2="12" y2="18"/>
-                </svg>""")
 
-    st.markdown(f"""<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-                {device_icon}
-                <h1 style="margin: 0; color: #202124; font-size: 2rem; font-weight: 700;">DESIGN {device.upper()}</h1>
-                </div>""", unsafe_allow_html=True)
+    st.title(f"{device_icons.get(device, '📱')} DESIGN {device.upper()}")
 
     # Display images
     if device in design_images:
