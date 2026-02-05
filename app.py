@@ -628,16 +628,16 @@ elif st.session_state.page == "medicofi":
         st.session_state.page = "accueil"
         st.rerun()
     
-    st.title("MEDICOFI")
+    st.title("My Works")
     
     # Créer trois colonnes
     col1, col2, col3 = st.columns(3)
     
-    # Colonne 1: MEDICOFI
+    # Colonne 1: MEDICOFI (avec 8 projets)
     with col1:
         st.markdown("""
         <div style="background: linear-gradient(135deg, rgba(251, 189, 250, 0.1) 0%, rgba(108, 212, 255, 0.1) 100%);
-                    border-radius: 15px; padding: 20px; text-align: center; margin-bottom: 15px; height: 180px;
+                    border-radius: 15px; padding: 20px; text-align: center; margin-bottom: 15px; min-height: 180px;
                     display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <div style="background: white; width: 60px; height: 60px; border-radius: 12px; 
                         display: flex; align-items: center; justify-content: center; margin-bottom: 15px;
@@ -647,13 +647,26 @@ elif st.session_state.page == "medicofi":
                 </svg>
             </div>
             <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 16px; font-weight: 600;">MEDICOFI</h3>
-            <p style="color: #666; margin: 0; font-size: 14px;">Société ApniDoc</p>
+            <p style="color: #666; margin: 0 0 15px 0; font-size: 14px;">8 Projets</p>
         </div>
         """, unsafe_allow_html=True)
         
-        if st.button("SOCIÉTÉ APNIDOC (EN FRANCE)", use_container_width=True, key="medicofi_btn"):
-            st.session_state.page = "apnidoc"
-            st.rerun()
+        # Liste des 8 boutons pour MEDICOFI
+        projects_medicofi = [
+            ("SOCIÉTÉ APNIDOC (EN FRANCE)", "apnidoc"),
+            ("PROJET MEDICOFI 2", "medicofi2"),
+            ("PROJET MEDICOFI 3", "medicofi3"),
+            ("PROJET MEDICOFI 4", "medicofi4"),
+            ("PROJET MEDICOFI 5", "medicofi5"),
+            ("PROJET MEDICOFI 6", "medicofi6"),
+            ("PROJET MEDICOFI 7", "medicofi7"),
+            ("PROJET MEDICOFI 8", "medicofi8")
+        ]
+        
+        for project_name, page_key in projects_medicofi:
+            if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
+                st.session_state.page = page_key
+                st.rerun()
     
     # Colonne 2: FREELANCE
     with col2:
@@ -700,7 +713,6 @@ elif st.session_state.page == "medicofi":
         if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
             st.session_state.page = "tse"
             st.rerun()
-
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
     if st.button("← RETOUR"):
