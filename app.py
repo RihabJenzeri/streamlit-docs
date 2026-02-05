@@ -539,11 +539,11 @@ if st.session_state.page == "accueil":
 
     # Carte MEDICOFI
     with col1:
-        st.markdown("""
+               st.markdown("""
             <div class="folder-card">
                 <div style="display: flex; align-items: center; gap: 15px;">
-                    <div style="background: transparent; border: 1.5px solid #ff80bd; padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: absolute; right: 19px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff80bd" stroke-width="2">
+                    <div style="background: transparent; padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: absolute; right: 19px; border: 2px solid #FBBDFA;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2">
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                         </svg>
                     </div>
@@ -557,7 +557,6 @@ if st.session_state.page == "accueil":
                 </div>
             </div>
         """, unsafe_allow_html=True)
-
         # Bouton MEDICOFI
         if st.button("OPEN", key="medicofi_card_btn", use_container_width=True):
             st.session_state.page = "medicofi"
