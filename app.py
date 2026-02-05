@@ -539,7 +539,7 @@ if st.session_state.page == "accueil":
 
     # Carte MEDICOFI
     with col1:
-               st.markdown("""
+        st.markdown("""
             <div class="folder-card">
                 <div style="display: flex; align-items: center; gap: 15px;">
                     <div style="background: transparent; padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: absolute; right: 19px; border: 2px solid #FBBDFA;">
