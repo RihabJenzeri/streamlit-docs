@@ -621,7 +621,7 @@ elif st.session_state.page == "device_images":
     if st.button("← RETOUR"):
         st.session_state.page = "design_folders"
         st.session_state.current_device = None
-        st.rerun())
+        st.rerun()
 
     st.title("MEDICOFI")
 
