@@ -773,22 +773,41 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-       # Liste des 8 boutons pour MEDICOFI avec sous-titres
+      # Liste des 8 boutons pour MEDICOFI
         projects_medicofi = [
-            ("Apnidoc company<br><small>Based in France</small>", "apnidoc"),
-            ("PROJET MEDICOFI 2<br><small>Sous-titre 2</small>", "medicofi2"),
-            ("PROJET MEDICOFI 3<br><small>Sous-titre 3</small>", "medicofi3"),
-            ("PROJET MEDICOFI 4<br><small>Sous-titre 4</small>", "medicofi4"),
-            ("PROJET MEDICOFI 5<br><small>Sous-titre 5</small>", "medicofi5"),
-            ("PROJET MEDICOFI 6<br><small>Sous-titre 6</small>", "medicofi6"),
-            ("PROJET MEDICOFI 7<br><small>Sous-titre 7</small>", "medicofi7"),
-            ("PROJET MEDICOFI 8<br><small>Sous-titre 8</small>", "medicofi8")
+            ("Apnidoc company", "Based in France", "apnidoc"),
+            ("PROJET MEDICOFI 2", "Sous-titre 2", "medicofi2"),
+            ("PROJET MEDICOFI 3", "Sous-titre 3", "medicofi3"),
+            ("PROJET MEDICOFI 4", "Sous-titre 4", "medicofi4"),
+            ("PROJET MEDICOFI 5", "Sous-titre 5", "medicofi5"),
+            ("PROJET MEDICOFI 6", "Sous-titre 6", "medicofi6"),
+            ("PROJET MEDICOFI 7", "Sous-titre 7", "medicofi7"),
+            ("PROJET MEDICOFI 8", "Sous-titre 8", "medicofi8")
         ]
         
-        for project_name, page_key in projects_medicofi:
-            if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
-                st.session_state.page = page_key
-                st.rerun()
+        for main_text, sub_text, page_key in projects_medicofi:
+            button_html = f"""
+            <div style="
+                padding: 0.5rem 1rem;
+                border: 1px solid #e5e7eb;
+                border-radius: 0.5rem;
+                background: white;
+                text-align: center;
+                cursor: pointer;
+                margin: 0.25rem 0;
+                transition: all 0.3s;
+                width: 100%;
+            "
+            onclick="this.style.backgroundColor='#FBBDFA'; this.style.borderColor='#FBBDFA'"
+            onmouseout="this.style.backgroundColor='white'; this.style.borderColor='#e5e7eb'">
+                <div style="font-weight: 600; font-size: 14px; color: #202124;">{main_text}</div>
+                <div style="font-size: 11px; color: #666666; margin-top: 2px;">{sub_text}</div>
+            </div>
+            """
+            
+        if st.markdown(button_html, unsafe_allow_html=True):
+            st.session_state.page = page_key
+            st.rerun()
 
     # Colonne 2: FREELANCE
     with col2:
