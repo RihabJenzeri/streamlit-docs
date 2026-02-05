@@ -471,7 +471,7 @@ if st.session_state.page == "accueil":
                 <p style="color: #666666; font-size: 16px;">As my Behance portfolio is currently being updated, I have gathered here a selected overview of my work. Below, you will find a PDF featuring my earlier projects, along with a folder showcasing my most recent work.</p>
             </div>
     """, unsafe_allow_html=True)
-            st.markdown("""
+    st.markdown("""
         <style>
         div[data-testid="column"] button {
             background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%);
@@ -484,7 +484,7 @@ if st.session_state.page == "accueil":
             box-shadow: 0 5px 15px rgba(251, 189, 250, 0.4);
         }
         </style>
-        """, unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
     # Utiliser des colonnes Streamlit pour créer les cartes
     col1, col2 = st.columns(2)
     
