@@ -711,40 +711,32 @@ elif st.session_state.page == "medicofi":
         }
     }
 
-    /* Styles pour les boutons avec sous-titres */
-    .custom-button-container {
+    /* Styles pour les boutons personnalisés */
+    .custom-button {
+        width: 100%;
+        background-color: #f8f9fa;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 12px;
         margin-bottom: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: left;
     }
     
-    /* Effet hover pour les boutons */
-    div[data-testid="stButton"] > button {
-        transition: all 0.3s ease !important;
-        border: 1px solid #e0e0e0 !important;
-        height: auto !important;
-        min-height: 60px !important;
-        padding: 8px 12px !important;
-        text-align: left !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-    }
-    
-    div[data-testid="stButton"] > button:hover {
-        border: 1px solid #FBBDFA !important;
+    .custom-button:hover {
+        border-color: #FBBDFA !important;
         background-color: rgba(251, 189, 250, 0.1) !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 4px 12px rgba(251, 189, 250, 0.2) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(251, 189, 250, 0.2);
     }
     
-    /* Style pour le texte multiligne dans les boutons */
     .button-title {
         font-size: 16px;
         font-weight: 600;
         color: #202124;
         margin: 0;
         font-family: 'Montserrat', sans-serif;
-        text-align: left;
-        width: 100%;
     }
     
     .button-subtitle {
@@ -753,14 +745,11 @@ elif st.session_state.page == "medicofi":
         margin: 2px 0 0 0;
         font-family: 'Montserrat', sans-serif;
         line-height: 1.2;
-        text-align: left;
-        width: 100%;
     }
     
-    /* S'assurer que le texte reste noir au hover */
-    div[data-testid="stButton"] > button:hover .button-title,
-    div[data-testid="stButton"] > button:hover .button-subtitle {
-        color: #202124 !important;
+    .button-s {
+        color: red;
+        font-weight: bold;
     }
     </style>
     """
@@ -814,17 +803,21 @@ elif st.session_state.page == "medicofi":
             ("PROJET MEDICOFI 8", "Location 8", "medicofi8")
         ]
 
+        # Solution 1: Utiliser st.markdown pour chaque bouton avec unsafe_allow_html=True
         for project_name, subtitle, page_key in projects_medicofi:
-            # Utiliser markdown pour afficher le bouton avec HTML
+            # Créer un conteneur pour chaque bouton
             button_html = f"""
-            <div class="custom-button-container">
+            <div class="custom-button" onclick="document.getElementById('btn_{page_key}').click()">
                 <div class="button-title">{project_name}</div>
                 <div class="button-subtitle">{subtitle}</div>
             </div>
             """
             
-            # Bouton Streamlit natif avec le HTML
-            if st.button(button_html, use_container_width=True, key=f"btn_{page_key}"):
+            # Afficher le bouton HTML
+            st.markdown(button_html, unsafe_allow_html=True)
+            
+            # Créer un bouton Streamlit caché pour gérer le clic
+            if st.button("", key=f"btn_{page_key}", type="secondary"):
                 st.session_state.page = page_key
                 st.rerun()
 
@@ -901,6 +894,15 @@ elif st.session_state.page == "medicofi":
             </p>
         </div>
         """, unsafe_allow_html=True)
+
+    # Ajouter du JavaScript pour le test
+    st.markdown("""
+    <script>
+    function myFunction() {
+        alert("Button clicked!");
+    }
+    </script>
+    """, unsafe_allow_html=True)
 
         if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
             st.session_state.page = "tse"
