@@ -885,7 +885,7 @@ st.markdown("""
 
 # Option 1: Utiliser un conteneur avec une largeur fixe
 st.markdown('<div style="max-width: 604px; margin: 0 auto;">', unsafe_allow_html=True)
-st.image(flyer_url,width=604, use_container_width=True)
+st.image(flyer_url,use_container_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # st.markdown("<p class='caption-text'>📄 Flyer ApniDoc</p>", unsafe_allow_html=True)
