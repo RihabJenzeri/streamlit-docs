@@ -529,7 +529,7 @@ if st.session_state.page == "accueil":
     <div style="display: flex; justify-content: center;">
         <div class="gradient-card" style="padding: 40px 30px;">
             <div style="text-align: center;">
-                <p style="color: #202124; font-size: 16px;">As my <strong>Behance portfolio</strong> is currently being updated, I have gathered here a selected overview of my work. Below, you will find a PDF featuring <strong>my earlier projects</strong>, along with a folder showcasing <strong>my most recent work</strong>.</p>
+                <p style="color: #202124; font-size: 16px;">As my <strong>Behance portfolio</strong> is currently being updated, I have gathered here a selected overview of my work. Below, you will find<strong> a PDF featuring my earlier projects</strong>, along with <strong>a folder showcasing my most recent work</strong>.</p>
             </div>
     """, unsafe_allow_html=True)
 
