@@ -362,6 +362,11 @@ h3::before, h3::after {
     border-image: initial;
     border-bottom: 1px solid rgba(250, 250, 250, 0.2);
 }
+.stButton > button:hover {
+    background-color: #FBBDFA !important;  /* Rose principal */
+    border-color: #ffccd5 !important;      /* Rose clair pour la bordure */
+    box-shadow: 0 4px 12px rgba(251, 189, 250, 0.3);
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
