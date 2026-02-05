@@ -621,9 +621,7 @@ if st.session_state.page == "accueil":
     """, unsafe_allow_html=True)
 
     # Espace entre les sections
-    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
-
-elif st.session_state.page == "medicofi":
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)elif st.session_state.page == "medicofi":
     if st.button("← RETOUR"):
         st.session_state.page = "accueil"
         st.rerun()
@@ -633,21 +631,49 @@ elif st.session_state.page == "medicofi":
     # Créer trois colonnes
     col1, col2, col3 = st.columns(3)
     
+    # URL de l'image
+    card_image_url = get_image_url("image.jpeg")
+    
     # Colonne 1: MEDICOFI (avec 8 projets)
     with col1:
-        st.markdown("""
-        <div style="background: linear-gradient(135deg, rgba(251, 189, 250, 0.1) 0%, rgba(108, 212, 255, 0.1) 100%);
-                    border-radius: 15px; padding: 20px; text-align: center; margin-bottom: 15px; min-height: 180px;
-                    display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <div style="background: white; width: 60px; height: 60px; border-radius: 12px; 
-                        display: flex; align-items: center; justify-content: center; margin-bottom: 15px;
-                        box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff80bd" stroke-width="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
+        st.markdown(f"""
+        <div style="
+            background:
+                radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
+                radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
+                #fdfefe;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 18px 40px rgba(17, 24, 39, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 250px;
+        ">
+            <div style="
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-bottom: 15px;
+                border: 3px solid white;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            ">
+                <img src="{card_image_url}" 
+                     style="width: 100%; height: 100%; object-fit: cover;"
+                     alt="MEDICOFI">
             </div>
-            <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 16px; font-weight: 600;">MEDICOFI</h3>
-            <p style="color: #666; margin: 0 0 15px 0; font-size: 14px;">8 Projets</p>
+            <h3 style="color: #202124; margin: 0 0 8px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;">
+                MEDICOFI
+            </h3>
+            <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
+                8 Projets
+            </p>
         </div>
         """, unsafe_allow_html=True)
         
@@ -670,20 +696,44 @@ elif st.session_state.page == "medicofi":
     
     # Colonne 2: FREELANCE
     with col2:
-        st.markdown("""
-        <div style="background: linear-gradient(135deg, rgba(229, 255, 232, 0.2) 0%, rgba(214, 255, 218, 0.2) 100%);
-                    border-radius: 15px; padding: 20px; text-align: center; margin-bottom: 15px; height: 180px;
-                    display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <div style="background: white; width: 60px; height: 60px; border-radius: 12px; 
-                        display: flex; align-items: center; justify-content: center; margin-bottom: 15px;
-                        box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                    <circle cx="12" cy="7" r="4"/>
-                </svg>
+        st.markdown(f"""
+        <div style="
+            background:
+                radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
+                radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
+                #fdfefe;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 18px 40px rgba(17, 24, 39, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 250px;
+        ">
+            <div style="
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-bottom: 15px;
+                border: 3px solid white;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            ">
+                <img src="{card_image_url}" 
+                     style="width: 100%; height: 100%; object-fit: cover;"
+                     alt="FREELANCE">
             </div>
-            <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 16px; font-weight: 600;">FREELANCE</h3>
-            <p style="color: #666; margin: 0; font-size: 14px;">Projets indépendants</p>
+            <h3 style="color: #202124; margin: 0 0 8px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;">
+                FREELANCE
+            </h3>
+            <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
+                Projets indépendants
+            </p>
         </div>
         """, unsafe_allow_html=True)
         
@@ -693,20 +743,44 @@ elif st.session_state.page == "medicofi":
     
     # Colonne 3: TSE
     with col3:
-        st.markdown("""
-        <div style="background: linear-gradient(135deg, rgba(232, 244, 255, 0.2) 0%, rgba(214, 235, 255, 0.2) 100%);
-                    border-radius: 15px; padding: 20px; text-align: center; margin-bottom: 15px; height: 180px;
-                    display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <div style="background: white; width: 60px; height: 60px; border-radius: 12px; 
-                        display: flex; align-items: center; justify-content: center; margin-bottom: 15px;
-                        box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14,2 14,8 20,8"/>
-                </svg>
+        st.markdown(f"""
+        <div style="
+            background:
+                radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
+                radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
+                #fdfefe;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 18px 40px rgba(17, 24, 39, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 250px;
+        ">
+            <div style="
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-bottom: 15px;
+                border: 3px solid white;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            ">
+                <img src="{card_image_url}" 
+                     style="width: 100%; height: 100%; object-fit: cover;"
+                     alt="TSE">
             </div>
-            <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 16px; font-weight: 600;">TSE</h3>
-            <p style="color: #666; margin: 0; font-size: 14px;">Projets TSE</p>
+            <h3 style="color: #202124; margin: 0 0 8px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;">
+                TSE
+            </h3>
+            <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
+                Projets TSE
+            </p>
         </div>
         """, unsafe_allow_html=True)
         
