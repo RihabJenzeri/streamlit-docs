@@ -891,22 +891,22 @@ st.markdown('</div>', unsafe_allow_html=True)
 # st.markdown("<p class='caption-text'>📄 Flyer ApniDoc</p>", unsafe_allow_html=True)
 st.markdown("---")
 
-    # Design Interface Button
-    if st.button("DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_width=True):
-        st.session_state.page = "design_folders"
-        st.rerun()
-    # Espace après la carte de profil
-    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
-    
+# Design Interface Button
+if st.button("DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_width=True):
+    st.session_state.page = "design_folders"
+    st.rerun()
+# Espace après la carte de profil
+st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+
 elif st.session_state.page == "design_folders":
-    if st.button("←"):
-        st.session_state.page = "apnidoc"
-        st.rerun()
+if st.button("←"):
+    st.session_state.page = "apnidoc"
+    st.rerun()
 
-    st.title("DESIGN INTERFACE WEB SITE APNIDOC")
+st.title("DESIGN INTERFACE WEB SITE APNIDOC")
 
-    # Website Link Section
-    st.markdown("---")
+# Website Link Section
+st.markdown("---")
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
