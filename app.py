@@ -301,6 +301,22 @@ p, div, span {
     }
 }
 
+@media (max-width: 480px) {
+    .st-emotion-cache-2fgyt4 h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    position: relative;
+    left: 10px;
+    /* padding: 1.25rem 0px 1rem; */
+}
+@media (max-width: 360px) {
+    .st-emotion-cache-2fgyt4 h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    position: relative;
+    left: 10px;
+    /* padding: 1.25rem 0px 1rem; */
+}
 /* Style pour les boutons de carte */
 .card-button {
     all: unset;
