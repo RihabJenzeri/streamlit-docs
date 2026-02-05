@@ -175,7 +175,7 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
     right: 10px;
 }
 .contact-icon {
-    width: 18px;
+    # width: 18px;
     height: 18px;
     stroke: #202124;
     fill: none;
