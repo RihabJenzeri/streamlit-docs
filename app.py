@@ -237,6 +237,108 @@ h1, h2, h3, h4, h5, h6 {
 p, div, span {
     font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
+/* Styles pour les cartes de projets */
+.project-card {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f3f4f6;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: transparent;
+    transform: translateY(-2px);
+}
+
+.project-hover-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.project-card:hover .project-hover-bg {
+    opacity: 1;
+}
+
+.project-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.project-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: linear-gradient(to bottom right, #f9fafb, #f3f4f6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+}
+
+.project-card:hover .project-icon {
+    background: linear-gradient(to bottom right, white, rgba(255, 255, 255, 0.8));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.project-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #202124;
+    margin: 0 0 4px 0;
+    transition: color 0.3s ease;
+}
+
+.project-card:hover .project-title {
+    color: #9333ea;
+}
+
+.project-description {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.project-arrow {
+    color: #d1d5db;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.project-card:hover .project-arrow {
+    color: #9333ea;
+    transform: translate(4px, -4px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-card {
+        padding: 20px;
+    }
+    
+    .project-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+    }
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
