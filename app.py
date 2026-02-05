@@ -237,108 +237,6 @@ h1, h2, h3, h4, h5, h6 {
 p, div, span {
     font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
-/* Styles pour les cartes de projets */
-.project-card {
-    position: relative;
-    background: white;
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    border: 1px solid #f3f4f6;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.project-card:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    border-color: transparent;
-    transform: translateY(-2px);
-}
-
-.project-hover-bg {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.project-card:hover .project-hover-bg {
-    opacity: 1;
-}
-
-.project-content {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.project-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 12px;
-    background: linear-gradient(to bottom right, #f9fafb, #f3f4f6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    transition: all 0.3s ease;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    flex-shrink: 0;
-}
-
-.project-card:hover .project-icon {
-    background: linear-gradient(to bottom right, white, rgba(255, 255, 255, 0.8));
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.project-text {
-    flex: 1;
-    min-width: 0;
-}
-
-.project-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: #202124;
-    margin: 0 0 4px 0;
-    transition: color 0.3s ease;
-}
-
-.project-card:hover .project-title {
-    color: #9333ea;
-}
-
-.project-description {
-    font-size: 14px;
-    color: #6b7280;
-    margin: 0;
-}
-
-.project-arrow {
-    color: #d1d5db;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-}
-
-.project-card:hover .project-arrow {
-    color: #9333ea;
-    transform: translate(4px, -4px);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .project-card {
-        padding: 20px;
-    }
-    
-    .project-icon {
-        width: 48px;
-        height: 48px;
-        font-size: 24px;
-    }
-}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -516,58 +414,28 @@ if st.session_state.page == "accueil":
             st.rerun()
     
     # NOUVELLE CARTE AVEC DÉGRADÉ RADIAL (en dessous)
- # Remplacez la section des boutons (après "# Contenu normal") par ce code :
-
-# Contenu normal - Section Mes Dossiers dans une carte avec dégradé
-st.markdown("""
-<div style="display: flex; justify-content: center; margin-top: 30px;">
-    <div class="gradient-card">
-        <h1 style="text-align: center; color: #202124; margin-bottom: 10px; font-size: 28px; font-weight: 600;">📂 MES DOSSIERS</h1>
-        <p style="text-align: center; color: #666666; margin-bottom: 30px; font-size: 16px;">Portfolio Professionnel & Projets Design</p>
-        
-        <!-- Projects Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-            
-            <!-- MEDICOFI Card -->
-            <div class="project-card" onclick="window.location.href='?page=medicofi'">
-                <div class="project-hover-bg" style="background: linear-gradient(to bottom right, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1));"></div>
-                <div class="project-content">
-                    <div class="project-icon">
-                        🏥
-                    </div>
-                    <div class="project-text">
-                        <h3 class="project-title">MEDICOFI</h3>
-                        <p class="project-description">Projets médicaux & santé</p>
-                    </div>
-                    <svg class="project-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M7 17L17 7"></path>
-                        <path d="M7 7h10v10"></path>
-                    </svg>
+    st.markdown("""
+    <div style="display: flex; justify-content: center;">
+        <div class="gradient-card">
+            <h2 style="text-align: center; color: #202124; margin-bottom: 20px;">Mes Compétences</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                <div style="text-align: center; flex: 1; min-width: 200px;">
+                    <h3 style="color: #202124;">🎨 Design Graphique</h3>
+                    <p style="color: #666666;">Création d'identités visuelles, illustrations, maquettes web et print</p>
+                </div>
+                <div style="text-align: center; flex: 1; min-width: 200px;">
+                    <h3 style="color: #202124;">💻 UI/UX Design</h3>
+                    <p style="color: #666666;">Design d'interfaces utilisateur, expériences utilisateur optimisées</p>
+                </div>
+                <div style="text-align: center; flex: 1; min-width: 200px;">
+                    <h3 style="color: #202124;">📱 Développement Web</h3>
+                    <p style="color: #666666;">Sites web responsives, applications modernes, intégration</p>
                 </div>
             </div>
-            
-            <!-- PORTFOLIO PDF Card -->
-            <div class="project-card" onclick="window.location.href='?page=pdf_viewer'">
-                <div class="project-hover-bg" style="background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));"></div>
-                <div class="project-content">
-                    <div class="project-icon">
-                        📄
-                    </div>
-                    <div class="project-text">
-                        <h3 class="project-title">PORTFOLIO PDF</h3>
-                        <p class="project-description">Télécharger mon portfolio</p>
-                    </div>
-                    <svg class="project-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M7 17L17 7"></path>
-                        <path d="M7 7h10v10"></path>
-                    </svg>
-                </div>
-            </div>
-            
         </div>
     </div>
-</div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
+
 elif st.session_state.page == "medicofi":
     if st.button("← RETOUR"):
         st.session_state.page = "accueil"
