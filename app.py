@@ -487,6 +487,9 @@ if st.session_state.page == "accueil":
                     <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 12px; font-weight: 600;">Mes Nouveaux Travaux</h3>
                 <p style="color: #888; margin: 0; font-size: 14px;">Applications et projets récents</p>
                 </div>
+                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -514,6 +517,9 @@ if st.session_state.page == "accueil":
                     <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">PORTFOLIO PDF</h3>
                     <p style="color: #888; margin: 0; font-size: 14px;">Mon portfolio en version PDF</p>
                 </div>
+                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
             </div>
         </div>
         """, unsafe_allow_html=True)
