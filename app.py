@@ -305,6 +305,118 @@ p, div, span {
     margin-top: 20px;
     width: 100%;
 }
+/* Styles pour les cartes de dossiers - Version abstraite */
+.folder-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #f0f0f0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.folder-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(251, 189, 250, 0.25) !important;
+    border-color: #FBBDFA !important;
+}
+
+/* Structure commune des cartes */
+.card-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-container {
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+}
+
+/* Icône MEDICOFI */
+.medicofi-icon {
+    background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%);
+}
+
+/* Icône PDF */
+.pdf-icon {
+    background: linear-gradient(135deg, #E8F4FF 0%, #D6EBFF 100%);
+}
+
+/* Icônes SVG */
+.card-svg-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.medicofi-svg {
+    stroke: #FF6B6B;
+}
+
+.pdf-svg {
+    stroke: #4A90E2;
+}
+
+/* Contenu texte */
+.card-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.card-title {
+    color: #202124;
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.card-description {
+    color: #888;
+    margin: 0;
+    font-size: 14px;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Flèche */
+.card-arrow {
+    width: 20px;
+    height: 20px;
+    stroke: #ccc;
+    stroke-width: 2;
+    flex-shrink: 0;
+}
+
+/* Icônes SVG abstraites */
+.medicofi-icon-svg {
+    stroke: #FF6B6B;
+    stroke-width: 2;
+    fill: none;
+}
+
+.pdf-icon-svg {
+    stroke: #4A90E2;
+    stroke-width: 2;
+    fill: none;
+}
+
+.arrow-icon-svg {
+    stroke: #ccc;
+    stroke-width: 2;
+    fill: none;
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -472,63 +584,63 @@ if st.session_state.page == "accueil":
     
   # SUPPRIMER LES PARENTHESES AU DÉBUT ET À LA FIN !
 # Utiliser des colonnes Streamlit pour créer les cartes
-    col1, col2 = st.columns(2)
-    
-    # Carte MEDICOFI
-    with col1:
-        st.markdown("""
-        <div class="folder-card">
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>
-                </div>
-                <div style="flex: 1;">
-                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">Mes Nouveaux Travaux</h3>
-                    <p style="color: #888; margin: 0; font-size: 14px;">Applications et projets récents</p>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
+col1, col2 = st.columns(2)
+
+# Carte MEDICOFI
+with col1:
+    st.markdown("""
+    <div class="folder-card">
+        <div class="card-content">
+            <div class="icon-container medicofi-icon">
+                <svg class="card-svg-icon medicofi-svg" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                 </svg>
             </div>
+            <div class="card-text">
+                <h3 class="card-title">Mes Nouveaux Travaux</h3>
+                <p class="card-description">Applications et projets récents</p>
+            </div>
+            <svg class="card-arrow" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
         </div>
-        """, unsafe_allow_html=True)
-        
-        # Bouton MEDICOFI
-        if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
-            st.session_state.page = "medicofi"
-            st.rerun()
+    </div>
+    """, unsafe_allow_html=True)
     
-    # Carte PORTFOLIO PDF
-    with col2:
-        st.markdown("""
-        <div class="folder-card">
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <div style="background: linear-gradient(135deg, #E8F4FF 0%, #D6EBFF 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14,2 14,8 20,8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <polyline points="10,9 9,9 8,9"/>
-                    </svg>
-                </div>
-                <div style="flex: 1;">
-                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">PORTFOLIO PDF</h3>
-                    <p style="color: #888; margin: 0; font-size: 14px;">Mon portfolio en version PDF</p>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
+    # Bouton MEDICOFI
+    if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
+        st.session_state.page = "medicofi"
+        st.rerun()
+
+# Carte PORTFOLIO PDF
+with col2:
+    st.markdown("""
+    <div class="folder-card">
+        <div class="card-content">
+            <div class="icon-container pdf-icon">
+                <svg class="card-svg-icon pdf-svg" viewBox="0 0 24 24">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14,2 14,8 20,8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10,9 9,9 8,9"/>
                 </svg>
             </div>
+            <div class="card-text">
+                <h3 class="card-title">PORTFOLIO PDF</h3>
+                <p class="card-description">Mon portfolio en version PDF</p>
+            </div>
+            <svg class="card-arrow" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
         </div>
-        """, unsafe_allow_html=True)
-        
-        # Bouton PORTFOLIO PDF
-        if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
-            st.session_state.page = "pdf_viewer"
-            st.rerun()
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Bouton PORTFOLIO PDF
+    if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
+        st.session_state.page = "pdf_viewer"
+        st.rerun()
             
     st.markdown("""
         </div>
