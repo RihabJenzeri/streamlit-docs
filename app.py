@@ -617,12 +617,30 @@ if st.session_state.page == "accueil":
     # Espace entre les sections
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
-elif st.session_state.page == "medicofi":
-    if st.button("← RETOUR"):
-        st.session_state.page = "accueil"
+elif st.session_state.page == "device_images":
+    # CSS personnalisé
+    st.markdown("""
+        <style>
+        .custom-button {
+            padding: 12px 24px !important;
+            border-radius: 20px !important;
+            background-color: #4CAF50 !important;
+            color: white !important;
+            border: none !important;
+            font-weight: bold !important;
+        }
+        .custom-button:hover {
+            background-color: #45a049 !important;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+    
+    if st.button("← RETOUR", key="back_button"):
+        st.session_state.page = "design_folders"
+        st.session_state.current_device = None
         st.rerun()
 
-    st.title("🏥 MEDICOFI")
+    st.title("MEDICOFI")
 
     if st.button("🇫🇷 SOCIÉTÉ APNIDOC (EN FRANCE)", use_container_width=True):
         st.session_state.page = "apnidoc"
