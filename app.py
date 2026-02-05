@@ -400,10 +400,6 @@ def create_menu():
         cursor: pointer;
         font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
-    .st-emotion-cache-p75nl5 {
-    max-width: 100%;
-    width: 600px;
-}
     </style>
     """
 
@@ -873,23 +869,27 @@ elif st.session_state.page == "apnidoc":
         st.session_state.page = "medicofi"
         st.rerun()
  
-    # st.title("SOCIÉTÉ APNIDOC")
-    st.markdown("""
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-                <polyline points="10 9 9 9 8 9"/>
-            </svg>
-            <h3 style="margin: 0; color: #202124;">Site Web ApniDoc</h3>
-        </div>
-    """, unsafe_allow_html=True)
-    # Flyer Image
-    st.image(flyer_url, use_container_width=True)
-    # st.markdown("<p class='caption-text'>📄 Flyer ApniDoc</p>", unsafe_allow_html=True)
-    st.markdown("---")
+# st.title("SOCIÉTÉ APNIDOC")
+st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Site Web ApniDoc</h3>
+    </div>
+""", unsafe_allow_html=True)
+
+# Option 1: Utiliser un conteneur avec une largeur fixe
+st.markdown('<div style="max-width: 604px; margin: 0 auto;">', unsafe_allow_html=True)
+st.image(flyer_url,width=604, use_container_width=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
+# st.markdown("<p class='caption-text'>📄 Flyer ApniDoc</p>", unsafe_allow_html=True)
+st.markdown("---")
 
     # Design Interface Button
     if st.button("DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_width=True):
