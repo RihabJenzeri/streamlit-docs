@@ -83,7 +83,7 @@ header {visibility: hidden;}
 }
 .st-emotion-cache-1anq8dj {
     position: relative;
-    top: -140px;
+    top: -150px;
     display: inline-flex;
     -webkit-box-align: center;
     align-items: center;
@@ -91,8 +91,8 @@ header {visibility: hidden;}
     justify-content: center;
     font-weight: 400;
     padding: 0.75rem 0.75rem;
-    border-radius: 0.5rem;
-    min-height: 7.5rem;
+    border-radius: 0.9rem;
+    min-height: 9.3rem;
     margin: 0px;
     line-height: 1.6;
     text-transform: none;
