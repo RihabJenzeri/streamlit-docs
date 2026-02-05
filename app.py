@@ -720,7 +720,7 @@ elif st.session_state.page == "medicofi":
             <div style="
                 width: 200px;
                 height: 160px;
-                border-radius: 12px;  /* Arrondi des coins */
+                border-radius: 12px;
                 overflow: hidden;
                 margin-bottom: 5px;
                 border: 2px solid white;
