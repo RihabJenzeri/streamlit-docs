@@ -533,7 +533,7 @@ if st.session_state.page == "accueil":
         """, unsafe_allow_html=True)
         
         # Détection du clic (avec ancre)
-        if st.experimental_get_query_params().get("medicofi"):
+        if "medicofi" in st.experimental_get_query_params():
             go_to_medicofi()
         
         # Bouton MEDICOFI avec JavaScript pour appliquer le style
