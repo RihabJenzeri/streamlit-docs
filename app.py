@@ -7,7 +7,8 @@ REPO_NAME = "streamlit-docs"
 BASE_URL = f"https://raw.githubusercontent.com/{GITHUB_USER}/{REPO_NAME}/main/"
 
 # ========== حالة التطبيق ==========
-if st.experimental_get_query_params().get("medicofi"):
+query_params = st.experimental_get_query_params()  # أول شيء في الكود
+if query_params.get("medicofi") is not None:
     st.session_state.page = "medicofi"
     st.experimental_rerun()
 if 'page' not in st.session_state:
