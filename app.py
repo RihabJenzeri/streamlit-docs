@@ -75,9 +75,9 @@ header {visibility: hidden;}
         #fdfefe;
     border-radius: 20px;
     padding: 25px;
-    margin: 20px auto;
+    margin-bottom: 50px;
     max-width: 1000px;
-    width: 90%;
+    width: 1000%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -165,7 +165,7 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
 }
 /* Styles pour les boutons de contact */
 .contact-links {
-    display: flex;
+    # display: flex;
     flex-wrap: nowrap;
     gap: 10px;
     justify-content: flex-start;
@@ -187,7 +187,8 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 10px 15px;
+    margin: 0.2rem;
+    padding: 10px 10px;
     border-radius: 25px;
     text-decoration: none !important;
     font-weight: 500;
@@ -464,7 +465,7 @@ if st.session_state.page == "accueil":
     st.markdown("""
     <div style="display: flex; justify-content: center;">
         <div class="gradient-card" style="padding: 40px 30px;">
-            <div style="text-align: center; margin-bottom: 35px;">
+            <div style="text-align: center;">
                 <p style="color: #666666; font-size: 16px;">As my Behance portfolio is currently being updated, I have gathered here a selected overview of my work. Below, you will find a PDF featuring my earlier projects, along with a folder showcasing my most recent work.</p>
             </div>
     """, unsafe_allow_html=True)
@@ -483,12 +484,9 @@ if st.session_state.page == "accueil":
                     </svg>
                 </div>
                 <div style="flex: 1;">
-                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">Mes Nouveaux Travaux</h3>
+                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 12px; font-weight: 600;">Mes Nouveaux Travaux</h3>
                 <p style="color: #888; margin: 0; font-size: 14px;">Applications et projets récents</p>
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -516,9 +514,6 @@ if st.session_state.page == "accueil":
                     <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">PORTFOLIO PDF</h3>
                     <p style="color: #888; margin: 0; font-size: 14px;">Mon portfolio en version PDF</p>
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
             </div>
         </div>
         """, unsafe_allow_html=True)
