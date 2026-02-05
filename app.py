@@ -650,8 +650,10 @@ elif st.session_state.page == "medicofi":
     # Créer trois colonnes
     col1, col2, col3 = st.columns(3)
 
-    # URL de l'image
-    card_image_url = get_image_url("image.jpeg")
+    # URLs des images spécifiques
+    medicofi_image_url = get_image_url("img1.png")  # Image pour MEDICOFI
+    freelance_image_url = get_image_url("img2.png")  # Image pour FREELANCE
+    tse_image_url = get_image_url("img3.png")  # Image pour TSE
 
     # CSS pour le responsive
     responsive_style = """
@@ -715,7 +717,7 @@ elif st.session_state.page == "medicofi":
 
     st.markdown(responsive_style, unsafe_allow_html=True)
 
-    # Colonne 1: MEDICOFI (avec 8 projets)
+    # Colonne 1: MEDICOFI (avec 8 projets) - Utilise img1.png
     with col1:
         st.markdown(f"""
         <div class="responsive-card" style="
@@ -737,7 +739,7 @@ elif st.session_state.page == "medicofi":
             min-height: 250px;
         ">
             <div class="responsive-image-container">
-                <img src="{card_image_url}"
+                <img src="{medicofi_image_url}"
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="MEDICOFI">
             </div>
@@ -767,7 +769,7 @@ elif st.session_state.page == "medicofi":
                 st.session_state.page = page_key
                 st.rerun()
 
-    # Colonne 2: FREELANCE
+    # Colonne 2: FREELANCE - Utilise img2.png
     with col2:
         st.markdown(f"""
         <div class="responsive-card" style="
@@ -789,7 +791,7 @@ elif st.session_state.page == "medicofi":
             min-height: 250px;
         ">
             <div class="responsive-image-container">
-                <img src="{card_image_url}"
+                <img src="{freelance_image_url}"
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="FREELANCE">
             </div>
@@ -806,7 +808,7 @@ elif st.session_state.page == "medicofi":
             st.session_state.page = "freelance"
             st.rerun()
 
-    # Colonne 3: TSE
+    # Colonne 3: TSE - Utilise img3.png
     with col3:
         st.markdown(f"""
         <div class="responsive-card" style="
@@ -828,7 +830,7 @@ elif st.session_state.page == "medicofi":
             min-height: 250px;
         ">
             <div class="responsive-image-container">
-                <img src="{card_image_url}"
+                <img src="{tse_image_url}"
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="TSE">
             </div>
