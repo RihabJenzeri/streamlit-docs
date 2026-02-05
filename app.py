@@ -658,11 +658,11 @@ elif st.session_state.page == "medicofi":
             min-height: 250px;
         ">
             <div style="
-                width: 100px;
-                height: 80px;
+                width: 200px;
+                height: 160px;
                 border-radius: 12px;  /* Arrondi des coins */
                 overflow: hidden;
-                margin-bottom: 15px;
+                margin-bottom: 5px;
                 border: 2px solid white;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             ">
@@ -718,11 +718,11 @@ elif st.session_state.page == "medicofi":
             min-height: 250px;
         ">
             <div style="
-                width: 100px;
-                height: 80px;
+                width: 200px;
+                height: 160px;
                 border-radius: 12px;  /* Arrondi des coins */
                 overflow: hidden;
-                margin-bottom: 15px;
+                margin-bottom: 5px;
                 border: 2px solid white;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             ">
@@ -765,11 +765,11 @@ elif st.session_state.page == "medicofi":
             min-height: 250px;
         ">
             <div style="
-                width: 100px;
-                height: 80px;
+                width: 200px;
+                height: 160px;
                 border-radius: 12px;  /* Arrondi des coins */
                 overflow: hidden;
-                margin-bottom: 15px;
+                margin-bottom: 5px;
                 border: 2px solid white;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             ">
