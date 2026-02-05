@@ -261,7 +261,11 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
     left: 10px;
     /* padding: 1.25rem 0px 1rem; */
 }
-
+.st-emotion-cache-2fgyt4 h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    padding: 0.75rem 0px 0.2rem;
+}
     .contact-btn {
         flex: 0 0 calc(50% - 10px);
         max-width: calc(50% - 10px);
@@ -904,12 +908,12 @@ elif st.session_state.page == "design_folders":
     st.markdown("---")
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin: 20px 0;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"/>
             <line x1="2" y1="12" x2="22" y2="12"/>
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
         </svg>
-        <h3 style="margin: 0; color: #202124;">Site Web ApniDoc</h3>
+        <h3 style="margin: 0; color: #FBBDFA;">Site Web ApniDoc</h3>
     </div>
     """, unsafe_allow_html=True)
     
