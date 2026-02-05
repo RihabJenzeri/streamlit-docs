@@ -636,10 +636,72 @@ elif st.session_state.page == "medicofi":
     # URL de l'image
     card_image_url = get_image_url("image.jpeg")
     
+    # CSS pour le responsive
+    responsive_style = """
+    <style>
+    .responsive-image-container {
+        width: 200px;
+        height: 160px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 5px;
+        border: 2px solid white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    @media (max-width: 768px) {
+        .responsive-image-container {
+            width: 140px;
+            height: 110px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .responsive-image-container {
+            width: 120px;
+            height: 90px;
+        }
+    }
+    
+    /* Responsive pour les cartes sur mobile */
+    @media (max-width: 768px) {
+        .responsive-card {
+            min-height: 200px !important;
+            padding: 6px !important;
+        }
+        
+        .responsive-card h3 {
+            font-size: 16px !important;
+        }
+        
+        .responsive-card p {
+            font-size: 12px !important;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .responsive-card {
+            min-height: 180px !important;
+            padding: 4px !important;
+        }
+        
+        .responsive-card h3 {
+            font-size: 14px !important;
+        }
+        
+        .responsive-card p {
+            font-size: 11px !important;
+        }
+    }
+    </style>
+    """
+    
+    st.markdown(responsive_style, unsafe_allow_html=True)
+    
     # Colonne 1: MEDICOFI (avec 8 projets)
     with col1:
         st.markdown(f"""
-        <div style="
+        <div class="responsive-card" style="
             background:
                 radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
                 radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
@@ -657,15 +719,7 @@ elif st.session_state.page == "medicofi":
             align-items: center;
             min-height: 250px;
         ">
-            <div style="
-                width: 200px;
-                height: 160px;
-                border-radius: 12px;  /* Arrondi des coins */
-                overflow: hidden;
-                margin-bottom: 5px;
-                border: 2px solid white;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            ">
+            <div class="responsive-image-container">
                 <img src="{card_image_url}" 
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="MEDICOFI">
@@ -699,7 +753,7 @@ elif st.session_state.page == "medicofi":
     # Colonne 2: FREELANCE
     with col2:
         st.markdown(f"""
-        <div style="
+        <div class="responsive-card" style="
             background:
                 radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
                 radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
@@ -717,15 +771,7 @@ elif st.session_state.page == "medicofi":
             align-items: center;
             min-height: 250px;
         ">
-            <div style="
-                width: 200px;
-                height: 160px;
-                border-radius: 12px;
-                overflow: hidden;
-                margin-bottom: 5px;
-                border: 2px solid white;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            ">
+            <div class="responsive-image-container">
                 <img src="{card_image_url}" 
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="FREELANCE">
@@ -746,7 +792,7 @@ elif st.session_state.page == "medicofi":
     # Colonne 3: TSE
     with col3:
         st.markdown(f"""
-        <div style="
+        <div class="responsive-card" style="
             background:
                 radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
                 radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
@@ -764,15 +810,7 @@ elif st.session_state.page == "medicofi":
             align-items: center;
             min-height: 250px;
         ">
-            <div style="
-                width: 200px;
-                height: 160px;
-                border-radius: 12px;  /* Arrondi des coins */
-                overflow: hidden;
-                margin-bottom: 5px;
-                border: 2px solid white;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            ">
+            <div class="responsive-image-container">
                 <img src="{card_image_url}" 
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="TSE">
