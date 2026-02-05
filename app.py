@@ -895,7 +895,8 @@ elif st.session_state.page == "apnidoc":
     # Flyer Image
     st.image(flyer_url, use_container_width=True)
     # st.markdown("<p class='caption-text'>📄 Flyer ApniDoc</p>", unsafe_allow_html=True)
-
+    # Espace après la carte de profil
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     st.markdown("---")
 
     # Design Interface Button
