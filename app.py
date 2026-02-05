@@ -362,11 +362,6 @@ h3::before, h3::after {
     border-image: initial;
     border-bottom: 1px solid rgba(250, 250, 250, 0.2);
 }
-.stButton > button:hover {
-    background-color: #FBBDFA !important;  /* Rose principal */
-    border-color: #ffccd5 !important;      /* Rose clair pour la bordure */
-    box-shadow: 0 4px 12px rgba(251, 189, 250, 0.3);
-}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -658,7 +653,7 @@ elif st.session_state.page == "medicofi":
     # URL de l'image
     card_image_url = get_image_url("image.jpeg")
 
-    # CSS pour le responsive et styles des boutons
+    # CSS pour le responsive
     responsive_style = """
     <style>
     .responsive-image-container {
@@ -715,25 +710,6 @@ elif st.session_state.page == "medicofi":
             font-size: 11px !important;
         }
     }
-
-    /* Style pour les boutons avec sous-titres et hover rose spécifique */
-    .stButton > button {
-        transition: all 0.3s ease;
-        text-align: left;
-    }
-    
-    .stButton > button:hover {
-        background-color: #FBBDFA !important;
-        border-color: #ffccd5 !important;
-        box-shadow: 0 4px 12px rgba(251, 189, 250, 0.3);
-    }
-    
-    /* Style pour la première colonne seulement */
-    .col1-button small {
-        font-size: 11px !important;
-        color: #666666;
-        opacity: 0.9;
-    }
     </style>
     """
 
@@ -774,20 +750,20 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        # Liste des 8 boutons pour MEDICOFI avec sous-titres
+        # Liste des 8 boutons pour MEDICOFI
         projects_medicofi = [
-            ("Apnidoc company<br><small>Based in France</small>", "apnidoc"),
-            ("PROJET MEDICOFI 2<br><small>Location 2</small>", "medicofi2"),
-            ("PROJET MEDICOFI 3<br><small>Location 3</small>", "medicofi3"),
-            ("PROJET MEDICOFI 4<br><small>Location 4</small>", "medicofi4"),
-            ("PROJET MEDICOFI 5<br><small>Location 5</small>", "medicofi5"),
-            ("PROJET MEDICOFI 6<br><small>Location 6</small>", "medicofi6"),
-            ("PROJET MEDICOFI 7<br><small>Location 7</small>", "medicofi7"),
-            ("PROJET MEDICOFI 8<br><small>Location 8</small>", "medicofi8")
+            ("Apnidoc company", "apnidoc"),
+            ("PROJET MEDICOFI 2", "medicofi2"),
+            ("PROJET MEDICOFI 3", "medicofi3"),
+            ("PROJET MEDICOFI 4", "medicofi4"),
+            ("PROJET MEDICOFI 5", "medicofi5"),
+            ("PROJET MEDICOFI 6", "medicofi6"),
+            ("PROJET MEDICOFI 7", "medicofi7"),
+            ("PROJET MEDICOFI 8", "medicofi8")
         ]
 
-        for project_html, page_key in projects_medicofi:
-            if st.button(project_html, use_container_width=True, key=f"medicofi_{page_key}"):
+        for project_name, page_key in projects_medicofi:
+            if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
                 st.session_state.page = page_key
                 st.rerun()
 
@@ -864,10 +840,10 @@ elif st.session_state.page == "medicofi":
             </p>
         </div>
         """, unsafe_allow_html=True)
-        
-    if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
-        st.session_state.page = "tse"
-        st.rerun()
+
+        if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
+            st.session_state.page = "tse"
+            st.rerun()
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
     if st.button("←"):
