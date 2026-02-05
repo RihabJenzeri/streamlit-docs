@@ -62,7 +62,7 @@ header {visibility: hidden;}
     padding: 25px;
     margin: -30px auto 30px auto;
     max-width: 1000px;
-    width: 1000%;
+    width: 90%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -77,7 +77,7 @@ header {visibility: hidden;}
     padding: 25px;
     margin-bottom: 50px;
     max-width: 1000px;
-    width: 1000%;
+    width: 90%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -165,7 +165,7 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
 }
 /* Styles pour les boutons de contact */
 .contact-links {
-    # display: flex;
+    display: flex;
     flex-wrap: nowrap;
     gap: 10px;
     justify-content: flex-start;
@@ -470,8 +470,7 @@ if st.session_state.page == "accueil":
             </div>
     """, unsafe_allow_html=True)
     
-  # SUPPRIMER LES PARENTHESES AU DÉBUT ET À LA FIN !
- # Utiliser des colonnes Streamlit pour créer les cartes
+    # Utiliser des colonnes Streamlit pour créer les cartes
     col1, col2 = st.columns(2)
     
     # Carte MEDICOFI
@@ -481,12 +480,12 @@ if st.session_state.page == "accueil":
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
-                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                     </svg>
                 </div>
                 <div style="flex: 1;">
                     <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">Mes Nouveaux Travaux</h3>
-                <p style="color: #888; margin: 0; font-size: 14px;">Applications et projets récents</p>
+                    <p style="color: #888; margin: 0; font-size: 14px;">Applications et projets récents</p>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -495,7 +494,7 @@ if st.session_state.page == "accueil":
         </div>
         """, unsafe_allow_html=True)
         
-        # Bouton MEDICOFI avec JavaScript pour appliquer le style
+        # Bouton MEDICOFI
         if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
             st.session_state.page = "medicofi"
             st.rerun()
@@ -529,7 +528,7 @@ if st.session_state.page == "accueil":
         if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
             st.session_state.page = "pdf_viewer"
             st.rerun()
-            
+    
     st.markdown("""
         </div>
     </div>
