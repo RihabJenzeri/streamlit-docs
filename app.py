@@ -62,7 +62,7 @@ header {visibility: hidden;}
     padding: 25px;
     margin: -30px auto 30px auto;
     max-width: 1000px; /* Agrandi pour accommoder les 4 boutons */
-    width: 1000%; /* Correction: 90% au lieu de 1000% */
+    width: 90%; /* Correction: 90% au lieu de 1000% */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -237,6 +237,19 @@ h1, h2, h3, h4, h5, h6 {
 p, div, span {
     font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
+
+/* Styles pour les cartes de dossiers */
+.folder-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(251, 189, 250, 0.25) !important;
+    border-color: #FBBDFA !important;
+}
+
+@media (max-width: 768px) {
+    .gradient-card > div > div {
+        grid-template-columns: 1fr !important;
+    }
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -396,37 +409,96 @@ if st.session_state.page == "accueil":
     
     # Espace après la carte de profil
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
-# Contenu normal
+    
+    # NOUVELLE CARTE MES DOSSIERS avec boutons intégrés
     st.markdown("""
     <div style="display: flex; justify-content: center;">
-        <div class="gradient-card">
-            <h2 style="text-align: center; color: #202124; margin-bottom: 10px;">📂 MES DOSSIERS</h2>
-            <p style="text-align: center; color: #666666; margin-bottom: 25px;">Portfolio Professionnel & Projets Design</p>
+        <div class="gradient-card" style="padding: 40px 30px;">
+            <div style="text-align: center; margin-bottom: 35px;">
+                <h2 style="color: #202124; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    MES DOSSIERS
+                </h2>
+                <p style="color: #666666; font-size: 16px;">Portfolio Professionnel & Projets Design</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                <!-- Carte MEDICOFI -->
+                <div class="folder-card" style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; cursor: pointer; border: 1px solid #f0f0f0;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">MEDICOFI</h3>
+                            <p style="color: #888; margin: 0; font-size: 14px;">Application de gestion médicale</p>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Carte PORTFOLIO PDF -->
+                <div class="folder-card" style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; cursor: pointer; border: 1px solid #f0f0f0;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="background: linear-gradient(135deg, #E8F4FF 0%, #D6EBFF 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10,9 9,9 8,9"/>
+                            </svg>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">PORTFOLIO PDF</h3>
+                            <p style="color: #888; margin: 0; font-size: 14px;">Mon portfolio en version PDF</p>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
-    
-    # Conteneur pour centrer les boutons
-    st.markdown('<div style="max-width: 1000px; margin: 0 auto; width: 90%;">', unsafe_allow_html=True)
-    
+
+    # Boutons invisibles pour la navigation (placés après la carte)
     col1, col2 = st.columns(2)
-    
+
     with col1:
-        if st.button("🏥 MEDICOFI", use_container_width=True):
+        if st.button("medicofi_btn", key="medicofi_invisible", label_visibility="hidden"):
             st.session_state.page = "medicofi"
             st.rerun()
-    
+
     with col2:
-        if st.button("📄 PORTFOLIO PDF", use_container_width=True):
+        if st.button("pdf_btn", key="pdf_invisible", label_visibility="hidden"):
             st.session_state.page = "pdf_viewer"
             st.rerun()
-    
-    st.markdown('</div>', unsafe_allow_html=True)
-    
+
+    # JavaScript pour rendre les cartes cliquables
+    st.markdown("""
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.folder-card');
+        const buttons = document.querySelectorAll('[key*="invisible"]');
+        
+        if (cards.length >= 2 && buttons.length >= 2) {
+            cards[0].onclick = function() { buttons[0].click(); };
+            cards[1].onclick = function() { buttons[1].click(); };
+        }
+    });
+    </script>
+    """, unsafe_allow_html=True)
+
     # Espace entre les sections
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
-    
-   
 
 elif st.session_state.page == "medicofi":
     if st.button("← RETOUR"):
