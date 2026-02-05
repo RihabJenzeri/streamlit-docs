@@ -414,28 +414,58 @@ if st.session_state.page == "accueil":
             st.rerun()
     
     # NOUVELLE CARTE AVEC DÉGRADÉ RADIAL (en dessous)
-    st.markdown("""
-    <div style="display: flex; justify-content: center;">
-        <div class="gradient-card">
-            <h2 style="text-align: center; color: #202124; margin-bottom: 20px;">Mes Compétences</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-                <div style="text-align: center; flex: 1; min-width: 200px;">
-                    <h3 style="color: #202124;">🎨 Design Graphique</h3>
-                    <p style="color: #666666;">Création d'identités visuelles, illustrations, maquettes web et print</p>
-                </div>
-                <div style="text-align: center; flex: 1; min-width: 200px;">
-                    <h3 style="color: #202124;">💻 UI/UX Design</h3>
-                    <p style="color: #666666;">Design d'interfaces utilisateur, expériences utilisateur optimisées</p>
-                </div>
-                <div style="text-align: center; flex: 1; min-width: 200px;">
-                    <h3 style="color: #202124;">📱 Développement Web</h3>
-                    <p style="color: #666666;">Sites web responsives, applications modernes, intégration</p>
+ # Remplacez la section des boutons (après "# Contenu normal") par ce code :
+
+# Contenu normal - Section Mes Dossiers dans une carte avec dégradé
+st.markdown("""
+<div style="display: flex; justify-content: center; margin-top: 30px;">
+    <div class="gradient-card">
+        <h1 style="text-align: center; color: #202124; margin-bottom: 10px; font-size: 28px; font-weight: 600;">📂 MES DOSSIERS</h1>
+        <p style="text-align: center; color: #666666; margin-bottom: 30px; font-size: 16px;">Portfolio Professionnel & Projets Design</p>
+        
+        <!-- Projects Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            
+            <!-- MEDICOFI Card -->
+            <div class="project-card" onclick="window.location.href='?page=medicofi'">
+                <div class="project-hover-bg" style="background: linear-gradient(to bottom right, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1));"></div>
+                <div class="project-content">
+                    <div class="project-icon">
+                        🏥
+                    </div>
+                    <div class="project-text">
+                        <h3 class="project-title">MEDICOFI</h3>
+                        <p class="project-description">Projets médicaux & santé</p>
+                    </div>
+                    <svg class="project-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 17L17 7"></path>
+                        <path d="M7 7h10v10"></path>
+                    </svg>
                 </div>
             </div>
+            
+            <!-- PORTFOLIO PDF Card -->
+            <div class="project-card" onclick="window.location.href='?page=pdf_viewer'">
+                <div class="project-hover-bg" style="background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));"></div>
+                <div class="project-content">
+                    <div class="project-icon">
+                        📄
+                    </div>
+                    <div class="project-text">
+                        <h3 class="project-title">PORTFOLIO PDF</h3>
+                        <p class="project-description">Télécharger mon portfolio</p>
+                    </div>
+                    <svg class="project-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 17L17 7"></path>
+                        <path d="M7 7h10v10"></path>
+                    </svg>
+                </div>
+            </div>
+            
         </div>
     </div>
-    """, unsafe_allow_html=True)
-
+</div>
+""", unsafe_allow_html=True)
 elif st.session_state.page == "medicofi":
     if st.button("← RETOUR"):
         st.session_state.page = "accueil"
