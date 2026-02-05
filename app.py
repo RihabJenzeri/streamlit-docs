@@ -885,7 +885,7 @@ st.markdown("""
 
 # Option 1: Utiliser un conteneur avec une largeur fixe
 st.markdown('<div style="max-width: 604px; margin: 0 auto;">', unsafe_allow_html=True)
-st.image(flyer_url,use_container_width=True)
+st.image(flyer_url, use_container_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # st.markdown("<p class='caption-text'>📄 Flyer ApniDoc</p>", unsafe_allow_html=True)
@@ -895,14 +895,18 @@ st.markdown("---")
 if st.button("DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_width=True):
     st.session_state.page = "design_folders"
     st.rerun()
+    
 # Espace après la carte de profil
 st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
-elif st.session_state.page == "design_folders":
-if st.button("←"):
-    st.session_state.page = "apnidoc"
-    st.rerun()
+# ⚠️ ICI - Pas de elif directement après ce bloc ! ⚠️
+# Le elif doit être au même niveau que les autres conditions if/elif
 
+# Le code correct devrait ressembler à :
+elif st.session_state.page == "design_folders":
+    if st.button("←"):
+        st.session_state.page = "apnidoc"
+        st.rerun()
 st.title("DESIGN INTERFACE WEB SITE APNIDOC")
 
 # Website Link Section
