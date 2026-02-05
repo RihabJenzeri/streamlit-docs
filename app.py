@@ -11,10 +11,7 @@ if 'page' not in st.session_state:
     st.session_state.page = "accueil"
 if 'current_device' not in st.session_state:
     st.session_state.current_device = None
-# Fonction pour changer de page
-def go_to_medicofi():
-    st.session_state.page = "medicofi"
-    st.experimental_rerun()
+
 # ========== SUPPRIMER LE MENU PAR DÉFAUT DE STREAMLIT ET CHANGER LE BACKGROUND ==========
 hide_default_menu = """
 <style>
@@ -477,64 +474,24 @@ if st.session_state.page == "accueil":
     
     # Carte MEDICOFI
     with col1:
-      # Carte MEDICOFI cliquable
         st.markdown("""
-        <style>
-        .medicofi-card {
-            background: #fff;
-            border-radius: 12px;
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .medicofi-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
-        }
-        .medicofi-icon {
-            background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%);
-            padding: 15px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .medicofi-text h3 {
-            color: #202124;
-            margin: 0 0 5px 0;
-            font-size: 18px;
-            font-weight: 600;
-        }
-        .medicofi-text p {
-            color: #888;
-            margin: 0;
-            font-size: 14px;
-        }
-        </style>
-        
-        <div class="medicofi-card" onclick="window.location.href='#medicofi'">
-            <div class="medicofi-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        <div class="folder-card">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <div style="flex: 1;">
+                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">MEDICOFI</h3>
+                    <p style="color: #888; margin: 0; font-size: 14px;">Application de gestion médicale</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </div>
-            <div class="medicofi-text">
-                <h3>MEDICOFI</h3>
-                <p>Application de gestion médicale</p>
-            </div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
         </div>
         """, unsafe_allow_html=True)
-        
-        # Détection du clic (avec ancre)
-        if "medicofi" in st.experimental_get_query_params():
-            go_to_medicofi()
         
         # Bouton MEDICOFI avec JavaScript pour appliquer le style
         if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
