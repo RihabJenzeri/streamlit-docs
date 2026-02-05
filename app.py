@@ -401,13 +401,6 @@ def create_menu():
         font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
     .st-emotion-cache-p75nl5 {
-    position: relative;
-    height: fit-content;
-    max-width: 100%;
-    width: fit-content;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
     max-width: 100%;
     width: 600px;
 }
