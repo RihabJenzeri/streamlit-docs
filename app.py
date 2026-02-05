@@ -82,9 +82,9 @@ header {visibility: hidden;}
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-/* Styles pour les boutons MES DOSSIERS */
-.stButton > button[data-testid="baseButton-secondary"]:nth-child(1),
-.stButton > button[data-testid="baseButton-secondary"]:nth-child(2) {
+/* STYLE SPÉCIFIQUE POUR LES BOUTONS "Ouvrir MEDICOFI" ET "Ouvrir PORTFOLIO PDF" */
+div[data-testid="column"]:nth-child(1) .st-emotion-cache-1anq8dj,
+div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj {
     background: 
         radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
         radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
@@ -97,30 +97,19 @@ header {visibility: hidden;}
     margin-top: 15px !important;
 }
 
-.stButton > button[data-testid="baseButton-secondary"]:nth-child(1):hover,
-.stButton > button[data-testid="baseButton-secondary"]:nth-child(2):hover {
+div[data-testid="column"]:nth-child(1) .st-emotion-cache-1anq8dj:hover,
+div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:hover {
     box-shadow: 0 5px 15px rgba(251, 189, 250, 0.4) !important;
     transform: translateY(-2px) !important;
     border-color: rgba(251, 189, 250, 0.8) !important;
 }
 
-.stButton > button[data-testid="baseButton-secondary"]:nth-child(1):active,
-.stButton > button[data-testid="baseButton-secondary"]:nth-child(2):active {
+div[data-testid="column"]:nth-child(1) .st-emotion-cache-1anq8dj:active,
+div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
     transform: translateY(0) !important;
 }
 
-/* Alternative plus spécifique */
-button:has(> div:contains("Ouvrir MEDICOFI")),
-button:has(> div:contains("Ouvrir PORTFOLIO PDF")) {
-    background: 
-        radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
-        radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
-        #fdfefe !important;
-    color: #202124 !important;
-    border: 1px solid rgba(251, 189, 250, 0.5) !important;
-}
-
+/* Alternative plus directe avec JavaScript injection */
 .st-emotion-cache-tn0cau {
     gap: 0.61rem !important;
 }
@@ -510,7 +499,7 @@ if st.session_state.page == "accueil":
         </div>
         """, unsafe_allow_html=True)
         
-        # Bouton MEDICOFI
+        # Bouton MEDICOFI avec JavaScript pour appliquer le style
         if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
             st.session_state.page = "medicofi"
             st.rerun()
@@ -548,6 +537,55 @@ if st.session_state.page == "accueil":
     st.markdown("""
         </div>
     </div>
+    """, unsafe_allow_html=True)
+    
+    # Injection JavaScript pour cibler les boutons spécifiques
+    st.markdown("""
+    <script>
+    // Attendre que la page soit chargée
+    setTimeout(function() {
+        // Trouver tous les boutons avec la classe spécifique
+        const buttons = document.querySelectorAll('.st-emotion-cache-1anq8dj');
+        
+        // Appliquer le style aux boutons dans les colonnes
+        buttons.forEach((button, index) => {
+            // Vérifier si le bouton est dans la première ou deuxième colonne
+            const parentColumn = button.closest('[data-testid="column"]');
+            if (parentColumn) {
+                const columnIndex = Array.from(parentColumn.parentElement.children).indexOf(parentColumn);
+                
+                // Appliquer le style seulement aux boutons des deux premières colonnes
+                if (columnIndex === 0 || columnIndex === 1) {
+                    button.style.background = 'radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%), radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%), radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%), #fdfefe';
+                    button.style.color = '#202124';
+                    button.style.border = '1px solid rgba(251, 189, 250, 0.5)';
+                    button.style.fontWeight = '600';
+                    
+                    // Ajouter les effets hover
+                    button.addEventListener('mouseenter', function() {
+                        this.style.boxShadow = '0 5px 15px rgba(251, 189, 250, 0.4)';
+                        this.style.transform = 'translateY(-2px)';
+                        this.style.borderColor = 'rgba(251, 189, 250, 0.8)';
+                    });
+                    
+                    button.addEventListener('mouseleave', function() {
+                        this.style.boxShadow = '';
+                        this.style.transform = '';
+                        this.style.borderColor = 'rgba(251, 189, 250, 0.5)';
+                    });
+                    
+                    button.addEventListener('mousedown', function() {
+                        this.style.transform = 'translateY(0)';
+                    });
+                    
+                    button.addEventListener('mouseup', function() {
+                        this.style.transform = 'translateY(-2px)';
+                    });
+                }
+            }
+        });
+    }, 1000); // Délai pour s'assurer que tout est chargé
+    </script>
     """, unsafe_allow_html=True)
     
     # Espace entre les sections
