@@ -82,15 +82,17 @@ header {visibility: hidden;}
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .st-emotion-cache-1anq8dj {
+    position: relative;
+    top: -140px;
     display: inline-flex;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
     font-weight: 400;
-    padding: 0.25rem 0.75rem;
+    padding: 0.75rem 0.75rem;
     border-radius: 0.5rem;
-    min-height: 2.5rem;
+    min-height: 7.5rem;
     margin: 0px;
     line-height: 1.6;
     text-transform: none;
@@ -100,7 +102,7 @@ header {visibility: hidden;}
     width: 100%;
     cursor: pointer;
     user-select: none;
-    background-color: rgba(251, 189, 250, 0.55);
+    background-color: rgb(251 189 250 / 0%);
     border: 1px solid rgba(250, 250, 250, 0.2);
 }
 
@@ -521,7 +523,7 @@ if st.session_state.page == "accueil":
         """, unsafe_allow_html=True)
         
         # Bouton MEDICOFI avec JavaScript pour appliquer le style
-        if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
+        if st.button("", key="medicofi_card_btn", use_container_width=True):
             st.session_state.page = "medicofi"
             st.rerun()
     
@@ -551,7 +553,7 @@ if st.session_state.page == "accueil":
         """, unsafe_allow_html=True)
         
         # Bouton PORTFOLIO PDF
-        if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
+        if st.button("", key="pdf_card_btn", use_container_width=True):
             st.session_state.page = "pdf_viewer"
             st.rerun()
     
