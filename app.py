@@ -358,7 +358,18 @@ h3::before, h3::after {
     color: #666666;
     max-width: 100%;
     width: 100%;
+    max-width: 604px;  # Changer de 704px à 604px
     overflow-wrap: break-word;
+}
+@media (max-width: 768px) {
+    .st-emotion-cache-2fgyt4 h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        position: relative;
+        left: 10px;
+        max-width: 604px;  # Ajouter cette ligne pour mobile aussi
+        width: 100%;
+    }
 }
 .st-emotion-cache-2fgyt4 hr {
     margin: 2em 0px;
