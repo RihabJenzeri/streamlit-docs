@@ -848,11 +848,11 @@ elif st.session_state.page == "tse":
 
 # La page apnidoc reste la même
 elif st.session_state.page == "apnidoc":
-    if st.button("← RETOUR"):
+    if st.button("←"):
         st.session_state.page = "medicofi"
         st.rerun()
 
-    st.title("🇫🇷 SOCIÉTÉ APNIDOC")
+    st.title("SOCIÉTÉ APNIDOC")
 
     # Flyer Image
     st.image(flyer_url, use_container_width=True)
@@ -861,7 +861,7 @@ elif st.session_state.page == "apnidoc":
     st.markdown("---")
 
     # Design Interface Button
-    if st.button("🎨 DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_width=True):
+    if st.button("DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_width=True):
         st.session_state.page = "design_folders"
         st.rerun()
 
