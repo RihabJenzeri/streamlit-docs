@@ -81,7 +81,26 @@ header {visibility: hidden;}
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
+.stButton > button.kitchen-button {
+    background: radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
+                radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
+                #fdfefe !important;
+    color: #202124 !important;
+    border: 1px solid rgba(251, 189, 250, 0.5) !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
 
+.stButton > button.kitchen-button:hover {
+    box-shadow: 0 5px 15px rgba(251, 189, 250, 0.4) !important;
+    transform: translateY(-2px) !important;
+    border-color: rgba(251, 189, 250, 0.8) !important;
+}
+
+.stButton > button.kitchen-button:active {
+    transform: translateY(0) !important;
+}
 .st-emotion-cache-tn0cau {
     gap: 0.61rem !important;
 }
@@ -472,10 +491,21 @@ if st.session_state.page == "accueil":
         </div>
         """, unsafe_allow_html=True)
         
-        # Bouton invisible pour MEDICOFI
-        if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
-            st.session_state.page = "medicofi"
-            st.rerun()
+       # Modifiez le bouton MEDICOFI :
+if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
+    st.session_state.page = "medicofi"
+    st.rerun()
+
+# Et ajoutez ce script HTML après le bouton pour lui appliquer la classe :
+st.markdown("""
+<script>
+// Appliquer la classe au bouton MEDICOFI
+const medicofiButton = document.querySelector('[data-testid="stButton"][title="Ouvrir MEDICOFI"] button');
+if (medicofiButton) {
+    medicofiButton.classList.add('kitchen-button');
+}
+</script>
+""", unsafe_allow_html=True)
     
     # Carte PORTFOLIO PDF
     with col2:
