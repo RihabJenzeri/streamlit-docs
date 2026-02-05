@@ -249,7 +249,7 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
     width: 75%;
     overflow: visible;
     position: relative;
-    right: -55px;
+    right: -45px;
 }
     .profile-content {
         flex-direction: column;
