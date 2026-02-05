@@ -658,11 +658,11 @@ elif st.session_state.page == "medicofi":
     
     @media (max-width: 480px) {
         .responsive-image-container {
-        width: 340px;
-        height: 200px;
+        width: 370px;
+        height: 210px;
         }
     }
-    
+ 
     /* Responsive pour les cartes sur mobile */
     @media (max-width: 768px) {
         .responsive-card {
