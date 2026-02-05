@@ -711,11 +711,23 @@ elif st.session_state.page == "medicofi":
         }
     }
 
-    /* Style pour les boutons avec sous-titres et hover rose */
+    /* Style pour les boutons avec sous-titres et hover rose spécifique */
+    .stButton > button {
+        transition: all 0.3s ease;
+        text-align: left;
+    }
+    
     .stButton > button:hover {
         background-color: #FBBDFA !important;
-        border-color: #FBBDFA !important;
+        border-color: #ffccd5 !important;
         box-shadow: 0 4px 12px rgba(251, 189, 250, 0.3);
+    }
+    
+    /* Style pour la première colonne seulement */
+    .col1-button small {
+        font-size: 11px !important;
+        color: #666666;
+        opacity: 0.9;
     }
     </style>
     """
@@ -847,10 +859,10 @@ elif st.session_state.page == "medicofi":
             </p>
         </div>
         """, unsafe_allow_html=True)
-
-        if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
-            st.session_state.page = "tse"
-            st.rerun()
+        
+    if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
+        st.session_state.page = "tse"
+        st.rerun()
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
     if st.button("←"):
