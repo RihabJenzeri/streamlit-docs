@@ -548,7 +548,7 @@ if st.session_state.page == "accueil":
                         </svg>
                     </div>
                     <div style="flex: 1;">
-                        <h3 style="color: #202124;  font-size: 18px; font-weight: 600;">My New Works</h3>
+                        <h3 style="color: #202124;  font-size: 18px; font-weight: 600;padding-bottom:10px">My New Works</h3>
                         <p style="color: #888; margin: 0; font-size: 14px;">Recent applications and projects</p>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
@@ -577,7 +577,7 @@ if st.session_state.page == "accueil":
                         </svg>
                     </div>
                     <div style="flex: 1;">
-                        <h3 style="color: #202124; font-size: 18px; font-weight: 600;">My old Portfolio PDF</h3>
+                        <h3 style="color: #202124; font-size: 18px; font-weight: 600;padding-bottom:10px">My old Portfolio PDF</h3>
                         <p style="color: #888; margin: 0; font-size: 14px;">My old portfolio in PDF version</p>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
