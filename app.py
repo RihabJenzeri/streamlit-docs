@@ -932,7 +932,19 @@ elif st.session_state.page == "design_folders":
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        if st.button("🖥️ DESKTOP", use_container_width=True):
+        # Bouton DESKTOP avec icône SVG
+        desktop_html = """
+        <div style="text-align: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+        </div>
+        """
+        st.markdown(desktop_html, unsafe_allow_html=True)
+        
+        if st.button("DESKTOP", use_container_width=True):
             st.session_state.current_device = "Desktop"
             st.session_state.page = "device_images"
             st.rerun()
