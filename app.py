@@ -352,6 +352,26 @@ h3 svg {
 h3::before, h3::after {
     content: none !important;
 }
+.st-emotion-cache-2fgyt4 {
+    font-family: "Source Sans", sans-serif;
+    font-size: 1rem;
+    margin-bottom: -1rem;
+    color: #666666;
+    max-width: 100%;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+.st-emotion-cache-2fgyt4 hr {
+    margin: 2em 0px;
+    padding: 0px;
+    color: inherit;
+    background-color: #fbbdfa;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    border-bottom: 1px solid rgba(250, 250, 250, 0.2);
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
