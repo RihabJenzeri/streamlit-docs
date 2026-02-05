@@ -841,9 +841,9 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
-            st.session_state.page = "tse"
-            st.rerun()
+if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
+    st.session_state.page = "tse"
+    st.rerun()
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
     if st.button("← RETOUR"):
