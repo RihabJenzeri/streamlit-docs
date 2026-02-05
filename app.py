@@ -750,44 +750,22 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        # Liste des 8 boutons pour MEDICOFI avec sous-titres
+        # Liste des 8 boutons pour MEDICOFI
         projects_medicofi = [
-            ("Apnidoc company", "Based In France", "apnidoc"),
-            ("PROJET MEDICOFI 2", "Client: XYZ Corp", "medicofi2"),
-            ("PROJET MEDICOFI 3", "Sector: Healthcare", "medicofi3"),
-            ("PROJET MEDICOFI 4", "Location: Paris", "medicofi4"),
-            ("PROJET MEDICOFI 5", "Duration: 6 months", "medicofi5"),
-            ("PROJET MEDICOFI 6", "Team: 5 members", "medicofi6"),
-            ("PROJET MEDICOFI 7", "Status: Completed", "medicofi7"),
-            ("PROJET MEDICOFI 8", "Budget: $50k", "medicofi8")
+            ("Apnidoc company", "apnidoc"),
+            ("PROJET MEDICOFI 2", "medicofi2"),
+            ("PROJET MEDICOFI 3", "medicofi3"),
+            ("PROJET MEDICOFI 4", "medicofi4"),
+            ("PROJET MEDICOFI 5", "medicofi5"),
+            ("PROJET MEDICOFI 6", "medicofi6"),
+            ("PROJET MEDICOFI 7", "medicofi7"),
+            ("PROJET MEDICOFI 8", "medicofi8")
         ]
 
-        for project_name, subtitle, page_key in projects_medicofi:
-            # Utiliser markdown pour créer un bouton avec sous-titre
-            st.markdown(f"""
-            <div style="margin-bottom: 8px;">
-                <button onclick="window.location.href='?page={page_key}'" 
-                        style="
-                            width: 100%;
-                            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                            color: white;
-                            border: none;
-                            padding: 12px;
-                            border-radius: 8px;
-                            font-weight: 600;
-                            cursor: pointer;
-                            font-family: 'Montserrat', sans-serif;
-                            text-align: left;
-                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                            transition: all 0.3s ease;
-                        "
-                        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.15)'"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)'">
-                    <div style="font-size: 14px; margin-bottom: 2px;">{project_name}</div>
-                    <div style="font-size: 11px; opacity: 0.8; font-weight: 400;">{subtitle}</div>
-                </button>
-            </div>
-            """, unsafe_allow_html=True)
+        for project_name, page_key in projects_medicofi:
+            if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
+                st.session_state.page = page_key
+                st.rerun()
 
     # Colonne 2: FREELANCE
     with col2:
