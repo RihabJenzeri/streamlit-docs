@@ -474,23 +474,60 @@ if st.session_state.page == "accueil":
     
     # Carte MEDICOFI
     with col1:
+       # Injection JavaScript pour le bouton MEDICOFI spécifique
         st.markdown("""
-        <div class="folder-card">
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
-                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                    </svg>
-                </div>
-                <div style="flex: 1;">
-                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">MEDICOFI</h3>
-                    <p style="color: #888; margin: 0; font-size: 14px;">Application de gestion médicale</p>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </div>
-        </div>
+        <script>
+        // Attendre que la page soit chargée
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cibler spécifiquement le bouton MEDICOFI
+            setTimeout(function() {
+                // Trouver tous les boutons et chercher celui avec le texte "Ouvrir MEDICOFI"
+                const allButtons = document.querySelectorAll('button');
+                
+                allButtons.forEach(button => {
+                    if (button.textContent.includes('Ouvrir MEDICOFI') && button.textContent.includes('🏥')) {
+                        // Appliquer le style spécial
+                        button.style.background = 'radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%), radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%), radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%), #fdfefe';
+                        button.style.color = '#202124';
+                        button.style.border = '2px solid rgba(251, 189, 250, 0.8)';
+                        button.style.fontWeight = '600';
+                        button.style.borderRadius = '15px';
+                        button.style.display = 'flex';
+                        button.style.alignItems = 'center';
+                        button.style.justifyContent = 'center';
+                        button.style.gap = '10px';
+                        button.style.boxShadow = '0 4px 10px rgba(251, 189, 250, 0.2)';
+                        
+                        // Créer un wrapper pour l'icône et le texte
+                        const iconSpan = document.createElement('span');
+                        iconSpan.innerHTML = '🏥';
+                        iconSpan.style.fontSize = '18px';
+                        
+                        const textSpan = document.createElement('span');
+                        textSpan.textContent = 'Ouvrir MEDICOFI';
+                        
+                        // Vider le bouton et ajouter les éléments
+                        button.innerHTML = '';
+                        button.appendChild(iconSpan);
+                        button.appendChild(textSpan);
+                        
+                        // Effets hover
+                        button.addEventListener('mouseenter', function() {
+                            this.style.boxShadow = '0 6px 20px rgba(251, 189, 250, 0.4)';
+                            this.style.transform = 'translateY(-3px)';
+                            this.style.borderColor = 'rgba(251, 189, 250, 1)';
+                        });
+                        
+                        button.addEventListener('mouseleave', function() {
+                            this.style.boxShadow = '0 4px 10px rgba(251, 189, 250, 0.2)';
+                            this.style.transform = 'translateY(0)';
+                            this.style.borderColor = 'rgba(251, 189, 250, 0.8)';
+                        });
+                    }
+                });
+            }, 500);
+        });
+        </script>
         """, unsafe_allow_html=True)
         
         # Bouton MEDICOFI avec JavaScript pour appliquer le style
