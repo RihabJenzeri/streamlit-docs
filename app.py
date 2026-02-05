@@ -82,45 +82,6 @@ header {visibility: hidden;}
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-/* Styles pour les boutons MES DOSSIERS */
-.stButton > button[data-testid="baseButton-secondary"]:nth-child(1),
-.stButton > button[data-testid="baseButton-secondary"]:nth-child(2) {
-    background: 
-        radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
-        radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
-        #fdfefe !important;
-    color: #202124 !important;
-    border: 1px solid rgba(251, 189, 250, 0.5) !important;
-    font-weight: 600 !important;
-    transition: all 0.3s ease !important;
-    margin-top: 15px !important;
-}
-
-.stButton > button[data-testid="baseButton-secondary"]:nth-child(1):hover,
-.stButton > button[data-testid="baseButton-secondary"]:nth-child(2):hover {
-    box-shadow: 0 5px 15px rgba(251, 189, 250, 0.4) !important;
-    transform: translateY(-2px) !important;
-    border-color: rgba(251, 189, 250, 0.8) !important;
-}
-
-.stButton > button[data-testid="baseButton-secondary"]:nth-child(1):active,
-.stButton > button[data-testid="baseButton-secondary"]:nth-child(2):active {
-    transform: translateY(0) !important;
-}
-
-/* Alternative plus spécifique */
-button:has(> div:contains("Ouvrir MEDICOFI")),
-button:has(> div:contains("Ouvrir PORTFOLIO PDF")) {
-    background: 
-        radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
-        radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
-        #fdfefe !important;
-    color: #202124 !important;
-    border: 1px solid rgba(251, 189, 250, 0.5) !important;
-}
-
 .st-emotion-cache-tn0cau {
     gap: 0.61rem !important;
 }
@@ -471,7 +432,7 @@ if st.session_state.page == "accueil":
     # Espace après la carte de profil
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     
-    # NOUVELLE CARTE MES DOSSIERS avec boutons intégrés
+    # NOUVELLE CARTE MES DOSSIERS avec boutons intégrés - APPROCHE SIMPLIFIÉE
     st.markdown("""
     <div style="display: flex; justify-content: center;">
         <div class="gradient-card" style="padding: 40px 30px;">
@@ -491,6 +452,7 @@ if st.session_state.page == "accueil":
     
     # Carte MEDICOFI
     with col1:
+        # Style pour la carte MEDICOFI
         st.markdown("""
         <div class="folder-card">
             <div style="display: flex; align-items: center; gap: 15px;">
@@ -510,13 +472,14 @@ if st.session_state.page == "accueil":
         </div>
         """, unsafe_allow_html=True)
         
-        # Bouton MEDICOFI
+        # Bouton invisible pour MEDICOFI
         if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
             st.session_state.page = "medicofi"
             st.rerun()
     
     # Carte PORTFOLIO PDF
     with col2:
+        # Style pour la carte PORTFOLIO PDF
         st.markdown("""
         <div class="folder-card">
             <div style="display: flex; align-items: center; gap: 15px;">
@@ -540,7 +503,7 @@ if st.session_state.page == "accueil":
         </div>
         """, unsafe_allow_html=True)
         
-        # Bouton PORTFOLIO PDF
+        # Bouton invisible pour PORTFOLIO PDF
         if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
             st.session_state.page = "pdf_viewer"
             st.rerun()
