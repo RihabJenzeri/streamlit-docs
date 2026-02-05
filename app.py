@@ -751,21 +751,47 @@ elif st.session_state.page == "medicofi":
         """, unsafe_allow_html=True)
 
         # Liste des 8 boutons pour MEDICOFI
-        projects_medicofi = [
-            ("Apnidoc company", "apnidoc"),
-            ("PROJET MEDICOFI 2", "medicofi2"),
-            ("PROJET MEDICOFI 3", "medicofi3"),
-            ("PROJET MEDICOFI 4", "medicofi4"),
-            ("PROJET MEDICOFI 5", "medicofi5"),
-            ("PROJET MEDICOFI 6", "medicofi6"),
-            ("PROJET MEDICOFI 7", "medicofi7"),
-            ("PROJET MEDICOFI 8", "medicofi8")
-        ]
+# Liste des 8 boutons pour MEDICOFI avec sous-titres
+projects_medicofi = [
+    ("Apnidoc company", "Based In France", "apnidoc"),
+    ("PROJET MEDICOFI 2", "Sous-titre 2", "medicofi2"),
+    ("PROJET MEDICOFI 3", "Sous-titre 3", "medicofi3"),
+    ("PROJET MEDICOFI 4", "Sous-titre 4", "medicofi4"),
+    ("PROJET MEDICOFI 5", "Sous-titre 5", "medicofi5"),
+    ("PROJET MEDICOFI 6", "Sous-titre 6", "medicofi6"),
+    ("PROJET MEDICOFI 7", "Sous-titre 7", "medicofi7"),
+    ("PROJET MEDICOFI 8", "Sous-titre 8", "medicofi8")
+]
 
-        for project_name, page_key in projects_medicofi:
-            if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
-                st.session_state.page = page_key
-                st.rerun()
+for project_name, subtitle, page_key in projects_medicofi:
+    # Utiliser du HTML pour le bouton personnalisé
+    button_html = f"""
+    <div style="
+        text-align: center;
+        padding: 8px 12px;
+        margin: 4px 0;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    "
+    onclick="document.getElementById('btn_{page_key}').click()"
+    onmouseover="this.style.backgroundColor='#f0f0f0'"
+    onmouseout="this.style.backgroundColor='#f8f9fa'"
+    >
+        <div style="font-weight: 600; color: #202124; font-size: 14px;">{project_name}</div>
+        <div style="color: #666; font-size: 11px; margin-top: 2px;">{subtitle}</div>
+    </div>
+    """
+    
+    # Afficher le bouton HTML
+    st.markdown(button_html, unsafe_allow_html=True)
+    
+    # Bouton invisible pour déclencher l'action Streamlit
+        if st.button(" ", key=f"btn_{page_key}", type="primary", visible=False):
+            st.session_state.page = page_key
+            st.rerun()
 
     # Colonne 2: FREELANCE
     with col2:
