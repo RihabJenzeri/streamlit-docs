@@ -400,6 +400,17 @@ def create_menu():
         cursor: pointer;
         font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
+    .st-emotion-cache-p75nl5 {
+    position: relative;
+    height: fit-content;
+    max-width: 100%;
+    width: fit-content;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    max-width: 100%;
+    width: 600px;
+}
     </style>
     """
 
@@ -868,18 +879,7 @@ elif st.session_state.page == "apnidoc":
     if st.button("←"):
         st.session_state.page = "medicofi"
         st.rerun()
-    # Ajoutez ce CSS à votre section de styles existants
-    st.markdown("""
-    <style>
-    /* Style pour minimiser la taille de l'image flyer */
-    .flyer-image-container {
-        max-width: 604px !important;  # Changer 704px à 604px
-        width: 100% !important;
-        margin: 0 auto !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
+ 
     # st.title("SOCIÉTÉ APNIDOC")
     st.markdown("""
         <div style="display: flex; align-items: center; gap: 10px;">
@@ -893,12 +893,11 @@ elif st.session_state.page == "apnidoc":
             <h3 style="margin: 0; color: #202124;">Site Web ApniDoc</h3>
         </div>
     """, unsafe_allow_html=True)
-    
-    # Flyer Image avec la classe CSS
-    st.markdown('<div class="flyer-image-container">', unsafe_allow_html=True)
+    # Flyer Image
     st.image(flyer_url, use_container_width=True)
-    st.markdown('</div>', unsafe_allow_html=True)
-    
+    # st.markdown("<p class='caption-text'>📄 Flyer ApniDoc</p>", unsafe_allow_html=True)
+    st.markdown("---")
+
     # Design Interface Button
     if st.button("DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_width=True):
         st.session_state.page = "design_folders"
