@@ -426,28 +426,7 @@ if st.session_state.page == "accueil":
     # Espace entre les sections
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     
-    # NOUVELLE CARTE AVEC DÉGRADÉ RADIAL (en dessous)
-    st.markdown("""
-    <div style="display: flex; justify-content: center;">
-        <div class="gradient-card">
-            <h2 style="text-align: center; color: #202124; margin-bottom: 20px;">Mes Compétences</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-                <div style="text-align: center; flex: 1; min-width: 200px;">
-                    <h3 style="color: #202124;">🎨 Design Graphique</h3>
-                    <p style="color: #666666;">Création d'identités visuelles, illustrations, maquettes web et print</p>
-                </div>
-                <div style="text-align: center; flex: 1; min-width: 200px;">
-                    <h3 style="color: #202124;">💻 UI/UX Design</h3>
-                    <p style="color: #666666;">Design d'interfaces utilisateur, expériences utilisateur optimisées</p>
-                </div>
-                <div style="text-align: center; flex: 1; min-width: 200px;">
-                    <h3 style="color: #202124;">📱 Développement Web</h3>
-                    <p style="color: #666666;">Sites web responsives, applications modernes, intégration</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+   
 
 elif st.session_state.page == "medicofi":
     if st.button("← RETOUR"):
