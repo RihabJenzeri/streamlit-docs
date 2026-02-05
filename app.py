@@ -100,7 +100,7 @@ header {visibility: hidden;}
     width: 100%;
     cursor: pointer;
     user-select: none;
-    background-color: rgb(19, 23, 32);
+    background-color: rgba(251, 189, 250, 0.55);
     border: 1px solid rgba(250, 250, 250, 0.2);
 }
 
