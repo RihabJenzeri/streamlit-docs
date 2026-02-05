@@ -471,8 +471,8 @@ if st.session_state.page == "accueil":
     """, unsafe_allow_html=True)
     
   # SUPPRIMER LES PARENTHESES AU DÉBUT ET À LA FIN !
-# Utiliser des colonnes Streamlit pour créer les cartes
-   col1, col2 = st.columns(2)
+ # Utiliser des colonnes Streamlit pour créer les cartes
+    col1, col2 = st.columns(2)
     
     # Carte MEDICOFI
     with col1:
@@ -481,14 +481,14 @@ if st.session_state.page == "accueil":
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                     </svg>
                 </div>
                 <div style="flex: 1;">
-                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 12px; font-weight: 600;">Mes Nouveaux Travaux</h3>
+                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">Mes Nouveaux Travaux</h3>
                 <p style="color: #888; margin: 0; font-size: 14px;">Applications et projets récents</p>
                 </div>
-                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </div>
@@ -518,7 +518,7 @@ if st.session_state.page == "accueil":
                     <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">PORTFOLIO PDF</h3>
                     <p style="color: #888; margin: 0; font-size: 14px;">Mon portfolio en version PDF</p>
                 </div>
-                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </div>
@@ -528,7 +528,8 @@ if st.session_state.page == "accueil":
         # Bouton PORTFOLIO PDF
         if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
             st.session_state.page = "pdf_viewer"
-            st.rerun())
+            st.rerun()
+            
     st.markdown("""
         </div>
     </div>
