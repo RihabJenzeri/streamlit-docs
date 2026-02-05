@@ -335,6 +335,8 @@ if "page" in query_params:
     st.session_state.page = query_params["page"]
 
 # ========== الصفحات ==========
+# ... (le code reste inchangé jusqu'à ici) ...
+
 if st.session_state.page == "accueil":
     # Slide image qui sort de la boîte des éléments
     st.markdown(f"""
@@ -397,63 +399,34 @@ if st.session_state.page == "accueil":
     # Espace après la carte de profil
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     
-    # NOUVELLE CARTE AVEC DÉGRADÉ RADIAL
+    # NOUVELLE CARTE AVEC DÉGRADÉ RADIAL - AVEC BOUTONS STREAMLIT
     st.markdown("""
     <div style="display: flex; justify-content: center;">
         <div class="gradient-card">
             <h2 style="text-align: center; color: #202124; margin-bottom: 20px;">📂 MES DOSSIERS</h2>
             <p style="text-align: center; color: #666666; margin-bottom: 30px;">Portfolio Professionnel & Projets Design</p>
-            
-            <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
-                <!-- Bouton MEDICOFI -->
-                <button onclick="window.location.href='?page=medicofi'" style="
-                    width: 80%;
-                    padding: 15px;
-                    background-color: #f5f5f5;
-                    border: 1px solid #e0e0e0;
-                    border-radius: 12px;
-                    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                    font-size: 16px;
-                    font-weight: 500;
-                    color: #202124;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    text-align: center;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 10px;
-                " onmouseover="this.style.backgroundColor='#fff2ff'; this.style.borderColor='#FBBDFA'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(251, 189, 250, 0.3)'"
-                onmouseout="this.style.backgroundColor='#f5f5f5'; this.style.borderColor='#e0e0e0'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                    🏥 MEDICOFI
-                </button>
-                
-                <!-- Bouton PORTFOLIO PDF -->
-                <button onclick="window.location.href='?page=pdf_viewer'" style="
-                    width: 80%;
-                    padding: 15px;
-                    background-color: #f5f5f5;
-                    border: 1px solid #e0e0e0;
-                    border-radius: 12px;
-                    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                    font-size: 16px;
-                    font-weight: 500;
-                    color: #202124;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    text-align: center;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 10px;
-                " onmouseover="this.style.backgroundColor='#fff2ff'; this.style.borderColor='#FBBDFA'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(251, 189, 250, 0.3)'"
-                onmouseout="this.style.backgroundColor='#f5f5f5'; this.style.borderColor='#e0e0e0'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                    📄 PORTFOLIO PDF
-                </button>
-            </div>
-        </div>
-    </div>
     """, unsafe_allow_html=True)
+    
+    # Créer un conteneur pour centrer les boutons
+    with st.container():
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col2:
+            # Bouton MEDICOFI
+            if st.button("🏥 MEDICOFI", use_container_width=True):
+                st.session_state.page = "medicofi"
+                st.rerun()
+            
+            st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
+            
+            # Bouton PORTFOLIO PDF
+            if st.button("📄 PORTFOLIO PDF", use_container_width=True):
+                st.session_state.page = "pdf_viewer"
+                st.rerun()
+    
+    # Fermer la carte
+    st.markdown("</div></div>", unsafe_allow_html=True)
+
+# ... (le reste du code reste inchangé) ...
     
     # Espace après la carte de profil
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
