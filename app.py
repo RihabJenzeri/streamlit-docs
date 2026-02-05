@@ -400,6 +400,20 @@ def create_menu():
         cursor: pointer;
         font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
+    /* Ajoutez ceci à votre CSS */
+    button div {
+        line-height: 1.4 !important;
+    }
+    
+    button div:first-line {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+    }
+    
+    button div:not(:first-line) {
+        font-size: 11px !important;
+        color: #666666 !important;
+    }
     </style>
     """
 
