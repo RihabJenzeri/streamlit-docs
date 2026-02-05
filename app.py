@@ -85,7 +85,7 @@ header {visibility: hidden;}
 /* STYLE SPÉCIFIQUE POUR LES BOUTONS "Ouvrir MEDICOFI" ET "Ouvrir PORTFOLIO PDF" */
 div[data-testid="column"]:nth-child(1) .st-emotion-cache-1anq8dj,
 div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj {
-    background: 
+    background:
         radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
         radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%),
         radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
@@ -234,18 +234,18 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
         max-width: 95%;
         padding: 20px;
     }
-    
+
     .profile-content {
         flex-direction: column;
         text-align: center;
         gap: 20px;
     }
-    
+
     .contact-links {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .contact-btn {
         flex: 0 0 calc(50% - 10px);
         max-width: calc(50% - 10px);
@@ -305,118 +305,6 @@ p, div, span {
     margin-top: 20px;
     width: 100%;
 }
-/* Styles pour les cartes de dossiers - Version abstraite */
-.folder-card {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: 1px solid #f0f0f0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.folder-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(251, 189, 250, 0.25) !important;
-    border-color: #FBBDFA !important;
-}
-
-/* Structure commune des cartes */
-.card-content {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.icon-container {
-    padding: 15px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 58px;
-    height: 58px;
-    flex-shrink: 0;
-}
-
-/* Icône MEDICOFI */
-.medicofi-icon {
-    background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%);
-}
-
-/* Icône PDF */
-.pdf-icon {
-    background: linear-gradient(135deg, #E8F4FF 0%, #D6EBFF 100%);
-}
-
-/* Icônes SVG */
-.card-svg-icon {
-    width: 28px;
-    height: 28px;
-}
-
-.medicofi-svg {
-    stroke: #FF6B6B;
-}
-
-.pdf-svg {
-    stroke: #4A90E2;
-}
-
-/* Contenu texte */
-.card-text {
-    flex: 1;
-    min-width: 0;
-}
-
-.card-title {
-    color: #202124;
-    margin: 0 0 5px 0;
-    font-size: 18px;
-    font-weight: 600;
-    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.card-description {
-    color: #888;
-    margin: 0;
-    font-size: 14px;
-    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-/* Flèche */
-.card-arrow {
-    width: 20px;
-    height: 20px;
-    stroke: #ccc;
-    stroke-width: 2;
-    flex-shrink: 0;
-}
-
-/* Icônes SVG abstraites */
-.medicofi-icon-svg {
-    stroke: #FF6B6B;
-    stroke-width: 2;
-    fill: none;
-}
-
-.pdf-icon-svg {
-    stroke: #4A90E2;
-    stroke-width: 2;
-    fill: none;
-}
-
-.arrow-icon-svg {
-    stroke: #ccc;
-    stroke-width: 2;
-    fill: none;
-}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
@@ -426,7 +314,7 @@ def create_menu():
     menu_style = """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-    
+
 .full-width-navbar {
     background:
     radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%),
@@ -457,7 +345,7 @@ def create_menu():
     }
     </style>
     """
-    
+
     st.markdown(menu_style, unsafe_allow_html=True)
     st.markdown("""
     <div class="full-width-navbar">
@@ -518,7 +406,7 @@ if st.session_state.page == "accueil":
         <img src="{behance_cover_url}" class="slide-image">
     </div>
     """, unsafe_allow_html=True)
-    
+
     # Carte de profil avec photo - CENTRÉE
     st.markdown(f"""
     <div style="display: flex; justify-content: center;">
@@ -569,10 +457,10 @@ if st.session_state.page == "accueil":
         </div>
     </div>
     """, unsafe_allow_html=True)
-    
+
     # Espace après la carte de profil
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
-    
+
     # NOUVELLE CARTE MES DOSSIERS avec boutons intégrés
     st.markdown("""
     <div style="display: flex; justify-content: center;">
@@ -581,72 +469,72 @@ if st.session_state.page == "accueil":
                 <p style="color: #666666; font-size: 16px;">As my Behance portfolio is currently being updated, I have gathered here a selected overview of my work. Below, you will find a PDF featuring my earlier projects, along with a folder showcasing my most recent work.</p>
             </div>
     """, unsafe_allow_html=True)
-    
+
   # SUPPRIMER LES PARENTHESES AU DÉBUT ET À LA FIN !
 # Utiliser des colonnes Streamlit pour créer les cartes
-col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2)
 
-# Carte MEDICOFI
-with col1:
-    st.markdown("""
-    <div class="folder-card">
-        <div class="card-content">
-            <div class="icon-container medicofi-icon">
-                <svg class="card-svg-icon medicofi-svg" viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+    # Carte MEDICOFI
+    with col1:
+        st.markdown("""
+        <div class="folder-card">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                </div>
+                <div style="flex: 1;">
+                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">Mes Nouveaux Travaux</h3>
+                    <p style="color: #888; margin: 0; font-size: 14px;">Applications et projets récents</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </div>
-            <div class="card-text">
-                <h3 class="card-title">Mes Nouveaux Travaux</h3>
-                <p class="card-description">Applications et projets récents</p>
-            </div>
-            <svg class="card-arrow" viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
         </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Bouton MEDICOFI
-    if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
-        st.session_state.page = "medicofi"
-        st.rerun()
+        """, unsafe_allow_html=True)
 
-# Carte PORTFOLIO PDF
-with col2:
-    st.markdown("""
-    <div class="folder-card">
-        <div class="card-content">
-            <div class="icon-container pdf-icon">
-                <svg class="card-svg-icon pdf-svg" viewBox="0 0 24 24">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14,2 14,8 20,8"/>
-                    <line x1="16" y1="13" x2="8" y2="13"/>
-                    <line x1="16" y1="17" x2="8" y2="17"/>
-                    <polyline points="10,9 9,9 8,9"/>
+        # Bouton MEDICOFI
+        if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
+            st.session_state.page = "medicofi"
+            st.rerun()
+
+    # Carte PORTFOLIO PDF
+    with col2:
+        st.markdown("""
+        <div class="folder-card">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="background: linear-gradient(135deg, #E8F4FF 0%, #D6EBFF 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10,9 9,9 8,9"/>
+                    </svg>
+                </div>
+                <div style="flex: 1;">
+                    <h3 style="color: #202124; margin: 0 0 5px 0; font-size: 18px; font-weight: 600;">PORTFOLIO PDF</h3>
+                    <p style="color: #888; margin: 0; font-size: 14px;">Mon portfolio en version PDF</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </div>
-            <div class="card-text">
-                <h3 class="card-title">PORTFOLIO PDF</h3>
-                <p class="card-description">Mon portfolio en version PDF</p>
-            </div>
-            <svg class="card-arrow" viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
         </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Bouton PORTFOLIO PDF
-    if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
-        st.session_state.page = "pdf_viewer"
-        st.rerun()
-            
+        """, unsafe_allow_html=True)
+
+        # Bouton PORTFOLIO PDF
+        if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
+            st.session_state.page = "pdf_viewer"
+            st.rerun()
+
     st.markdown("""
         </div>
     </div>
     """, unsafe_allow_html=True)
-    
+
     # Injection JavaScript pour cibler les boutons spécifiques
     st.markdown("""
     <script>
@@ -654,38 +542,38 @@ with col2:
     setTimeout(function() {
         // Trouver tous les boutons avec la classe spécifique
         const buttons = document.querySelectorAll('.st-emotion-cache-1anq8dj');
-        
+
         // Appliquer le style aux boutons dans les colonnes
         buttons.forEach((button, index) => {
             // Vérifier si le bouton est dans la première ou deuxième colonne
             const parentColumn = button.closest('[data-testid="column"]');
             if (parentColumn) {
                 const columnIndex = Array.from(parentColumn.parentElement.children).indexOf(parentColumn);
-                
+
                 // Appliquer le style seulement aux boutons des deux premières colonnes
                 if (columnIndex === 0 || columnIndex === 1) {
                     button.style.background = 'radial-gradient(circle at 0% 0%, rgba(251, 189, 250, 0.55), transparent 55%), radial-gradient(circle at 100% 100%, rgba(140, 210, 255, 0.40), transparent 55%), radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%), #fdfefe';
                     button.style.color = '#202124';
                     button.style.border = '1px solid rgba(251, 189, 250, 0.5)';
                     button.style.fontWeight = '600';
-                    
+
                     // Ajouter les effets hover
                     button.addEventListener('mouseenter', function() {
                         this.style.boxShadow = '0 5px 15px rgba(251, 189, 250, 0.4)';
                         this.style.transform = 'translateY(-2px)';
                         this.style.borderColor = 'rgba(251, 189, 250, 0.8)';
                     });
-                    
+
                     button.addEventListener('mouseleave', function() {
                         this.style.boxShadow = '';
                         this.style.transform = '';
                         this.style.borderColor = 'rgba(251, 189, 250, 0.5)';
                     });
-                    
+
                     button.addEventListener('mousedown', function() {
                         this.style.transform = 'translateY(0)';
                     });
-                    
+
                     button.addEventListener('mouseup', function() {
                         this.style.transform = 'translateY(-2px)';
                     });
@@ -695,7 +583,7 @@ with col2:
     }, 1000); // Délai pour s'assurer que tout est chargé
     </script>
     """, unsafe_allow_html=True)
-    
+
     # Espace entre les sections
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
@@ -703,9 +591,9 @@ elif st.session_state.page == "medicofi":
     if st.button("← RETOUR"):
         st.session_state.page = "accueil"
         st.rerun()
-    
+
     st.title("🏥 MEDICOFI")
-    
+
     if st.button("🇫🇷 SOCIÉTÉ APNIDOC (EN FRANCE)", use_container_width=True):
         st.session_state.page = "apnidoc"
         st.rerun()
@@ -714,15 +602,15 @@ elif st.session_state.page == "apnidoc":
     if st.button("← RETOUR"):
         st.session_state.page = "medicofi"
         st.rerun()
-    
+
     st.title("🇫🇷 SOCIÉTÉ APNIDOC")
-    
+
     # Flyer Image
     st.image(flyer_url, use_container_width=True)
     st.markdown("<p class='caption-text'>📄 Flyer ApniDoc</p>", unsafe_allow_html=True)
-    
+
     st.markdown("---")
-    
+
     # Design Interface Button
     if st.button("🎨 DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_width=True):
         st.session_state.page = "design_folders"
@@ -732,33 +620,33 @@ elif st.session_state.page == "design_folders":
     if st.button("← RETOUR"):
         st.session_state.page = "apnidoc"
         st.rerun()
-    
+
     st.title("🎨 DESIGN INTERFACE WEB SITE APNIDOC")
-    
+
     # Website Link Section
     st.markdown("---")
     st.markdown("### 🌐 Site Web ApniDoc")
     st.write("(Le site web est déjà en ligne, mais il est toujours en cours de développement.)")
     st.markdown("🔗 **[Visiter https://apnidoc.fr/](https://apnidoc.fr/)**")
     st.markdown("---")
-    
+
     # Device Selection
     st.subheader("Choisissez un format :")
-    
+
     col1, col2, col3 = st.columns(3)
-    
+
     with col1:
         if st.button("🖥️ DESKTOP", use_container_width=True):
             st.session_state.current_device = "Desktop"
             st.session_state.page = "device_images"
             st.rerun()
-    
+
     with col2:
         if st.button("📱 IPAD", use_container_width=True):
             st.session_state.current_device = "iPad"
             st.session_state.page = "device_images"
             st.rerun()
-    
+
     with col3:
         if st.button("📱 PHONE", use_container_width=True):
             st.session_state.current_device = "Phone"
@@ -770,22 +658,22 @@ elif st.session_state.page == "device_images":
         st.session_state.page = "design_folders"
         st.session_state.current_device = None
         st.rerun()
-    
+
     device = st.session_state.current_device
     device_icons = {
         "Desktop": "🖥️",
         "iPad": "📱",
         "Phone": "📱"
     }
-    
+
     st.title(f"{device_icons.get(device, '📱')} DESIGN {device.upper()}")
-    
+
     # Display images
     if device in design_images:
         for img_path in design_images[device]:
             img_url = get_image_url(img_path)
             img_name = img_path.split('/')[-1].replace('.png', '').replace('_', ' ')
-            
+
             st.image(img_url, use_container_width=True)
             st.markdown(f"<p class='caption-text'>{img_name}</p>", unsafe_allow_html=True)
             st.markdown("---")
@@ -794,21 +682,21 @@ elif st.session_state.page == "pdf_viewer":
     if st.button("← RETOUR"):
         st.session_state.page = "accueil"
         st.rerun()
-    
+
     st.title("📄 PORTFOLIO INES HARRABI 2024")
-    
+
     # PDF Viewer
     st.markdown(f'<iframe width="100%" height="800" src="{google_viewer_url}"></iframe>', unsafe_allow_html=True)
-    
+
     # Action Buttons
     col1, col2 = st.columns(2)
-    
+
     with col1:
         st.markdown(f'<a href="{pdf_url_raw}" download="Portfolio_Ines_HARRABI_2024.pdf" style="text-decoration: none; color: #666666;">', unsafe_allow_html=True)
         if st.button("📥 Télécharger le PDF", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
-    
+
     with col2:
         st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none; color: #666666;">', unsafe_allow_html=True)
         if st.button("🔗 Ouvrir dans Google Viewer", use_container_width=True):
