@@ -61,8 +61,8 @@ header {visibility: hidden;}
     border-radius: 20px;
     padding: 25px;
     margin: -30px auto 30px auto;
-    max-width: 1000px; /* Agrandi pour accommoder les 4 boutons */
-    width: 90%; /* Correction: 90% au lieu de 1000% */
+    max-width: 1000px;
+    width: 90%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -93,7 +93,7 @@ header {visibility: hidden;}
 .profile-avatar {
     position: relative;
     min-width: 120px;
-    flex-shrink: 0; /* Empêche l'avatar de rétrécir */
+    flex-shrink: 0;
 }
 .avatar-circle {
     width: 170px;
@@ -120,7 +120,7 @@ header {visibility: hidden;}
 }
 .profile-info {
     flex: 1;
-    min-width: 0; /* Permet au contenu de s'adapter */
+    min-width: 0;
 }
 .profile-title {
     font-size: 28px;
@@ -150,7 +150,7 @@ header {visibility: hidden;}
     width: 18px;
     height: 18px;
     stroke: #202124;
-    fill: none; /* Assure que les icônes SVG n'ont pas de remplissage */
+    fill: none;
     transition: all 0.3s ease;
 }
 
@@ -171,33 +171,29 @@ header {visibility: hidden;}
     border: 1px solid #e0e0e0;
     cursor: pointer;
     white-space: nowrap;
-    flex: 1; /* Chaque bouton prend la même largeur */
-    min-width: 0; /* Permet au texte de s'adapter */
+    flex: 1;
+    min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-/* Effet hover pour tous les boutons */
 .contact-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(251, 189, 250, 0.3);
-    background-color: #fff2ff; /* Rose clair demandé */
+    background-color: #fff2ff;
     border-color: #FBBDFA;
-    color: #202124 !important; /* Texte reste foncé pour mieux contraster */
+    color: #202124 !important;
 }
 
-/* Icônes restent foncées au hover */
 .contact-btn:hover .contact-icon {
     stroke: #202124;
 }
 
-/* WhatsApp avec le même hover rose */
 .contact-whatsapp:hover {
-    background-color: #fff2ff !important; /* Même rose que les autres */
+    background-color: #fff2ff !important;
     border-color: #FBBDFA !important;
 }
 
-/* Effet de clic */
 .contact-btn:active {
     transform: translateY(0);
     background-color: #f0e0ef;
@@ -217,12 +213,12 @@ header {visibility: hidden;}
     }
     
     .contact-links {
-        flex-wrap: wrap; /* Sur mobile, permet le retour à la ligne */
+        flex-wrap: wrap;
         justify-content: center;
     }
     
     .contact-btn {
-        flex: 0 0 calc(50% - 10px); /* 2 boutons par ligne sur mobile */
+        flex: 0 0 calc(50% - 10px);
         max-width: calc(50% - 10px);
     }
 }
@@ -247,6 +243,11 @@ p, div, span {
     transition: all 0.3s ease;
     cursor: pointer;
     border: 1px solid #f0f0f0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .folder-card:hover {
     transform: translateY(-5px);
@@ -255,14 +256,25 @@ p, div, span {
 }
 
 @media (max-width: 768px) {
-    .gradient-card > div > div {
+    .cards-grid {
         grid-template-columns: 1fr !important;
     }
 }
 
-/* Style pour les conteneurs de boutons invisibles */
-.invisible-btn-container {
-    display: none;
+/* Style pour les boutons de carte */
+.card-button {
+    all: unset;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Style pour le conteneur de grille */
+.cards-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
 }
 </style>
 """
@@ -270,7 +282,6 @@ st.markdown(hide_default_menu, unsafe_allow_html=True)
 
 # ========== MENU DE NAVIGATION SIMPLE AVEC DÉGRADÉ ==========
 def create_menu():
-    # Style CSS pour le menu avec dégradé radial
     menu_style = """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
@@ -307,8 +318,6 @@ def create_menu():
     """
     
     st.markdown(menu_style, unsafe_allow_html=True)
-    
-    # Navbar avec seulement le dégradé et le cercle de profil
     st.markdown("""
     <div class="full-width-navbar">
     </div>
@@ -319,7 +328,6 @@ create_menu()
 
 # ========== روابط الملفات ==========
 def get_image_url(path):
-    """Generate GitHub raw URL for images"""
     return f"{BASE_URL}mes_documents/{urllib.parse.quote(path)}"
 
 # Define all image paths
@@ -424,7 +432,7 @@ if st.session_state.page == "accueil":
     # Espace après la carte de profil
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     
-    # NOUVELLE CARTE MES DOSSIERS avec boutons intégrés
+    # NOUVELLE CARTE MES DOSSIERS avec boutons intégrés - APPROCHE SIMPLIFIÉE
     st.markdown("""
     <div style="display: flex; justify-content: center;">
         <div class="gradient-card" style="padding: 40px 30px;">
@@ -437,22 +445,16 @@ if st.session_state.page == "accueil":
                 </h2>
                 <p style="color: #666666; font-size: 16px;">Portfolio Professionnel & Projets Design</p>
             </div>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
     """, unsafe_allow_html=True)
     
-    # Utiliser des colonnes Streamlit pour créer les cartes cliquables
+    # Utiliser des colonnes Streamlit pour créer les cartes
     col1, col2 = st.columns(2)
     
+    # Carte MEDICOFI
     with col1:
-        # Créer un conteneur stylisé pour la carte MEDICOFI
-        medicofi_clicked = st.button("", key="medicofi_card")
-        if medicofi_clicked:
-            st.session_state.page = "medicofi"
-            st.rerun()
-        
+        # Style pour la carte MEDICOFI
         st.markdown("""
-        <div class="folder-card" onclick="document.getElementById('medicofi-card-btn').click();" style="margin: 0;">
+        <div class="folder-card">
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div style="background: linear-gradient(135deg, #FFE5E5 0%, #FFD6D6 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2">
@@ -469,16 +471,17 @@ if st.session_state.page == "accueil":
             </div>
         </div>
         """, unsafe_allow_html=True)
-    
-    with col2:
-        # Créer un conteneur stylisé pour la carte PORTFOLIO PDF
-        pdf_clicked = st.button("", key="pdf_card")
-        if pdf_clicked:
-            st.session_state.page = "pdf_viewer"
-            st.rerun()
         
+        # Bouton invisible pour MEDICOFI
+        if st.button("Ouvrir MEDICOFI", key="medicofi_card_btn", use_container_width=True):
+            st.session_state.page = "medicofi"
+            st.rerun()
+    
+    # Carte PORTFOLIO PDF
+    with col2:
+        # Style pour la carte PORTFOLIO PDF
         st.markdown("""
-        <div class="folder-card" onclick="document.getElementById('pdf-card-btn').click();" style="margin: 0;">
+        <div class="folder-card">
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div style="background: linear-gradient(135deg, #E8F4FF 0%, #D6EBFF 100%); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
@@ -499,26 +502,16 @@ if st.session_state.page == "accueil":
             </div>
         </div>
         """, unsafe_allow_html=True)
+        
+        # Bouton invisible pour PORTFOLIO PDF
+        if st.button("Ouvrir PORTFOLIO PDF", key="pdf_card_btn", use_container_width=True):
+            st.session_state.page = "pdf_viewer"
+            st.rerun()
     
     st.markdown("""
-            </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
-    
-    # Boutons invisibles (maintenant avec une approche différente)
-    st.markdown('<div class="invisible-btn-container">', unsafe_allow_html=True)
-    
-    # Boutons pour la navigation
-    if st.button("MEDICOFI", key="medicofi_hidden", label_visibility="hidden"):
-        st.session_state.page = "medicofi"
-        st.rerun()
-    
-    if st.button("PORTFOLIO PDF", key="pdf_hidden", label_visibility="hidden"):
-        st.session_state.page = "pdf_viewer"
-        st.rerun()
-    
-    st.markdown('</div>', unsafe_allow_html=True)
     
     # Espace entre les sections
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
