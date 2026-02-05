@@ -773,18 +773,18 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        # Liste des 8 boutons pour MEDICOFI avec sous-titres
+       # Liste des 8 boutons pour MEDICOFI avec sous-titres
         projects_medicofi = [
-            ("Apnidoc company\nBased in France", "apnidoc"),
-            ("PROJET MEDICOFI 2\nSous-titre 2", "medicofi2"),
-            ("PROJET MEDICOFI 3\nSous-titre 3", "medicofi3"),
-            ("PROJET MEDICOFI 4\nSous-titre 4", "medicofi4"),
-            ("PROJET MEDICOFI 5\nSous-titre 5", "medicofi5"),
-            ("PROJET MEDICOFI 6\nSous-titre 6", "medicofi6"),
-            ("PROJET MEDICOFI 7\nSous-titre 7", "medicofi7"),
-            ("PROJET MEDICOFI 8\nSous-titre 8", "medicofi8")
+            ("Apnidoc company<br><small>Based in France</small>", "apnidoc"),
+            ("PROJET MEDICOFI 2<br><small>Sous-titre 2</small>", "medicofi2"),
+            ("PROJET MEDICOFI 3<br><small>Sous-titre 3</small>", "medicofi3"),
+            ("PROJET MEDICOFI 4<br><small>Sous-titre 4</small>", "medicofi4"),
+            ("PROJET MEDICOFI 5<br><small>Sous-titre 5</small>", "medicofi5"),
+            ("PROJET MEDICOFI 6<br><small>Sous-titre 6</small>", "medicofi6"),
+            ("PROJET MEDICOFI 7<br><small>Sous-titre 7</small>", "medicofi7"),
+            ("PROJET MEDICOFI 8<br><small>Sous-titre 8</small>", "medicofi8")
         ]
-
+        
         for project_name, page_key in projects_medicofi:
             if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
                 st.session_state.page = page_key
