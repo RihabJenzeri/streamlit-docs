@@ -465,8 +465,7 @@ if st.session_state.page == "accueil":
     <div style="display: flex; justify-content: center;">
         <div class="gradient-card" style="padding: 40px 30px;">
             <div style="text-align: center; margin-bottom: 35px;">
-                <h2 style="color: #202124; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                    <svg xmlns="http://www.w3.org/2000/svg"
+                     <svg xmlns="http://www.w3.org/2000/svg"
                      width="32"
                      height="32"
                      viewBox="0 0 24 24"
@@ -475,10 +474,8 @@ if st.session_state.page == "accueil":
                      stroke-width="2"
                      stroke-linecap="round"
                      stroke-linejoin="round">
-                
                   <!-- Folder -->
                   <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-                
                   <!-- Animated dots -->
                   <circle cx="9" cy="14" r="1">
                     <animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite"/>
@@ -490,8 +487,7 @@ if st.session_state.page == "accueil":
                     <animate attributeName="opacity" values="0;1;0" dur="1s" begin="0.4s" repeatCount="indefinite"/>
                   </circle>
                 </svg>
-                 </h2>
-                <p style="color: #666666; font-size: 16px;">As my Behance portfolio is currently being updated, I have gathered here a selected overview of my work. Below, you will find a PDF featuring my earlier projects, along with a folder showcasing my most recent work.</p>
+                 <p style="color: #666666; font-size: 16px;">As my Behance portfolio is currently being updated, I have gathered here a selected overview of my work. Below, you will find a PDF featuring my earlier projects, along with a folder showcasing my most recent work.</p>
             </div>
     """, unsafe_allow_html=True)
     
