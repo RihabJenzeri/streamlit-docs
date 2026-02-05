@@ -617,7 +617,7 @@ if st.session_state.page == "accueil":
     # Espace entre les sections
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
-  "← RETOUR"elif st.session_state.page == "device_images":
+elif st.session_state.page == "device_images":
     if st.button("← RETOUR"):
         st.session_state.page = "design_folders"
         st.session_state.current_device = None
