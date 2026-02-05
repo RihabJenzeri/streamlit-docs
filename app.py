@@ -62,7 +62,7 @@ header {visibility: hidden;}
     padding: 25px;
     margin: -30px auto 30px auto;
     max-width: 1000px;
-    width: 90%;
+    width: 1000%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
