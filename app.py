@@ -227,7 +227,7 @@ div[data-testid="column"]:nth-child(2) .st-emotion-cache-1anq8dj:active {
     transform: translateY(0);
     background-color: #f0e0ef;
 }
-.st-emotion-cache-2fgyt4 h1 {
+.st-emotion-cache-2fgyt4 h3 {
     font-size: 2.75rem;
     color: #202124;
     font-weight: 700;
@@ -902,7 +902,7 @@ elif st.session_state.page == "design_folders":
     # Website Link Section
     st.markdown("---")
     st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin: 20px 0;">
+    <div style="display: flex; align-items: center; gap: 10px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"/>
             <line x1="2" y1="12" x2="22" y2="12"/>
