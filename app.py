@@ -344,6 +344,14 @@ p, div, span {
     background-color: rgba(172, 177, 195, 0.25);
     border: 1px solid rgba(250, 250, 250, 0.2);
 }
+
+h3 svg {
+    display: none !important;
+}
+
+h3::before, h3::after {
+    content: none !important;
+}
 </style>
 """
 st.markdown(hide_default_menu, unsafe_allow_html=True)
