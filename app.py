@@ -653,7 +653,7 @@ elif st.session_state.page == "medicofi":
     # URL de l'image
     card_image_url = get_image_url("image.jpeg")
 
-    # CSS pour le responsive et les styles de boutons
+    # CSS pour le responsive
     responsive_style = """
     <style>
     .responsive-image-container {
@@ -710,47 +710,6 @@ elif st.session_state.page == "medicofi":
             font-size: 11px !important;
         }
     }
-
-    /* Styles pour les boutons personnalisés */
-    .custom-button {
-        width: 100%;
-        background-color: #f8f9fa;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        padding: 12px;
-        margin-bottom: 8px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-align: left;
-    }
-    
-    .custom-button:hover {
-        border-color: #FBBDFA !important;
-        background-color: rgba(251, 189, 250, 0.1) !important;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(251, 189, 250, 0.2);
-    }
-    
-    .button-title {
-        font-size: 16px;
-        font-weight: 600;
-        color: #202124;
-        margin: 0;
-        font-family: 'Montserrat', sans-serif;
-    }
-    
-    .button-subtitle {
-        font-size: 12px;
-        color: #666;
-        margin: 2px 0 0 0;
-        font-family: 'Montserrat', sans-serif;
-        line-height: 1.2;
-    }
-    
-    .button-s {
-        color: red;
-        font-weight: bold;
-    }
     </style>
     """
 
@@ -791,33 +750,20 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        # Liste des 8 boutons pour MEDICOFI avec sous-titres
+        # Liste des 8 boutons pour MEDICOFI
         projects_medicofi = [
-            ("Apnidoc company", "Based in France", "apnidoc"),
-            ("PROJET MEDICOFI 2", "Location 2", "medicofi2"),
-            ("PROJET MEDICOFI 3", "Location 3", "medicofi3"),
-            ("PROJET MEDICOFI 4", "Location 4", "medicofi4"),
-            ("PROJET MEDICOFI 5", "Location 5", "medicofi5"),
-            ("PROJET MEDICOFI 6", "Location 6", "medicofi6"),
-            ("PROJET MEDICOFI 7", "Location 7", "medicofi7"),
-            ("PROJET MEDICOFI 8", "Location 8", "medicofi8")
+            ("Apnidoc company", "apnidoc"),
+            ("PROJET MEDICOFI 2", "medicofi2"),
+            ("PROJET MEDICOFI 3", "medicofi3"),
+            ("PROJET MEDICOFI 4", "medicofi4"),
+            ("PROJET MEDICOFI 5", "medicofi5"),
+            ("PROJET MEDICOFI 6", "medicofi6"),
+            ("PROJET MEDICOFI 7", "medicofi7"),
+            ("PROJET MEDICOFI 8", "medicofi8")
         ]
 
-        # Solution 1: Utiliser st.markdown pour chaque bouton avec unsafe_allow_html=True
-        for project_name, subtitle, page_key in projects_medicofi:
-            # Créer un conteneur pour chaque bouton
-            button_html = f"""
-            <div class="custom-button" onclick="document.getElementById('btn_{page_key}').click()">
-                <div class="button-title">{project_name}</div>
-                <div class="button-subtitle">{subtitle}</div>
-            </div>
-            """
-            
-            # Afficher le bouton HTML
-            st.markdown(button_html, unsafe_allow_html=True)
-            
-            # Créer un bouton Streamlit caché pour gérer le clic
-            if st.button("", key=f"btn_{page_key}", type="secondary"):
+        for project_name, page_key in projects_medicofi:
+            if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
                 st.session_state.page = page_key
                 st.rerun()
 
@@ -895,18 +841,9 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-    # Ajouter du JavaScript pour le test
-    st.markdown("""
-    <script>
-    function myFunction() {
-        alert("Button clicked!");
-    }
-    </script>
-    """, unsafe_allow_html=True)
-
-    if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
-        st.session_state.page = "tse"
-        st.rerun()
+        if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
+            st.session_state.page = "tse"
+            st.rerun()
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
     if st.button("←"):
