@@ -617,16 +617,11 @@ if st.session_state.page == "accueil":
     # Espace entre les sections
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
-   elif st.session_state.page == "device_images":
-    # Utiliser une colonne pour contrôler la taille
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        if st.button("← RETOUR", 
-                    use_container_width=True,
-                    type="secondary"):
-            st.session_state.page = "design_folders"
-            st.session_state.current_device = None
-            st.rerun()
+  "← RETOUR"elif st.session_state.page == "device_images":
+    if st.button("← RETOUR"):
+        st.session_state.page = "design_folders"
+        st.session_state.current_device = None
+        st.rerun())
 
     st.title("MEDICOFI")
 
