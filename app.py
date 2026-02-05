@@ -646,7 +646,7 @@ elif st.session_state.page == "medicofi":
                 radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
                 #fdfefe;
             border-radius: 20px;
-            padding: 25px;
+            padding: 8px;
             margin-bottom: 20px;
             box-shadow: 0 18px 40px rgba(17, 24, 39, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.5);
@@ -706,7 +706,7 @@ elif st.session_state.page == "medicofi":
                 radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
                 #fdfefe;
             border-radius: 20px;
-            padding: 25px;
+            padding: 8px;
             margin-bottom: 20px;
             box-shadow: 0 18px 40px rgba(17, 24, 39, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.5);
@@ -753,7 +753,7 @@ elif st.session_state.page == "medicofi":
                 radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.70), transparent 60%),
                 #fdfefe;
             border-radius: 20px;
-            padding: 25px;
+            padding: 8px;
             margin-bottom: 20px;
             box-shadow: 0 18px 40px rgba(17, 24, 39, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.5);
