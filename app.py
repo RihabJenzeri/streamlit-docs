@@ -3605,7 +3605,7 @@ elif st.session_state.page == "tse":
     
     try:
         # CORRECTION : Chemin direct sans "Medicofi/Projets TSE/"
-        pdf_path = "SportsWear Design/Guide mise en page2021.pdf"
+        pdf_path = "TSE/SportsWear Design/Guide mise en page2021.pdf"
         with open(pdf_path, "rb") as pdf_file:
             pdf_bytes = pdf_file.read()
         
