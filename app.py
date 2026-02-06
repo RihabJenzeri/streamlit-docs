@@ -3604,38 +3604,30 @@ elif st.session_state.page == "tse":
     """, unsafe_allow_html=True)
     
     try:
-        # CORRECTION : Chemin direct sans "Medicofi/Projets TSE/"
+        # Chemin du PDF
         pdf_path = "mes_documents/TSE/Guide mise en page2021.pdf"
+        
+        # Lire le PDF
         with open(pdf_path, "rb") as pdf_file:
             pdf_bytes = pdf_file.read()
         
-        # Afficher le PDF avec un titre
+        # OPTION 1: Afficher le PDF directement dans Streamlit
+        st.pdf_viewer(pdf_bytes, width=800)
+        
+        # OPTION 2: Bouton de téléchargement
         st.download_button(
-            label="Télécharger le guide",
+            label="📥 Télécharger le PDF",
             data=pdf_bytes,
             file_name="Guide mise en page 2021.pdf",
             mime="application/pdf",
             use_container_width=True
         )
         
-        # Afficher un aperçu du PDF
-        st.markdown("""
-        <div style="text-align: center; padding: 20px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
-            <div style="color: #666; font-size: 16px; margin-bottom: 10px;">Document PDF disponible en téléchargement</div>
-            <div style="color: #999; font-size: 14px;">Taille du fichier: {:.1f} MB</div>
-        </div>
-        """.format(len(pdf_bytes) / (1024*1024)), unsafe_allow_html=True)
-        
     except FileNotFoundError:
         st.error("Fichier PDF non trouvé à l'emplacement : mes_documents/TSE/Guide mise en page2021.pdf")
-        st.markdown("""
-        <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
-            <div style="color: #888;">PDF non disponible</div>
-        </div>
-        """, unsafe_allow_html=True)
+        
     except Exception as e:
         st.error(f"Erreur de chargement du PDF: {str(e)}")
-
     # SECTION 2: Les 12 images (1.png à 12.png)
     st.markdown("---")
     st.markdown("""
