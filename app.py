@@ -883,7 +883,7 @@ elif st.session_state.page == "medicofi2":
     # Contrainte Principale - Affichage du contenu texte
     st.markdown("""
     <div style="background: #f9f9f9; padding: 15px; border-radius: 10px; border-left: 4px solid #FBBDFA; margin-bottom: 20px;">
-        <h4 style="margin: 0 0 10px 0; color: #202124;">Contrainte Principale</h4>
+        # <h4 style="margin: 0 0 10px 0; color: #202124;">Contrainte Principale</h4>
         <div style="color: #666; font-size: 14px; line-height: 1.6;">
             Cette proposition de design a été conçue dans Photoshop, et non avec un logiciel de modélisation 3D.<br><br>
             La contrainte principale consiste à conserver l'intérieur du produit tout en modifiant uniquement la coque extérieure.
