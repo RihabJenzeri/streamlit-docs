@@ -1565,7 +1565,97 @@ elif st.session_state.page == "medicofi3":
         </div>
     </div>
     """, unsafe_allow_html=True)          
-            
+# Page MCM Outsourcing Company (Madagascar)
+elif st.session_state.page == "medicofi4":
+    if st.button("←"):
+        st.session_state.page = "medicofi"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">MCM Outsourcing Company</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div style="color: #666; margin-bottom: 30px;">Emailing Campaign</div>', unsafe_allow_html=True)
+    
+    # Chemin de l'image unique
+    image_path = "Medicofi/Société MCM Externalisation (à Madagascar)/Emailing/Emailing MCM Externalisation.png"
+    
+    try:
+        img_url = get_image_url(image_path)
+        
+        # Afficher l'image unique au centre
+        st.markdown(f"""
+        <div style="display: flex; justify-content: center; margin: 30px 0 40px 0;">
+            <div style="text-align: center; max-width: 800px; width: 100%;">
+                <img src="{img_url}" style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Description de l'image
+        st.markdown("""
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div style="color: #202124; font-size: 20px; font-weight: 600; margin-bottom: 10px;">
+                Emailing MCM Externalisation
+            </div>
+            <div style="color: #666; font-size: 16px; max-width: 600px; margin: 0 auto;">
+                Email campaign design for MCM Outsourcing Company based in Madagascar
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+    except Exception as e:
+        # Placeholder si l'image n'est pas disponible
+        st.markdown(f"""
+        <div style="display: flex; justify-content: center; margin: 30px 0 40px 0;">
+            <div style="text-align: center; max-width: 800px; width: 100%;">
+                <div style="display: flex; justify-content: center; align-items: center; height: 400px; background: linear-gradient(135deg, #f5f7fa 0%, #f9f9f9 100%); border-radius: 12px; margin-bottom: 20px; border: 3px dashed #FBBDFA;">
+                    <div style="color: #888; font-size: 18px;">Emailing MCM Externalisation image not available</div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div style="color: #202124; font-size: 20px; font-weight: 600; margin-bottom: 10px;">
+                Emailing MCM Externalisation
+            </div>
+            <div style="color: #666; font-size: 16px; max-width: 600px; margin: 0 auto;">
+                Email campaign design for MCM Outsourcing Company based in Madagascar
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Section d'information supplémentaire
+    st.markdown("""
+    <div style="background: linear-gradient(135deg, rgba(251, 189, 250, 0.1) 0%, rgba(140, 210, 255, 0.1) 100%); 
+                padding: 25px; border-radius: 12px; margin-top: 20px; border: 1px solid rgba(251, 189, 250, 0.3);">
+        <div style="display: flex; align-items: flex-start; gap: 15px;">
+            <div style="background: white; padding: 12px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 2px solid #FBBDFA;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+            </div>
+            <div style="flex: 1;">
+                <h4 style="color: #202124; margin: 0 0 10px 0;">Project Details</h4>
+                <div style="color: #666; font-size: 14px; line-height: 1.6;">
+                    <p><strong>Client:</strong> MCM Externalisation (Madagascar)</p>
+                    <p><strong>Service:</strong> Email marketing campaign design</p>
+                    <p><strong>Objective:</strong> Corporate communication and client engagement</p>
+                    <p><strong>Tools:</strong> Photoshop, Illustrator</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)            
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
     if st.button("←"):
