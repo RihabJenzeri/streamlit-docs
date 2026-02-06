@@ -908,7 +908,18 @@ elif st.session_state.page == "apnidoc":
     """, unsafe_allow_html=True)
  
     st.markdown("---")
-
+    # Website Link Section
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Site Web ApniDoc</h3>
+    </div>
+    """, unsafe_allow_html=True)
     # Design Interface Button
     if st.button("DESIGN INTERFACE WEB SITE APNIDOC (RESPONSIVE)", use_container_width=True):
         st.session_state.page = "design_folders"
