@@ -2727,35 +2727,71 @@ elif st.session_state.page == "medicofi7":
     </div>
     """, unsafe_allow_html=True)
     
-    # Trois images en trois colonnes
+    # Liste des images
     stand_images = [
         "Medicofi/Société Seinbiose (en France)/Stand Parapluie/1.jpg",
         "Medicofi/Société Seinbiose (en France)/Stand Parapluie/2.jpg",
         "Medicofi/Société Seinbiose (en France)/Stand Parapluie/3.jpg"
     ]
     
-    col1, col2, col3 = st.columns(3)
+    # Image 1 seule dans une colonne (grande)
+    try:
+        stand1_url = get_image_url(stand_images[0])
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 30px;">
+            <img src="{stand1_url}" style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <div style="color: #666; font-size: 14px; margin-top: 8px;">Image 1</div>
+        </div>
+        """, unsafe_allow_html=True)
+    except Exception as e:
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 30px;">
+            <div style="padding: 60px; background: #f9f9f9; border-radius: 10px;">
+                <div style="color: #888; font-size: 16px;">Stand Parapluie 1</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
     
-    for idx, col in enumerate([col1, col2, col3]):
-        if idx < len(stand_images):
-            try:
-                stand_url = get_image_url(stand_images[idx])
-                with col:
-                    st.markdown(f"""
-                    <div style="text-align: center; margin-bottom: 20px;">
-                        <img src="{stand_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                        <div style="color: #666; font-size: 14px; margin-top: 8px;">Image {idx + 1}</div>
-                    </div>
-                    """, unsafe_allow_html=True)
-            except:
-                with col:
-                    st.markdown(f"""
-                    <div style="text-align: center; margin-bottom: 20px;">
-                        <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">
-                            <div style="color: #888;">Stand Parapluie {idx + 1}</div>
-                        </div>
-                    </div>
-                    """, unsafe_allow_html=True)
+    # Images 2 et 3 dans deux colonnes côte à côte (ligne suivante)
+    col1, col2 = st.columns(2)
+    
+    # Image 2
+    with col1:
+        try:
+            stand2_url = get_image_url(stand_images[1])
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{stand2_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #666; font-size: 14px; margin-top: 8px;">Image 2</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">Stand Parapluie 2</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    # Image 3
+    with col2:
+        try:
+            stand3_url = get_image_url(stand_images[2])
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{stand3_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #666; font-size: 14px; margin-top: 8px;">Image 3</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">Stand Parapluie 3</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
 elif st.session_state.page == "medicofi8":
     if st.button("←"):
         st.session_state.page = "medicofi"
