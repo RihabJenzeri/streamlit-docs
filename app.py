@@ -879,12 +879,6 @@ elif st.session_state.page == "medicofi2":
         <h3 style="margin: 0; color: #202124;">Coque de l'appareil Sensitive C (Design Produit)</h3>
     </div>
     """, unsafe_allow_html=True)
-
-    # Contrainte Principale.txt - Affichage du contenu texte
-    st.markdown("""
-    <div style="background: #f9f9f9; padding: 15px; border-radius: 10px; border-left: 4px solid #FBBDFA; margin-bottom: 20px;">
-        <h4 style="margin: 0 0 10px 0; color: #202124;">Contrainte Principale</h4>
-    """, unsafe_allow_html=True)
     
     # Lire et afficher le contenu du fichier texte
     try:
