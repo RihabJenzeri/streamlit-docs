@@ -1227,19 +1227,19 @@ elif st.session_state.page == "mamivac_post_carrousel":
     # Selon votre structure: Post carrousel/1.png, 2.png, 3.png directement
     carrousel_images = [
         # Images dans Post carrousel/ directement
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/1.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/2.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/3.png",
         
         # Pour afficher 9 images, je répète les mêmes 3 images 3 fois
         # Si vous avez plus d'images, ajustez les chemins
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2/1.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2/2.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2/3.png",
         
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3.png"
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/1.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/2.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/3.png"
     ]
     
     # Titres pour chaque groupe de 3 images
