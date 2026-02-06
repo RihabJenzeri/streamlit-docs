@@ -880,19 +880,16 @@ elif st.session_state.page == "medicofi2":
     </div>
     """, unsafe_allow_html=True)
     
-    # Lire et afficher le contenu du fichier texte
-    try:
-        contrainte_url = get_image_url("Medicofi/Société Mamivac France/Coque de l'appareil Sensitive C (Design Produit)/Contrainte Principale.txt")
-        response = requests.get(contrainte_url)
-        if response.status_code == 200:
-            contrainte_text = response.text
-            st.markdown(f'<div style="color: #666; font-size: 14px;">{contrainte_text}</div>', unsafe_allow_html=True)
-        else:
-            st.markdown('<div style="color: #666; font-size: 14px;">Contenu non disponible</div>', unsafe_allow_html=True)
-    except:
-        st.markdown('<div style="color: #666; font-size: 14px;">Contenu non disponible</div>', unsafe_allow_html=True)
-    
-    st.markdown("</div>", unsafe_allow_html=True)
+    # Contrainte Principale - Affichage du contenu texte
+    st.markdown("""
+    <div style="background: #f9f9f9; padding: 15px; border-radius: 10px; border-left: 4px solid #FBBDFA; margin-bottom: 20px;">
+        <h4 style="margin: 0 0 10px 0; color: #202124;">Contrainte Principale</h4>
+        <div style="color: #666; font-size: 14px; line-height: 1.6;">
+            Cette proposition de design a été conçue dans Photoshop, et non avec un logiciel de modélisation 3D.<br><br>
+            La contrainte principale consiste à conserver l'intérieur du produit tout en modifiant uniquement la coque extérieure.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
     # Bouton pour voir les propositions
     if st.button("PROPOSITIONS COQUE SENSITIVE C", use_container_width=True):
@@ -916,7 +913,7 @@ elif st.session_state.page == "medicofi2":
     """, unsafe_allow_html=True)
     
     # Description
-    st.markdown('<div style="color: #666; margin-bottom: 20px;">Conception et intégration d\'emailings & newsletters</div>', unsafe_allow_html=True)
+    st.markdown('<div style="color: #666; margin-bottom: 20px;">Design and integration of email campaigns & newsletters</div>', unsafe_allow_html=True)
     
     # Affichage des 4 images d'emailing
     emailing_images = [
