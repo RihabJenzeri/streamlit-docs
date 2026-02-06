@@ -655,7 +655,7 @@ elif st.session_state.page == "medicofi":
     freelance_image_url = get_image_url("img2.png")  # Image pour FREELANCE
     tse_image_url = get_image_url("img3.png")  # Image pour TSE
 
-    # CSS pour le responsive
+    # CSS pour le responsive et les boutons
     responsive_style = """
     <style>
     .responsive-image-container {
@@ -712,6 +712,18 @@ elif st.session_state.page == "medicofi":
             font-size: 11px !important;
         }
     }
+    
+    /* Style personnalisé pour les boutons avec titre et sous-titre */
+    .stButton > button {
+        height: auto !important;
+        padding: 12px 16px !important;
+        white-space: normal !important;
+        line-height: 1.4 !important;
+    }
+    
+    .custom-button-container {
+        margin-bottom: 8px;
+    }
     </style>
     """
 
@@ -752,20 +764,23 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        # Liste des 8 boutons pour MEDICOFI
+        # Liste des 8 boutons pour MEDICOFI avec titre et pays
         projects_medicofi = [
-            ("Apnidoc company", "apnidoc"),
-            ("Société Mamivac France", "medicofi2"),
-            ("Société MC Consulting (Tunisie)", "medicofi3"),
-            ("PROJET MEDICOFI 4", "medicofi4"),
-            ("PROJET MEDICOFI 5", "medicofi5"),
-            ("PROJET MEDICOFI 6", "medicofi6"),
-            ("PROJET MEDICOFI 7", "medicofi7"),
-            ("PROJET MEDICOFI 8", "medicofi8")
+            ("ApniDoc Company", "(France)", "apnidoc"),
+            ("Mamivac France Company", "", "medicofi2"),
+            ("MC Consulting Company", "(Tunisia)", "medicofi3"),
+            ("MCM Outsourcing Company", "(Madagascar)", "medicofi4"),
+            ("Respi Express Company", "(France)", "medicofi5"),
+            ("Sanibiose Company", "(France)", "medicofi6"),
+            ("Seinbiose Company", "(France)", "medicofi7"),
+            ("Tire Lait Express Company", "(France)", "medicofi8")
         ]
 
-        for project_name, page_key in projects_medicofi:
-            if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
+        for idx, (company_name, country, page_key) in enumerate(projects_medicofi):
+            # Créer le label du bouton avec formatage HTML-like
+            button_label = f"{company_name}\n{country}" if country else company_name
+            
+            if st.button(button_label, use_container_width=True, key=f"medicofi_{page_key}"):
                 st.session_state.page = page_key
                 st.rerun()
 
