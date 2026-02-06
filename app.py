@@ -3604,35 +3604,95 @@ elif st.session_state.page == "tse":
     """, unsafe_allow_html=True)
     
     try:
-        # CORRECTION : Chemin direct sans "Medicofi/Projets TSE/"
+        import urllib.parse
+        
+        # Chemin du PDF
         pdf_path = "mes_documents/TSE/Guide mise en page2021.pdf"
+        
+        # Lire le PDF
         with open(pdf_path, "rb") as pdf_file:
             pdf_bytes = pdf_file.read()
         
-        # Afficher le PDF avec un titre
+        # 1. Téléchargement direct
         st.download_button(
-            label="Télécharger le guide",
+            label="📥 Télécharger le guide",
             data=pdf_bytes,
             file_name="Guide mise en page 2021.pdf",
             mime="application/pdf",
             use_container_width=True
         )
         
-        # Afficher un aperçu du PDF
-        st.markdown("""
-        <div style="text-align: center; padding: 20px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
-            <div style="color: #666; font-size: 16px; margin-bottom: 10px;">Document PDF disponible en téléchargement</div>
-            <div style="color: #999; font-size: 14px;">Taille du fichier: {:.1f} MB</div>
-        </div>
-        """.format(len(pdf_bytes) / (1024*1024)), unsafe_allow_html=True)
+        # 2. Affichage avec Google Docs Viewer (comme SECTION 7)
+        # Créer une URL encodée pour Google Viewer
+        # Note: Google Viewer nécessite une URL accessible publiquement
+        # Si votre PDF est local, vous pouvez le servir via une route temporaire
         
-    except FileNotFoundError:
-        st.error("Fichier PDF non trouvé à l'emplacement : mes_documents/TSE/Guide mise en page2021.pdf")
-        st.markdown("""
-        <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
-            <div style="color: #888;">PDF non disponible</div>
+        # OPTION A: Si vous avez une fonction get_image_url() qui retourne une URL
+        try:
+            pdf_url = get_image_url(pdf_path)
+            pdf_encoded = urllib.parse.quote(pdf_url, safe='')
+            google_viewer_url = f"https://docs.google.com/viewer?url={pdf_encoded}&embedded=true"
+            
+            st.markdown(f"""
+            <div style="margin: 20px 0; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <iframe 
+                    width="100%" 
+                    height="600" 
+                    src="{google_viewer_url}"
+                    frameborder="0"
+                    style="border: none;"
+                    title="Guide mise en page 2021"
+                >
+                </iframe>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            # Bouton pour ouvrir dans un nouvel onglet
+            col1, col2 = st.columns(2)
+            with col1:
+                st.markdown(f'<a href="{pdf_url}" download="Guide_mise_en_page_2021.pdf" style="text-decoration: none;">', unsafe_allow_html=True)
+                if st.button("📄 Télécharger PDF", use_container_width=True):
+                    pass
+                st.markdown('</a>', unsafe_allow_html=True)
+            
+            with col2:
+                st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none;">', unsafe_allow_html=True)
+                if st.button("🔗 Ouvrir dans Google Viewer", use_container_width=True):
+                    pass
+                st.markdown('</a>', unsafe_allow_html=True)
+                
+        except:
+            # OPTION B: Si get_image_url ne fonctionne pas, afficher un message alternatif
+            st.markdown("""
+            <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+                <div style="color: #888; font-size: 16px; margin-bottom: 20px;">Prévisualisation PDF</div>
+                <div style="color: #666; font-size: 14px;">
+                    Le PDF est disponible en téléchargement ci-dessus.<br>
+                    Pour la prévisualisation, utilisez le bouton "Télécharger".
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        # Info sur la taille
+        file_size_mb = len(pdf_bytes) / (1024 * 1024)
+        st.markdown(f"""
+        <div style="text-align: center; padding: 15px; background: #f9f9f9; border-radius: 10px; margin: 20px 0; border-left: 4px solid #FBBDFA;">
+            <div style="color: #666; font-size: 14px;">
+                📊 <strong>Taille du fichier:</strong> {file_size_mb:.1f} MB | 
+                📖 <strong>Pages:</strong> PDF consultable avec Google Docs Viewer
+            </div>
         </div>
         """, unsafe_allow_html=True)
+        
+    except FileNotFoundError:
+        st.error("❌ Fichier PDF non trouvé à l'emplacement : mes_documents/TSE/Guide mise en page2021.pdf")
+        
+        # Vérification
+        import os
+        if os.path.exists("mes_documents/"):
+            st.write("📁 Contenu de mes_documents/:")
+            st.write(os.listdir("mes_documents/"))
+            
     except Exception as e:
         st.error(f"Erreur de chargement du PDF: {str(e)}")
 
