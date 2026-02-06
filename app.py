@@ -3093,7 +3093,7 @@ elif st.session_state.page == "medicofi8":
     emailing_images = [
         ("Capture d'écran 2025-06-19 090912.png", "Capture d'écran 2025-06-19 090912"),
         ("Dernière relance avant transmission au service contentieux.png", "Dernière relance avant transmission au service contentieux"),
-        ("EmailingsagesfemmesSecteur.png", "Emailing sages femmes Secteur"),
+        ("Emailing sages femmesSecteur.png", "Emailing sages femmes Secteur"),
         ("La SMAM approche.png", "La SMAM approche"),
         ("Simplifiez l'allaitement de vos patientes.png", "Simplifiez l'allaitement de vos patientes")
     ]
