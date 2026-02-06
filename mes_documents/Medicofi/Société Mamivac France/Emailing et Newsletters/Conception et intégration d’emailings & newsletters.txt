@@ -1,0 +1,2 @@
+L’ensemble de ces emailings et newsletters a été conçu en HTML/CSS ou via Figma, 
+puis intégré sur les plateformes d’envoi Brevo et Mailjet après validation du design.
