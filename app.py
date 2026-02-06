@@ -3589,7 +3589,7 @@ elif st.session_state.page == "tse":
     </div>
     """, unsafe_allow_html=True)
 
-    # SECTION 1: PDF Guide mise en page2021
+       # SECTION 1: PDF Guide mise en page2021 avec visualiseur
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3604,38 +3604,76 @@ elif st.session_state.page == "tse":
     """, unsafe_allow_html=True)
     
     try:
-        # CORRECTION : Chemin direct sans "Medicofi/Projets TSE/"
+        import urllib.parse
+        
+        # Chemin du PDF
         pdf_path = "mes_documents/TSE/Guide mise en page2021.pdf"
+        
+        # Lire le PDF pour le téléchargement
         with open(pdf_path, "rb") as pdf_file:
             pdf_bytes = pdf_file.read()
         
-        # Afficher le PDF avec un titre
-        st.download_button(
-            label="Télécharger le guide",
-            data=pdf_bytes,
-            file_name="Guide mise en page 2021.pdf",
-            mime="application/pdf",
-            use_container_width=True
-        )
+        # Obtenir l'URL pour la visualisation
+        pdf_url = get_image_url(pdf_path)
         
-        # Afficher un aperçu du PDF
-        st.markdown("""
-        <div style="text-align: center; padding: 20px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
-            <div style="color: #666; font-size: 16px; margin-bottom: 10px;">Document PDF disponible en téléchargement</div>
-            <div style="color: #999; font-size: 14px;">Taille du fichier: {:.1f} MB</div>
+        # Encoder l'URL pour le visualiseur Google
+        pdf_encoded = urllib.parse.quote(pdf_url, safe='')
+        google_viewer_url = f"https://docs.google.com/viewer?url={pdf_encoded}&embedded=true"
+        
+        # Afficher le PDF dans un visualiseur
+        st.markdown(f"""
+        <div style="border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
+            <iframe width="100%" height="600" src="{google_viewer_url}" style="border: none;"></iframe>
         </div>
-        """.format(len(pdf_bytes) / (1024*1024)), unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
+        
+        # Boutons d'action
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            # Bouton Télécharger
+            st.download_button(
+                label="📥 Télécharger le PDF",
+                data=pdf_bytes,
+                file_name="Guide mise en page 2021.pdf",
+                mime="application/pdf",
+                use_container_width=True
+            )
+        
+        with col2:
+            # Bouton Ouvrir dans un nouvel onglet
+            st.markdown(f"""
+            <a href="{google_viewer_url}" target="_blank" style="text-decoration: none;">
+                <button style="width: 100%; padding: 10px; background: #FBBDFA; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 600;">
+                    🔗 Ouvrir PDF en plein écran
+                </button>
+            </a>
+            """, unsafe_allow_html=True)
+        
+        # Informations sur le fichier
+        st.markdown(f"""
+        <div style="text-align: center; padding: 15px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #666; font-size: 14px;">
+                <strong>Taille du fichier:</strong> {len(pdf_bytes) / (1024*1024):.1f} MB | 
+                <strong>Format:</strong> PDF
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
         
     except FileNotFoundError:
         st.error("Fichier PDF non trouvé à l'emplacement : mes_documents/TSE/Guide mise en page2021.pdf")
         st.markdown("""
-        <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
-            <div style="color: #888;">PDF non disponible</div>
+        <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #888; font-size: 16px;">Guide PDF non disponible</div>
         </div>
         """, unsafe_allow_html=True)
     except Exception as e:
         st.error(f"Erreur de chargement du PDF: {str(e)}")
-
+        st.markdown("""
+        <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #888; font-size: 16px;">Erreur lors du chargement du PDF</div>
+        </div>
+        """, unsafe_allow_html=True)
     # SECTION 2: Les 12 images (1.png à 12.png)
     st.markdown("---")
     st.markdown("""
