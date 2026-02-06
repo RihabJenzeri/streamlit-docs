@@ -747,7 +747,7 @@ elif st.session_state.page == "medicofi":
                 MEDICOFI
             </h3>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
-                8 Projets
+                Medicofi Group ↓
             </p>
         </div>
         """, unsafe_allow_html=True)
