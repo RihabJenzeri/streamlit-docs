@@ -751,8 +751,9 @@ elif st.session_state.page == "medicofi":
             </p>
         </div>
         """, unsafe_allow_html=True)
-# Liste des 8 boutons pour MEDICOFI avec titres et sous-titres
-    projects_medicofi = [
+
+        # Liste des 8 boutons pour MEDICOFI
+        projects_medicofi = [
             ("Apnidoc company", "apnidoc"),
             ("Société Mamivac France", "medicofi2"),
             ("Société MC Consulting (Tunisie)", "medicofi3"),
@@ -763,10 +764,10 @@ elif st.session_state.page == "medicofi":
             ("PROJET MEDICOFI 8", "medicofi8")
         ]
 
-    for project_name, page_key in projects_medicofi:
-        if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
-            st.session_state.page = page_key
-            st.rerun()
+        for project_name, page_key in projects_medicofi:
+            if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
+                st.session_state.page = page_key
+                st.rerun()
 
     # Colonne 2: FREELANCE - Utilise img2.png
     with col2:
@@ -842,7 +843,7 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
+    if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
             st.session_state.page = "tse"
             st.rerun()
 # Ajoutez ensuite les pages pour freelance et tse
