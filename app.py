@@ -3577,9 +3577,128 @@ elif st.session_state.page == "tse":
         st.session_state.page = "medicofi"
         st.rerun()
 
-    st.title("📊 PROJETS TSE")
-    st.write("Contenu des projets TSE...")
-    # Ajoutez ici votre contenu pour TSE
+    # Titre avec style personnalisé
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+            <path d="M2 12h20"></path>
+        </svg>
+        <h1 style="margin: 0; color: #202124; font-size: 32px; font-weight: 700;">SportsWear Design</h1>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # SECTION 1: PDF Guide mise en page2021
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Guide mise en page 2021</h3>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    try:
+        # CORRECTION : Chemin direct sans "Medicofi/Projets TSE/"
+        pdf_path = "SportsWear Design/Guide mise en page2021.pdf"
+        with open(pdf_path, "rb") as pdf_file:
+            pdf_bytes = pdf_file.read()
+        
+        # Afficher le PDF avec un titre
+        st.download_button(
+            label="📥 Télécharger le guide",
+            data=pdf_bytes,
+            file_name="Guide mise en page 2021.pdf",
+            mime="application/pdf",
+            use_container_width=True
+        )
+        
+        # Afficher un aperçu du PDF
+        st.markdown("""
+        <div style="text-align: center; padding: 20px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #666; font-size: 16px; margin-bottom: 10px;">Document PDF disponible en téléchargement</div>
+            <div style="color: #999; font-size: 14px;">Taille du fichier: {:.1f} MB</div>
+        </div>
+        """.format(len(pdf_bytes) / (1024*1024)), unsafe_allow_html=True)
+        
+    except FileNotFoundError:
+        st.error("Fichier PDF non trouvé à l'emplacement : SportsWear Design/Guide mise en page2021.pdf")
+        st.markdown("""
+        <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #888;">PDF non disponible</div>
+        </div>
+        """, unsafe_allow_html=True)
+    except Exception as e:
+        st.error(f"Erreur de chargement du PDF: {str(e)}")
+
+    # SECTION 2: Les 12 images (1.png à 12.png)
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Designs SportsWear</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # TRIER les images dans l'ordre numérique (1, 2, 3... 12)
+    image_numbers = list(range(1, 13))
+    tse_images = [f"SportsWear Design/{num}.png" for num in image_numbers]
+    
+    # Afficher chaque image dans une colonne unique (pleine largeur)
+    for idx, img_path in enumerate(tse_images):
+        img_number = idx + 1
+        
+        try:
+            img_url = get_image_url(img_path)
+            
+            # Conteneur pour chaque image avec son numéro
+            st.markdown(f"""
+            <div style="margin-bottom: 40px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <div style="background: #FBBDFA; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                        {img_number}
+                    </div>
+                    <div style="color: #202124; font-weight: 600; font-size: 18px;">Design {img_number}</div>
+                </div>
+                <div style="text-align: center;">
+                    <img src="{img_url}" style="width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+        except Exception as e:
+            st.markdown(f"""
+            <div style="margin-bottom: 30px; padding: 40px; background: #f9f9f9; border-radius: 10px; text-align: center;">
+                <div style="color: #888; font-size: 16px; margin-bottom: 10px;">
+                    <span style="background: #ffebee; color: #c62828; padding: 5px 10px; border-radius: 5px; font-size: 14px;">
+                        ⚠️ Non trouvé
+                    </span>
+                </div>
+                <div style="color: #666; font-size: 14px;">{img_path}</div>
+                <div style="color: #999; font-size: 13px; margin-top: 10px;">Design {img_number}</div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    # Note en bas de page
+    st.markdown("""
+    <div style="text-align: center; margin: 30px 0; padding: 20px; background: #f9f9f9; border-radius: 10px; border-left: 4px solid #FBBDFA;">
+        <div style="color: #202124; font-size: 16px; font-weight: 500;">
+            12 designs SportsWear créés pour le projet TSE
+        </div>
+        <div style="color: #666; font-size: 14px; margin-top: 10px;">
+            Images affichées dans l'ordre numérique de 1 à 12
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # La page apnidoc reste la même
 elif st.session_state.page == "apnidoc":
