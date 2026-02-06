@@ -651,9 +651,9 @@ elif st.session_state.page == "medicofi":
     col1, col2, col3 = st.columns(3)
 
     # URLs des images spécifiques
-    medicofi_image_url = get_image_url("img1.png")  # Image pour MEDICOFI
+    medicofi_image_url = get_image_url("img3.png")  # Image pour MEDICOFI
     freelance_image_url = get_image_url("img2.png")  # Image pour FREELANCE
-    tse_image_url = get_image_url("img3.png")  # Image pour TSE
+    tse_image_url = get_image_url("img1.png")  # Image pour TSE
 
     # CSS pour le responsive et les boutons
     responsive_style = """
@@ -755,7 +755,7 @@ elif st.session_state.page == "medicofi":
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="MEDICOFI">
             </div>
-            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;">
+            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;padding-bottom: 4px;">
                 MEDICOFI
             </h3>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
@@ -810,7 +810,7 @@ elif st.session_state.page == "medicofi":
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="FREELANCE">
             </div>
-            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;">
+            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;padding-bottom: 4px;">
                 FREELANCE
             </h3>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
@@ -849,7 +849,7 @@ elif st.session_state.page == "medicofi":
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="TSE">
             </div>
-            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;">
+            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;padding-bottom: 4px;">
                 TSE
             </h3>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
