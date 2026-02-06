@@ -3275,7 +3275,7 @@ elif st.session_state.page == "medicofi8":
     """, unsafe_allow_html=True)
 
     # Bouton pour accéder à la page des réseaux sociaux
-    if st.button("📱 RÉSEAUX SOCIAUX", use_container_width=True):
+    if st.button("RÉSEAUX SOCIAUX", use_container_width=True):
         st.session_state.page = "tle_reseaux_sociaux"
         st.rerun()
 
@@ -3362,15 +3362,16 @@ elif st.session_state.page == "tle_reseaux_sociaux":
     col1, col2 = st.columns(2)
     
     with col1:
-        if st.button("🔄 POST CARROUSEL", use_container_width=True):
+        if st.button("POST CARROUSEL", use_container_width=True):
             st.session_state.page = "tle_post_carrousel"
             st.rerun()
     
     with col2:
-        if st.button("📸 POST STATIQUE", use_container_width=True):
+        if st.button("POST STATIQUE", use_container_width=True):
             st.session_state.page = "tle_post_statique"
             st.rerun()
-
+    # Espace après la carte de profil
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 # ========== PAGE Post Carrousel TLE ==========
 elif st.session_state.page == "tle_post_carrousel":
     if st.button("←"):
