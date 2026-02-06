@@ -863,6 +863,197 @@ elif st.session_state.page == "medicofi":
         if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
             st.session_state.page = "tse"
             st.rerun()
+    # Page Mamivac France Company
+elif st.session_state.page == "medicofi2":
+    if st.button("←"):
+        st.session_state.page = "medicofi"
+        st.rerun()
+
+    # Titre avec icône SVG de boîte (pour "Coque de l'appareil")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Coque de l'appareil Sensitive C (Design Produit)</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Contrainte Principale.txt - Affichage du contenu texte
+    st.markdown("""
+    <div style="background: #f9f9f9; padding: 15px; border-radius: 10px; border-left: 4px solid #FBBDFA; margin-bottom: 20px;">
+        <h4 style="margin: 0 0 10px 0; color: #202124;">Contrainte Principale</h4>
+    """, unsafe_allow_html=True)
+    
+    # Lire et afficher le contenu du fichier texte
+    try:
+        contrainte_url = get_image_url("Medicofi/Société Mamivac France/Coque de l'appareil Sensitive C (Design Produit)/Contrainte Principale.txt")
+        response = requests.get(contrainte_url)
+        if response.status_code == 200:
+            contrainte_text = response.text
+            st.markdown(f'<div style="color: #666; font-size: 14px;">{contrainte_text}</div>', unsafe_allow_html=True)
+        else:
+            st.markdown('<div style="color: #666; font-size: 14px;">Contenu non disponible</div>', unsafe_allow_html=True)
+    except:
+        st.markdown('<div style="color: #666; font-size: 14px;">Contenu non disponible</div>', unsafe_allow_html=True)
+    
+    st.markdown("</div>", unsafe_allow_html=True)
+
+    # Bouton pour voir les propositions
+    if st.button("PROPOSITIONS COQUE SENSITIVE C", use_container_width=True):
+        st.session_state.page = "mamivac_propositions"
+        st.rerun()
+    
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    
+    # Séparateur
+    st.markdown("---")
+    
+    # Section Emailings et Newsletters avec icône
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Emailing et Newsletters</h3>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Description
+    st.markdown('<div style="color: #666; margin-bottom: 20px;">Conception et intégration d\'emailings & newsletters</div>', unsafe_allow_html=True)
+    
+    # Affichage des 4 images d'emailing
+    emailing_images = [
+        "Medicofi/Société Mamivac France/Emailing et Newsletters/Emailing 1.png",
+        "Medicofi/Société Mamivac France/Emailing et Newsletters/Emailing 2.png",
+        "Medicofi/Société Mamivac France/Emailing et Newsletters/Emailing 3.png",
+        "Medicofi/Société Mamivac France/Emailing et Newsletters/Emailing 4.png"
+    ]
+    
+    # Afficher les images en 2 colonnes
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        # Email 1
+        email1_url = get_image_url(emailing_images[0])
+        st.markdown(f"""
+        <div style="display: flex; justify-content: center; margin: 20px 0;">
+            <img src="{email1_url}" style="width: 500px; max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Email 2
+        email2_url = get_image_url(emailing_images[1])
+        st.markdown(f"""
+        <div style="display: flex; justify-content: center; margin: 20px 0;">
+            <img src="{email2_url}" style="width: 500px; max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        # Email 3
+        email3_url = get_image_url(emailing_images[2])
+        st.markdown(f"""
+        <div style="display: flex; justify-content: center; margin: 20px 0;">
+            <img src="{email3_url}" style="width: 500px; max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Email 4
+        email4_url = get_image_url(emailing_images[3])
+        st.markdown(f"""
+        <div style="display: flex; justify-content: center; margin: 20px 0;">
+            <img src="{email4_url}" style="width: 500px; max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        </div>
+        """, unsafe_allow_html=True)
+
+# Page des propositions PDF pour Mamivac
+elif st.session_state.page == "mamivac_propositions":
+    if st.button("←"):
+        st.session_state.page = "medicofi2"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Propositions Coque Sensitive C</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # URLs des PDFs
+    pdf1_url = get_image_url("Medicofi/Société Mamivac France/Coque de l'appareil Sensitive C (Design Produit)/Propositions 1-PLANCHE Sensitive C.pdf")
+    pdf2_url = get_image_url("Medicofi/Société Mamivac France/Coque de l'appareil Sensitive C (Design Produit)/Propositions 2-PLANCHE Sensitive C.pdf")
+    
+    # Encoder les URLs pour Google Viewer
+    pdf1_encoded = urllib.parse.quote(pdf1_url, safe='')
+    pdf2_encoded = urllib.parse.quote(pdf2_url, safe='')
+    
+    google_viewer_url1 = f"https://docs.google.com/viewer?url={pdf1_encoded}&embedded=true"
+    google_viewer_url2 = f"https://docs.google.com/viewer?url={pdf2_encoded}&embedded=true"
+
+    # Affichage du premier PDF
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin: 20px 0 10px 0;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Proposition 1</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown(f'<iframe width="100%" height="600" src="{google_viewer_url1}"></iframe>', unsafe_allow_html=True)
+    
+    # Boutons pour le PDF 1
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown(f'<a href="{pdf1_url}" download="Proposition_1_PLANCHE_Sensitive_C.pdf" style="text-decoration: none;">', unsafe_allow_html=True)
+        if st.button("📥 Télécharger PDF 1", use_container_width=True):
+            pass
+        st.markdown('</a>', unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown(f'<a href="{google_viewer_url1}" target="_blank" style="text-decoration: none;">', unsafe_allow_html=True)
+        if st.button("🔗 Ouvrir PDF 1", use_container_width=True):
+            pass
+        st.markdown('</a>', unsafe_allow_html=True)
+    
+    st.markdown("---")
+    
+    # Affichage du deuxième PDF
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin: 20px 0 10px 0;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Proposition 2</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown(f'<iframe width="100%" height="600" src="{google_viewer_url2}"></iframe>', unsafe_allow_html=True)
+    
+    # Boutons pour le PDF 2
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown(f'<a href="{pdf2_url}" download="Proposition_2_PLANCHE_Sensitive_C.pdf" style="text-decoration: none;">', unsafe_allow_html=True)
+        if st.button("📥 Télécharger PDF 2", use_container_width=True):
+            pass
+        st.markdown('</a>', unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown(f'<a href="{google_viewer_url2}" target="_blank" style="text-decoration: none;">', unsafe_allow_html=True)
+        if st.button("🔗 Ouvrir PDF 2", use_container_width=True):
+            pass
+        st.markdown('</a>', unsafe_allow_html=True)
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
     if st.button("←"):
