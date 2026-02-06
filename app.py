@@ -3577,9 +3577,112 @@ elif st.session_state.page == "tse":
         st.session_state.page = "medicofi"
         st.rerun()
 
-    st.title("📊 PROJETS TSE")
-    st.write("Contenu des projets TSE...")
-    # Ajoutez ici votre contenu pour TSE
+    # Titre avec style similaire aux autres pages
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">SportsWear Design</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Affichage du PDF en premier
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Guide PDF</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    try:
+        # CHEMIN CORRECT : Avec le dossier "SportsWear Design/"
+        pdf_path = "SportsWear Design/Guide mise en page2021.pdf"
+        pdf_url = get_image_url(pdf_path)
+        
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 30px;">
+            <a href="{pdf_url}" target="_blank" style="text-decoration: none;">
+                <div style="padding: 20px; background: #f9f9f9; border-radius: 10px; border: 2px dashed #FBBDFA;">
+                    <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">📄 Guide mise en page2021.pdf</div>
+                    <div style="color: #666; font-size: 14px;">Cliquez pour ouvrir</div>
+                </div>
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
+    except Exception as e:
+        st.error(f"Erreur PDF: {str(e)}")
+        st.markdown("""
+        <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #888;">PDF non disponible</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Affichage des images
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Designs SportsWear</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Liste de toutes les images dans l'ordre numérique
+    image_files = [
+        "1.png", "2.png", "3.png", "4.png", "5.png", "6.png",
+        "7.png", "8.png", "9.png", "10.png", "11.png", "12.png"
+    ]
+
+    # Afficher chaque image dans une colonne unique (une sous l'autre)
+    for i, img_file in enumerate(image_files):
+        try:
+            # CHEMIN CORRECT : Avec le dossier "SportsWear Design/"
+            img_path = f"SportsWear Design/{img_file}"
+            img_url = get_image_url(img_path)
+            
+            # Afficher l'image en pleine largeur
+            st.markdown(f"""
+            <div style="margin-bottom: 40px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <div style="width: 30px; height: 30px; border-radius: 50%; background: #FBBDFA; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">{i+1}</div>
+                    <div style="color: #202124; font-weight: 600; font-size: 18px;">{img_file}</div>
+                </div>
+                
+                <div style="text-align: center;">
+                    <img src="{img_url}" 
+                         style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: 0 auto; cursor: pointer;"
+                         onclick="this.style.maxWidth=this.style.maxWidth=='800px'?'95%':'800px'"
+                         alt="{img_file}">
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+        except Exception as e:
+            st.error(f"Erreur image {img_file}: {str(e)}")
+            st.markdown(f"""
+            <div style="margin-bottom: 40px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <div style="width: 30px; height: 30px; border-radius: 50%; background: #FBBDFA; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">{i+1}</div>
+                    <div style="color: #202124; font-weight: 600; font-size: 18px;">{img_file}</div>
+                </div>
+                <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888; font-size: 16px;">Image non disponible</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)    
 
 # La page apnidoc reste la même
 elif st.session_state.page == "apnidoc":
