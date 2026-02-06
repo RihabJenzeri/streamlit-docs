@@ -776,13 +776,40 @@ elif st.session_state.page == "medicofi":
             ("Tire Lait Express Company", "(France)", "medicofi8")
         ]
 
-        for idx, (company_name, country, page_key) in enumerate(projects_medicofi):
-            # Créer le label du bouton avec formatage HTML-like
-            button_label = f"{company_name}\n{country}" if country else company_name
-            
-            if st.button(button_label, use_container_width=True, key=f"medicofi_{page_key}"):
-                st.session_state.page = page_key
-                st.rerun()
+for idx, (company_name, country, page_key) in enumerate(projects_medicofi):
+    # Créer un conteneur pour chaque projet
+    button_html = f"""
+    <div style="
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 10px;
+        padding: 12px 16px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    ">
+        <p style="
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            margin: 0 0 4px 0;
+            font-family: 'Montserrat', sans-serif;
+        ">{company_name}</p>
+        <p style="
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 11px;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        ">{country}</p>
+    </div>
+    """
+    
+    if st.button(company_name, key=f"medicofi_{page_key}", use_container_width=True):
+        st.session_state.page = page_key
+        st.rerun()
+    
+    # Masquer le texte du bouton par défaut et afficher le HTML à la place
+    st.markdown(button_html, unsafe_allow_html=True)
 
     # Colonne 2: FREELANCE - Utilise img2.png
     with col2:
