@@ -3217,13 +3217,13 @@ elif st.session_state.page == "medicofi8":
         col1, col2 = st.columns(2)
         with col1:
             st.markdown(f'<a href="{pdf_url}" download="Guide_Bienvenue_web_Graine_de_vie_PAGE.pdf" style="text-decoration: none;">', unsafe_allow_html=True)
-            if st.button("📥 Télécharger le Guide", use_container_width=True):
+            if st.button("Télécharger le Guide", use_container_width=True):
                 pass
             st.markdown('</a>', unsafe_allow_html=True)
         
         with col2:
             st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none;">', unsafe_allow_html=True)
-            if st.button("🔗 Ouvrir PDF", use_container_width=True):
+            if st.button("Ouvrir PDF", use_container_width=True):
                 pass
             st.markdown('</a>', unsafe_allow_html=True)
     except:
