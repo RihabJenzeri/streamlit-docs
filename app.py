@@ -1307,8 +1307,71 @@ elif st.session_state.page == "mamivac_post_statique":
     """, unsafe_allow_html=True)
 
     st.markdown('<div style="color: #666; margin-bottom: 30px;">Static posts for social media</div>', unsafe_allow_html=True)
-
-    # Ici vous pouvez ajouter les images des posts statiques
+    
+    # Liste des images pour les posts statiques avec leurs descriptions
+    static_posts = [
+        ("11-Mars-kitt-Teterelles-double-2.png", "11 Mars - Kit Téterelles Double"),
+        ("15-Avril-Jeu-tirage-au-sort-Mamivac.png", "15 Avril - Jeu Tirage au Sort"),
+        ("15-Juillet-Surproduction-de-lait-maternel.png", "15 Juillet - Surproduction de Lait"),
+        ("17-Juin-Comment-laver-vos-teterelles-efficacement-.png", "17 Juin - Nettoyage Téterelles"),
+        ("19-Juin-Combien-de-temps-une-maman-peut-produire-du-lait.png", "19 Juin - Production de Lait"),
+        ("22-Juillet-Citation.png", "22 Juillet - Citation"),
+        ("24-Juillet-apparition-des-dents-de-bebe.png", "24 Juillet - Dents de Bébé"),
+        ("26-Juin-donner-de-l'eau-à-un-bébé-allaité.png", "26 Juin - Eau pour Bébé Allaité"),
+        ("8-Juillet-rechauffer-le-lait-maternel-conserve.png", "8 Juillet - Réchauffer Lait Maternel"),
+        ("kitt-Teterellesss-double.png", "Kit Téterelles Double")
+    ]
+    
+    # Afficher les images en 3 colonnes
+    num_columns = 3
+    num_images = len(static_posts)
+    
+    for i in range(0, num_images, num_columns):
+        # Créer les colonnes pour cette ligne
+        cols = st.columns(num_columns)
+        
+        # Afficher jusqu'à 3 images par ligne
+        for col_idx in range(num_columns):
+            img_idx = i + col_idx
+            
+            if img_idx < num_images:
+                file_name, description = static_posts[img_idx]
+                
+                # Chemin complet de l'image
+                image_path = f"Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post statique/{file_name}"
+                
+                with cols[col_idx]:
+                    # Afficher l'image avec sa description
+                    try:
+                        img_url = get_image_url(image_path)
+                        
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 25px;">
+                            <div style="display: flex; justify-content: center; margin-bottom: 8px;">
+                                <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            </div>
+                            <div style="color: #202124; font-size: 14px; font-weight: 500; margin-bottom: 5px;">
+                                {description}
+                            </div>
+                            <div style="color: #888; font-size: 12px;">
+                                {file_name}
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)
+                    except Exception as e:
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 25px;">
+                            <div style="display: flex; justify-content: center; align-items: center; height: 200px; background: #f9f9f9; border-radius: 10px; margin-bottom: 8px; border: 2px dashed #ddd;">
+                                <div style="color: #888;">Image non disponible</div>
+                            </div>
+                            <div style="color: #202124; font-size: 14px; font-weight: 500; margin-bottom: 5px;">
+                                {description}
+                            </div>
+                            <div style="color: #888; font-size: 12px;">
+                                {file_name}
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)
 
 # Page Story
 elif st.session_state.page == "mamivac_story":
