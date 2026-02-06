@@ -1203,7 +1203,6 @@ elif st.session_state.page == "mamivac_social_media":
             st.rerun()
             # Page Post Carrousel
 # Page Post Carrousel
-# Page Post Carrousel
 elif st.session_state.page == "mamivac_post_carrousel":
     if st.button("←"):
         st.session_state.page = "mamivac_social_media"
@@ -1222,23 +1221,22 @@ elif st.session_state.page == "mamivac_post_carrousel":
 
     st.markdown('<div style="color: #666; margin-bottom: 30px;">Carousel posts for social media</div>', unsafe_allow_html=True)
     
-    # Liste des 9 images avec les chemins corrigés
-    # Selon votre structure: Post carrousel/1.png, 2.png, 3.png directement
+    # Liste des 9 images avec leurs chemins
     carrousel_images = [
-        # Images dans Post carrousel/ directement
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/1.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3.png",
+        # Premier carrousel (1)
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/1/1.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/1/2.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/1/3.png",
         
-        # Pour afficher 9 images, je répète les mêmes 3 images 3 fois
-        # Si vous avez plus d'images, ajustez les chemins
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/1.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3.png",
+        # Deuxième carrousel (2)
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2/1.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2/2.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2/3.png",
         
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/1.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3.png"
+        # Troisième carrousel (3)
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3/1.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3/2.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3/3.png"
     ]
     
     # Titres pour chaque groupe de 3 images
@@ -1261,32 +1259,40 @@ elif st.session_state.page == "mamivac_post_carrousel":
         
         with col1:
             img_url = get_image_url(carrousel_images[start_index])
-            # Test d'affichage simple d'abord
-            try:
-                st.image(img_url, use_container_width=True, caption=f"Slide 1")
-            except Exception as e:
-                st.error(f"Erreur chargement image 1: {e}")
-                st.write(f"URL: {img_url}")
+            st.markdown(f"""
+            <div style="text-align: center;">
+                <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                    <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                </div>
+                <div style="color: #666; font-size: 14px;">Slide 1</div>
+            </div>
+            """, unsafe_allow_html=True)
         
         with col2:
             img_url = get_image_url(carrousel_images[start_index + 1])
-            try:
-                st.image(img_url, use_container_width=True, caption=f"Slide 2")
-            except Exception as e:
-                st.error(f"Erreur chargement image 2: {e}")
-                st.write(f"URL: {img_url}")
+            st.markdown(f"""
+            <div style="text-align: center;">
+                <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                    <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                </div>
+                <div style="color: #666; font-size: 14px;">Slide 2</div>
+            </div>
+            """, unsafe_allow_html=True)
         
         with col3:
             img_url = get_image_url(carrousel_images[start_index + 2])
-            try:
-                st.image(img_url, use_container_width=True, caption=f"Slide 3")
-            except Exception as e:
-                st.error(f"Erreur chargement image 3: {e}")
-                st.write(f"URL: {img_url}")
+            st.markdown(f"""
+            <div style="text-align: center;">
+                <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                    <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                </div>
+                <div style="color: #666; font-size: 14px;">Slide 3</div>
+            </div>
+            """, unsafe_allow_html=True)
         
         # Espacement entre les groupes
         st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
-        
+
 # Page Post Statique
 elif st.session_state.page == "mamivac_post_statique":
     if st.button("←"):
