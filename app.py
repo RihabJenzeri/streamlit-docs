@@ -719,6 +719,8 @@ elif st.session_state.page == "medicofi":
         padding: 12px 16px !important;
         white-space: normal !important;
         line-height: 1.4 !important;
+        margin-top: 10px;
+        
     }
     
     .custom-button-container {
