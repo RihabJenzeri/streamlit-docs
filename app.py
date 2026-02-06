@@ -3605,7 +3605,7 @@ elif st.session_state.page == "tse":
     
     try:
         # CORRECTION : Chemin direct sans "Medicofi/Projets TSE/"
-        pdf_path = "TSE/SportsWear Design/Guide mise en page2021.pdf"
+        pdf_path = "TSE/Guide mise en page2021.pdf"
         with open(pdf_path, "rb") as pdf_file:
             pdf_bytes = pdf_file.read()
         
@@ -3627,7 +3627,7 @@ elif st.session_state.page == "tse":
         """.format(len(pdf_bytes) / (1024*1024)), unsafe_allow_html=True)
         
     except FileNotFoundError:
-        st.error("Fichier PDF non trouvé à l'emplacement : TSE/SportsWear Design/Guide mise en page2021.pdf")
+        st.error("Fichier PDF non trouvé à l'emplacement : TSE/Guide mise en page2021.pdf")
         st.markdown("""
         <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
             <div style="color: #888;">PDF non disponible</div>
