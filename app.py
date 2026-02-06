@@ -958,6 +958,56 @@ elif st.session_state.page == "medicofi2":
             <img src="{email4_url}" style="width: 500px; max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
         </div>
         """, unsafe_allow_html=True)
+            # Séparateur
+    st.markdown("---")
+    
+    # Section Sensitive C & Breast Pump Shields Brochure avec icône
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="18" rx="2" ry="2"></rect>
+            <line x1="9" y1="21" x2="15" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Sensitive C & Breast Pump Shields Brochure</h3>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Description
+    st.markdown('<div style="color: #666; margin-bottom: 20px;">PLV Mar Plaquette Sensitive C & Téterelles</div>', unsafe_allow_html=True)
+    
+    # Affichage des 2 images de la plaquette
+    plaquette_images = [
+        "Medicofi/Société Mamivac France/Plaquette Sensitive C & Téterelles/Recto.png",
+        "Medicofi/Société Mamivac France/Plaquette Sensitive C & Téterelles/Verso.png"
+    ]
+    
+    # Afficher les images côte à côte avec leurs titres
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        # Recto
+        recto_url = get_image_url(plaquette_images[0])
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 10px;">
+            <div style="color: #202124; font-weight: 600; font-size: 16px; margin-bottom: 10px;">Recto</div>
+            <div style="display: flex; justify-content: center;">
+                <img src="{recto_url}" style="width: 500px; max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        # Verso
+        verso_url = get_image_url(plaquette_images[1])
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 10px;">
+            <div style="color: #202124; font-weight: 600; font-size: 16px; margin-bottom: 10px;">Verso</div>
+            <div style="display: flex; justify-content: center;">
+                <img src="{verso_url}" style="width: 500px; max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
 # Page des propositions PDF pour Mamivac
 elif st.session_state.page == "mamivac_propositions":
