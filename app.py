@@ -1202,6 +1202,7 @@ elif st.session_state.page == "mamivac_social_media":
             st.session_state.page = "mamivac_story"
             st.rerun()
             # Page Post Carrousel
+# Page Post Carrousel
 elif st.session_state.page == "mamivac_post_carrousel":
     if st.button("←"):
         st.session_state.page = "mamivac_social_media"
@@ -1219,11 +1220,78 @@ elif st.session_state.page == "mamivac_post_carrousel":
     """, unsafe_allow_html=True)
 
     st.markdown('<div style="color: #666; margin-bottom: 30px;">Carousel posts for social media</div>', unsafe_allow_html=True)
-
-    # Ici vous pouvez ajouter les images du carrousel
-    # Exemple:
-    # carrousel_url = get_image_url("Medicofi/Société Mamivac France/Social Networks/Post carrousel/image1.png")
-    # st.image(carrousel_url, use_container_width=True)
+    
+    # Liste des 9 images avec leurs chemins
+    carrousel_images = [
+        # Premier carrousel (1)
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/1/1.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/1/2.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/1/3.png",
+        
+        # Deuxième carrousel (2)
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2/1.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2/2.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2/3.png",
+        
+        # Troisième carrousel (3)
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3/1.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3/2.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3/3.png"
+    ]
+    
+    # Titres pour chaque groupe de 3 images
+    group_titles = ["Carrousel 1", "Carrousel 2", "Carrousel 3"]
+    
+    # Afficher les images en 3 groupes (3 lignes)
+    for group_index in range(3):
+        # Titre du groupe
+        st.markdown(f"""
+        <div style="margin: 30px 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid #FBBDFA;">
+            <h4 style="color: #202124; margin: 0;">{group_titles[group_index]}</h4>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Créer 3 colonnes pour les 3 images du groupe
+        col1, col2, col3 = st.columns(3)
+        
+        # Calculer l'index de départ pour ce groupe
+        start_index = group_index * 3
+        
+        with col1:
+            img_url = get_image_url(carrousel_images[start_index])
+            st.markdown(f"""
+            <div style="text-align: center;">
+                <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                    <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                </div>
+                <div style="color: #666; font-size: 14px;">Slide 1</div>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        with col2:
+            img_url = get_image_url(carrousel_images[start_index + 1])
+            st.markdown(f"""
+            <div style="text-align: center;">
+                <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                    <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                </div>
+                <div style="color: #666; font-size: 14px;">Slide 2</div>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        with col3:
+            img_url = get_image_url(carrousel_images[start_index + 2])
+            st.markdown(f"""
+            <div style="text-align: center;">
+                <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                    <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                </div>
+                <div style="color: #666; font-size: 14px;">Slide 3</div>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        # Espacement entre les groupes
+        st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
 # Page Post Statique
 elif st.session_state.page == "mamivac_post_statique":
