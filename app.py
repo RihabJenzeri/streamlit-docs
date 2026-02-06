@@ -3095,7 +3095,7 @@ elif st.session_state.page == "medicofi8":
         ("Dernière relance avant transmission au service contentieux.png", "Dernière relance avant transmission au service contentieux"),
         ("Emailing sages femmes Secteur.png", "Emailing sages femmes Secteur"),
         ("La SMAM approche.png", "La SMAM approche"),
-        ("Simplifiez l'allaitement de vos patientes.png", "Simplifiez l'allaitement de vos patientes")
+        ("Simplifiez l’allaitement de vos patientes.png", "Simplifiez l'allaitement de vos patientes")
     ]
     
     for idx, (file_name, description) in enumerate(emailing_images):
