@@ -1855,35 +1855,35 @@ elif st.session_state.page == "medicofi5":
             st.markdown('<div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin-bottom: 20px;">Email 5</div>', unsafe_allow_html=True)
     
    # ========== SECTION 5: Kakémono ==========
-st.markdown("---")
-st.markdown("""
-<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-        <line x1="3" y1="9" x2="21" y2="9"></line>
-        <line x1="9" y1="21" x2="9" y2="9"></line>
-    </svg>
-    <h4 style="margin: 0; color: #202124;">Kakémono</h4>
-</div>
-""", unsafe_allow_html=True)
-
-try:
-    # CORRECTION : Société Tire Lait Express (en France) au lieu de Respi Express
-    # CORRECTION : Pas de sous-dossier "Kakémono", le fichier est directement dans la société
-    kakemono_url = get_image_url("Medicofi/Société Tire Lait Express (en France)/Kakémono TLE.png")
-    st.markdown(f"""
-    <div style="display: flex; justify-content: center; margin: 20px 0;">
-        <img src="{kakemono_url}" style="width: 100%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-    </div>
-    """, unsafe_allow_html=True)
-except Exception as e:
-    # Ajouter un message d'erreur pour déboguer
-    st.error(f"Erreur de chargement du Kakémono: {str(e)}")
+    st.markdown("---")
     st.markdown("""
-    <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
-        <div style="color: #888;">Kakémono image not available</div>
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Kakémono</h4>
     </div>
     """, unsafe_allow_html=True)
+    
+    try:
+        # CORRECTION : Société Tire Lait Express (en France) au lieu de Respi Express
+        # CORRECTION : Pas de sous-dossier "Kakémono", le fichier est directement dans la société
+        kakemono_url = get_image_url("Medicofi/Société Tire Lait Express (en France)/Kakémono TLE.png")
+        st.markdown(f"""
+        <div style="display: flex; justify-content: center; margin: 20px 0;">
+            <img src="{kakemono_url}" style="width: 100%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        </div>
+        """, unsafe_allow_html=True)
+    except Exception as e:
+        # Ajouter un message d'erreur pour déboguer
+        st.error(f"Erreur de chargement du Kakémono: {str(e)}")
+        st.markdown("""
+        <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #888;">Kakémono image not available</div>
+        </div>
+        """, unsafe_allow_html=True)
     
     # ========== BOUTON: Livret d'accueil ==========
     st.markdown("---")
