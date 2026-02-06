@@ -1008,6 +1008,39 @@ elif st.session_state.page == "medicofi2":
             </div>
         </div>
         """, unsafe_allow_html=True)
+    # Séparateur
+    st.markdown("---")
+    
+    # Section PLV Mamivac avec icône
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">PLV Mamivac</h3>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Description
+    st.markdown('<div style="color: #666; margin-bottom: 20px;">Point de vente PLV Mamivac</div>', unsafe_allow_html=True)
+    
+    # Affichage de l'image PLV Mamivac
+    plv_url = get_image_url("Medicofi/Société Mamivac France/PLV Mamivac/PLV Mamivac.png")
+    st.markdown(f"""
+    <div style="display: flex; justify-content: center; margin: 20px 0;">
+        <img src="{plv_url}" style="width: 600px; max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Espacement avant le bouton Social Media
+    st.markdown("<div style='height: 40px;'></div>", unsafe_allow_html=True)
+    
+    # Bouton Social Media
+    if st.button("📱 SOCIAL MEDIA", use_container_width=True):
+        st.session_state.page = "mamivac_social_media"
+        st.rerun()
 
 # Page des propositions PDF pour Mamivac
 elif st.session_state.page == "mamivac_propositions":
@@ -1094,6 +1127,79 @@ elif st.session_state.page == "mamivac_propositions":
         if st.button("🔗 Ouvrir PDF 2", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
+
+elif st.session_state.page == "mamivac_social_media":
+    if st.button("←"):
+        st.session_state.page = "medicofi2"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Social Media Content</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Description
+    st.markdown('<div style="color: #666; margin-bottom: 30px;">Social media content for Mamivac France</div>', unsafe_allow_html=True)
+
+    # Créer 3 colonnes pour les boutons
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        # Bouton Post Carrousel avec icône
+        st.markdown("""
+        <div style="text-align: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        if st.button("Post Carrousel", use_container_width=True):
+            st.session_state.page = "mamivac_post_carrousel"
+            st.rerun()
+
+    with col2:
+        # Bouton Post Statique avec icône
+        st.markdown("""
+        <div style="text-align: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+                <line x1="17" y1="5" x2="17" y2="19"></line>
+            </svg>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        if st.button("Post Statique", use_container_width=True):
+            st.session_state.page = "mamivac_post_statique"
+            st.rerun()
+
+    with col3:
+        # Bouton Story avec icône
+        st.markdown("""
+        <div style="text-align: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="12" cy="12" r="3"></circle>
+                <line x1="12" y1="5" x2="12" y2="5.01"></line>
+                <line x1="12" y1="19" x2="12" y2="19.01"></line>
+                <line x1="5" y1="12" x2="5.01" y2="12"></line>
+                <line x1="19" y1="12" x2="19.01" y2="12"></line>
+            </svg>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        if st.button("Story", use_container_width=True):
+            st.session_state.page = "mamivac_story"
+            st.rerun()
+            
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
     if st.button("←"):
