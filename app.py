@@ -1203,6 +1203,7 @@ elif st.session_state.page == "mamivac_social_media":
             st.rerun()
             # Page Post Carrousel
 # Page Post Carrousel
+# Page Post Carrousel
 elif st.session_state.page == "mamivac_post_carrousel":
     if st.button("←"):
         st.session_state.page = "mamivac_social_media"
@@ -1221,23 +1222,44 @@ elif st.session_state.page == "mamivac_post_carrousel":
 
     st.markdown('<div style="color: #666; margin-bottom: 30px;">Carousel posts for social media</div>', unsafe_allow_html=True)
     
-    # Liste des 9 images avec leurs chemins
+    # TEST : Afficher une seule image pour vérifier
+    test_url = get_image_url("Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/one.png")
+    st.write(f"URL test: {test_url}")
+    st.image(test_url, width=300, caption="Test image one.png")
+    
+    # Si ça fonctionne, continuez avec toutes les images
+    # Liste des 9 images avec les noms CORRIGÉS
+    # Selon votre console, le premier fichier s'appelle "one.png" pas "1.png"
     carrousel_images = [
-        # Premier carrousel (1)
+        # Carrousel 1
         "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/one.png",
         "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2.png",
         "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3.png",
         
-        # Deuxième carrousel (2)
+        # Carrousel 2
         "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/4.png",
         "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/5.png",
         "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/6.png",
         
-        # Troisième carrousel (3)
+        # Carrousel 3
         "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/7.png",
         "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/8.png",
         "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/9.png"
     ]
+    
+    # Vérifier d'abord que toutes les images existent
+    st.write("Vérification des images:")
+    for i, img_path in enumerate(carrousel_images):
+        img_url = get_image_url(img_path)
+        try:
+            import requests
+            response = requests.head(img_url)
+            if response.status_code == 200:
+                st.write(f"✓ {img_path} - OK")
+            else:
+                st.write(f"✗ {img_path} - Non trouvé (HTTP {response.status_code})")
+        except:
+            st.write(f"✗ {img_path} - Erreur")
     
     # Titres pour chaque groupe de 3 images
     group_titles = ["Carrousel 1", "Carrousel 2", "Carrousel 3"]
@@ -1258,37 +1280,19 @@ elif st.session_state.page == "mamivac_post_carrousel":
         start_index = group_index * 3
         
         with col1:
-            img_url = get_image_url(carrousel_images[start_index])
-            st.markdown(f"""
-            <div style="text-align: center;">
-                <div style="display: flex; justify-content: center; margin-bottom: 10px;">
-                    <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                </div>
-                <div style="color: #666; font-size: 14px;">Slide 1</div>
-            </div>
-            """, unsafe_allow_html=True)
+            if start_index < len(carrousel_images):
+                img_url = get_image_url(carrousel_images[start_index])
+                st.image(img_url, use_container_width=True, caption="Slide 1")
         
         with col2:
-            img_url = get_image_url(carrousel_images[start_index + 1])
-            st.markdown(f"""
-            <div style="text-align: center;">
-                <div style="display: flex; justify-content: center; margin-bottom: 10px;">
-                    <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                </div>
-                <div style="color: #666; font-size: 14px;">Slide 2</div>
-            </div>
-            """, unsafe_allow_html=True)
+            if start_index + 1 < len(carrousel_images):
+                img_url = get_image_url(carrousel_images[start_index + 1])
+                st.image(img_url, use_container_width=True, caption="Slide 2")
         
         with col3:
-            img_url = get_image_url(carrousel_images[start_index + 2])
-            st.markdown(f"""
-            <div style="text-align: center;">
-                <div style="display: flex; justify-content: center; margin-bottom: 10px;">
-                    <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                </div>
-                <div style="color: #666; font-size: 14px;">Slide 3</div>
-            </div>
-            """, unsafe_allow_html=True)
+            if start_index + 2 < len(carrousel_images):
+                img_url = get_image_url(carrousel_images[start_index + 2])
+                st.image(img_url, use_container_width=True, caption="Slide 3")
         
         # Espacement entre les groupes
         st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
