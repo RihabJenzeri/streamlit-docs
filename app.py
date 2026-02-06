@@ -775,41 +775,60 @@ elif st.session_state.page == "medicofi":
             ("Seinbiose Company", "(France)", "medicofi7"),
             ("Tire Lait Express Company", "(France)", "medicofi8")
         ]
-
-    for idx, (company_name, country, page_key) in enumerate(projects_medicofi):
-        # Créer un conteneur pour chaque projet
-        button_html = f"""
-        <div style="
+        
+        # CSS pour les boutons personnalisés
+        st.markdown("""
+        <style>
+        .custom-project-button {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
             border-radius: 10px;
-            padding: 12px 16px;
-            margin-bottom: 10px;
+            padding: 15px;
+            width: 100%;
             cursor: pointer;
+            margin-bottom: 10px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        ">
-            <p style="
-                color: white;
-                font-size: 15px;
-                font-weight: 700;
-                margin: 0 0 4px 0;
-                font-family: 'Montserrat', sans-serif;
-            ">{company_name}</p>
-            <p style="
-                color: rgba(255, 255, 255, 0.75);
-                font-size: 11px;
-                margin: 0;
-                font-family: 'Montserrat', sans-serif;
-            ">{country}</p>
-        </div>
-        """
+        }
         
-        if st.button(company_name, key=f"medicofi_{page_key}", use_container_width=True):
+        .custom-project-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .button-title {
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .button-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 11px;
+            margin: 5px 0 0 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+        
+        for idx, (company_name, country, page_key) in enumerate(projects_medicofi):
+            # Créer un conteneur cliquable avec HTML
+            cols = st.columns([1])
+            with cols[0]:
+                # Afficher le bouton HTML
+                st.markdown(f"""
+                <div class="custom-project-button">
+                    <p class="button-title">{company_name}</p>
+                    <p class="button-subtitle">{country}</p>
+                </div>
+                """, unsafe_allow_html=True)
+                
+        # Bouton invisible Streamlit pour la fonctionnalité
+        if st.button(f"Sélectionner {company_name}", key=f"medicofi_{page_key}", label_visibility="collapsed"):
             st.session_state.page = page_key
             st.rerun()
-        
-        # Masquer le texte du bouton par défaut et afficher le HTML à la place
-        st.markdown(button_html, unsafe_allow_html=True)
 
     # Colonne 2: FREELANCE - Utilise img2.png
     with col2:
