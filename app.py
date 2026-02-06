@@ -3635,7 +3635,12 @@ elif st.session_state.page == "tse":
         """, unsafe_allow_html=True)
     except Exception as e:
         st.error(f"Erreur de chargement du PDF: {str(e)}")
-
+    # Alternative : Afficher le PDF avec un iframe simple
+    st.markdown(f"""
+    <iframe src="{pdf_url}" width="100%" height="600" style="border: none; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        Votre navigateur ne supporte pas l'affichage de PDF. <a href="{pdf_url}">Téléchargez le PDF</a>
+    </iframe>
+    """, unsafe_allow_html=True)
     # SECTION 2: Les 12 images (1.png à 12.png)
     st.markdown("---")
     st.markdown("""
