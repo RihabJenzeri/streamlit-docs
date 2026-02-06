@@ -1038,10 +1038,12 @@ elif st.session_state.page == "medicofi2":
     st.markdown("<div style='height: 40px;'></div>", unsafe_allow_html=True)
     
     # Bouton Social Media
-    if st.button("📱 SOCIAL MEDIA", use_container_width=True):
+    if st.button("SOCIAL MEDIA", use_container_width=True):
         st.session_state.page = "mamivac_social_media"
         st.rerun()
-
+    # Espace après la carte de profil
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    
 # Page des propositions PDF pour Mamivac
 elif st.session_state.page == "mamivac_propositions":
     if st.button("←"):
@@ -1199,6 +1201,75 @@ elif st.session_state.page == "mamivac_social_media":
         if st.button("Story", use_container_width=True):
             st.session_state.page = "mamivac_story"
             st.rerun()
+            # Page Post Carrousel
+elif st.session_state.page == "mamivac_post_carrousel":
+    if st.button("←"):
+        st.session_state.page = "mamivac_social_media"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Post Carrousel</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div style="color: #666; margin-bottom: 30px;">Carousel posts for social media</div>', unsafe_allow_html=True)
+
+    # Ici vous pouvez ajouter les images du carrousel
+    # Exemple:
+    # carrousel_url = get_image_url("Medicofi/Société Mamivac France/Social Networks/Post carrousel/image1.png")
+    # st.image(carrousel_url, use_container_width=True)
+
+# Page Post Statique
+elif st.session_state.page == "mamivac_post_statique":
+    if st.button("←"):
+        st.session_state.page = "mamivac_social_media"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+            <line x1="17" y1="5" x2="17" y2="19"></line>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Post Statique</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div style="color: #666; margin-bottom: 30px;">Static posts for social media</div>', unsafe_allow_html=True)
+
+    # Ici vous pouvez ajouter les images des posts statiques
+
+# Page Story
+elif st.session_state.page == "mamivac_story":
+    if st.button("←"):
+        st.session_state.page = "mamivac_social_media"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="12" cy="12" r="3"></circle>
+            <line x1="12" y1="5" x2="12" y2="5.01"></line>
+            <line x1="12" y1="19" x2="12" y2="19.01"></line>
+            <line x1="5" y1="12" x2="5.01" y2="12"></line>
+            <line x1="19" y1="12" x2="19.01" y2="12"></line>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Story</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div style="color: #666; margin-bottom: 30px;">Stories for social media</div>', unsafe_allow_html=True)
+
+    # Ici vous pouvez ajouter les images des stories
             
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
