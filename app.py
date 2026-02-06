@@ -1458,6 +1458,113 @@ elif st.session_state.page == "mamivac_story":
         # Ajouter un séparateur entre les lignes (sauf après la dernière)
         if i + num_columns < num_images:
             st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
+  # Page MC Consulting Company (Tunisia)
+elif st.session_state.page == "medicofi3":
+    if st.button("←"):
+        st.session_state.page = "medicofi"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">MC Consulting Company</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div style="color: #666; margin-bottom: 30px;">Carte de Voeux - Greeting Cards</div>', unsafe_allow_html=True)
+    
+    # Liste des images pour MC Consulting
+    mc_consulting_images = [
+        ("Carte de voeux 2024.png", "Carte de Voeux 2024"),
+        ("Carte de voeux 2025.png", "Carte de Voeux 2025")
+    ]
+    
+    # Afficher les 2 images en 2 colonnes
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        file_name, description = mc_consulting_images[0]
+        image_path = f"Medicofi/Société MC Consulting (Tunisie)/Carte de Voeux/{file_name}"
+        
+        try:
+            img_url = get_image_url(image_path)
+            
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="display: flex; justify-content: center; margin-bottom: 15px;">
+                    <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.15);">
+                </div>
+                <div style="color: #202124; font-size: 18px; font-weight: 600; margin-bottom: 8px;">
+                    {description}
+                </div>
+                <div style="color: #888; font-size: 14px;">
+                    New Year Greeting Card
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+        except Exception as e:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="display: flex; justify-content: center; align-items: center; height: 300px; background: linear-gradient(135deg, #f5f7fa 0%, #f9f9f9 100%); border-radius: 10px; margin-bottom: 15px; border: 2px dashed #FBBDFA;">
+                    <div style="color: #888; font-size: 16px;">Image non disponible</div>
+                </div>
+                <div style="color: #202124; font-size: 18px; font-weight: 600; margin-bottom: 8px;">
+                    {description}
+                </div>
+                <div style="color: #888; font-size: 14px;">
+                    New Year Greeting Card
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        file_name, description = mc_consulting_images[1]
+        image_path = f"Medicofi/Société MC Consulting (Tunisie)/Carte de Voeux/{file_name}"
+        
+        try:
+            img_url = get_image_url(image_path)
+            
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="display: flex; justify-content: center; margin-bottom: 15px;">
+                    <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.15);">
+                </div>
+                <div style="color: #202124; font-size: 18px; font-weight: 600; margin-bottom: 8px;">
+                    {description}
+                </div>
+                <div style="color: #888; font-size: 14px;">
+                    New Year Greeting Card
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+        except Exception as e:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="display: flex; justify-content: center; align-items: center; height: 300px; background: linear-gradient(135deg, #f5f7fa 0%, #f9f9f9 100%); border-radius: 10px; margin-bottom: 15px; border: 2px dashed #FBBDFA;">
+                    <div style="color: #888; font-size: 16px;">Image non disponible</div>
+                </div>
+                <div style="color: #202124; font-size: 18px; font-weight: 600; margin-bottom: 8px;">
+                    {description}
+                </div>
+                <div style="color: #888; font-size: 14px;">
+                    New Year Greeting Card
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    # Description supplémentaire
+    st.markdown("""
+    <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-top: 30px; border-left: 4px solid #FBBDFA;">
+        <h4 style="color: #202124; margin: 0 0 10px 0;">About MC Consulting</h4>
+        <div style="color: #666; font-size: 14px; line-height: 1.6;">
+            Design of greeting cards for MC Consulting Company based in Tunisia. 
+            These New Year cards were created for corporate communications and client relations.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)          
             
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
