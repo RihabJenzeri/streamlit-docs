@@ -1224,7 +1224,7 @@ elif st.session_state.page == "mamivac_post_carrousel":
     # Liste des 9 images avec leurs chemins
     carrousel_images = [
         # Premier carrousel (1)
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/1.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/one.png",
         "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2.png",
         "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3.png",
         
