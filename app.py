@@ -2981,8 +2981,8 @@ elif st.session_state.page == "medicofi8":
     # Trois images dans la même ligne
     avatar_images = [
         ("Avatar Lea.png", "Avatar Lea"),
-        ("Image d'origine reçue.jpeg", "Image d'origine reçue"),
-        ("Planche de personnage de l'avatar.png", "Planche de personnage de l'avatar")
+        ("Image d’origine reçue.jpeg", "Image d'origine reçue"),  # Apostrophe courbe
+        ("Planche de personnage de l’avatar.png", "Planche de personnage de l'avatar")  # Apostrophe courbe
     ]
     
     col1, col2, col3 = st.columns(3)
