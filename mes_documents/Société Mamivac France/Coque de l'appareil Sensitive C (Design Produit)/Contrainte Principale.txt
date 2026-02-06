@@ -1,0 +1,4 @@
+Cette proposition de design a été conçue dans Photoshop, et non avec un logiciel de modélisation 3D. 
+
+
+La contrainte principale consiste à conserver l’intérieur du produit tout en modifiant uniquement la coque extérieure.
