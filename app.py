@@ -2744,7 +2744,776 @@ elif st.session_state.page == "medicofi7":
                             <div style="color: #888;">Stand Parapluie {idx + 1}</div>
                         </div>
                     </div>
-                    """, unsafe_allow_html=True)        
+                    """, unsafe_allow_html=True)
+elif st.session_state.page == "medicofi8":
+    if st.button("←"):
+        st.session_state.page = "medicofi"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Tire Lait Express Company (France)</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # ========== SECTION 1: Affiche Pour les cabinet Sage-femme ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Affiche Pour les cabinet Sage-femme</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Quatre images en deux colonnes (2x2)
+    affiche_images = [
+        ("Affiche les positions d'allaitements.png", "Affiche les positions d'allaitements"),
+        ("affiche publicitaire.png", "Affiche publicitaire"),
+        ("affiche sein artistique-Lactant.png", "Affiche sein artistique - Lactant"),
+        ("Affiche Taille de téterelles.png", "Affiche Taille de téterelles")
+    ]
+    
+    # Première ligne
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Affiche Pour les cabinet Sage-femme/{affiche_images[0][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{affiche_images[0][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{affiche_images[0][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Affiche Pour les cabinet Sage-femme/{affiche_images[1][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{affiche_images[1][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{affiche_images[1][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    # Deuxième ligne
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Affiche Pour les cabinet Sage-femme/{affiche_images[2][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{affiche_images[2][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{affiche_images[2][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Affiche Pour les cabinet Sage-femme/{affiche_images[3][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{affiche_images[3][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{affiche_images[3][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    # ========== SECTION 2: Boite thé Packaging ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Boite thé Packaging</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Quatre images en deux colonnes (2x2)
+    packaging_images = [
+        ("Boite thé Packaging création.png", "Boite thé Packaging création"),
+        ("Mockup boite thé 1.png", "Mockup boite thé 1"),
+        ("Mockup boite thé 2.png", "Mockup boite thé 2"),
+        ("Mockup boite thé 3.png", "Mockup boite thé 3")
+    ]
+    
+    # Première ligne
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Boite thé Packaging/{packaging_images[0][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{packaging_images[0][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{packaging_images[0][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Boite thé Packaging/{packaging_images[1][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{packaging_images[1][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{packaging_images[1][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    # Deuxième ligne
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Boite thé Packaging/{packaging_images[2][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{packaging_images[2][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{packaging_images[2][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Boite thé Packaging/{packaging_images[3][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{packaging_images[3][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{packaging_images[3][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    # ========== SECTION 3: Création d'un avatar pour un chatbot IA ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Création d'un avatar pour un chatbot IA</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Trois images dans la même ligne
+    avatar_images = [
+        ("Avatar Lea.png", "Avatar Lea"),
+        ("Image d'origine reçue.jpeg", "Image d'origine reçue"),
+        ("Planche de personnage de l'avatar.png", "Planche de personnage de l'avatar")
+    ]
+    
+    col1, col2, col3 = st.columns(3)
+    
+    for idx, col in enumerate([col1, col2, col3]):
+        if idx < len(avatar_images):
+            try:
+                img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/{avatar_images[idx][0]}"
+                img_url = get_image_url(img_path)
+                with col:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                        <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{avatar_images[idx][1]}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+            except:
+                with col:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">
+                            <div style="color: #888;">{avatar_images[idx][1]}</div>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+    
+    # Phrase sous les images
+    st.markdown("""
+    <div style="text-align: center; margin: 20px 0 30px 0; padding: 15px; background: #f9f9f9; border-radius: 10px; border-left: 4px solid #FBBDFA;">
+        <div style="color: #202124; font-size: 16px; font-weight: 500;">
+            Création réalisée avec Photoshop et des outils d'IA.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # ========== SECTION 4: Dépliant ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="18" rx="2" ry="2"></rect>
+            <line x1="9" y1="21" x2="15" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Dépliant</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Deux images en deux colonnes
+    depliant_images = [
+        ("Recto.png", "Recto"),
+        ("Verso.png", "Verso")
+    ]
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Dépliant/{depliant_images[0][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{depliant_images[0][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{depliant_images[0][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Dépliant/{depliant_images[1][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{depliant_images[1][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{depliant_images[1][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    # ========== SECTION 5: Emailing et Newsletters ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Emailing et Newsletters</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Cinq images dans une seule colonne
+    emailing_images = [
+        ("Capture d'écran 2025-06-19 090912.png", "Capture d'écran 2025-06-19 090912"),
+        ("Dernière relance avant transmission au service contentieux.png", "Dernière relance avant transmission au service contentieux"),
+        ("EmailingsagesfemmesSecteur.png", "Emailing sages femmes Secteur"),
+        ("La SMAM approche.png", "La SMAM approche"),
+        ("Simplifiez l'allaitement de vos patientes.png", "Simplifiez l'allaitement de vos patientes")
+    ]
+    
+    for idx, (file_name, description) in enumerate(emailing_images):
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Emailing et Newsletters/{file_name}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                    <img src="{img_url}" style="width: 100%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                </div>
+                <div style="color: #202124; font-weight: 600; font-size: 16px; margin-bottom: 5px;">
+                    {description}
+                </div>
+                <div style="color: #666; font-size: 14px;">
+                    Email {idx + 1}
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="padding: 60px; background: #f9f9f9; border-radius: 10px; margin-bottom: 10px;">
+                    <div style="color: #888; font-size: 16px;">{description}</div>
+                </div>
+                <div style="color: #666; font-size: 14px;">
+                    Email {idx + 1}
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    # ========== SECTION 6: Flyer ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="18" rx="2" ry="2"></rect>
+            <line x1="9" y1="21" x2="15" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Flyer</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Deux images en deux colonnes
+    flyer_images = [
+        ("Recto.png", "Recto"),
+        ("Verso.png", "Verso")
+    ]
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Flyer/{flyer_images[0][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{flyer_images[0][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{flyer_images[0][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Flyer/{flyer_images[1][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{flyer_images[1][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{flyer_images[1][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    # ========== SECTION 7: Guide ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Guide</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # PDF Viewer
+    try:
+        pdf_url = get_image_url("Medicofi/Société Tire Lait Express (en France)/Guide/Guide Bienvenue web-Graine de vie PAGE.pdf")
+        pdf_encoded = urllib.parse.quote(pdf_url, safe='')
+        google_viewer_url = f"https://docs.google.com/viewer?url={pdf_encoded}&embedded=true"
+        
+        st.markdown(f'<iframe width="100%" height="600" src="{google_viewer_url}"></iframe>', unsafe_allow_html=True)
+        
+        # Boutons d'action
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown(f'<a href="{pdf_url}" download="Guide_Bienvenue_web_Graine_de_vie_PAGE.pdf" style="text-decoration: none;">', unsafe_allow_html=True)
+            if st.button("📥 Télécharger le Guide", use_container_width=True):
+                pass
+            st.markdown('</a>', unsafe_allow_html=True)
+        
+        with col2:
+            st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none;">', unsafe_allow_html=True)
+            if st.button("🔗 Ouvrir PDF", use_container_width=True):
+                pass
+            st.markdown('</a>', unsafe_allow_html=True)
+    except:
+        st.markdown("""
+        <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #888; font-size: 16px;">Guide PDF not available</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # ========== SECTION 8: Kakémono ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Kakémono</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    try:
+        kakemono_url = get_image_url("Medicofi/Société Tire Lait Express (en France)/Kakémono/KakémonoTLE.png")
+        st.markdown(f"""
+        <div style="display: flex; justify-content: center; margin: 20px 0;">
+            <img src="{kakemono_url}" style="width: 100%; max-width: 500px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        </div>
+        <div style="text-align: center; color: #666; margin-bottom: 20px;">
+            Kakémono TLE
+        </div>
+        """, unsafe_allow_html=True)
+    except:
+        st.markdown("""
+        <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #888; font-size: 16px;">Kakémono image not available</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # ========== SECTION 9: Réseaux Sociaux ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Réseaux Sociaux</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Bouton pour accéder à la page des réseaux sociaux
+    if st.button("📱 RÉSEAUX SOCIAUX", use_container_width=True):
+        st.session_state.page = "tle_reseaux_sociaux"
+        st.rerun()
+
+    # ========== SECTION 10: Roll-up ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7"></path>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Roll-up</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    try:
+        rollup_url = get_image_url("Medicofi/Société Tire Lait Express (en France)/Roll-up/Roll-up TLE recrute.png")
+        st.markdown(f"""
+        <div style="display: flex; justify-content: center; margin: 20px 0 40px 0;">
+            <img src="{rollup_url}" style="width: 100%; max-width: 500px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        </div>
+        <div style="text-align: center; color: #666; margin-bottom: 20px;">
+            Roll-up TLE recrute
+        </div>
+        """, unsafe_allow_html=True)
+    except:
+        st.markdown("""
+        <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 20px 0 40px 0;">
+            <div style="color: #888; font-size: 16px;">Roll-up image not available</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+# ========== PAGE Réseaux Sociaux TLE ==========
+elif st.session_state.page == "tle_reseaux_sociaux":
+    if st.button("←"):
+        st.session_state.page = "medicofi8"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Réseaux Sociaux - Tire Lait Express</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # ========== SECTION 1: Vidéo youtube ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="23 7 16 12 23 17 23 7"></polygon>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Vidéo youtube</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Afficher la vidéo
+    try:
+        video_url = get_image_url("Medicofi/Société Tire Lait Express (en France)/Réseaux Sociaux/Vidéo youtube/Bordeaux.mp4")
+        st.video(video_url)
+    except:
+        st.markdown("""
+        <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #888; font-size: 16px;">Vidéo non disponible</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # ========== SECTION 2: Post Facebook Instagram et LinkedIn ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Post Facebook Instagram et LinkedIn</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Deux boutons en deux colonnes
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        if st.button("🔄 POST CARROUSEL", use_container_width=True):
+            st.session_state.page = "tle_post_carrousel"
+            st.rerun()
+    
+    with col2:
+        if st.button("📸 POST STATIQUE", use_container_width=True):
+            st.session_state.page = "tle_post_statique"
+            st.rerun()
+
+# ========== PAGE Post Carrousel TLE ==========
+elif st.session_state.page == "tle_post_carrousel":
+    if st.button("←"):
+        st.session_state.page = "tle_reseaux_sociaux"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Post Carrousel - Tire Lait Express</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div style="color: #666; margin-bottom: 30px;">Carousel posts for social media</div>', unsafe_allow_html=True)
+    
+    # Structure des 8 carrousels
+    carrousels = [
+        {
+            "name": "Carrousel 1",
+            "images": ["1.png", "2.png", "3.png", "4.png", "5.png"]
+        },
+        {
+            "name": "Carrousel 2", 
+            "images": ["1.png", "2.png", "3.png", "4.png"]
+        },
+        {
+            "name": "Carrousel 3",
+            "images": ["1.png", "2.png", "3.png", "4.png", "5.png"]
+        },
+        {
+            "name": "Carrousel 4",
+            "images": ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"]
+        },
+        {
+            "name": "Carrousel 5",
+            "images": ["1.png", "2.png", "3.png", "4.png", "5.png"]
+        },
+        {
+            "name": "Carrousel 6",
+            "images": ["1.png", "2.png", "3.png", "4.png"]
+        },
+        {
+            "name": "Carrousel 7",
+            "images": ["1.png", "2.png", "3.png", "4.png", "5.png"]
+        },
+        {
+            "name": "Carrousel 8",
+            "images": ["1.png", "2.png", "3.png", "4.png"]
+        }
+    ]
+    
+    # Afficher chaque carrousel
+    for carrousel in carrousels:
+        st.markdown(f"""
+        <div style="margin: 30px 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid #FBBDFA;">
+            <h4 style="color: #202124; margin: 0;">{carrousel['name']}</h4>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Créer des colonnes selon le nombre d'images (max 6)
+        num_cols = min(len(carrousel['images']), 6)
+        cols = st.columns(num_cols)
+        
+        for idx, img_name in enumerate(carrousel['images']):
+            if idx < num_cols:
+                try:
+                    img_path = f"Medicofi/Société Tire Lait Express (en France)/Réseaux Sociaux/Post Facebook Instagram et LinkedIn/Post carrousel/{carrousel['name'].split()[1]}/{img_name}"
+                    img_url = get_image_url(img_path)
+                    
+                    with cols[idx]:
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <img src="{img_url}" style="width: 100%; max-width: 200px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                            <div style="color: #666; font-size: 12px; margin-top: 5px;">Slide {img_name.split('.')[0]}</div>
+                        </div>
+                        """, unsafe_allow_html=True)
+                except:
+                    with cols[idx]:
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div style="padding: 30px; background: #f9f9f9; border-radius: 8px;">
+                                <div style="color: #888; font-size: 12px;">Slide {img_name.split('.')[0]}</div>
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)
+        
+        st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+
+# ========== PAGE Post Statique TLE ==========
+elif st.session_state.page == "tle_post_statique":
+    if st.button("←"):
+        st.session_state.page = "tle_reseaux_sociaux"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Post Statique - Tire Lait Express</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div style="color: #666; margin-bottom: 30px;">Static posts for social media</div>', unsafe_allow_html=True)
+    
+    # Liste des 11 images
+    static_images = []
+    for i in range(1, 12):
+        static_images.append(f"{i}.png")
+    
+    # Afficher 3 images par ligne
+    num_columns = 3
+    num_images = len(static_images)
+    
+    for i in range(0, num_images, num_columns):
+        cols = st.columns(num_columns)
+        
+        for col_idx in range(num_columns):
+            img_idx = i + col_idx
+            
+            if img_idx < num_images:
+                try:
+                    img_path = f"Medicofi/Société Tire Lait Express (en France)/Réseaux Sociaux/Post Facebook Instagram et LinkedIn/Post statique/{static_images[img_idx]}"
+                    img_url = get_image_url(img_path)
+                    
+                    with cols[col_idx]:
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <div style="color: #666; font-size: 14px; margin-top: 8px;">Post {static_images[img_idx].split('.')[0]}</div>
+                        </div>
+                        """, unsafe_allow_html=True)
+                except:
+                    with cols[col_idx]:
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">
+                                <div style="color: #888; font-size: 14px;">Post {static_images[img_idx].split('.')[0]}</div>
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)                    
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
     if st.button("←"):
