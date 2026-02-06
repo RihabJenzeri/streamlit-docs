@@ -1394,8 +1394,70 @@ elif st.session_state.page == "mamivac_story":
     """, unsafe_allow_html=True)
 
     st.markdown('<div style="color: #666; margin-bottom: 30px;">Stories for social media</div>', unsafe_allow_html=True)
-
-    # Ici vous pouvez ajouter les images des stories
+    
+    # Liste des images pour les stories avec leurs descriptions
+    story_posts = [
+        ("12-Juin-reussir-la-promenade-avec-bebe-Story-01.png", "12 Juin - Réussir la promenade avec bébé"),
+        ("24-Juin-Citation-de-Victor-Hugo-Story-01.png", "24 Juin - Citation de Victor Hugo"),
+        ("3-Juillet-la-duree-ideale-de-la-sieste-Story-01.png", "3 Juillet - Durée idéale de la sieste"),
+        ("Marnivac-Proteges-mamelons-CONE-S-M-L.png", "Mamivac - Protège-mamelons Cône S/M/L"),
+        ("sorry-conserv.png", "Conservation du lait maternel")
+    ]
+    
+    # Afficher les images en 2 colonnes
+    num_columns = 2
+    num_images = len(story_posts)
+    
+    for i in range(0, num_images, num_columns):
+        # Créer les colonnes pour cette ligne
+        cols = st.columns(num_columns)
+        
+        # Afficher jusqu'à 2 images par ligne
+        for col_idx in range(num_columns):
+            img_idx = i + col_idx
+            
+            if img_idx < num_images:
+                file_name, description = story_posts[img_idx]
+                
+                # Chemin complet de l'image
+                image_path = f"Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Story/{file_name}"
+                
+                with cols[col_idx]:
+                    # Afficher l'image avec sa description
+                    try:
+                        img_url = get_image_url(image_path)
+                        
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.15);">
+                            </div>
+                            <div style="color: #202124; font-size: 15px; font-weight: 500; margin-bottom: 8px; padding: 0 10px;">
+                                {description}
+                            </div>
+                            <div style="color: #888; font-size: 13px; padding: 0 10px;">
+                                {file_name}
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)
+                    except Exception as e:
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <div style="display: flex; justify-content: center; align-items: center; height: 250px; background: linear-gradient(135deg, #f5f7fa 0%, #f9f9f9 100%); border-radius: 15px; margin-bottom: 10px; border: 2px dashed #FBBDFA;">
+                                <div style="color: #888; font-size: 16px;">Story non disponible</div>
+                            </div>
+                            <div style="color: #202124; font-size: 15px; font-weight: 500; margin-bottom: 8px; padding: 0 10px;">
+                                {description}
+                            </div>
+                            <div style="color: #888; font-size: 13px; padding: 0 10px;">
+                                {file_name}
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)
+        
+        # Ajouter un séparateur entre les lignes (sauf après la dernière)
+        if i + num_columns < num_images:
+            st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
             
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
