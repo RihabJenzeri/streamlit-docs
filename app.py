@@ -765,7 +765,7 @@ elif st.session_state.page == "medicofi":
         ]
 
         for project_name, page_key in projects_medicofi:
-          if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
+            if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
                 st.session_state.page = page_key
                 st.rerun()
 
@@ -843,7 +843,7 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-     if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
+        if st.button("PROJETS TSE", use_container_width=True, key="tse_btn"):
             st.session_state.page = "tse"
             st.rerun()
 # Ajoutez ensuite les pages pour freelance et tse
