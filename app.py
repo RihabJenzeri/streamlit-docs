@@ -775,60 +775,14 @@ elif st.session_state.page == "medicofi":
             ("Seinbiose Company", "(France)", "medicofi7"),
             ("Tire Lait Express Company", "(France)", "medicofi8")
         ]
-        
-        # CSS pour les boutons personnalisés
-        st.markdown("""
-        <style>
-        .custom-project-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            border-radius: 10px;
-            padding: 15px;
-            width: 100%;
-            cursor: pointer;
-            margin-bottom: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .custom-project-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        .button-title {
-            color: white;
-            font-size: 16px;
-            font-weight: 700;
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .button-subtitle {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 11px;
-            margin: 5px 0 0 0;
-            font-family: 'Montserrat', sans-serif;
-        }
-        </style>
-        """, unsafe_allow_html=True)
-        
+
         for idx, (company_name, country, page_key) in enumerate(projects_medicofi):
-            # Créer un conteneur cliquable avec HTML
-            cols = st.columns([1])
-            with cols[0]:
-                # Afficher le bouton HTML
-                st.markdown(f"""
-                <div class="custom-project-button">
-                    <p class="button-title">{company_name}</p>
-                    <p class="button-subtitle">{country}</p>
-                </div>
-                """, unsafe_allow_html=True)
-                
-        # Bouton invisible Streamlit pour la fonctionnalité
-        if st.button(f"Sélectionner {company_name}", key=f"medicofi_{page_key}", label_visibility="collapsed"):
-            st.session_state.page = page_key
-            st.rerun()
+            # Créer le label du bouton avec formatage HTML-like
+            button_label = f"{company_name}\n{country}" if country else company_name
+            
+            if st.button(button_label, use_container_width=True, key=f"medicofi_{page_key}"):
+                st.session_state.page = page_key
+                st.rerun()
 
     # Colonne 2: FREELANCE - Utilise img2.png
     with col2:
