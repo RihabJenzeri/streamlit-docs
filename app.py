@@ -3577,9 +3577,217 @@ elif st.session_state.page == "tse":
         st.session_state.page = "medicofi"
         st.rerun()
 
-    st.title("📊 PROJETS TSE")
-    st.write("Contenu des projets TSE...")
-    # Ajoutez ici votre contenu pour TSE
+    # Titre avec le même style que les autres pages
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">SportsWear Design</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Liste des 12 images (vous devrez ajuster les chemins selon vos fichiers)
+    tse_images = [
+        "Medicofi/TSE/SportsWear/1.jpg",
+        "Medicofi/TSE/SportsWear/2.jpg",
+        "Medicofi/TSE/SportsWear/3.jpg",
+        "Medicofi/TSE/SportsWear/4.jpg",
+        "Medicofi/TSE/SportsWear/5.jpg",
+        "Medicofi/TSE/SportsWear/6.jpg",
+        "Medicofi/TSE/SportsWear/7.jpg",
+        "Medicofi/TSE/SportsWear/8.jpg",
+        "Medicofi/TSE/SportsWear/9.jpg",
+        "Medicofi/TSE/SportsWear/10.jpg",
+        "Medicofi/TSE/SportsWear/11.jpg",
+        "Medicofi/TSE/SportsWear/12.jpg"
+    ]
+    
+    # CSS pour la galerie responsive et la modal
+    gallery_css = """
+    <style>
+    /* Galerie responsive */
+    .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .gallery-item {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        background: #f9f9f9;
+    }
+    
+    .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .gallery-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+    }
+    
+    .image-number {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(251, 189, 250, 0.9);
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    
+    /* Modal pour l'image agrandie */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .modal-content {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 10px;
+    }
+    
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    .modal-image-info {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: white;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .gallery-container {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-image {
+            height: 200px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .gallery-container {
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+    }
+    </style>
+    """
+    
+    # JavaScript pour la modal
+    modal_js = """
+    <script>
+    function openModal(imgSrc, imgNumber) {
+        var modal = document.getElementById('imageModal');
+        var modalImg = document.getElementById('modalImage');
+        var captionText = document.getElementById('caption');
+        
+        modal.style.display = 'flex';
+        modalImg.src = imgSrc;
+        captionText.innerHTML = "Image " + imgNumber + " - SportsWear Design";
+    }
+    
+    function closeModal() {
+        document.getElementById('imageModal').style.display = 'none';
+    }
+    
+    // Fermer la modal avec la touche ESC
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
+    </script>
+    """
+    
+    # Structure HTML pour la modal
+    modal_html = """
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-image-info" id="caption"></div>
+    </div>
+    """
+    
+    # Injecter le CSS et le JS
+    st.markdown(gallery_css + modal_js + modal_html, unsafe_allow_html=True)
+    
+    # Affichage des images dans la galerie
+    st.markdown('<div class="gallery-container">', unsafe_allow_html=True)
+    
+    for i, img_path in enumerate(tse_images, 1):
+        try:
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div class="gallery-item" onclick="openModal('{img_url}', {i})">
+                <div class="image-number">{i}</div>
+                <img src="{img_url}" class="gallery-image" alt="SportsWear Design {i}">
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div class="gallery-item" style="display: flex; align-items: center; justify-content: center;">
+                <div style="color: #888; padding: 40px; text-align: center;">
+                    Image {i}<br>
+                    Non disponible
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Instructions
+    st.markdown("""
+    <div style="text-align: center; margin-top: 30px; padding: 15px; background: #f9f9f9; border-radius: 10px;">
+        <div style="color: #666; font-size: 14px;">
+            👆 Cliquez sur une image pour l'agrandir
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # La page apnidoc reste la même
 elif st.session_state.page == "apnidoc":
