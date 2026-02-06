@@ -1224,19 +1224,19 @@ elif st.session_state.page == "mamivac_post_carrousel":
     # Liste des 9 images avec leurs chemins
     carrousel_images = [
         # Premier carrousel (1)
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/1/1.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/1/2.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/1/3.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/1.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3.png",
         
         # Deuxième carrousel (2)
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2/1.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2/2.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2/3.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/4.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/5.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/6.png",
         
         # Troisième carrousel (3)
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3/1.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3/2.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3/3.png"
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/7.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/8.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/9.png"
     ]
     
     # Titres pour chaque groupe de 3 images
