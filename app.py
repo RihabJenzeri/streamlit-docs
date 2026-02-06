@@ -751,23 +751,116 @@ elif st.session_state.page == "medicofi":
             </p>
         </div>
         """, unsafe_allow_html=True)
+# Liste des 8 boutons pour MEDICOFI avec titres et sous-titres
 
-        # Liste des 8 boutons pour MEDICOFI
-        projects_medicofi = [
-            ("Apnidoc company", "apnidoc"),
-            ("Société Mamivac France", "medicofi2"),
-            ("Société MC Consulting (Tunisie)", "medicofi3"),
-            ("PROJET MEDICOFI 4", "medicofi4"),
-            ("PROJET MEDICOFI 5", "medicofi5"),
-            ("PROJET MEDICOFI 6", "medicofi6"),
-            ("PROJET MEDICOFI 7", "medicofi7"),
-            ("PROJET MEDICOFI 8", "medicofi8")
-        ]
+projects_medicofi = [
 
-        for project_name, page_key in projects_medicofi:
-            if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
-                st.session_state.page = page_key
-                st.rerun()
+    ("ApniDoc Company", "(France)", "apnidoc"),
+
+    ("Mamivac France Company", "", "medicofi2"),
+
+    ("MC Consulting Company", "(Tunisia)", "medicofi3"),
+
+    ("MCM Outsourcing Company", "(Madagascar)", "medicofi4"),
+
+    ("Respi Express Company", "(France)", "medicofi5"),
+
+    ("Sanibiose Company", "(France)", "medicofi6"),
+
+    ("Seinbiose Company", "(France)", "medicofi7"),
+
+    ("Tire Lait Express Company", "(France)", "medicofi8")
+
+]
+
+# CSS pour les boutons stylisés
+
+st.markdown("""
+
+<style>
+
+.custom-button {
+
+    background: white;
+
+    border: 1px solid #e0e0e0;
+
+    border-radius: 8px;
+
+    padding: 12px 16px;
+
+    margin-bottom: 10px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    text-align: left;
+
+    width: 100%;
+
+}
+
+.custom-button:hover {
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    border-color: #8cd2ff;
+
+}
+
+.button-title {
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #202124;
+
+    margin: 0;
+
+    line-height: 1.3;
+
+}
+
+.button-subtitle {
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 400;
+
+    color: #666;
+
+    margin: 4px 0 0 0;
+
+    line-height: 1.2;
+
+}
+</style>
+""", unsafe_allow_html=True)
+for title, subtitle, page_key in projects_medicofi:
+    # Créer un conteneur cliquable avec HTML
+    button_html = f"""
+    <div class="custom-button">
+        <div class="button-title">{title}</div>
+        {f'<div class="button-subtitle">{subtitle}</div>' if subtitle else ''}
+
+    </div>
+
+    """
+    
+    # Afficher le bouton HTML
+    st.markdown(button_html, unsafe_allow_html=True)
+
+
+    # Bouton Streamlit invisible pour la fonctionnalité
+    if st.button(f"{title} {subtitle}", use_container_width=True, key=f"medicofi_{page_key}", label_visibility="collapsed"):
+        st.session_state.page = page_key
+        st.rerun()
 
     # Colonne 2: FREELANCE - Utilise img2.png
     with col2:
