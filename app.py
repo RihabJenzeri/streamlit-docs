@@ -2340,7 +2340,411 @@ elif st.session_state.page == "medicofi6":
         <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 20px 0 40px 0;">
             <div style="color: #888;">Stand Parapluie image not available</div>
         </div>
-        """, unsafe_allow_html=True)    
+        """, unsafe_allow_html=True)
+elif st.session_state.page == "medicofi7":
+    if st.button("←"):
+        st.session_state.page = "medicofi"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Seinbiose Company (France)</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # ========== SECTION 1: Emailing ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Emailing</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Trois images en trois colonnes
+    emailing_images = [
+        "Medicofi/Société Seinbiose (en France)/Emailing/Emailing Liberty presentation.png",
+        "Medicofi/Société Seinbiose (en France)/Emailing/Emailing Promo de rentrée.png",
+        "Medicofi/Société Seinbiose (en France)/Emailing/les masques et les gels antiseptiques.png"
+    ]
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        try:
+            email1_url = get_image_url(emailing_images[0])
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{email1_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #666; font-size: 14px; margin-top: 8px;">Emailing Liberty presentation</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown("""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">Emailing Liberty presentation</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            email2_url = get_image_url(emailing_images[1])
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{email2_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #666; font-size: 14px; margin-top: 8px;">Emailing Promo de rentrée</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown("""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">Emailing Promo de rentrée</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col3:
+        try:
+            email3_url = get_image_url(emailing_images[2])
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{email3_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #666; font-size: 14px; margin-top: 8px;">Masques et gels antiseptiques</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown("""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">Masques et gels antiseptiques</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    # ========== SECTION 2: Fiche technique ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Fiche technique</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    try:
+        fiche_url = get_image_url("Medicofi/Société Seinbiose (en France)/Fiche technique/FT-masque enfant.png")
+        st.markdown(f"""
+        <div style="display: flex; justify-content: center; margin: 20px 0;">
+            <img src="{fiche_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        </div>
+        """, unsafe_allow_html=True)
+    except:
+        st.markdown("""
+        <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #888;">Fiche technique image not available</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # ========== SECTION 3: Flyer ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="18" rx="2" ry="2"></rect>
+            <line x1="9" y1="21" x2="15" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Flyer</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Deux images en deux colonnes
+    flyer_images = [
+        "Medicofi/Société Seinbiose (en France)/Flyer/Recto.png",
+        "Medicofi/Société Seinbiose (en France)/Flyer/Verso.png"
+    ]
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            recto_url = get_image_url(flyer_images[0])
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Recto</div>
+                <img src="{recto_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown("""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Recto</div>
+                <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">Image not available</div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            verso_url = get_image_url(flyer_images[1])
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Verso</div>
+                <img src="{verso_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown("""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Verso</div>
+                <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">Image not available</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    # ========== SECTION 4: Packaging Liberty ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Packaging Liberty</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # PDF Viewer
+    try:
+        pdf_url = get_image_url("Medicofi/Société Seinbiose (en France)/Packaging Liberty/Packaging TL LIBERTY Seinbiose.pdf")
+        pdf_encoded = urllib.parse.quote(pdf_url, safe='')
+        google_viewer_url = f"https://docs.google.com/viewer?url={pdf_encoded}&embedded=true"
+        
+        st.markdown(f'<iframe width="100%" height="500" src="{google_viewer_url}"></iframe>', unsafe_allow_html=True)
+        
+        # Boutons d'action
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown(f'<a href="{pdf_url}" download="Packaging_TL_LIBERTY_Seinbiose.pdf" style="text-decoration: none;">', unsafe_allow_html=True)
+            if st.button("📥 Télécharger PDF", use_container_width=True):
+                pass
+            st.markdown('</a>', unsafe_allow_html=True)
+        
+        with col2:
+            st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none;">', unsafe_allow_html=True)
+            if st.button("🔗 Ouvrir PDF", use_container_width=True):
+                pass
+            st.markdown('</a>', unsafe_allow_html=True)
+    except:
+        st.markdown("""
+        <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #888;">Packaging PDF not available</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # ========== SECTION 5: Plaquette ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="18" rx="2" ry="2"></rect>
+            <line x1="9" y1="21" x2="15" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Plaquette</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Deux images en deux colonnes
+    plaquette_images = [
+        "Medicofi/Société Seinbiose (en France)/Plaquette/Recto.png",
+        "Medicofi/Société Seinbiose (en France)/Plaquette/Verso.png"
+    ]
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            plaquette_recto_url = get_image_url(plaquette_images[0])
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Recto</div>
+                <img src="{plaquette_recto_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown("""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Recto</div>
+                <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">Image not available</div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            plaquette_verso_url = get_image_url(plaquette_images[1])
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Verso</div>
+                <img src="{plaquette_verso_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown("""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Verso</div>
+                <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">Image not available</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    # ========== SECTION 6: Quick Start ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Quick Start</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Deux images en deux colonnes
+    quick_images = [
+        "Medicofi/Société Seinbiose (en France)/Quick Start/Recto.png",
+        "Medicofi/Société Seinbiose (en France)/Quick Start/Verso.png"
+    ]
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            quick_recto_url = get_image_url(quick_images[0])
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Recto</div>
+                <img src="{quick_recto_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown("""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Recto</div>
+                <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">Image not available</div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            quick_verso_url = get_image_url(quick_images[1])
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Verso</div>
+                <img src="{quick_verso_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown("""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Verso</div>
+                <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">Image not available</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    # ========== SECTION 7: Réglette ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Réglette</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    try:
+        reglette_url = get_image_url("Medicofi/Société Seinbiose (en France)/Réglette/Réglette Seinbiose 2025.png")
+        st.markdown(f"""
+        <div style="display: flex; justify-content: center; margin: 20px 0;">
+            <img src="{reglette_url}" style="width: 100%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        </div>
+        """, unsafe_allow_html=True)
+    except:
+        st.markdown("""
+        <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #888;">Réglette image not available</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # ========== SECTION 8: Réseaux Sociaux ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Réseaux Sociaux</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Bouton pour accéder à la page des réseaux sociaux
+    if st.button("Post & story Facebook Instagram et LinkedIn", use_container_width=True):
+        st.session_state.page = "seinbiose_reseaux_sociaux"
+        st.rerun()
+
+    # ========== SECTION 9: Stand Parapluie ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7"></path>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Stand Parapluie</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Trois images en trois colonnes
+    stand_images = [
+        "Medicofi/Société Seinbiose (en France)/Stand Parapluie/1.jpg",
+        "Medicofi/Société Seinbiose (en France)/Stand Parapluie/2.jpg",
+        "Medicofi/Société Seinbiose (en France)/Stand Parapluie/3.jpg"
+    ]
+    
+    col1, col2, col3 = st.columns(3)
+    
+    for idx, col in enumerate([col1, col2, col3]):
+        if idx < len(stand_images):
+            try:
+                stand_url = get_image_url(stand_images[idx])
+                with col:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img src="{stand_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                        <div style="color: #666; font-size: 14px; margin-top: 8px;">Image {idx + 1}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+            except:
+                with col:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">
+                            <div style="color: #888;">Stand Parapluie {idx + 1}</div>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)        
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
     if st.button("←"):
