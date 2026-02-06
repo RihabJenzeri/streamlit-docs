@@ -31,6 +31,7 @@ header {visibility: hidden;}
 .stButton > button {
     color: #666666;
     font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 10px;
 }
 .caption-text {
     color: #888888;
@@ -716,7 +717,6 @@ elif st.session_state.page == "medicofi":
     /* Style personnalisé pour les boutons avec titre et sous-titre */
     .stButton > button {
         height: auto !important;
-        padding: 12px 16px !important;
         white-space: normal !important;
         line-height: 1.4 !important;
         margin-top: 10px;
