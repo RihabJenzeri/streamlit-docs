@@ -1204,6 +1204,7 @@ elif st.session_state.page == "mamivac_social_media":
             # Page Post Carrousel
 # Page Post Carrousel
 # Page Post Carrousel
+# Page Post Carrousel
 elif st.session_state.page == "mamivac_post_carrousel":
     if st.button("←"):
         st.session_state.page = "mamivac_social_media"
@@ -1222,44 +1223,24 @@ elif st.session_state.page == "mamivac_post_carrousel":
 
     st.markdown('<div style="color: #666; margin-bottom: 30px;">Carousel posts for social media</div>', unsafe_allow_html=True)
     
-    # TEST : Afficher une seule image pour vérifier
-    test_url = get_image_url("Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/one.png")
-    st.write(f"URL test: {test_url}")
-    st.image(test_url, width=300, caption="Test image one.png")
-    
-    # Si ça fonctionne, continuez avec toutes les images
-    # Liste des 9 images avec les noms CORRIGÉS
-    # Selon votre console, le premier fichier s'appelle "one.png" pas "1.png"
+    # Liste des 9 images avec les chemins corrigés
+    # Selon votre structure: Post carrousel/1.png, 2.png, 3.png directement
     carrousel_images = [
-        # Carrousel 1
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/one.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/2.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/3.png",
+        # Images dans Post carrousel/ directement
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3.png",
         
-        # Carrousel 2
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/4.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/5.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/6.png",
+        # Pour afficher 9 images, je répète les mêmes 3 images 3 fois
+        # Si vous avez plus d'images, ajustez les chemins
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3.png",
         
-        # Carrousel 3
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/7.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/8.png",
-        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story/Post carrousel/9.png"
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2.png",
+        "Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3.png"
     ]
-    
-    # Vérifier d'abord que toutes les images existent
-    st.write("Vérification des images:")
-    for i, img_path in enumerate(carrousel_images):
-        img_url = get_image_url(img_path)
-        try:
-            import requests
-            response = requests.head(img_url)
-            if response.status_code == 200:
-                st.write(f"✓ {img_path} - OK")
-            else:
-                st.write(f"✗ {img_path} - Non trouvé (HTTP {response.status_code})")
-        except:
-            st.write(f"✗ {img_path} - Erreur")
     
     # Titres pour chaque groupe de 3 images
     group_titles = ["Carrousel 1", "Carrousel 2", "Carrousel 3"]
@@ -1280,19 +1261,29 @@ elif st.session_state.page == "mamivac_post_carrousel":
         start_index = group_index * 3
         
         with col1:
-            if start_index < len(carrousel_images):
-                img_url = get_image_url(carrousel_images[start_index])
-                st.image(img_url, use_container_width=True, caption="Slide 1")
+            img_url = get_image_url(carrousel_images[start_index])
+            # Test d'affichage simple d'abord
+            try:
+                st.image(img_url, use_container_width=True, caption=f"Slide 1")
+            except Exception as e:
+                st.error(f"Erreur chargement image 1: {e}")
+                st.write(f"URL: {img_url}")
         
         with col2:
-            if start_index + 1 < len(carrousel_images):
-                img_url = get_image_url(carrousel_images[start_index + 1])
-                st.image(img_url, use_container_width=True, caption="Slide 2")
+            img_url = get_image_url(carrousel_images[start_index + 1])
+            try:
+                st.image(img_url, use_container_width=True, caption=f"Slide 2")
+            except Exception as e:
+                st.error(f"Erreur chargement image 2: {e}")
+                st.write(f"URL: {img_url}")
         
         with col3:
-            if start_index + 2 < len(carrousel_images):
-                img_url = get_image_url(carrousel_images[start_index + 2])
-                st.image(img_url, use_container_width=True, caption="Slide 3")
+            img_url = get_image_url(carrousel_images[start_index + 2])
+            try:
+                st.image(img_url, use_container_width=True, caption=f"Slide 3")
+            except Exception as e:
+                st.error(f"Erreur chargement image 3: {e}")
+                st.write(f"URL: {img_url}")
         
         # Espacement entre les groupes
         st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
