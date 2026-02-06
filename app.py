@@ -2990,7 +2990,7 @@ elif st.session_state.page == "medicofi8":
     for idx, col in enumerate([col1, col2, col3]):
         if idx < len(avatar_images):
             try:
-                img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/{avatar_images[idx][0]}"
+                img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d’un avatar pour un chatbot IA/{avatar_images[idx][0]}"
                 img_url = get_image_url(img_path)
                 with col:
                     st.markdown(f"""
