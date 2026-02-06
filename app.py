@@ -651,8 +651,8 @@ elif st.session_state.page == "medicofi":
     col1, col2, col3 = st.columns(3)
 
     # URLs des images spécifiques
-    medicofi_image_url = get_image_url("img4.png")  # Image pour MEDICOFI
-    freelance_image_url = get_image_url("img2.png")  # Image pour FREELANCE
+    medicofi_image_url = get_image_url("img1.png")  # Image pour MEDICOFI
+    freelance_image_url = get_image_url("img4.png")  # Image pour FREELANCE
     tse_image_url = get_image_url("img1.png")  # Image pour TSE
 
     # CSS pour le responsive et les boutons
