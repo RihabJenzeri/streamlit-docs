@@ -3604,35 +3604,56 @@ elif st.session_state.page == "tse":
     """, unsafe_allow_html=True)
     
     try:
-        # CORRECTION : Chemin direct sans "Medicofi/Projets TSE/"
+        # Chemin du PDF
         pdf_path = "mes_documents/TSE/Guide mise en page2021.pdf"
+        
+        # Lire le PDF
         with open(pdf_path, "rb") as pdf_file:
             pdf_bytes = pdf_file.read()
         
-        # Afficher le PDF avec un titre
+        # OPTION 2: Afficher le PDF avec embed HTML
+        import base64
+        
+        # Encoder le PDF en base64
+        pdf_base64 = base64.b64encode(pdf_bytes).decode('utf-8')
+        
+        # Afficher le PDF dans un iframe
+        st.markdown(f"""
+        <div style="margin-bottom: 30px; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden;">
+            <iframe 
+                src="data:application/pdf;base64,{pdf_base64}" 
+                width="100%" 
+                height="600px"
+                style="border: none;"
+                title="Guide mise en page 2021"
+            >
+            </iframe>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Bouton de téléchargement
         st.download_button(
-            label="Télécharger le guide",
+            label="📥 Télécharger le PDF",
             data=pdf_bytes,
             file_name="Guide mise en page 2021.pdf",
             mime="application/pdf",
             use_container_width=True
         )
         
-        # Afficher un aperçu du PDF
-        st.markdown("""
-        <div style="text-align: center; padding: 20px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
-            <div style="color: #666; font-size: 16px; margin-bottom: 10px;">Document PDF disponible en téléchargement</div>
-            <div style="color: #999; font-size: 14px;">Taille du fichier: {:.1f} MB</div>
+        # Info sur la taille
+        file_size_mb = len(pdf_bytes) / (1024 * 1024)
+        st.markdown(f"""
+        <div style="text-align: center; padding: 15px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #666; font-size: 14px;">
+                📄 Taille du fichier: {file_size_mb:.1f} MB | 
+                📖 Utilisez les contrôles ci-dessus pour naviguer dans le PDF
+            </div>
         </div>
-        """.format(len(pdf_bytes) / (1024*1024)), unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
         
     except FileNotFoundError:
         st.error("Fichier PDF non trouvé à l'emplacement : mes_documents/TSE/Guide mise en page2021.pdf")
-        st.markdown("""
-        <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
-            <div style="color: #888;">PDF non disponible</div>
-        </div>
-        """, unsafe_allow_html=True)
+        
     except Exception as e:
         st.error(f"Erreur de chargement du PDF: {str(e)}")
 
