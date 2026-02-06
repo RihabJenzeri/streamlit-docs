@@ -3577,9 +3577,153 @@ elif st.session_state.page == "tse":
         st.session_state.page = "medicofi"
         st.rerun()
 
-    st.title("📊 PROJETS TSE")
-    st.write("Contenu des projets TSE...")
-    # Ajoutez ici votre contenu pour TSE
+    # Titre avec style similaire aux autres pages
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        <h3 style="margin: 0; color: #202124; font-size: 24px;">SportsWear Design</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Section PDF en premier
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Guide de mise en page</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    try:
+        # Afficher le PDF
+        pdf_url = get_image_url("TSE/SportsWear Design/Guide mise en page2021.pdf")
+        st.markdown(f"""
+        <div style="text-align: center; margin: 20px 0 40px 0;">
+            <a href="{pdf_url}" target="_blank" style="text-decoration: none;">
+                <div style="padding: 20px; background: #f9f9f9; border-radius: 10px; border: 2px dashed #FBBDFA; cursor: pointer; transition: all 0.3s ease;">
+                    <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">📄 Guide mise en page 2021.pdf</div>
+                    <div style="color: #666; font-size: 14px;">Cliquez pour ouvrir le guide PDF</div>
+                </div>
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
+    except Exception as e:
+        st.error(f"Erreur de chargement du PDF: {str(e)}")
+        st.markdown("""
+        <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #888;">PDF non disponible</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Section Images
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Designs SportsWear</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Liste des 12 images
+    sportswear_images = []
+    for i in range(1, 13):
+        sportswear_images.append(f"TSE/SportsWear Design/{i}.png")
+    
+    # Affichage des 12 images en une seule colonne (une sous l'autre)
+    for img_idx in range(len(sportswear_images)):
+        try:
+            img_url = get_image_url(sportswear_images[img_idx])
+            
+            # Numéro de l'image
+            image_number = img_idx + 1
+            
+            st.markdown(f"""
+            <div style="margin-bottom: 40px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <div style="width: 30px; height: 30px; border-radius: 50%; background: #FBBDFA; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">{image_number}</div>
+                    <div style="color: #202124; font-weight: 600; font-size: 18px;">Design SportsWear {image_number}</div>
+                </div>
+                
+                <!-- Image cliquable avec effet de zoom -->
+                <div style="text-align: center; cursor: pointer;" 
+                     onclick="document.getElementById('modal-{img_idx}').style.display='block'">
+                    <img src="{img_url}" 
+                         style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease; margin: 0 auto;"
+                         onmouseover="this.style.transform='scale(1.01)'"
+                         onmouseout="this.style.transform='scale(1)'"
+                         alt="SportsWear Design {image_number}">
+                </div>
+                
+                <!-- Modal pour agrandir l'image -->
+                <div id="modal-{img_idx}" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95);">
+                    <div style="position: relative; width: 100%; height: 100%;">
+                        <span onclick="document.getElementById('modal-{img_idx}').style.display='none'" 
+                              style="position: absolute; top: 20px; right: 35px; color: white; font-size: 50px; font-weight: bold; cursor: pointer; z-index: 1001; padding: 10px;">
+                            &times;
+                        </span>
+                        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; padding: 20px;">
+                            <div style="color: white; font-size: 20px; margin-bottom: 20px; text-align: center;">
+                                SportsWear Design {image_number}
+                            </div>
+                            <img src="{img_url}" 
+                                 style="max-width: 95%; max-height: 80%; border-radius: 10px; object-fit: contain;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+        except Exception as e:
+            st.markdown(f"""
+            <div style="margin-bottom: 40px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <div style="width: 30px; height: 30px; border-radius: 50%; background: #FBBDFA; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">{img_idx + 1}</div>
+                    <div style="color: #202124; font-weight: 600; font-size: 18px;">Design SportsWear {img_idx + 1}</div>
+                </div>
+                <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888; font-size: 16px;">Image non disponible</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    # Script JavaScript pour fermer les modales
+    st.markdown("""
+    <script>
+    // Fermer la modal en cliquant à l'extérieur
+    window.onclick = function(event) {
+        var modals = document.querySelectorAll('[id^="modal-"]');
+        modals.forEach(function(modal) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
+    
+    // Fermer la modal avec la touche Échap
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        if (evt.keyCode == 27) {
+            var modals = document.querySelectorAll('[id^="modal-"]');
+            modals.forEach(function(modal) {
+                modal.style.display = "none";
+            });
+        }
+    };
+    </script>
+    """, unsafe_allow_html=True)
 
 # La page apnidoc reste la même
 elif st.session_state.page == "apnidoc":
