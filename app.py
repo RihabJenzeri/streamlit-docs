@@ -2080,75 +2080,69 @@ elif st.session_state.page == "respi_reseaux_sociaux":
                         </div>
                         """, unsafe_allow_html=True)
     
-    # ========== SECTION: Stand Parapluie ==========
-    st.markdown("---")
-    st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7"></path>
-        </svg>
-        <h4 style="margin: 0; color: #202124;">Stand Parapluie</h4>
-    </div>
-    """, unsafe_allow_html=True)
+  # ========== SECTION: Stand Parapluie ==========
+st.markdown("---")
+st.markdown("""
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7"></path>
+    </svg>
+    <h4 style="margin: 0; color: #202124;">Stand Parapluie</h4>
+</div>
+""", unsafe_allow_html=True)
+
+# Créer une liste de vos images (remplacez par vos vrais noms de fichiers)
+stand_images = [
+    ("image1.jpg", "Image 1 - Stand Parapluie"),
+    ("image2.jpg", "Image 2 - Détail"),
+    ("image3.jpg", "Image 3 - Autre vue")
+]
+
+try:
+    # Première ligne : Image 1 seule sur toute la largeur
+    col1 = st.columns(1)[0]
     
-    try:
-        # Note: Le chemin exact n'est pas spécifié, j'utilise un chemin probable
-        stand_url = get_image_url("Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Stand Parapluie/Stand Parapluie Respi-express.png")
+    # Afficher Image 1 en grand
+    img1_url = get_image_url("Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Stand Parapluie/image1.jpg")
+    with col1:
         st.markdown(f"""
-        <div style="display: flex; justify-content: center; margin: 20px 0;">
-            <img src="{stand_url}" style="width: 100%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="{img1_url}" style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{stand_images[0][1]}</div>
         </div>
         """, unsafe_allow_html=True)
-    except:
-        st.markdown("""
-        <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
-            <div style="color: #888;">Stand Parapluie image not available</div>
-        </div>
-        """, unsafe_allow_html=True)
-
-# Page Post Carrousel Respi Express
-elif st.session_state.page == "respi_post_carrousel":
-    if st.button("←"):
-        st.session_state.page = "respi_reseaux_sociaux"
-        st.rerun()
-
-    st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <polyline points="21 15 16 10 5 21"></polyline>
-        </svg>
-        <h3 style="margin: 0; color: #202124;">Post Carrousel Respi Express</h3>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown('<div style="color: #666; margin-bottom: 30px;">Carousel posts for Respi Express social media</div>', unsafe_allow_html=True)
     
-    # Note: Les images du carrousel ne sont pas spécifiées dans votre structure
-    # J'ajoute un placeholder pour cette page
+    # Deuxième ligne : Images 2 et 3 côte à côte
+    col2, col3 = st.columns(2)
+    
+    # Image 2
+    with col2:
+        img2_url = get_image_url("Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Stand Parapluie/image2.jpg")
+        st.markdown(f"""
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="{img2_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{stand_images[1][1]}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Image 3
+    with col3:
+        img3_url = get_image_url("Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Stand Parapluie/image3.jpg")
+        st.markdown(f"""
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="{img3_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{stand_images[2][1]}</div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+except Exception as e:
+    st.error(f"Erreur de chargement des images: {str(e)}")
     st.markdown("""
-    <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 40px 0;">
-        <div style="color: #888; font-size: 18px; margin-bottom: 20px;">Carrousel posts content</div>
-        <div style="color: #666;">Post carrousel images will be displayed here</div>
+    <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+        <div style="color: #888;">Stand Parapluie images not available</div>
     </div>
     """, unsafe_allow_html=True)
-# Page Sanibiose Company (France)
-elif st.session_state.page == "medicofi6":
-    if st.button("←"):
-        st.session_state.page = "medicofi"
-        st.rerun()
-
-    st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-        </svg>
-        <h3 style="margin: 0; color: #202124;">Sanibiose Company</h3>
-    </div>
-    """, unsafe_allow_html=True)
-
+    
     # ========== SECTION 1: Charte Graphique ==========
     st.markdown("---")
     st.markdown("""
