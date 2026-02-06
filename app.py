@@ -650,8 +650,10 @@ elif st.session_state.page == "medicofi":
     # Créer trois colonnes
     col1, col2, col3 = st.columns(3)
 
-    # URL de l'image
-    card_image_url = get_image_url("image.jpeg")
+    # URLs des images spécifiques
+    medicofi_image_url = get_image_url("img1.png")  # Image pour MEDICOFI
+    freelance_image_url = get_image_url("img2.png")  # Image pour FREELANCE
+    tse_image_url = get_image_url("img3.png")  # Image pour TSE
 
     # CSS pour le responsive
     responsive_style = """
@@ -710,34 +712,12 @@ elif st.session_state.page == "medicofi":
             font-size: 11px !important;
         }
     }
-    
-    /* Style pour les boutons avec sous-titre */
-    .button-with-subtitle {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        line-height: 1.2;
-    }
-    
-    .button-main-text {
-        font-weight: 600;
-        font-size: 14px;
-        margin-bottom: 2px;
-    }
-    
-    .button-subtitle {
-        font-weight: 400;
-        font-size: 10px;
-        color: #666;
-        opacity: 0.8;
-    }
     </style>
     """
 
     st.markdown(responsive_style, unsafe_allow_html=True)
 
-    # Colonne 1: MEDICOFI (avec 8 projets)
+    # Colonne 1: MEDICOFI (avec 8 projets) - Utilise img1.png
     with col1:
         st.markdown(f"""
         <div class="responsive-card" style="
@@ -759,7 +739,7 @@ elif st.session_state.page == "medicofi":
             min-height: 250px;
         ">
             <div class="responsive-image-container">
-                <img src="{card_image_url}"
+                <img src="{medicofi_image_url}"
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="MEDICOFI">
             </div>
@@ -772,31 +752,24 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        # Liste des 8 boutons pour MEDICOFI avec sous-titres
+        # Liste des 8 boutons pour MEDICOFI
         projects_medicofi = [
-            ("Apnidoc company", "Based In France", "apnidoc"),
-            ("PROJET MEDICOFI 2", "Based In France", "medicofi2"),
-            ("PROJET MEDICOFI 3", "Based In France", "medicofi3"),
-            ("PROJET MEDICOFI 4", "Based In France", "medicofi4"),
-            ("PROJET MEDICOFI 5", "Based In France", "medicofi5"),
-            ("PROJET MEDICOFI 6", "Based In France", "medicofi6"),
-            ("PROJET MEDICOFI 7", "Based In France", "medicofi7"),
-            ("PROJET MEDICOFI 8", "Based In France", "medicofi8")
+            ("Apnidoc company", "apnidoc"),
+            ("PROJET MEDICOFI 2", "medicofi2"),
+            ("PROJET MEDICOFI 3", "medicofi3"),
+            ("PROJET MEDICOFI 4", "medicofi4"),
+            ("PROJET MEDICOFI 5", "medicofi5"),
+            ("PROJET MEDICOFI 6", "medicofi6"),
+            ("PROJET MEDICOFI 7", "medicofi7"),
+            ("PROJET MEDICOFI 8", "medicofi8")
         ]
 
-        for main_text, subtitle, page_key in projects_medicofi:
-            if st.button(
-                f"<div class='button-with-subtitle'>"
-                f"<span class='button-main-text'>{main_text}</span>"
-                f"<span class='button-subtitle'>{subtitle}</span>"
-                f"</div>",
-                use_container_width=True,
-                key=f"medicofi_{page_key}"
-            ):
+        for project_name, page_key in projects_medicofi:
+            if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
                 st.session_state.page = page_key
                 st.rerun()
 
-    # Colonne 2: FREELANCE
+    # Colonne 2: FREELANCE - Utilise img2.png
     with col2:
         st.markdown(f"""
         <div class="responsive-card" style="
@@ -818,7 +791,7 @@ elif st.session_state.page == "medicofi":
             min-height: 250px;
         ">
             <div class="responsive-image-container">
-                <img src="{card_image_url}"
+                <img src="{freelance_image_url}"
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="FREELANCE">
             </div>
@@ -835,7 +808,7 @@ elif st.session_state.page == "medicofi":
             st.session_state.page = "freelance"
             st.rerun()
 
-    # Colonne 3: TSE
+    # Colonne 3: TSE - Utilise img3.png
     with col3:
         st.markdown(f"""
         <div class="responsive-card" style="
@@ -857,7 +830,7 @@ elif st.session_state.page == "medicofi":
             min-height: 250px;
         ">
             <div class="responsive-image-container">
-                <img src="{card_image_url}"
+                <img src="{tse_image_url}"
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="TSE">
             </div>
