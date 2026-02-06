@@ -3604,14 +3604,14 @@ elif st.session_state.page == "tse":
     """, unsafe_allow_html=True)
     
     try:
-        # CORRECTION : Chemin direct sans "Medicofi/Projets TSE/"
-        pdf_path = "TSE/SportsWear Design/Guide mise en page2021.pdf"
+        # CORRECTION : PDF est dans "TSE/" (même niveau que SportsWear Design)
+        pdf_path = "TSE/Guide mise en page2021.pdf"
         with open(pdf_path, "rb") as pdf_file:
             pdf_bytes = pdf_file.read()
         
         # Afficher le PDF avec un titre
         st.download_button(
-            label="Télécharger le guide",
+            label="📥 Télécharger le guide",
             data=pdf_bytes,
             file_name="Guide mise en page 2021.pdf",
             mime="application/pdf",
@@ -3627,7 +3627,14 @@ elif st.session_state.page == "tse":
         """.format(len(pdf_bytes) / (1024*1024)), unsafe_allow_html=True)
         
     except FileNotFoundError:
-        st.error("Fichier PDF non trouvé à l'emplacement : TSE/SportsWear Design/Guide mise en page2021.pdf")
+        st.error("Fichier PDF non trouvé à l'emplacement : TSE/Guide mise en page2021.pdf")
+        
+        # Pour déboguer, affichez la structure
+        import os
+        if os.path.exists("TSE/"):
+            st.write("Contenu du dossier TSE/:")
+            st.write(os.listdir("TSE/"))
+        
         st.markdown("""
         <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
             <div style="color: #888;">PDF non disponible</div>
@@ -3649,9 +3656,10 @@ elif st.session_state.page == "tse":
     </div>
     """, unsafe_allow_html=True)
 
+    # CORRECTION : Les images sont directement dans "TSE/"
     # TRIER les images dans l'ordre numérique (1, 2, 3... 12)
     image_numbers = list(range(1, 13))
-    tse_images = [f"TSE/SportsWear Design/{num}.png" for num in image_numbers]
+    tse_images = [f"TSE/{num}.png" for num in image_numbers]
     
     # Afficher chaque image dans une colonne unique (pleine largeur)
     for idx, img_path in enumerate(tse_images):
@@ -3676,15 +3684,20 @@ elif st.session_state.page == "tse":
             """, unsafe_allow_html=True)
             
         except Exception as e:
+            # Pour déboguer
+            import os
+            exists = os.path.exists(img_path) if os.path.exists("TSE/") else False
+            
             st.markdown(f"""
             <div style="margin-bottom: 30px; padding: 40px; background: #f9f9f9; border-radius: 10px; text-align: center;">
                 <div style="color: #888; font-size: 16px; margin-bottom: 10px;">
                     <span style="background: #ffebee; color: #c62828; padding: 5px 10px; border-radius: 5px; font-size: 14px;">
-                        ⚠️ Non trouvé
+                        ⚠️ {"Fichier non trouvé" if not exists else "Erreur de chargement"}
                     </span>
                 </div>
-                <div style="color: #666; font-size: 14px;">{img_path}</div>
+                <div style="color: #666; font-size: 14px; font-family: monospace;">{img_path}</div>
                 <div style="color: #999; font-size: 13px; margin-top: 10px;">Design {img_number}</div>
+                <div style="color: #999; font-size: 12px; margin-top: 5px;">Le fichier {"existe" if exists else "n'existe pas"}</div>
             </div>
             """, unsafe_allow_html=True)
     
