@@ -3611,7 +3611,7 @@ elif st.session_state.page == "tse":
         
         # Afficher le PDF avec un titre
         st.download_button(
-            label="📥 Télécharger le guide",
+            label="Télécharger le guide",
             data=pdf_bytes,
             file_name="Guide mise en page 2021.pdf",
             mime="application/pdf",
@@ -3627,7 +3627,7 @@ elif st.session_state.page == "tse":
         """.format(len(pdf_bytes) / (1024*1024)), unsafe_allow_html=True)
         
     except FileNotFoundError:
-        st.error("Fichier PDF non trouvé à l'emplacement : SportsWear Design/Guide mise en page2021.pdf")
+        st.error("Fichier PDF non trouvé à l'emplacement : TSE/SportsWear Design/Guide mise en page2021.pdf")
         st.markdown("""
         <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
             <div style="color: #888;">PDF non disponible</div>
