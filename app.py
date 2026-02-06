@@ -752,7 +752,21 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 # Liste des 8 boutons pour MEDICOFI avec titres et sous-titres
+    projects_medicofi = [
+            ("Apnidoc company", "apnidoc"),
+            ("Société Mamivac France", "medicofi2"),
+            ("Société MC Consulting (Tunisie)", "medicofi3"),
+            ("PROJET MEDICOFI 4", "medicofi4"),
+            ("PROJET MEDICOFI 5", "medicofi5"),
+            ("PROJET MEDICOFI 6", "medicofi6"),
+            ("PROJET MEDICOFI 7", "medicofi7"),
+            ("PROJET MEDICOFI 8", "medicofi8")
+        ]
 
+    for project_name, page_key in projects_medicofi:
+        if st.button(project_name, use_container_width=True, key=f"medicofi_{page_key}"):
+            st.session_state.page = page_key
+            st.rerun()
 
     # Colonne 2: FREELANCE - Utilise img2.png
     with col2:
