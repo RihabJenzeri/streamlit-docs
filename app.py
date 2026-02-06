@@ -3604,38 +3604,45 @@ elif st.session_state.page == "tse":
     """, unsafe_allow_html=True)
     
     try:
-        # CORRECTION : Chemin direct sans "Medicofi/Projets TSE/"
+        # Chemin du PDF
         pdf_path = "mes_documents/TSE/Guide mise en page2021.pdf"
+        
+        # Lire le PDF
         with open(pdf_path, "rb") as pdf_file:
             pdf_bytes = pdf_file.read()
         
-        # Afficher le PDF avec un titre
-        st.download_button(
-            label="Télécharger le guide",
-            data=pdf_bytes,
-            file_name="Guide mise en page 2021.pdf",
-            mime="application/pdf",
-            use_container_width=True
-        )
-        
-        # Afficher un aperçu du PDF
+        # Afficher un aperçu visuel
         st.markdown("""
-        <div style="text-align: center; padding: 20px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
-            <div style="color: #666; font-size: 16px; margin-bottom: 10px;">Document PDF disponible en téléchargement</div>
-            <div style="color: #999; font-size: 14px;">Taille du fichier: {:.1f} MB</div>
+        <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="font-size: 64px; color: #FBBDFA; margin-bottom: 20px;">📄</div>
+            <div style="color: #202124; font-size: 20px; font-weight: 600; margin-bottom: 10px;">
+                Guide mise en page 2021
+            </div>
+            <div style="color: #666; font-size: 14px; margin-bottom: 20px;">
+                Document PDF disponible en téléchargement
+            </div>
+            <div style="color: #999; font-size: 13px; margin-bottom: 30px;">
+                Taille: {:.1f} MB
+            </div>
         </div>
-        """.format(len(pdf_bytes) / (1024*1024)), unsafe_allow_html=True)
+        """.format(len(pdf_bytes) / (1024 * 1024)), unsafe_allow_html=True)
+        
+        # Bouton de téléchargement au centre
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col2:
+            st.download_button(
+                label="📥 Télécharger le PDF",
+                data=pdf_bytes,
+                file_name="Guide mise en page 2021.pdf",
+                mime="application/pdf",
+                use_container_width=True
+            )
         
     except FileNotFoundError:
         st.error("Fichier PDF non trouvé à l'emplacement : mes_documents/TSE/Guide mise en page2021.pdf")
-        st.markdown("""
-        <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
-            <div style="color: #888;">PDF non disponible</div>
-        </div>
-        """, unsafe_allow_html=True)
+        
     except Exception as e:
         st.error(f"Erreur de chargement du PDF: {str(e)}")
-
     # SECTION 2: Les 12 images (1.png à 12.png)
     st.markdown("---")
     st.markdown("""
