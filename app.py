@@ -2879,9 +2879,9 @@ elif st.session_state.page == "medicofi8":
     # Quatre images en deux colonnes (2x2)
     packaging_images = [
         ("Boite thé Packaging création.png", "Boite thé Packaging création"),
-        ("Mockup boite thè 3.png", "Mockup boite thé 3")
+        ("Mockup boite thè 3.png", "Mockup boite thé 3"),
         ("Mockup boite thè 1.png", "Mockup boite thé 1"),
-        ("Mockup boite thè 2.png", "Mockup boite thé 2"),
+        ("Mockup boite thè 2.png", "Mockup boite thé 2")
     ]
     
     # Première ligne
