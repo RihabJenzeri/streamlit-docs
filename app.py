@@ -2128,7 +2128,219 @@ elif st.session_state.page == "respi_post_carrousel":
         <div style="color: #888; font-size: 18px; margin-bottom: 20px;">Carrousel posts content</div>
         <div style="color: #666;">Post carrousel images will be displayed here</div>
     </div>
-    """, unsafe_allow_html=True)    
+    """, unsafe_allow_html=True)
+# Page Sanibiose Company (France)
+elif st.session_state.page == "medicofi6":
+    if st.button("←"):
+        st.session_state.page = "medicofi"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Sanibiose Company</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # ========== SECTION 1: Charte Graphique ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Charte Graphique</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # PDF Viewer pour la charte graphique
+    try:
+        pdf_url = get_image_url("Medicofi/Société Sanibiose (en France)/Charte Graphique/Charte Graphique Sanibiose.pdf")
+        pdf_encoded = urllib.parse.quote(pdf_url, safe='')
+        google_viewer_url = f"https://docs.google.com/viewer?url={pdf_encoded}&embedded=true"
+        
+        st.markdown(f'<iframe width="100%" height="600" src="{google_viewer_url}"></iframe>', unsafe_allow_html=True)
+        
+        # Boutons d'action
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown(f'<a href="{pdf_url}" download="Charte_Graphique_Sanibiose.pdf" style="text-decoration: none;">', unsafe_allow_html=True)
+            if st.button("📥 Télécharger la Charte", use_container_width=True):
+                pass
+            st.markdown('</a>', unsafe_allow_html=True)
+        
+        with col2:
+            st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none;">', unsafe_allow_html=True)
+            if st.button("🔗 Ouvrir PDF", use_container_width=True):
+                pass
+            st.markdown('</a>', unsafe_allow_html=True)
+    except:
+        st.markdown("""
+        <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #888; font-size: 16px;">Charte Graphique PDF not available</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # ========== SECTION 2: Emailing et Newsletters ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Emailing et Newsletters</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    try:
+        emailing_url = get_image_url("Medicofi/Société Sanibiose (en France)/Emailing et Newsletters/Emailing CBD.png")
+        st.markdown(f"""
+        <div style="display: flex; justify-content: center; margin: 20px 0;">
+            <img src="{emailing_url}" style="width: 100%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        </div>
+        <div style="text-align: center; color: #666; margin-bottom: 20px;">
+            Emailing CBD - Sanibiose
+        </div>
+        """, unsafe_allow_html=True)
+    except:
+        st.markdown("""
+        <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
+            <div style="color: #888;">Emailing CBD image not available</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # ========== SECTION 3: étiquettes pour les Produits Sanibiose ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+            <line x1="7" y1="2" x2="7" y2="22"></line>
+            <line x1="17" y1="2" x2="17" y2="22"></line>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <line x1="2" y1="7" x2="7" y2="7"></line>
+            <line x1="2" y1="17" x2="7" y2="17"></line>
+            <line x1="17" y1="17" x2="22" y2="17"></line>
+            <line x1="17" y1="7" x2="22" y2="7"></line>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">étiquettes pour les Produits Sanibiose</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Liste des 21 images d'étiquettes (de 1 à 21)
+    etiquettes_images = []
+    for i in range(1, 22):
+        etiquettes_images.append(f"Medicofi/Société Sanibiose (en France)/étiquettes pour les Produits Sanibiose/{i}.png")
+    
+    # Afficher les 21 images en 3 colonnes (7 lignes de 3)
+    num_columns = 3
+    num_images = len(etiquettes_images)
+    
+    for i in range(0, num_images, num_columns):
+        cols = st.columns(num_columns)
+        
+        for col_idx in range(num_columns):
+            img_idx = i + col_idx
+            
+            if img_idx < num_images:
+                with cols[col_idx]:
+                    try:
+                        img_url = get_image_url(etiquettes_images[img_idx])
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                            <div style="color: #666; font-size: 13px; margin-top: 5px;">Étiquette {img_idx + 1}</div>
+                        </div>
+                        """, unsafe_allow_html=True)
+                    except:
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div style="padding: 30px; background: #f9f9f9; border-radius: 8px;">
+                                <div style="color: #888; font-size: 13px;">Étiquette {img_idx + 1}</div>
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)
+    
+    # ========== SECTION 4: Réseaux Sociaux ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Réseaux Sociaux</h4>
+    </div>
+    <div style="color: #666; margin-bottom: 20px; font-size: 14px;">
+        Post statique pour Facebook, Instagram et LinkedIn
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Liste des 20 images de réseaux sociaux (de 1 à 20)
+    reseaux_images = []
+    for i in range(1, 21):
+        reseaux_images.append(f"Medicofi/Société Sanibiose (en France)/Réseaux Sociaux/Post statique pour Facebook Instagram et LinkedIn/{i}.png")
+    
+    # Afficher les 20 images en 3 colonnes (7 lignes: 6 lignes de 3 + 1 ligne de 2)
+    num_columns = 3
+    num_images = len(reseaux_images)
+    
+    for i in range(0, num_images, num_columns):
+        cols = st.columns(num_columns)
+        
+        for col_idx in range(num_columns):
+            img_idx = i + col_idx
+            
+            if img_idx < num_images:
+                with cols[col_idx]:
+                    try:
+                        img_url = get_image_url(reseaux_images[img_idx])
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                            <div style="color: #666; font-size: 13px; margin-top: 5px;">Post {img_idx + 1}</div>
+                        </div>
+                        """, unsafe_allow_html=True)
+                    except:
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div style="padding: 30px; background: #f9f9f9; border-radius: 8px;">
+                                <div style="color: #888; font-size: 13px;">Post {img_idx + 1}</div>
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)
+    
+    # ========== SECTION 5: Stand Parapluie ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7"></path>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Stand Parapluie</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    try:
+        stand_url = get_image_url("Medicofi/Société Sanibiose (en France)/Stand Parapluie/Stand parapluie Sanibiose.png")
+        st.markdown(f"""
+        <div style="display: flex; justify-content: center; margin: 20px 0 40px 0;">
+            <img src="{stand_url}" style="width: 100%; max-width: 700px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+        </div>
+        """, unsafe_allow_html=True)
+    except:
+        st.markdown("""
+        <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 20px 0 40px 0;">
+            <div style="color: #888;">Stand Parapluie image not available</div>
+        </div>
+        """, unsafe_allow_html=True)    
 # Ajoutez ensuite les pages pour freelance et tse
 elif st.session_state.page == "freelance":
     if st.button("←"):
