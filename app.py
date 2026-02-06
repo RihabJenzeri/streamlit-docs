@@ -3651,7 +3651,7 @@ elif st.session_state.page == "tse":
 
     # TRIER les images dans l'ordre numérique (1, 2, 3... 12)
     image_numbers = list(range(1, 13))
-    tse_images = [f"SportsWear Design/{num}.png" for num in image_numbers]
+    tse_images = [f"TSE/SportsWear Design/{num}.png" for num in image_numbers]
     
     # Afficher chaque image dans une colonne unique (pleine largeur)
     for idx, img_path in enumerate(tse_images):
