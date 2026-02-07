@@ -759,7 +759,7 @@ elif st.session_state.page == "medicofi":
             </div>
             <!-- MC Consulting (MEDICOFI) -->
             <div style="color: #202124; font-family: 'Montserrat', sans-serif; padding-bottom: 4px;">
-                <span style="font-size: 18px; font-weight: 600; margin: 0;">MC CONSULTING</span>
+                <span style="font-size: 18px; font-weight: 600; margin: 0;">MC CONLUTING</span>
                 <div style="font-size: 14px; font-weight: 500; margin: 2px 0 0 0;">(MEDICOFI)</div>
             </div>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
@@ -3573,79 +3573,7 @@ elif st.session_state.page == "freelance":
         st.session_state.page = "medicofi"
         st.rerun()
 
-    st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
-            <line x1="16" y1="8" x2="2" y2="22"></line>
-            <line x1="17.5" y1="15" x2="9" y2="15"></line>
-        </svg>
-        <h1 style="margin: 0; color: #202124; font-size: 32px; font-weight: 700;">Projets Freelance</h1>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown('<div style="color: #666; margin-bottom: 30px; font-size: 16px;">Sélectionnez un projet freelance pour voir les designs</div>', unsafe_allow_html=True)
-
-    # Créer 3 colonnes pour les boutons
-    col1, col2, col3 = st.columns(3)
-
-    # Bouton 1: CHabeb Ennour
-    with col1:
-        st.markdown("""
-        <div style="text-align: center; margin-bottom: 10px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        if st.button("CHabeb Ennour\n(volunteer group)", use_container_width=True):
-            st.session_state.page = "freelance_chabeb"
-            st.rerun()
-
-    # Bouton 2: Clorex Company
-    with col2:
-        st.markdown("""
-        <div style="text-align: center; margin-bottom: 10px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="3" y1="9" x2="21" y2="9"></line>
-                <line x1="9" y1="21" x2="9" y2="9"></line>
-            </svg>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        if st.button("Clorex Company", use_container_width=True):
-            st.session_state.page = "freelance_clorex"
-            st.rerun()
-
-    # Bouton 3: Mayar Auto Company
-    with col3:
-        st.markdown("""
-        <div style="text-align: center; margin-bottom: 10px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-6-3-6H7C4.8 4 3 5.8 3 8s1.8 4 4 4"></path>
-                <path d="M6 18c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path>
-                <path d="M16 18c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path>
-            </svg>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        if st.button("Mayar Auto Company", use_container_width=True):
-            st.session_state.page = "freelance_mayar"
-            st.rerun()
-
-# ========== PAGES DES PROJETS FREELANCE ==========
-
-# Page CHabeb Ennour
-elif st.session_state.page == "freelance_chabeb":
-    if st.button("←"):
-        st.session_state.page = "freelance"
-        st.rerun()
-
+    # ========== SECTION 1: CHabeb Ennour (volunteer group) ==========
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; margin-top: 30px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3704,43 +3632,6 @@ elif st.session_state.page == "freelance_chabeb":
             </div>
             """, unsafe_allow_html=True)
 
-# Page Clorex Company
-elif st.session_state.page == "freelance_clorex":
-    if st.button("←"):
-        st.session_state.page = "freelance"
-        st.rerun()
-
-    st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; margin-top: 30px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="3" y1="9" x2="21" y2="9"></line>
-            <line x1="9" y1="21" x2="9" y2="9"></line>
-        </svg>
-        <h3 style="margin: 0; color: #202124;">Clorex Company</h3>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown('<div style="color: #666; margin-bottom: 30px;">Contenu pour Clorex Company à ajouter ici</div>', unsafe_allow_html=True)
-
-# Page Mayar Auto Company
-elif st.session_state.page == "freelance_mayar":
-    if st.button("←"):
-        st.session_state.page = "freelance"
-        st.rerun()
-
-    st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; margin-top: 30px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-6-3-6H7C4.8 4 3 5.8 3 8s1.8 4 4 4"></path>
-            <path d="M6 18c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path>
-            <path d="M16 18c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path>
-        </svg>
-        <h3 style="margin: 0; color: #202124;">Mayar Auto Company</h3>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown('<div style="color: #666; margin-bottom: 30px;">Contenu pour Mayar Auto Company à ajouter ici</div>', unsafe_allow_html=True)
     # ========== SECTION 2: Clorex Company ==========
     st.markdown("---")
     st.markdown("""
