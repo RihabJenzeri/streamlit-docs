@@ -3918,67 +3918,87 @@ elif st.session_state.page == "tse":
 
     st.markdown("---")  # Séparateur
 
-   # SECTION 2: Images SportsWear Design avec icône t-shirt
-    st.markdown("""
-    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path>
-        </svg>
-        <h3 style="margin: 0; color: #202124;">SportsWear Design</h3>
-    </div>
-    """, unsafe_allow_html=True)
+# SECTION 2: Images SportsWear Design avec icône t-shirt
+st.markdown("""
+<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path>
+    </svg>
+    <h3 style="margin: 0; color: #202124;">SportsWear Design</h3>
+</div>
+""", unsafe_allow_html=True)
+
+# VOUS ORDONNEZ LES IMAGES COMME VOUS VOULEZ
+votre_ordre_images = [
+    "TSE/SportsWear Design/11.png",   # Proposition 1 - Image 1
+    "TSE/SportsWear Design/12.png",   # Proposition 1 - Image 2
+    "TSE/SportsWear Design/7.png",    # Proposition 1 - Image 3
+    "TSE/SportsWear Design/6.png",    # Proposition 1 - Image 4
+    "TSE/SportsWear Design/5.png",    # Proposition 1 - Image 5
+    "TSE/SportsWear Design/3.png",    # Proposition 1 - Image 6
+    "TSE/SportsWear Design/1.png",    # Proposition 2 - Image 1
+    "TSE/SportsWear Design/2.png",    # Proposition 2 - Image 2
+    "TSE/SportsWear Design/9.png",    # Proposition 2 - Image 3
+    "TSE/SportsWear Design/8.png",    # Proposition 2 - Image 4
+    "TSE/SportsWear Design/10.png",   # Proposition 2 - Image 5
+    "TSE/SportsWear Design/4.png"     # Proposition 2 - Image 6
+]
+
+# Variable pour suivre la proposition
+current_proposition = None
+
+# Afficher chaque image dans VOTRE ordre
+for idx, img_path in enumerate(votre_ordre_images):
+    img_number = idx + 1
     
-    # VOUS ORDONNEZ LES IMAGES COMME VOUS VOULEZ
-    votre_ordre_images = [
-        "TSE/SportsWear Design/11.png",   # Image 3 en premier
-        "TSE/SportsWear Design/12.png",   # Puis image 1
-        "TSE/SportsWear Design/7.png",   # Puis image 5
-        "TSE/SportsWear Design/6.png",   # etc.
-        "TSE/SportsWear Design/5.png",
-        "TSE/SportsWear Design/3.png",
-        "TSE/SportsWear Design/1.png",
-        "TSE/SportsWear Design/2.png",
-        "TSE/SportsWear Design/9.png",
-        "TSE/SportsWear Design/8.png",
-        "TSE/SportsWear Design/10.png",
-        "TSE/SportsWear Design/4.png"
-    ]
+    # Déterminer la proposition (6 premières = Proposition 1, 6 suivantes = Proposition 2)
+    proposition = "Proposition 1" if idx < 6 else "Proposition 2"
     
-    # CORRECTION : Utiliser votre_ordre_images au lieu de tse_images
-    # Afficher chaque image dans VOTRE ordre
-    for idx, img_path in enumerate(votre_ordre_images):  # CHANGÉ ICI
-        img_number = idx + 1
+    # Afficher le titre de la proposition quand elle change
+    if proposition != current_proposition:
+        current_proposition = proposition
+        st.markdown(f"""
+        <div style="margin: 40px 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #FBBDFA;">
+            <h3 style="color: #202124; margin: 0; font-size: 24px; font-weight: 600;">{proposition}</h3>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    try:
+        img_url = get_image_url(img_path)
         
-        try:
-            img_url = get_image_url(img_path)
-            
-            # Conteneur pour chaque image avec son numéro
-            st.markdown(f"""
-            <div style="margin-bottom: 40px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                    <div style="background: #FBBDFA; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
-                        {img_number}
-                    </div>
-                    <div style="color: #202124; font-weight: 600; font-size: 18px;">Design {img_number}</div>
+        # Récupérer le numéro réel du fichier
+        file_number = img_path.split("/")[-1].split(".")[0]
+        
+        # Conteneur pour chaque image avec son numéro
+        st.markdown(f"""
+        <div style="margin-bottom: 40px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                <div style="background: #FBBDFA; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                    {img_number}
                 </div>
-                <div style="text-align: center;">
-                    <img src="{img_url}" style="width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; font-size: 18px;">{proposition} - Image {img_number}</div>
+            </div>
+            <div style="text-align: center;">
+                <img src="{img_url}" style="width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #666; font-size: 14px; margin-top: 10px; font-style: italic;">
+                    File: {file_number}.png
                 </div>
             </div>
-            """, unsafe_allow_html=True)
-            
-        except Exception as e:
-            st.markdown(f"""
-            <div style="margin-bottom: 30px; padding: 40px; background: #f9f9f9; border-radius: 10px; text-align: center;">
-                <div style="color: #888; font-size: 16px; margin-bottom: 10px;">
-                    <span style="background: #ffebee; color: #c62828; padding: 5px 10px; border-radius: 5px; font-size: 14px;">
-                        ⚠️ Non trouvé
-                    </span>
-                </div>
-                <div style="color: #666; font-size: 14px;">{img_path}</div>
-                <div style="color: #999; font-size: 13px; margin-top: 10px;">Design {img_number}</div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+    except Exception as e:
+        st.markdown(f"""
+        <div style="margin-bottom: 30px; padding: 40px; background: #f9f9f9; border-radius: 10px; text-align: center;">
+            <div style="color: #888; font-size: 16px; margin-bottom: 10px;">
+                <span style="background: #ffebee; color: #c62828; padding: 5px 10px; border-radius: 5px; font-size: 14px;">
+                    ⚠️ Image not found
+                </span>
             </div>
-            """, unsafe_allow_html=True)    
+            <div style="color: #666; font-size: 14px;">{img_path}</div>
+            <div style="color: #999; font-size: 13px; margin-top: 10px;">{proposition} - Image {img_number}</div>
+        </div>
+        """, unsafe_allow_html=True)
     # Note en bas de page
     st.markdown("""
     <div style="text-align: center; margin: 30px 0; padding: 20px; background: #f9f9f9; border-radius: 10px; border-left: 4px solid #FBBDFA;">
