@@ -1403,11 +1403,11 @@ elif st.session_state.page == "mamivac_story":
     
     # Liste des images pour les stories avec leurs descriptions
     story_posts = [
-        ("12-Juin-reussir-la-promenade-avec-bebe-Story-01.png", "12 Juin - Réussir la promenade avec bébé"),
-        ("24-Juin-Citation-de-Victor-Hugo-Story-01.png", "24 Juin - Citation de Victor Hugo"),
-        ("3-Juillet-la-duree-ideale-de-la-sieste-Story-01.png", "3 Juillet - Durée idéale de la sieste"),
-        ("Mamivac-Proteges-mamelons-CONE-S-M-L.png", "Mamivac - Protège-mamelons Cône S/M/L"),
-        ("sorty-conserv.png", "Conservation du lait maternel")
+        ("12-Juin-reussir-la-promenade-avec-bebe-Story-01.png", "-"),
+        ("24-Juin-Citation-de-Victor-Hugo-Story-01.png", "-"),
+        ("3-Juillet-la-duree-ideale-de-la-sieste-Story-01.png", "-"),
+        ("Mamivac-Proteges-mamelons-CONE-S-M-L.png", "-"),
+        ("sorty-conserv.png", "-")
     ]
     
     # Afficher les images en 2 colonnes
@@ -1437,12 +1437,6 @@ elif st.session_state.page == "mamivac_story":
                         <div style="text-align: center; margin-bottom: 30px;">
                             <div style="display: flex; justify-content: center; margin-bottom: 10px;">
                                 <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.15);">
-                            </div>
-                            <div style="color: #202124; font-size: 15px; font-weight: 500; margin-bottom: 8px; padding: 0 10px;">
-                                {description}
-                            </div>
-                            <div style="color: #888; font-size: 13px; padding: 0 10px;">
-                                {file_name}
                             </div>
                         </div>
                         """, unsafe_allow_html=True)
