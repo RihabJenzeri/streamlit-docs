@@ -3032,8 +3032,8 @@ elif st.session_state.page == "medicofi8":
     # Trois images - 2 premières côte à côte, 3ème seule
     avatar_images = [
         ("Avatar Lea.png", "Avatar Lea"),
-        ("Image d'origine reçue.jpeg", "Image d'origine reçue"),
-        ("Planche de personnage de l'avatar.png", "Planche de personnage de l'avatar")
+        ("Image d’origine reçue.jpeg", "Image d'origine reçue"),  # Apostrophe courbe
+        ("Planche de personnage de l’avatar.png", "Planche de personnage de l'avatar")  # Apostrophe courbe
     ]
     
     # Première ligne : 2 premières images côte à côte
