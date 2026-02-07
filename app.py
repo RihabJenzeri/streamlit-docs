@@ -997,7 +997,7 @@ elif st.session_state.page == "medicofi2":
     recto_url = get_image_url(plaquette_images[0])
     st.markdown(f"""
     <div style="text-align: center; margin-bottom: 30px;">
-        <div style="color: #202124; font-weight: 600; font-size: 18px; margin-bottom: 15px;">Recto - Double sided</div>
+        <div style="color: #202124; font-weight: 600; font-size: 18px; margin-bottom: 15px;">Double</div>
         <div style="display: flex; justify-content: center;">
             <img src="{recto_url}" style="width: 90%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
         </div>
@@ -1008,27 +1008,13 @@ elif st.session_state.page == "medicofi2":
     verso_url = get_image_url(plaquette_images[1])
     st.markdown(f"""
     <div style="text-align: center; margin-bottom: 30px;">
-        <div style="color: #202124; font-weight: 600; font-size: 18px; margin-bottom: 15px;">Verso</div>
+        <div style="color: #202124; font-weight: 600; font-size: 18px; margin-bottom: 15px;">sided</div>
         <div style="display: flex; justify-content: center;">
             <img src="{verso_url}" style="width: 90%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
         </div>
     </div>
     """, unsafe_allow_html=True)
     
-    # Séparateur
-    st.markdown("---")
-    
-    # Section PLV Mamivac avec icône
-    st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="3" y1="9" x2="21" y2="9"></line>
-            <line x1="9" y1="21" x2="9" y2="9"></line>
-        </svg>
-        <h3 style="margin: 0; color: #202124;">PLV Mamivac</h3>
-    </div>
-    """, unsafe_allow_html=True)
     # Séparateur
     st.markdown("---")
     
