@@ -770,7 +770,7 @@ elif st.session_state.page == "medicofi":
 
         # Liste des 8 boutons pour MEDICOFI avec titre et pays
         projects_medicofi = [
-            ("ApniDoc Company", "(in France)", "apnidoc"),
+            ("ApniDoc Company   ", "(in France)", "apnidoc"),
             ("Mamivac France Company", "", "medicofi2"),
             ("MC Consulting Company", "(in Tunisia)", "medicofi3"),
             ("MCM Outsourcing Company", "(in Madagascar)", "medicofi4"),
