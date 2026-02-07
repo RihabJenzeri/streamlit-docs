@@ -1726,7 +1726,7 @@ elif st.session_state.page == "medicofi5":
     """, unsafe_allow_html=True)
     
     try:
-        affiche_url = get_image_url("Medicofi/Société Respi Express (en France)/Création illustrations et affiche/Comprendre l'apnée obstructive du sommeil.png")
+        affiche_url = get_image_url("Medicofi/Société Respi Express (en France)/Création illustrations et affiche/Comprendre l’apnée obstructive du sommeil.png")
         st.markdown(f"""
         <div style="display: flex; justify-content: center; margin: 20px 0;">
             <img src="{affiche_url}" style="width: 100%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
