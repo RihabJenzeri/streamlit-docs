@@ -42,7 +42,7 @@ header {visibility: hidden;}
     font-family: "Source Sans", sans-serif;
     font-size: 1rem;
     margin-bottom: -1rem;
-    color: ##ffffff !important ;
+    color: #ffffff !important ;
     max-width: 100%;
     width: 100%;
     overflow-wrap: break-word;
@@ -4692,6 +4692,7 @@ st.markdown("""
     gap: 5px;
     max-width: 600px;
     text-align: center;
+    color:#ffffff
 }
 
 .circle-container {
