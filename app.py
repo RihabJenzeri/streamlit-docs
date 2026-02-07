@@ -3603,12 +3603,12 @@ elif st.session_state.page == "tse":
     </div>
     """, unsafe_allow_html=True)
 
-    # PDF Viewer - MÊME STYLE QUE L'EXEMPLE
+    # PDF Viewer
     try:
-        # Chemin corrigé selon votre structure
+        # Chemin du PDF
         pdf_path = "TSE/Guide mise en page2021.pdf"
         
-        # Obtenir l'URL avec votre fonction get_image_url
+        # Obtenir l'URL pour l'affichage
         pdf_url = get_image_url(pdf_path)
         
         # Encoder l'URL pour Google Viewer
@@ -3619,47 +3619,38 @@ elif st.session_state.page == "tse":
         # Afficher le PDF dans un iframe
         st.markdown(f'<iframe width="100%" height="600" src="{google_viewer_url}"></iframe>', unsafe_allow_html=True)
         
-        # Boutons d'action - MÊME QUE L'EXEMPLE
+        # Boutons d'action - SANS STYLE, SANS EMOJI
         col1, col2 = st.columns(2)
         
         with col1:
-            # Télécharger le PDF
-            with open(pdf_path, "rb") as pdf_file:
-                pdf_bytes = pdf_file.read()
-            
-            st.download_button(
-                label="Télécharger le Guide",
-                data=pdf_bytes,
-                file_name="Guide mise en page 2021.pdf",
-                mime="application/pdf",
-                use_container_width=True
-            )
+            # Essayer de charger le PDF pour le téléchargement
+            try:
+                with open(pdf_path, "rb") as pdf_file:
+                    pdf_bytes = pdf_file.read()
+                
+                st.download_button(
+                    label="Télécharger le Guide",
+                    data=pdf_bytes,
+                    file_name="Guide mise en page 2021.pdf",
+                    mime="application/pdf",
+                    use_container_width=True
+                )
+            except FileNotFoundError:
+                st.error("Erreur: Fichier non trouvé pour le téléchargement")
         
         with col2:
             # Bouton pour ouvrir en plein écran
-            st.markdown(f"""
-            <a href="{google_viewer_url}" target="_blank" style="text-decoration: none;">
-                <button style="width: 100%; padding: 0.5rem 1rem; background: #FBBDFA; color: white; border: none; border-radius: 0.5rem; cursor: pointer; font-weight: 600;">
-                    Ouvrir PDF
-                </button>
-            </a>
-            """, unsafe_allow_html=True)
-            
-    except FileNotFoundError:
-        st.error("Fichier PDF non trouvé à l'emplacement : TSE/Guide mise en page2021.pdf")
-        st.markdown("""
-        <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
-            <div style="color: #888; font-size: 16px;">Guide PDF not available</div>
-        </div>
-        """, unsafe_allow_html=True)
-        
+            if st.button("Ouvrir PDF", use_container_width=True):
+                # Code JavaScript pour ouvrir dans un nouvel onglet
+                js = f"""
+                <script>
+                window.open('{google_viewer_url}', '_blank');
+                </script>
+                """
+                st.components.v1.html(js, height=0)
+                
     except Exception as e:
-        st.error(f"Erreur de chargement du PDF: {str(e)}")
-        st.markdown("""
-        <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
-            <div style="color: #888; font-size: 16px;">Guide PDF not available</div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.error(f"Erreur d'affichage du PDF: {str(e)}")
 
     # TRIER les images dans l'ordre numérique (1, 2, 3... 12)
     image_numbers = list(range(1, 13))
