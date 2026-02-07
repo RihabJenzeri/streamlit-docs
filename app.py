@@ -1401,8 +1401,7 @@ elif st.session_state.page == "mamivac_story":
         ("24-Juin-Citation-de-Victor-Hugo-Story-01.png", "24 Juin - Citation de Victor Hugo"),
         ("3-Juillet-la-duree-ideale-de-la-sieste-Story-01.png", "3 Juillet - Durée idéale de la sieste"),
         ("Mamivac-Proteges-mamelons-CONE-S-M-L.png", "Mamivac - Protège-mamelons Cône S/M/L"),
-        ("Conservation du lait maternel
-", "Conservation du lait maternel")
+        ("sorty-conserv.png", "Conservation du lait maternel")
     ]
     
     # Afficher les images en 2 colonnes
