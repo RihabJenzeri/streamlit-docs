@@ -1498,9 +1498,6 @@ elif st.session_state.page == "medicofi3":
             <div style="color: #202124; font-size: 22px; font-weight: 600; margin-bottom: 15px;">
                 {description}
             </div>
-            <div style="color: #888; font-size: 16px; margin-bottom: 20px;">
-                New Year Greeting Card
-            </div>
             <div style="display: flex; justify-content: center; align-items: center; height: 500px; background: linear-gradient(135deg, #f5f7fa 0%, #f9f9f9 100%); border-radius: 12px; margin-bottom: 15px; border: 3px dashed #FBBDFA;">
                 <div style="color: #888; font-size: 20px;">Image non disponible</div>
             </div>
@@ -1548,10 +1545,9 @@ elif st.session_state.page == "medicofi3":
     # Description supplémentaire
     st.markdown("""
     <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-top: 30px; border-left: 4px solid #FBBDFA;">
-        <h4 style="color: #202124; margin: 0 0 10px 0;">About MC Consulting</h4>
+        <h4 style="color: #202124; margin: 0 0 10px 0;">About MC Consulting New Year Cards</h4>
         <div style="color: #666; font-size: 14px; line-height: 1.6;">
-            Design of greeting cards for MC Consulting Company based in Tunisia. 
-            These New Year cards were created for corporate communications and client relations.
+            As a designer at MC Consulting Company, I created New Year greeting cards for our teams in France and Madagascar.
         </div>
     </div>
     """, unsafe_allow_html=True)          
