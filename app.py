@@ -4671,27 +4671,30 @@ st.markdown("""
     margin-left: -50vw;
     margin-right: -50vw;
 }
-
+.st-emotion-cache-2fgyt4 h2 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    padding-bottom: 1rem;
+}
 .footer-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 5px;
     max-width: 600px;
     text-align: center;
 }
 
 .circle-container {
-    width: 300px;
+    /* width: 300px; */
     height: 100px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     background: #202124;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin-bottom: 10px;
-    /* border: 2px solid #FBBDFA;
+    /* margin-bottom: 10px;
 }
 
 .footer-title {
