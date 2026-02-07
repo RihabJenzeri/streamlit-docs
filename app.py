@@ -1796,7 +1796,7 @@ elif st.session_state.page == "medicofi5":
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
             <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Emailing et Newsletters</h4>
+        <h4 style="margin: 0; color: #202124;">Email Marketing</h4>
     </div>
     """, unsafe_allow_html=True)
     
@@ -1877,7 +1877,7 @@ elif st.session_state.page == "medicofi5":
             <line x1="3" y1="9" x2="21" y2="9"></line>
             <line x1="9" y1="21" x2="9" y2="9"></line>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Kakémono</h4>
+        <h4 style="margin: 0; color: #202124;">roll banner</h4>
     </div>
     """, unsafe_allow_html=True)
     
