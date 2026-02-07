@@ -3568,17 +3568,6 @@ elif st.session_state.page == "freelance":
         st.session_state.page = "medicofi"
         st.rerun()
 
-    # Titre principal avec icône
-    st.markdown("""
-    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-        </svg>
-        <h1 style="margin: 0; color: #202124; font-size: 32px; font-weight: 700;">Projets Freelance</h1>
-    </div>
-    """, unsafe_allow_html=True)
-
     # ========== SECTION 1: CHabeb Ennour (volunteer group) ==========
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; margin-top: 30px;">
@@ -3602,7 +3591,7 @@ elif st.session_state.page == "freelance":
     
     with col1:
         try:
-            img_path = f"mes_documents/Freelance/CHabeb Ennour (volunteer group)/{chabeb_images[0][0]}"
+            img_path = f"Freelance/CHabeb Ennour (volunteer group)/{chabeb_images[0][0]}"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
