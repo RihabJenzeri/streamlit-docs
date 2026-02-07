@@ -3591,7 +3591,7 @@ elif st.session_state.page == "freelance_chabeb":
             <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
         </svg>
-        <h3 style="margin: 0; color: #202124;">CHabeb Ennour (volunteer group)</h3>
+        <h3 style="margin: 0; color: #202124;">Chabeb Ennour (volunteer group)</h3>
     </div>
     """, unsafe_allow_html=True)
 
