@@ -757,9 +757,11 @@ elif st.session_state.page == "medicofi":
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="MEDICOFI">
             </div>
-            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;padding-bottom: 4px;">
-                MC Consulting (MEDICOFI)
-            </h3>
+            <!-- MC Consulting (MEDICOFI) -->
+            <div style="color: #202124; font-family: 'Montserrat', sans-serif; padding-bottom: 4px;">
+                <span style="font-size: 18px; font-weight: 600; margin: 0;">MC Consulting</span>
+                <div style="font-size: 14px; font-weight: 500; margin: 2px 0 0 0;">(MEDICOFI)</div>
+            </div>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
                 Medicofi Group  ↓
             </p>
@@ -812,9 +814,11 @@ elif st.session_state.page == "medicofi":
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="FREELANCE">
             </div>
-            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;padding-bottom: 4px;">
-                FREELANCE
-            </h3>
+            <!-- FREELANCE -->
+            <div style="color: #202124; font-family: 'Montserrat', sans-serif; padding-bottom: 4px;">
+                <span style="font-size: 18px; font-weight: 600; margin: 0;">FREELANCE</span>
+                <div style="font-size: 14px; font-weight: 500; margin: 2px 0 0 0; height: 19px;">&nbsp;</div>
+            </div>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
                 Independent Projects ↓
             </p>
