@@ -3475,7 +3475,7 @@ elif st.session_state.page == "tle_post_carrousel":
             <circle cx="8.5" cy="8.5" r="1.5"></circle>
             <polyline points="21 15 16 10 5 21"></polyline>
         </svg>
-        <h3 style="margin: 0; color: #202124;">Post Carrousel - Tire Lait Express</h3>
+        <h3 style="margin: 0; color: #202124;">Carousel Post - Tire Lait Express</h3>
     </div>
     """, unsafe_allow_html=True)
 
@@ -3539,7 +3539,7 @@ elif st.session_state.page == "tle_post_carrousel":
                         st.markdown(f"""
                         <div style="text-align: center; margin-bottom: 20px;">
                             <img src="{img_url}" style="width: 100%; max-width: 200px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                            <div style="color: #666; font-size: 12px; margin-top: 5px;">Slide {img_name.split('.')[0]}</div>
+                            <div style="color: #666; font-size: 12px; margin-top: 5px;">Post {img_name.split('.')[0]}</div>
                         </div>
                         """, unsafe_allow_html=True)
                 except:
