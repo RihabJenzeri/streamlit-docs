@@ -851,9 +851,10 @@ elif st.session_state.page == "medicofi":
                      style="width: 100%; height: 100%; object-fit: cover;"
                      alt="TSE">
             </div>
-            <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif; padding-bottom: 4px;">
-                TSE<br>(Poli)
-            </h3>
+            <div style="color: #202124; font-family: 'Montserrat', sans-serif; padding-bottom: 4px;">
+                <span style="font-size: 18px; font-weight: 600; margin: 0;">TSE</span>
+                <div style="font-size: 14px; font-weight: 500; margin: 2px 0 0 0;">(Poli)</div>
+            </div>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
                 Sportswear Design ↓
             </p>
