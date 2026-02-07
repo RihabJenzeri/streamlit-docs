@@ -4714,7 +4714,7 @@ st.markdown("""
 
 /* Style pour l'image du logo */
 .logo-img {
-    max-width: 80px;
+    max-width: 220px;
     max-height: 80px;
     filter: brightness(0) invert(1); /* Rend le logo blanc si nécessaire */
 }
