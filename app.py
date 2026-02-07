@@ -3603,13 +3603,13 @@ elif st.session_state.page == "tse":
     </div>
     """, unsafe_allow_html=True)
 
-    # PDF Viewer
+  # PDF Viewer
     try:
-        # Chemin du PDF
-        pdf_path = "TSE/Guide mise en page2021.pdf"
+        # CHEMIN POUR L'AFFICHAGE (avec get_image_url)
+        display_pdf_path = "TSE/Guide mise en page2021.pdf"
         
         # Obtenir l'URL pour l'affichage
-        pdf_url = get_image_url(pdf_path)
+        pdf_url = get_image_url(display_pdf_path)
         
         # Encoder l'URL pour Google Viewer
         import urllib.parse
@@ -3619,38 +3619,41 @@ elif st.session_state.page == "tse":
         # Afficher le PDF dans un iframe
         st.markdown(f'<iframe width="100%" height="600" src="{google_viewer_url}"></iframe>', unsafe_allow_html=True)
         
-        # Boutons d'action - SANS STYLE, SANS EMOJI
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            # Essayer de charger le PDF pour le téléchargement
-            try:
-                with open(pdf_path, "rb") as pdf_file:
-                    pdf_bytes = pdf_file.read()
-                
-                st.download_button(
-                    label="Télécharger le Guide",
-                    data=pdf_bytes,
-                    file_name="Guide mise en page 2021.pdf",
-                    mime="application/pdf",
-                    use_container_width=True
-                )
-            except FileNotFoundError:
-                st.error("Erreur: Fichier non trouvé pour le téléchargement")
-        
-        with col2:
-            # Bouton pour ouvrir en plein écran
-            if st.button("Ouvrir PDF", use_container_width=True):
-                # Code JavaScript pour ouvrir dans un nouvel onglet
-                js = f"""
-                <script>
-                window.open('{google_viewer_url}', '_blank');
-                </script>
-                """
-                st.components.v1.html(js, height=0)
-                
     except Exception as e:
         st.error(f"Erreur d'affichage du PDF: {str(e)}")
+
+    # Boutons d'action - SÉPARÉS DE L'AFFICHAGE
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        # TÉLÉCHARGEMENT - Chemin local
+        download_pdf_path = "mes_documents/TSE/Guide mise en page2021.pdf"
+        
+        try:
+            with open(download_pdf_path, "rb") as pdf_file:
+                pdf_bytes = pdf_file.read()
+            
+            st.download_button(
+                label="Télécharger le Guide",
+                data=pdf_bytes,
+                file_name="Guide mise en page 2021.pdf",
+                mime="application/pdf",
+                use_container_width=True
+            )
+        except FileNotFoundError:
+            st.error(f"Fichier non trouvé: {download_pdf_path}")
+        except Exception as e:
+            st.error(f"Erreur de téléchargement: {str(e)}")
+    
+    with col2:
+        # Bouton pour ouvrir en plein écran
+        try:
+            if st.button("Ouvrir PDF", use_container_width=True):
+                # Ouvrir l'URL d'affichage
+                import webbrowser
+                webbrowser.open_new_tab(google_viewer_url)
+        except:
+            st.button("Ouvrir PDF", use_container_width=True, disabled=True)
 
     # TRIER les images dans l'ordre numérique (1, 2, 3... 12)
     image_numbers = list(range(1, 13))
