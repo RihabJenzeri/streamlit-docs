@@ -4136,7 +4136,19 @@ elif st.session_state.page == "pdf_viewer":
         st.session_state.page = "accueil"
         st.rerun()
 
-    st.title("📄 PORTFOLIO INES HARRABI 2024")
+    # Titre avec le même design
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <h1 style="margin: 0; color: #202124; font-size: 32px; font-weight: 700;">PORTFOLIO INES HARRABI 2024</h1>
+    </div>
+    """, unsafe_allow_html=True)
 
     # PDF Viewer
     st.markdown(f'<iframe width="100%" height="800" src="{google_viewer_url}"></iframe>', unsafe_allow_html=True)
@@ -4146,12 +4158,12 @@ elif st.session_state.page == "pdf_viewer":
 
     with col1:
         st.markdown(f'<a href="{pdf_url_raw}" download="Portfolio_Ines_HARRABI_2024.pdf" style="text-decoration: none; color: #666666;">', unsafe_allow_html=True)
-        if st.button("📥 Télécharger le PDF", use_container_width=True):
+        if st.button("Télécharger le PDF", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
 
     with col2:
         st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none; color: #666666;">', unsafe_allow_html=True)
-        if st.button("🔗 Ouvrir dans Google Viewer", use_container_width=True):
+        if st.button("Ouvrir dans Google Viewer", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
