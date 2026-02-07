@@ -4649,3 +4649,85 @@ elif st.session_state.page == "pdf_viewer":
         if st.button("Open with Google Viewer", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
+
+# ... (tout votre code existant jusqu'au dernier bloc elif)
+
+elif st.session_state.page == "pdf_viewer":
+    if st.button("←"):
+        st.session_state.page = "accueil"
+        st.rerun()
+
+    # Titre avec le même design
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <h1 style="margin: 0; color: #202124; font-size: 32px; font-weight: 700;">Selected Works – (2012–2019)</h1>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # PDF Viewer
+    st.markdown(f'<iframe width="100%" height="800" src="{google_viewer_url}"></iframe>', unsafe_allow_html=True)
+
+    # Action Buttons
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown(f'<a href="{pdf_url_raw}" download="Portfolio_Ines_HARRABI_2024.pdf" style="text-decoration: none; color: #666666;">', unsafe_allow_html=True)
+        if st.button("Download PDF", use_container_width=True):
+            pass
+        st.markdown('</a>', unsafe_allow_html=True)
+
+    with col2:
+        st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none; color: #666666;">', unsafe_allow_html=True)
+        if st.button("Open with Google Viewer", use_container_width=True):
+            pass
+        st.markdown('</a>', unsafe_allow_html=True)
+
+    # ============ AJOUTER LE FOOTER ICI ============
+    # Le footer sera visible sur TOUTES les pages, après le contenu principal
+    
+    st.markdown("""
+    <style>
+    .footer {
+        background-color: #202124;
+        width: 100vw;
+        padding: 20px 0;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+    
+    .footer-image {
+        max-width: 80px;
+        height: auto;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+    
+    .footer-image:hover {
+        opacity: 1;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # URL de l'image pour le footer
+    footer_img_url = get_image_url("img.png")
+    
+    # Afficher le footer - IL SERA VISIBLE SUR TOUTES LES PAGES
+    st.markdown(f"""
+    <div class="footer">
+        <img src="{footer_img_url}" class="footer-image" alt="Footer Image">
+    </div>
+    """, unsafe_allow_html=True)
