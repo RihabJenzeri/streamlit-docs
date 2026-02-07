@@ -3078,28 +3078,28 @@ elif st.session_state.page == "seinbiose_post_carrousel":
     # Liste des images de carrousel selon votre structure
     # Vous avez 3 carrousels avec des images dans les dossiers 1, 2, 3
     carrousels = [
-        {
+            {
             "name": "Carrousel 1",
             "images": [
                 "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/1.png",
-                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/2.png",
-                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/3.png"
+                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/2.png",
+                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/3.png"
             ]
         },
         {
             "name": "Carrousel 2",
             "images": [
-                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2/1.png",
-                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2/2.png"
+                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2/1.png",
+                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2/2.png"
             ]
         },
         {
             "name": "Carrousel 3",
             "images": [
-                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/1.png",
-                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/2.png",
-                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/3.png",
-                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/4.png"
+                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/1.png",
+                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/2.png",
+                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/3.png",
+                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/4.png"
             ]
         }
     ]
