@@ -4034,7 +4034,7 @@ elif st.session_state.page == "design_folders":
     """, unsafe_allow_html=True)
     
     st.write(
-        '<span style="color: #666666;">Le site web est déjà en ligne, mais il est toujours en cours de développement.</span>',
+        '<span style="color: #666666;">The website is already online, but it is still under development.</span>',
         unsafe_allow_html=True
     )
     st.markdown("""
