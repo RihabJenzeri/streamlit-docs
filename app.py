@@ -1270,7 +1270,7 @@ elif st.session_state.page == "mamivac_post_carrousel":
             img_url = get_image_url(carrousel_images[start_index])
             # Test d'affichage simple d'abord
             try:
-                st.image(img_url, use_container_width=True, caption=f"Slide 1")
+                st.image(img_url, use_container_width=True, caption=f"Post 1")
             except Exception as e:
                 st.error(f"Erreur chargement image 1: {e}")
                 st.write(f"URL: {img_url}")
@@ -1278,7 +1278,7 @@ elif st.session_state.page == "mamivac_post_carrousel":
         with col2:
             img_url = get_image_url(carrousel_images[start_index + 1])
             try:
-                st.image(img_url, use_container_width=True, caption=f"Slide 2")
+                st.image(img_url, use_container_width=True, caption=f"Post 2")
             except Exception as e:
                 st.error(f"Erreur chargement image 2: {e}")
                 st.write(f"URL: {img_url}")
@@ -1286,7 +1286,7 @@ elif st.session_state.page == "mamivac_post_carrousel":
         with col3:
             img_url = get_image_url(carrousel_images[start_index + 2])
             try:
-                st.image(img_url, use_container_width=True, caption=f"Slide 3")
+                st.image(img_url, use_container_width=True, caption=f"Post 3")
             except Exception as e:
                 st.error(f"Erreur chargement image 3: {e}")
                 st.write(f"URL: {img_url}")
