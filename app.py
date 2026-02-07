@@ -2124,7 +2124,7 @@ elif st.session_state.page == "respi_reseaux_sociaux":
                         """, unsafe_allow_html=True)
    
     
-# Page Post Carrousel Respi Express
+# ========== PAGE Post Carrousel Respi Express ==========
 elif st.session_state.page == "respi_post_carrousel":
     if st.button("←"):
         st.session_state.page = "respi_reseaux_sociaux"
@@ -2143,14 +2143,304 @@ elif st.session_state.page == "respi_post_carrousel":
 
     st.markdown('<div style="color: #666; margin-bottom: 30px;">Carousel posts for Respi Express social media</div>', unsafe_allow_html=True)
     
-    # Note: Les images du carrousel ne sont pas spécifiées dans votre structure
-    # J'ajoute un placeholder pour cette page
+    # ========== GROUPE 1 ==========
+    st.markdown("---")
     st.markdown("""
-    <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 40px 0;">
-        <div style="color: #888; font-size: 18px; margin-bottom: 20px;">Carrousel posts content</div>
-        <div style="color: #666;">Post carrousel images will be displayed here</div>
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Groupe 1</h4>
     </div>
     """, unsafe_allow_html=True)
+    
+    # Images du Groupe 1
+    groupe1_images = ["1.png", "2.png", "3.png", "4.png", "5.png"]
+    num_cols1 = min(len(groupe1_images), 6)
+    cols1 = st.columns(num_cols1)
+    
+    for idx, img_name in enumerate(groupe1_images):
+        if idx < num_cols1:
+            try:
+                img_path = f"mes_documents/Freelance/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/1/{img_name}"
+                img_url = get_image_url(img_path)
+                
+                with cols1[idx]:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img src="{img_url}" style="width: 100%; max-width: 200px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <div style="color: #666; font-size: 12px; margin-top: 5px;">Post {img_name.split('.')[0]}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+            except:
+                with cols1[idx]:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="padding: 30px; background: #f9f9f9; border-radius: 8px;">
+                            <div style="color: #888; font-size: 12px;">Slide {img_name.split('.')[0]}</div>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+    
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    
+    # ========== GROUPE 2 ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Groupe 2</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Images du Groupe 2
+    groupe2_images = ["1.png", "2.png"]
+    num_cols2 = min(len(groupe2_images), 6)
+    cols2 = st.columns(num_cols2)
+    
+    for idx, img_name in enumerate(groupe2_images):
+        if idx < num_cols2:
+            try:
+                img_path = f"mes_documents/Freelance/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/2/{img_name}"
+                img_url = get_image_url(img_path)
+                
+                with cols2[idx]:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img src="{img_url}" style="width: 100%; max-width: 200px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <div style="color: #666; font-size: 12px; margin-top: 5px;">Post {img_name.split('.')[0]}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+            except:
+                with cols2[idx]:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="padding: 30px; background: #f9f9f9; border-radius: 8px;">
+                            <div style="color: #888; font-size: 12px;">Slide {img_name.split('.')[0]}</div>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+    
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    
+    # ========== GROUPE 3 ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Groupe 3</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Images du Groupe 3
+    groupe3_images = ["01.png", "02.png", "03.png"]
+    num_cols3 = min(len(groupe3_images), 6)
+    cols3 = st.columns(num_cols3)
+    
+    for idx, img_name in enumerate(groupe3_images):
+        if idx < num_cols3:
+            try:
+                img_path = f"mes_documents/Freelance/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/3/{img_name}"
+                img_url = get_image_url(img_path)
+                
+                with cols3[idx]:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img src="{img_url}" style="width: 100%; max-width: 200px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <div style="color: #666; font-size: 12px; margin-top: 5px;">Post {img_name.split('.')[0]}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+            except:
+                with cols3[idx]:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="padding: 30px; background: #f9f9f9; border-radius: 8px;">
+                            <div style="color: #888; font-size: 12px;">Slide {img_name.split('.')[0]}</div>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+    
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    
+    # ========== GROUPE 4 ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Groupe 4</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Images du Groupe 4
+    groupe4_images = ["1.png", "2.png", "3.png", "4.png"]
+    num_cols4 = min(len(groupe4_images), 6)
+    cols4 = st.columns(num_cols4)
+    
+    for idx, img_name in enumerate(groupe4_images):
+        if idx < num_cols4:
+            try:
+                img_path = f"mes_documents/Freelance/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/4/{img_name}"
+                img_url = get_image_url(img_path)
+                
+                with cols4[idx]:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img src="{img_url}" style="width: 100%; max-width: 200px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <div style="color: #666; font-size: 12px; margin-top: 5px;">Post {img_name.split('.')[0]}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+            except:
+                with cols4[idx]:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="padding: 30px; background: #f9f9f9; border-radius: 8px;">
+                            <div style="color: #888; font-size: 12px;">Slide {img_name.split('.')[0]}</div>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+    
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    
+    # ========== GROUPE 5 ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Groupe 5</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Images du Groupe 5
+    groupe5_images = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"]
+    num_cols5 = min(len(groupe5_images), 6)
+    cols5 = st.columns(num_cols5)
+    
+    for idx, img_name in enumerate(groupe5_images):
+        if idx < num_cols5:
+            try:
+                img_path = f"mes_documents/Freelance/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/5/{img_name}"
+                img_url = get_image_url(img_path)
+                
+                with cols5[idx]:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img src="{img_url}" style="width: 100%; max-width: 200px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <div style="color: #666; font-size: 12px; margin-top: 5px;">Post {img_name.split('.')[0]}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+            except:
+                with cols5[idx]:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="padding: 30px; background: #f9f9f9; border-radius: 8px;">
+                            <div style="color: #888; font-size: 12px;">Slide {img_name.split('.')[0]}</div>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+    
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    
+    # ========== GROUPE 6 ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Groupe 6</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Images du Groupe 6
+    groupe6_images = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"]
+    num_cols6 = min(len(groupe6_images), 6)
+    cols6 = st.columns(num_cols6)
+    
+    for idx, img_name in enumerate(groupe6_images):
+        if idx < num_cols6:
+            try:
+                img_path = f"mes_documents/Freelance/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/6/{img_name}"
+                img_url = get_image_url(img_path)
+                
+                with cols6[idx]:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img src="{img_url}" style="width: 100%; max-width: 200px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <div style="color: #666; font-size: 12px; margin-top: 5px;">Post {img_name.split('.')[0]}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+            except:
+                with cols6[idx]:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="padding: 30px; background: #f9f9f9; border-radius: 8px;">
+                            <div style="color: #888; font-size: 12px;">Slide {img_name.split('.')[0]}</div>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+    
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    
+    # ========== GROUPE 7 ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Groupe 7</h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Images du Groupe 7
+    groupe7_images = ["1.png", "2.png", "3.png", "4.png", "5.png"]
+    num_cols7 = min(len(groupe7_images), 6)
+    cols7 = st.columns(num_cols7)
+    
+    for idx, img_name in enumerate(groupe7_images):
+        if idx < num_cols7:
+            try:
+                img_path = f"mes_documents/Freelance/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/7/{img_name}"
+                img_url = get_image_url(img_path)
+                
+                with cols7[idx]:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img src="{img_url}" style="width: 100%; max-width: 200px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <div style="color: #666; font-size: 12px; margin-top: 5px;">Post {img_name.split('.')[0]}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+            except:
+                with cols7[idx]:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="padding: 30px; background: #f9f9f9; border-radius: 8px;">
+                            <div style="color: #888; font-size: 12px;">Slide {img_name.split('.')[0]}</div>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
 
 # Page Sanibiose Company (France)
 elif st.session_state.page == "medicofi6":
