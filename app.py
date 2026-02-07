@@ -1901,7 +1901,7 @@ elif st.session_state.page == "medicofi5":
     
     # ========== BOUTON: Livret d'accueil ==========
     st.markdown("---")
-    if st.button("📖 LIVRET D'ACCUEIL", use_container_width=True):
+    if st.button("Welcome Booklet", use_container_width=True):
         st.session_state.page = "respi_livret"
         st.rerun()
     
@@ -1924,7 +1924,7 @@ elif st.session_state.page == "medicofi5":
             quick_recto_url = get_image_url("Medicofi/Société Respi Express (en France)/Quick start/Recto.png")
             st.markdown(f"""
             <div style="text-align: center;">
-                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Recto</div>
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Double</div>
                 <img src="{quick_recto_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
@@ -1941,7 +1941,7 @@ elif st.session_state.page == "medicofi5":
             quick_verso_url = get_image_url("Medicofi/Société Respi Express (en France)/Quick start/Verso.png")
             st.markdown(f"""
             <div style="text-align: center;">
-                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Verso</div>
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">sided</div>
                 <img src="{quick_verso_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
@@ -1955,7 +1955,7 @@ elif st.session_state.page == "medicofi5":
     
     # ========== BOUTON: Réseaux Sociaux ==========
     st.markdown("---")
-    if st.button("📱 RÉSEAUX SOCIAUX", use_container_width=True):
+    if st.button("Social Media", use_container_width=True):
         st.session_state.page = "respi_reseaux_sociaux"
         st.rerun()
 
