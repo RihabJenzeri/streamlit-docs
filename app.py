@@ -2076,64 +2076,52 @@ elif st.session_state.page == "respi_reseaux_sociaux":
         st.session_state.page = "respi_post_carrousel"
         st.rerun()
     
-   # ========== SECTION 2: Posts Statiques ==========
-st.markdown("---")
-st.markdown("""
-<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-        <circle cx="8.5" cy="8.5" r="1.5"></circle>
-        <polyline points="21 15 16 10 5 21"></polyline>
-    </svg>
-    <h4 style="margin: 0; color: #202124;">Posts Statiques</h4>
-</div>
-""", unsafe_allow_html=True)
-
-# Liste des 12 images de posts statiques dans l'ordre désiré
-static_images = [
-    "Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post statique/1.png",
-    "Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post statique/2.png", 
-    "Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post statique/3.png",
-    "Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post statique/4.png",
-    "Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post statique/5.png",
-    "Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post statique/6.png",
-    "Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post statique/7.png",
-    "Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post statique/8.png",
-    "Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post statique/9.png",
-    "Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post statique/10.png",
-    "Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post statique/11.png",
-    "Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post statique/12.png"
-]
-
-# Afficher les images en 3 colonnes (4 lignes de 3)
-num_columns = 3
-num_images = len(static_images)
-
-# Diviser en groupes de 3 images par ligne
-for i in range(0, num_images, num_columns):
-    cols = st.columns(num_columns)
+    # ========== SECTION: Post statique ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Single Post</h4>
+    </div>
+    """, unsafe_allow_html=True)
     
-    for col_idx in range(num_columns):
-        img_idx = i + col_idx
+    # Liste des 12 images de posts statiques
+    static_images = []
+    for i in range(1, 13):
+        static_images.append(f"Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post statique/{i}.png")
+    
+    # Afficher les images en 3 colonnes (4 lignes de 3)
+    num_columns = 3
+    num_images = len(static_images)
+    
+    for i in range(0, num_images, num_columns):
+        cols = st.columns(num_columns)
         
-        if img_idx < num_images:
-            with cols[col_idx]:
-                try:
-                    img_url = get_image_url(static_images[img_idx])
-                    st.markdown(f"""
-                    <div style="text-align: center; margin-bottom: 20px;">
-                        <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                        <div style="color: #666; font-size: 14px; margin-top: 8px;">Post {img_idx + 1}</div>
-                    </div>
-                    """, unsafe_allow_html=True)
-                except:
-                    st.markdown(f"""
-                    <div style="text-align: center; margin-bottom: 20px;">
-                        <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">
-                            <div style="color: #888;">Post {img_idx + 1}</div>
+        for col_idx in range(num_columns):
+            img_idx = i + col_idx
+            
+            if img_idx < num_images:
+                with cols[col_idx]:
+                    try:
+                        img_url = get_image_url(static_images[img_idx])
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <div style="color: #666; font-size: 14px; margin-top: 8px;">Post {img_idx + 1}</div>
                         </div>
-                    </div>
-                    """, unsafe_allow_html=True)
+                        """, unsafe_allow_html=True)
+                    except:
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">
+                                <div style="color: #888;">Post {img_idx + 1}</div>
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)
    
     
 # ========== PAGE Post Carrousel Respi Express ==========
