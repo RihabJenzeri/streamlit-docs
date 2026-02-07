@@ -874,7 +874,7 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("Design \n   & Layout", use_container_width=True, key="tse_btn"):
+        if st.button("Design    \n   & Layout", use_container_width=True, key="tse_btn"):
             st.session_state.page = "tse"
             st.rerun()
     # Page Mamivac France Company
