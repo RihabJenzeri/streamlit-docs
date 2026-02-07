@@ -3297,7 +3297,7 @@ elif st.session_state.page == "medicofi8":
             <line x1="16" y1="17" x2="8" y2="17"></line>
             <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Guide</h4>
+        <h4 style="margin: 0; color: #202124;">Guidebook</h4>
     </div>
     """, unsafe_allow_html=True)
 
@@ -3313,13 +3313,13 @@ elif st.session_state.page == "medicofi8":
         col1, col2 = st.columns(2)
         with col1:
             st.markdown(f'<a href="{pdf_url}" download="Guide_Bienvenue_web_Graine_de_vie_PAGE.pdf" style="text-decoration: none;">', unsafe_allow_html=True)
-            if st.button("Télécharger le Guide", use_container_width=True):
+            if st.button("Download the guidebook", use_container_width=True):
                 pass
             st.markdown('</a>', unsafe_allow_html=True)
         
         with col2:
             st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none;">', unsafe_allow_html=True)
-            if st.button("Ouvrir PDF", use_container_width=True):
+            if st.button("Open PDF", use_container_width=True):
                 pass
             st.markdown('</a>', unsafe_allow_html=True)
     except:
