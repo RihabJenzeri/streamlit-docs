@@ -3622,39 +3622,22 @@ elif st.session_state.page == "tse":
     except Exception as e:
         st.error(f"Erreur d'affichage du PDF: {str(e)}")
 
-    # Boutons d'action - SÉPARÉS DE L'AFFICHAGE
+     # LES DEUX BOUTONS IDENTIQUES
     col1, col2 = st.columns(2)
     
+    # Bouton 1: Télécharger
     with col1:
-        # TÉLÉCHARGEMENT - Chemin local
-        download_pdf_path = "mes_documents/TSE/Guide mise en page2021.pdf"
-        
+        download_path = "mes_documents/TSE/Guide mise en page2021.pdf"
         try:
-            with open(download_pdf_path, "rb") as pdf_file:
-                pdf_bytes = pdf_file.read()
-            
-            st.download_button(
-                label="Télécharger le Guide",
-                data=pdf_bytes,
-                file_name="Guide mise en page 2021.pdf",
-                mime="application/pdf",
-                use_container_width=True
-            )
-        except FileNotFoundError:
-            st.error(f"Fichier non trouvé: {download_pdf_path}")
-        except Exception as e:
-            st.error(f"Erreur de téléchargement: {str(e)}")
-    
-    with col2:
-        # Bouton pour ouvrir en plein écran
-        try:
-            if st.button("Ouvrir PDF", use_container_width=True):
-                # Ouvrir l'URL d'affichage
-                import webbrowser
-                webbrowser.open_new_tab(google_viewer_url)
+            with open(download_path, "rb") as f:
+                pdf_data = f.read()
+            st.download_button("Télécharger le Guide", pdf_data, "Guide mise en page 2021.pdf", "application/pdf", use_container_width=True)
         except:
-            st.button("Ouvrir PDF", use_container_width=True, disabled=True)
-
+            st.button("Télécharger le Guide", disabled=True, use_container_width=True)
+    
+    # Bouton 2: Ouvrir PDF
+    with col2:
+        st.button("Ouvrir PDF", use_container_width=True)
     # TRIER les images dans l'ordre numérique (1, 2, 3... 12)
     image_numbers = list(range(1, 13))
     tse_images = [f"TSE/SportsWear Design/{num}.png" for num in image_numbers]
