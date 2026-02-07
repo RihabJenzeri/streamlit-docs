@@ -759,7 +759,7 @@ elif st.session_state.page == "medicofi":
             </div>
             <!-- MC Consulting (MEDICOFI) -->
             <div style="color: #202124; font-family: 'Montserrat', sans-serif; padding-bottom: 4px;">
-                <span style="font-size: 18px; font-weight: 600; margin: 0;">MC CONLUTING</span>
+                <span style="font-size: 18px; font-weight: 600; margin: 0;">MC CONSULTING</span>
                 <div style="font-size: 14px; font-weight: 500; margin: 2px 0 0 0;">(MEDICOFI)</div>
             </div>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
