@@ -1452,7 +1452,7 @@ elif st.session_state.page == "mamivac_story":
         # Ajouter un séparateur entre les lignes (sauf après la dernière)
         if i + num_columns < num_images:
             st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
-  # Page MC Consulting Company (Tunisia)
+# Page MC Consulting Company (Tunisia)
 elif st.session_state.page == "medicofi3":
     if st.button("←"):
         st.session_state.page = "medicofi"
@@ -1476,78 +1476,78 @@ elif st.session_state.page == "medicofi3":
         ("Carte de voeux 2025.png", "Carte de Voeux 2025")
     ]
     
-    # Afficher les 2 images en 2 colonnes
-    col1, col2 = st.columns(2)
+    # Première image - Carte de Voeux 2024
+    file_name, description = mc_consulting_images[0]
+    image_path = f"Medicofi/Société MC Consulting (Tunisie)/Carte de Voeux/{file_name}"
     
-    with col1:
-        file_name, description = mc_consulting_images[0]
-        image_path = f"Medicofi/Société MC Consulting (Tunisie)/Carte de Voeux/{file_name}"
+    try:
+        img_url = get_image_url(image_path)
         
-        try:
-            img_url = get_image_url(image_path)
-            
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: flex; justify-content: center; margin-bottom: 15px;">
-                    <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.15);">
-                </div>
-                <div style="color: #202124; font-size: 18px; font-weight: 600; margin-bottom: 8px;">
-                    {description}
-                </div>
-                <div style="color: #888; font-size: 14px;">
-                    New Year Greeting Card
-                </div>
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div style="color: #202124; font-size: 22px; font-weight: 600; margin-bottom: 15px;">
+                {description}
             </div>
-            """, unsafe_allow_html=True)
-        except Exception as e:
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: flex; justify-content: center; align-items: center; height: 300px; background: linear-gradient(135deg, #f5f7fa 0%, #f9f9f9 100%); border-radius: 10px; margin-bottom: 15px; border: 2px dashed #FBBDFA;">
-                    <div style="color: #888; font-size: 16px;">Image non disponible</div>
-                </div>
-                <div style="color: #202124; font-size: 18px; font-weight: 600; margin-bottom: 8px;">
-                    {description}
-                </div>
-                <div style="color: #888; font-size: 14px;">
-                    New Year Greeting Card
-                </div>
+            <div style="color: #888; font-size: 16px; margin-bottom: 20px;">
+                New Year Greeting Card
             </div>
-            """, unsafe_allow_html=True)
+            <div style="display: flex; justify-content: center; margin-bottom: 15px;">
+                <img src="{img_url}" style="width: 95%; max-width: 900px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    except Exception as e:
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div style="color: #202124; font-size: 22px; font-weight: 600; margin-bottom: 15px;">
+                {description}
+            </div>
+            <div style="color: #888; font-size: 16px; margin-bottom: 20px;">
+                New Year Greeting Card
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 500px; background: linear-gradient(135deg, #f5f7fa 0%, #f9f9f9 100%); border-radius: 12px; margin-bottom: 15px; border: 3px dashed #FBBDFA;">
+                <div style="color: #888; font-size: 20px;">Image non disponible</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
     
-    with col2:
-        file_name, description = mc_consulting_images[1]
-        image_path = f"Medicofi/Société MC Consulting (Tunisie)/Carte de Voeux/{file_name}"
+    # Séparateur entre les images
+    st.markdown('<div style="height: 1px; background: linear-gradient(to right, transparent, #FBBDFA, transparent); margin: 40px 0;"></div>', unsafe_allow_html=True)
+    
+    # Deuxième image - Carte de Voeux 2025
+    file_name, description = mc_consulting_images[1]
+    image_path = f"Medicofi/Société MC Consulting (Tunisie)/Carte de Voeux/{file_name}"
+    
+    try:
+        img_url = get_image_url(image_path)
         
-        try:
-            img_url = get_image_url(image_path)
-            
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: flex; justify-content: center; margin-bottom: 15px;">
-                    <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.15);">
-                </div>
-                <div style="color: #202124; font-size: 18px; font-weight: 600; margin-bottom: 8px;">
-                    {description}
-                </div>
-                <div style="color: #888; font-size: 14px;">
-                    New Year Greeting Card
-                </div>
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div style="color: #202124; font-size: 22px; font-weight: 600; margin-bottom: 15px;">
+                {description}
             </div>
-            """, unsafe_allow_html=True)
-        except Exception as e:
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: flex; justify-content: center; align-items: center; height: 300px; background: linear-gradient(135deg, #f5f7fa 0%, #f9f9f9 100%); border-radius: 10px; margin-bottom: 15px; border: 2px dashed #FBBDFA;">
-                    <div style="color: #888; font-size: 16px;">Image non disponible</div>
-                </div>
-                <div style="color: #202124; font-size: 18px; font-weight: 600; margin-bottom: 8px;">
-                    {description}
-                </div>
-                <div style="color: #888; font-size: 14px;">
-                    New Year Greeting Card
-                </div>
+            <div style="color: #888; font-size: 16px; margin-bottom: 20px;">
+                New Year Greeting Card
             </div>
-            """, unsafe_allow_html=True)
+            <div style="display: flex; justify-content: center; margin-bottom: 15px;">
+                <img src="{img_url}" style="width: 95%; max-width: 900px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    except Exception as e:
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div style="color: #202124; font-size: 22px; font-weight: 600; margin-bottom: 15px;">
+                {description}
+            </div>
+            <div style="color: #888; font-size: 16px; margin-bottom: 20px;">
+                New Year Greeting Card
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 500px; background: linear-gradient(135deg, #f5f7fa 0%, #f9f9f9 100%); border-radius: 12px; margin-bottom: 15px; border: 3px dashed #FBBDFA;">
+                <div style="color: #888; font-size: 20px;">Image non disponible</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
     
     # Description supplémentaire
     st.markdown("""
