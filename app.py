@@ -4157,12 +4157,12 @@ elif st.session_state.page == "pdf_viewer":
 
     with col1:
         st.markdown(f'<a href="{pdf_url_raw}" download="Portfolio_Ines_HARRABI_2024.pdf" style="text-decoration: none; color: #666666;">', unsafe_allow_html=True)
-        if st.button("Télécharger le PDF", use_container_width=True):
+        if st.button("Download PDF", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
 
     with col2:
         st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none; color: #666666;">', unsafe_allow_html=True)
-        if st.button("Ouvrir dans Google Viewer", use_container_width=True):
+        if st.button("Open with Google Viewer", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
