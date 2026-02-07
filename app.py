@@ -3569,8 +3569,153 @@ elif st.session_state.page == "freelance":
         st.rerun()
 
     st.title("👨‍💻 PROJETS FREELANCE")
-    st.write("Contenu des projets Freelance...")
-    # Ajoutez ici votre contenu pour Freelance
+    
+    # SECTION 1: CHabeb Ennour (volunteer group)
+    st.markdown("### CHabeb Ennour (volunteer group)")
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path1 = "mes_documents/Freelance/CHabeb Ennour (volunteer group)/affiche rentree sdf.jpg"
+            img_url1 = get_image_url(img_path1)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url1}" style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except Exception as e:
+            st.error(f"Image non trouvée: {img_path1}")
+    
+    with col2:
+        try:
+            img_path2 = "mes_documents/Freelance/CHabeb Ennour (volunteer group)/تغذية صحية للعائلات المعوزة.png"
+            img_url2 = get_image_url(img_path2)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url2}" style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except Exception as e:
+            st.error(f"Image non trouvée: {img_path2}")
+    
+    st.markdown("---")
+    
+    # SECTION 2: Clorex Company
+    st.markdown("### Clorex Company")
+    
+    # Première ligne - 2 images
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path1 = "mes_documents/Freelance/Clorex Company/Assouplissant magic-01.png"
+            img_url1 = get_image_url(img_path1)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url1}" style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except Exception as e:
+            st.error(f"Image non trouvée: {img_path1}")
+    
+    with col2:
+        try:
+            img_path2 = "mes_documents/Freelance/Clorex Company/Assouplissant naturel-01.png"
+            img_url2 = get_image_url(img_path2)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url2}" style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except Exception as e:
+            st.error(f"Image non trouvée: {img_path2}")
+    
+    # Deuxième ligne - 2 images
+    col3, col4 = st.columns(2)
+    
+    with col3:
+        try:
+            img_path3 = "mes_documents/Freelance/Clorex Company/CLOREX Vaisselle pomme-01.png"
+            img_url3 = get_image_url(img_path3)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url3}" style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except Exception as e:
+            st.error(f"Image non trouvée: {img_path3}")
+    
+    with col4:
+        try:
+            img_path4 = "mes_documents/Freelance/Clorex Company/etiquette gel machine Ariel-01.png"
+            img_url4 = get_image_url(img_path4)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url4}" style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except Exception as e:
+            st.error(f"Image non trouvée: {img_path4}")
+    
+    st.markdown("---")
+    
+    # SECTION 3: Mayar Auto Company
+    st.markdown("### Mayar Auto Company")
+    
+    # Première ligne - 2 images
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path1 = "mes_documents/Freelance/Mayar Auto Company/3D 2.jpg"
+            img_url1 = get_image_url(img_path1)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url1}" style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except Exception as e:
+            st.error(f"Image non trouvée: {img_path1}")
+    
+    with col2:
+        try:
+            img_path2 = "mes_documents/Freelance/Mayar Auto Company/Mar P4.png"
+            img_url2 = get_image_url(img_path2)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url2}" style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except Exception as e:
+            st.error(f"Image non trouvée: {img_path2}")
+    
+    # Deuxième ligne - 2 images
+    col3, col4 = st.columns(2)
+    
+    with col3:
+        try:
+            img_path3 = "mes_documents/Freelance/Mayar Auto Company/Mayar P4.png"
+            img_url3 = get_image_url(img_path3)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url3}" style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except Exception as e:
+            st.error(f"Image non trouvée: {img_path3}")
+    
+    with col4:
+        try:
+            img_path4 = "mes_documents/Freelance/Mayar Auto Company/Mr P4.png"
+            img_url4 = get_image_url(img_path4)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url4}" style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except Exception as e:
+            st.error(f"Image non trouvée: {img_path4}")
 
 elif st.session_state.page == "tse":
     if st.button("←"):
