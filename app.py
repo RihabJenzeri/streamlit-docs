@@ -2008,7 +2008,7 @@ elif st.session_state.page == "respi_livret":
     """, unsafe_allow_html=True)
 
     # URL du PDF
-    pdf_url = get_image_url("Medicofi/Société Respi Express (en France)/Livret d'accueil/Livret d'accueil respi express.pdf")
+    pdf_url = get_image_url("mes-documents/Medicofi/Société Respi Express (en France)/Livret d'accueil/Livret d'accueil respi express.pdf")
     pdf_encoded = urllib.parse.quote(pdf_url, safe='')
     google_viewer_url = f"https://docs.google.com/viewer?url={pdf_encoded}&embedded=true"
 
