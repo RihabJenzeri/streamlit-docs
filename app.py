@@ -3114,7 +3114,7 @@ elif st.session_state.page == "medicofi8":
         </div>
     </div>
     """, unsafe_allow_html=True)
-    # ========== SECTION 4: Dépliant ==========
+       # ========== SECTION 4: Dépliant ==========
     st.markdown("---")
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
@@ -3127,52 +3127,59 @@ elif st.session_state.page == "medicofi8":
     </div>
     """, unsafe_allow_html=True)
 
-    # Deux images en deux colonnes
+    # Deux images chacune dans sa propre colonne (pleine largeur)
     depliant_images = [
-        ("Recto.png", "Recto"),
-        ("Verso.png", "Verso")
+        ("Recto.png", "Double"),
+        ("Verso.png", "sided")
     ]
     
-    col1, col2 = st.columns(2)
+    # Première image seule (pleine largeur)
+    st.markdown("""
+    <div style="color: #202124; font-weight: 600; margin-top: 20px; margin-bottom: 15px; font-size: 18px; text-align: center;">
+        Double
+    </div>
+    """, unsafe_allow_html=True)
     
-    with col1:
-        try:
-            img_path = f"Medicofi/Société Tire Lait Express (en France)/Dépliant/{depliant_images[0][0]}"
-            img_url = get_image_url(img_path)
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{depliant_images[0][1]}</div>
+    try:
+        img_path = f"Medicofi/Société Tire Lait Express (en France)/Dépliant/{depliant_images[0][0]}"
+        img_url = get_image_url(img_path)
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 40px;">
+            <img src="{img_url}" style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+        </div>
+        """, unsafe_allow_html=True)
+    except:
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div style="padding: 80px; background: #f9f9f9; border-radius: 10px; max-width: 800px; margin: 0 auto;">
+                <div style="color: #888; font-size: 16px;">{depliant_images[0][1]}</div>
             </div>
-            """, unsafe_allow_html=True)
-        except:
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
-                    <div style="color: #888;">{depliant_images[0][1]}</div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
+        </div>
+        """, unsafe_allow_html=True)
     
-    with col2:
-        try:
-            img_path = f"Medicofi/Société Tire Lait Express (en France)/Dépliant/{depliant_images[1][0]}"
-            img_url = get_image_url(img_path)
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{depliant_images[1][1]}</div>
+    # Deuxième image seule (pleine largeur)
+    st.markdown("""
+    <div style="color: #202124; font-weight: 600; margin-top: 20px; margin-bottom: 15px; font-size: 18px; text-align: center;">
+        sided
+    </div>
+    """, unsafe_allow_html=True)
+    
+    try:
+        img_path = f"Medicofi/Société Tire Lait Express (en France)/Dépliant/{depliant_images[1][0]}"
+        img_url = get_image_url(img_path)
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 40px;">
+            <img src="{img_url}" style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+        </div>
+        """, unsafe_allow_html=True)
+    except:
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div style="padding: 80px; background: #f9f9f9; border-radius: 10px; max-width: 800px; margin: 0 auto;">
+                <div style="color: #888; font-size: 16px;">{depliant_images[1][1]}</div>
             </div>
-            """, unsafe_allow_html=True)
-        except:
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
-                    <div style="color: #888;">{depliant_images[1][1]}</div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-
+        </div>
+        """, unsafe_allow_html=True)
     # ========== SECTION 5: Emailing et Newsletters ==========
     st.markdown("---")
     st.markdown("""
