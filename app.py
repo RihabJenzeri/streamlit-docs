@@ -3900,7 +3900,7 @@ elif st.session_state.page == "tse":
                 pdf_data = f.read()
             
             # Même style que le bouton "Ouvrir PDF"
-            if st.button("Télécharger le Guide", use_container_width=True):
+            if st.button("Download the guidebook", use_container_width=True):
                 # Créer un lien de téléchargement
                 import base64
                 b64 = base64.b64encode(pdf_data).decode()
