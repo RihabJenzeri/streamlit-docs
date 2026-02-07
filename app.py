@@ -3943,48 +3943,29 @@ elif st.session_state.page == "tse":
         "TSE/SportsWear Design/10.png",
         "TSE/SportsWear Design/4.png"
     ]
-    current_proposition = None
-
+    
     # CORRECTION : Utiliser votre_ordre_images au lieu de tse_images
     # Afficher chaque image dans VOTRE ordre
-for idx, img_path in enumerate(votre_ordre_images):
-    img_number = idx + 1
-    
-    # Déterminer la proposition (6 premières = Proposition 1, 6 suivantes = Proposition 2)
-    proposition = "Proposition 1" if idx < 6 else "Proposition 2"
-    
-    # Afficher le titre de la proposition quand elle change
-    if proposition != current_proposition:
-        current_proposition = proposition
-        st.markdown(f"""
-        <div style="margin: 40px 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #FBBDFA;">
-            <h3 style="color: #202124; margin: 0; font-size: 24px; font-weight: 600;">{proposition}</h3>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    try:
-        img_url = get_image_url(img_path)
+    for idx, img_path in enumerate(votre_ordre_images):  # CHANGÉ ICI
+        img_number = idx + 1
         
-        # Récupérer le numéro réel du fichier
-        file_number = img_path.split("/")[-1].split(".")[0]
-        
-        # Conteneur pour chaque image avec son numéro
-        st.markdown(f"""
-        <div style="margin-bottom: 40px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                <div style="background: #FBBDFA; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
-                    {img_number}
+        try:
+            img_url = get_image_url(img_path)
+            
+            # Conteneur pour chaque image avec son numéro
+            st.markdown(f"""
+            <div style="margin-bottom: 40px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <div style="background: #FBBDFA; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                        {img_number}
+                    </div>
+                    <div style="color: #202124; font-weight: 600; font-size: 18px;">Design {img_number}</div>
                 </div>
-                <div style="color: #202124; font-weight: 600; font-size: 18px;">{proposition} - Image {img_number}</div>
-            </div>
-            <div style="text-align: center;">
-                <img src="{img_url}" style="width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #666; font-size: 14px; margin-top: 10px; font-style: italic;">
-                    File: {file_number}.png
+                <div style="text-align: center;">
+                    <img src="{img_url}" style="width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                 </div>
             </div>
-        </div>
-        """, unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
             
         except Exception as e:
             st.markdown(f"""
