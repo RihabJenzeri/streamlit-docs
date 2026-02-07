@@ -3930,18 +3930,18 @@ elif st.session_state.page == "tse":
     
     # VOUS ORDONNEZ LES IMAGES COMME VOUS VOULEZ
     votre_ordre_images = [
-        "TSE/SportsWear Design/3.png",   # Image 3 en premier
-        "TSE/SportsWear Design/1.png",   # Puis image 1
-        "TSE/SportsWear Design/5.png",   # Puis image 5
-        "TSE/SportsWear Design/2.png",   # etc.
-        "TSE/SportsWear Design/4.png",
-        "TSE/SportsWear Design/8.png",
-        "TSE/SportsWear Design/6.png",
-        "TSE/SportsWear Design/10.png",
-        "TSE/SportsWear Design/7.png",
+        "TSE/SportsWear Design/11.png",   # Image 3 en premier
+        "TSE/SportsWear Design/12.png",   # Puis image 1
+        "TSE/SportsWear Design/7.png",   # Puis image 5
+        "TSE/SportsWear Design/6.png",   # etc.
+        "TSE/SportsWear Design/5.png",
+        "TSE/SportsWear Design/3.png",
+        "TSE/SportsWear Design/1.png",
+        "TSE/SportsWear Design/2.png",
         "TSE/SportsWear Design/9.png",
-        "TSE/SportsWear Design/11.png",
-        "TSE/SportsWear Design/12.png"
+        "TSE/SportsWear Design/8.png",
+        "TSE/SportsWear Design/10.png",
+        "TSE/SportsWear Design/4.png"
     ]
     
     # CORRECTION : Utiliser votre_ordre_images au lieu de tse_images
