@@ -2903,11 +2903,61 @@ elif st.session_state.page == "medicofi7":
         <h4 style="margin: 0; color: #202124;">Social Media</h4>
     </div>
     """, unsafe_allow_html=True)
-
-    # Bouton pour accéder à la page des réseaux sociaux
-    if st.button("Post & story Facebook Instagram & LinkedIn", use_container_width=True):
-        st.session_state.page = "seinbiose_reseaux_sociaux"
-        st.rerun()
+    
+    # Créer 3 colonnes pour les boutons
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        # Bouton Post Carrousel avec icône
+        st.markdown("""
+        <div style="text-align: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        if st.button("Carousel post", use_container_width=True):
+            st.session_state.page = "seinbiose_post_carrousel"
+            st.rerun()
+    
+    with col2:
+        # Bouton Post Statique avec icône
+        st.markdown("""
+        <div style="text-align: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+                <line x1="17" y1="5" x2="17" y2="19"></line>
+            </svg>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        if st.button("single post", use_container_width=True):
+            st.session_state.page = "seinbiose_post_statique"
+            st.rerun()
+    
+    with col3:
+        # Bouton Story avec icône
+        st.markdown("""
+        <div style="text-align: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="12" cy="12" r="3"></circle>
+                <line x1="12" y1="5" x2="12" y2="5.01"></line>
+                <line x1="12" y1="19" x2="12" y2="19.01"></line>
+                <line x1="5" y1="12" x2="5.01" y2="12"></line>
+                <line x1="19" y1="12" x2="19.01" y2="12"></line>
+            </svg>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        if st.button("Story", use_container_width=True):
+            st.session_state.page = "seinbiose_story"
+            st.rerun()
 
     # ========== SECTION 9: Stand Parapluie ==========
     st.markdown("---")
