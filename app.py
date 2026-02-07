@@ -921,7 +921,7 @@ elif st.session_state.page == "medicofi2":
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
             <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
-        <h3 style="margin: 0; color: #202124;">Emailing et Newsletters</h3>
+        <h3 style="margin: 0; color: #202124;">Email Marketing</h3>
     </div>
     """, unsafe_allow_html=True)
     
@@ -974,7 +974,7 @@ elif st.session_state.page == "medicofi2":
         """, unsafe_allow_html=True)
             # Séparateur
     st.markdown("---")
-    
+        
     # Section Sensitive C & Breast Pump Shields Brochure avec icône
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
@@ -987,41 +987,34 @@ elif st.session_state.page == "medicofi2":
     </div>
     """, unsafe_allow_html=True)
     
-    # Description
-    st.markdown('<div style="color: #666; margin-bottom: 20px;">PLV Mar Plaquette Sensitive C & Téterelles</div>', unsafe_allow_html=True)
-    
     # Affichage des 2 images de la plaquette
     plaquette_images = [
         "Medicofi/Société Mamivac France/Plaquette Sensitive C & Téterelles/Recto.png",
         "Medicofi/Société Mamivac France/Plaquette Sensitive C & Téterelles/Verso.png"
     ]
     
-    # Afficher les images côte à côte avec leurs titres
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        # Recto
-        recto_url = get_image_url(plaquette_images[0])
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 10px;">
-            <div style="color: #202124; font-weight: 600; font-size: 16px; margin-bottom: 10px;">Recto</div>
-            <div style="display: flex; justify-content: center;">
-                <img src="{recto_url}" style="width: 500px; max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-            </div>
+    # Recto - image en pleine largeur
+    recto_url = get_image_url(plaquette_images[0])
+    st.markdown(f"""
+    <div style="text-align: center; margin-bottom: 30px;">
+        <div style="color: #202124; font-weight: 600; font-size: 18px; margin-bottom: 15px;">Recto - Double sided</div>
+        <div style="display: flex; justify-content: center;">
+            <img src="{recto_url}" style="width: 90%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
         </div>
-        """, unsafe_allow_html=True)
+    </div>
+    """, unsafe_allow_html=True)
     
-    with col2:
-        # Verso
-        verso_url = get_image_url(plaquette_images[1])
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 10px;">
-            <div style="color: #202124; font-weight: 600; font-size: 16px; margin-bottom: 10px;">Verso</div>
-            <div style="display: flex; justify-content: center;">
-                <img src="{verso_url}" style="width: 500px; max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-            </div>
+    # Verso - image en pleine largeur
+    verso_url = get_image_url(plaquette_images[1])
+    st.markdown(f"""
+    <div style="text-align: center; margin-bottom: 30px;">
+        <div style="color: #202124; font-weight: 600; font-size: 18px; margin-bottom: 15px;">Verso</div>
+        <div style="display: flex; justify-content: center;">
+            <img src="{verso_url}" style="width: 90%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
         </div>
-        """, unsafe_allow_html=True)
+    </div>
+    """, unsafe_allow_html=True)
+    
     # Séparateur
     st.markdown("---")
     
@@ -1036,9 +1029,22 @@ elif st.session_state.page == "medicofi2":
         <h3 style="margin: 0; color: #202124;">PLV Mamivac</h3>
     </div>
     """, unsafe_allow_html=True)
+    # Séparateur
+    st.markdown("---")
     
-    # Description
-    st.markdown('<div style="color: #666; margin-bottom: 20px;">Point de vente PLV Mamivac</div>', unsafe_allow_html=True)
+    # Section PLV Mamivac avec icône
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">POS advertising Mamivac</h3>
+    </div>
+    """, unsafe_allow_html=True)
+    
+ 
     
     # Affichage de l'image PLV Mamivac
     plv_url = get_image_url("Medicofi/Société Mamivac France/PLV Mamivac/PLV Mamivac.png")
