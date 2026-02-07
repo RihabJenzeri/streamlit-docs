@@ -2826,10 +2826,10 @@ elif st.session_state.page == "medicofi8":
 
     # Quatre images en deux colonnes (2x2)
     affiche_images = [
-        ("Affiche les positions d’allaitements.png", "Affiche les positions d'allaitements"),
-        ("affiche publicitaire.png", "Affiche publicitaire"),
-        ("affiche sein artistique-Lactant.png", "Affiche sein artistique - Lactant"),
-        ("Affiche Taille de téterelles.png", "Affiche Taille de téterelles")
+        ("Affiche les positions d’allaitements.png", "Breastfeeding Positions Poster"),
+        ("affiche publicitaire.png", "Advertising Poster"),
+        ("affiche sein artistique-Lactant.png", "Artistic Poster"),
+        ("Affiche Taille de téterelles.png", "Nipple Size Poster")
     ]
     
     # Première ligne
