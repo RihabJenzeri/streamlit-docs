@@ -3017,7 +3017,7 @@ elif st.session_state.page == "medicofi8":
             </div>
             """, unsafe_allow_html=True)
 
-       # ========== SECTION 3: Création d'un avatar pour un chatbot IA ==========
+      # ========== SECTION 3: Création d'un avatar pour un chatbot IA ==========
     st.markdown("---")
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
@@ -3029,79 +3029,36 @@ elif st.session_state.page == "medicofi8":
     </div>
     """, unsafe_allow_html=True)
 
-    # Trois images - 2 premières côte à côte, 3ème seule
+    # Trois images dans la même ligne
     avatar_images = [
         ("Avatar Lea.png", "Avatar Lea"),
         ("Image d’origine reçue.jpeg", "Image d'origine reçue"),  # Apostrophe courbe
         ("Planche de personnage de l’avatar.png", "Planche de personnage de l'avatar")  # Apostrophe courbe
     ]
     
-    # Première ligne : 2 premières images côte à côte
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     
-    # Première image
-    with col1:
-        try:
-            img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d’un avatar pour un chatbot IA/{avatar_images[idx][0]}"
-            img_url = get_image_url(img_path)
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 350px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{avatar_images[0][1]}</div>
-            </div>
-            """, unsafe_allow_html=True)
-        except:
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">
-                    <div style="color: #888;">{avatar_images[0][1]}</div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-    
-    # Deuxième image
-    with col2:
-        try:
-            img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/{avatar_images[1][0]}"
-            img_url = get_image_url(img_path)
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 350px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{avatar_images[1][1]}</div>
-            </div>
-            """, unsafe_allow_html=True)
-        except:
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">
-                    <div style="color: #888;">{avatar_images[1][1]}</div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-    
-    # Deuxième ligne : 3ème image seule sur toute la largeur
-    st.markdown(f"""
-    <div style="color: #202124; font-weight: 600; margin-top: 20px; margin-bottom: 10px; font-size: 16px; text-align: center;">
-        {avatar_images[2][1]}
-    </div>
-    """, unsafe_allow_html=True)
-    
-    try:
-        img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/{avatar_images[2][0]}"
-        img_url = get_image_url(img_path)
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 30px;">
-            <img src="{img_url}" style="width: 100%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        </div>
-        """, unsafe_allow_html=True)
-    except:
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 30px;">
-            <div style="padding: 60px; background: #f9f9f9; border-radius: 10px; max-width: 600px; margin: 0 auto;">
-                <div style="color: #888; font-size: 14px;">{avatar_images[2][1]}</div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+    for idx, col in enumerate([col1, col2, col3]):
+        if idx < len(avatar_images):
+            try:
+                img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d’un avatar pour un chatbot IA/{avatar_images[idx][0]}"
+                img_url = get_image_url(img_path)
+                with col:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                        <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{avatar_images[idx][1]}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+            except:
+                with col:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">
+                            <div style="color: #888;">{avatar_images[idx][1]}</div>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
     
     # Phrase sous les images
     st.markdown("""
@@ -3111,6 +3068,65 @@ elif st.session_state.page == "medicofi8":
         </div>
     </div>
     """, unsafe_allow_html=True)
+
+    # ========== SECTION 4: Dépliant ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="18" rx="2" ry="2"></rect>
+            <line x1="9" y1="21" x2="15" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Dépliant</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Deux images en deux colonnes
+    depliant_images = [
+        ("Recto.png", "Recto"),
+        ("Verso.png", "Verso")
+    ]
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Dépliant/{depliant_images[0][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{depliant_images[0][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{depliant_images[0][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Dépliant/{depliant_images[1][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{depliant_images[1][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{depliant_images[1][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
 
     # ========== SECTION 5: Emailing et Newsletters ==========
     st.markdown("---")
