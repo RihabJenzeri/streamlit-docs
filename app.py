@@ -3081,7 +3081,7 @@ elif st.session_state.page == "seinbiose_post_carrousel":
         {
             "name": "Carrousel 1",
             "images": [
-                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/1.png",
+                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/1.png",
                 "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/2.png",
                 "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/3.png"
             ]
