@@ -3663,13 +3663,13 @@ elif st.session_state.page == "freelance_clorex":
     with col1:
         try:
             img_path = f"Freelance/Clorex Company/{clorex_images[0][0]}"
+            img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
                 <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                 <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{clorex_images[0][1]}</div>
             </div>
             """, unsafe_allow_html=True)
-            img_url = get_image_url(img_path)
         except:
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
