@@ -2923,16 +2923,16 @@ elif st.session_state.page == "medicofi8":
             <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
             <line x1="12" y1="22.08" x2="12" y2="12"></line>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Boite thé Packaging</h4>
+        <h4 style="margin: 0; color: #202124;">Tea Box Packaging</h4>
     </div>
     """, unsafe_allow_html=True)
 
     # Quatre images en deux colonnes (2x2)
     packaging_images = [
-        ("Boite thé Packaging création.png", "Boite thé Packaging création"),
-        ("Mockup boite thè 3.png", "Mockup boite thé 3"),
-        ("Mockup boite thè 1.png", "Mockup boite thé 1"),
-        ("Mockup boite thè 2.png", "Mockup boite thé 2")
+        ("Boite thé Packaging création.png", "Tea Box Packaging Design"),
+        ("Mockup boite thè 3.png", "Mockup 1 "),
+        ("Mockup boite thè 1.png", "Mockup 2 "),
+        ("Mockup boite thè 2.png", "Mockup 3 ")
     ]
     
     # Première ligne
