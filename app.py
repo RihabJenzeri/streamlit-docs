@@ -3760,10 +3760,10 @@ elif st.session_state.page == "freelance_mayar":
 
     # Quatre images dans une seule colonne
     mayar_images = [
-        ("3D 2.jpg", "Label 1"),
-        ("Mar P4.png", "Label 2"),
-        ("Mayar P4.png", "Label 3"),
-        ("Mr P4.png", "Mr P4")
+        ("3D 2.jpg", "Selected proposals"),
+        ("Mar P4.png", "Design Proposal 1"),
+        ("Mayar P4.png", "Design Proposal 2"),
+        ("Mr P4.png", "Design Proposal  4")
     ]
     
     # Conteneur unique pour toutes les images
