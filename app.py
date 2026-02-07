@@ -42,7 +42,7 @@ header {visibility: hidden;}
     font-family: "Source Sans", sans-serif;
     font-size: 1rem;
     margin-bottom: -1rem;
-    color: #ffffff;
+    color: #FBBDFA ;
     max-width: 100%;
     width: 100%;
     overflow-wrap: break-word;
