@@ -2933,7 +2933,7 @@ elif st.session_state.page == "medicofi7":
         st.markdown(f"""
         <div style="text-align: center; margin-bottom: 30px;">
             <img src="{stand1_url}" style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-            <div style="color: #666; font-size: 14px; margin-top: 8px;">Image 1</div>
+            <div style="color: #666; font-size: 14px; margin-top: 8px;">Mockup</div>
         </div>
         """, unsafe_allow_html=True)
     except Exception as e:
@@ -2955,7 +2955,7 @@ elif st.session_state.page == "medicofi7":
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
                 <img src="{stand2_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #666; font-size: 14px; margin-top: 8px;">Image 2</div>
+                <div style="color: #666; font-size: 14px; margin-top: 8px;"></div>
             </div>
             """, unsafe_allow_html=True)
         except:
@@ -2974,7 +2974,7 @@ elif st.session_state.page == "medicofi7":
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
                 <img src="{stand3_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #666; font-size: 14px; margin-top: 8px;">Image 3</div>
+                <div style="color: #666; font-size: 14px; margin-top: 8px;"></div>
             </div>
             """, unsafe_allow_html=True)
         except:
