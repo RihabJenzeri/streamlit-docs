@@ -1955,7 +1955,7 @@ elif st.session_state.page == "medicofi5":
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7"></path>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Stand Parapluie</h4>
+        <h4 style="margin: 0; color: #202124;">Pop-up stand</h4>
     </div>
     """, unsafe_allow_html=True)
     
@@ -1970,7 +1970,7 @@ elif st.session_state.page == "medicofi5":
         # Image 1 seule dans une colonne (grande)
         col1_full = st.columns(1)[0]
         with col1_full:
-            img1_url = get_image_url("Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Stand Parapluie/Stand Parapluie Respi-express.png")
+            img1_url = get_image_url("Medicofi/Société Respi Express (en France)/Stand Parapluie/Stand Parapluie Respi-express.png")
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 30px;">
                 <img src="{img1_url}" style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
@@ -1984,7 +1984,7 @@ elif st.session_state.page == "medicofi5":
         # Image 2
         with col2:
             try:
-                img2_url = get_image_url("Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Stand Parapluie/Stand Parapluie vue2.png")
+                img2_url = get_image_url("Medicofi/Société Respi Express (en France)/Stand Parapluie/Stand Parapluie vue2.png")
                 st.markdown(f"""
                 <div style="text-align: center; margin-bottom: 20px;">
                     <img src="{img2_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
@@ -2001,7 +2001,7 @@ elif st.session_state.page == "medicofi5":
         # Image 3
         with col3:
             try:
-                img3_url = get_image_url("Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Stand Parapluie/Stand Parapluie vue3.png")
+                img3_url = get_image_url("Medicofi/Société Respi Express (en France)/Stand Parapluie/Stand Parapluie vue3.png")
                 st.markdown(f"""
                 <div style="text-align: center; margin-bottom: 20px;">
                     <img src="{img3_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
