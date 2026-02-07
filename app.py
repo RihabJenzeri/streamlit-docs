@@ -3727,7 +3727,7 @@ elif st.session_state.page == "freelance_clorex":
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
                 <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{clorex_images[3][1]}</div>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
             </div>
             """, unsafe_allow_html=True)
         except:
