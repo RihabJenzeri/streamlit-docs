@@ -1400,7 +1400,7 @@ elif st.session_state.page == "mamivac_story":
         ("12-Juin-reussir-la-promenade-avec-bebe-Story-01.png", "12 Juin - Réussir la promenade avec bébé"),
         ("24-Juin-Citation-de-Victor-Hugo-Story-01.png", "24 Juin - Citation de Victor Hugo"),
         ("3-Juillet-la-duree-ideale-de-la-sieste-Story-01.png", "3 Juillet - Durée idéale de la sieste"),
-        ("Marnivac-Proteges-mamelons-CONE-S-M-L.png", "Mamivac - Protège-mamelons Cône S/M/L"),
+        ("Mamivac-Proteges-mamelons-CONE-S-M-L.png", "Mamivac - Protège-mamelons Cône S/M/L"),
         ("sorry-conserv.png", "Conservation du lait maternel")
     ]
     
