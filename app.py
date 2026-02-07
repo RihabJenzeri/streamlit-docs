@@ -1676,25 +1676,15 @@ elif st.session_state.page == "medicofi5":
         st.session_state.page = "medicofi"
         st.rerun()
 
-    st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-        </svg>
-        <h3 style="margin: 0; color: #202124;">Respi Express Company</h3>
-    </div>
-    """, unsafe_allow_html=True)
 
     # ========== SECTION 1: Carte Zone Partenaire ==========
-    st.markdown("---")
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Carte Zone Partenaire</h4>
+        <h4 style="margin: 0; color: #202124;">Partner Zone Card</h4>
     </div>
     """, unsafe_allow_html=True)
     
@@ -1721,7 +1711,7 @@ elif st.session_state.page == "medicofi5":
             <polyline points="2 17 12 22 22 17"></polyline>
             <polyline points="2 12 12 17 22 12"></polyline>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Création illustrations et affiche</h4>
+        <h4 style="margin: 0; color: #202124;">Illustrations and poster design</h4>
     </div>
     """, unsafe_allow_html=True)
     
