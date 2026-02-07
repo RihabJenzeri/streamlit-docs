@@ -569,7 +569,7 @@ if st.session_state.page == "accueil":
                         </svg>
                     </div>
                     <div style="flex: 1;">
-                        <h3 style="color: #202124; font-size: 18px; font-weight: 600;padding-bottom:5px">My Earlier Projects (PDF)</h3>
+                        <h3 style="color: #202124; font-size: 18px; font-weight: 600;padding-bottom:5px">My Earlier Projects</h3>
                         <p style="color: #888; margin: 0; font-size: 14px;">My old portfolio in PDF version</p>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2">
@@ -4113,13 +4113,39 @@ elif st.session_state.page == "device_images":
         st.rerun()
 
     device = st.session_state.current_device
+    
+    # Icônes SVG pour chaque device
     device_icons = {
-        "Desktop": "",
-        "iPad": "📱",
-        "Phone": "📱"
+        "Desktop": """
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        """,
+        "iPad": """
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12" y2="18"></line>
+        </svg>
+        """,
+        "Phone": """
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12" y2="18"></line>
+        </svg>
+        """
     }
 
-    st.title(f"{device_icons.get(device, '📱')} DESIGN {device.upper()}")
+    # Titre avec le même design
+    device_icon = device_icons.get(device, device_icons["Phone"])
+    
+    st.markdown(f"""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        {device_icon}
+        <h1 style="margin: 0; color: #202124; font-size: 32px; font-weight: 700;">DESIGN {device.upper()}</h1>
+    </div>
+    """, unsafe_allow_html=True)
 
     # Display images
     if device in design_images:
