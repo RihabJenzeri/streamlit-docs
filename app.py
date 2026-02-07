@@ -3929,8 +3929,20 @@ elif st.session_state.page == "tse":
     """, unsafe_allow_html=True)
 
     # TRIER les images dans l'ordre numérique (1, 2, 3... 12)
-    image_numbers = list(range(1, 13))
-    tse_images = [f"TSE/SportsWear Design/{num}.png" for num in image_numbers]
+    votre_ordre_images = [
+        "TSE/SportsWear Design/3.png",   # Exemple: image 3 en premier
+        "TSE/SportsWear Design/1.png",   # Puis image 1
+        "TSE/SportsWear Design/5.png",   # Puis image 5
+        "TSE/SportsWear Design/2.png",   # etc.
+        "TSE/SportsWear Design/4.png",
+        "TSE/SportsWear Design/8.png",
+        "TSE/SportsWear Design/6.png",
+        "TSE/SportsWear Design/10.png",
+        "TSE/SportsWear Design/7.png",
+        "TSE/SportsWear Design/9.png",
+        "TSE/SportsWear Design/11.png",
+        "TSE/SportsWear Design/12.png"
+    ]
     
     # Afficher chaque image dans une colonne unique (pleine largeur)
     for idx, img_path in enumerate(tse_images):
