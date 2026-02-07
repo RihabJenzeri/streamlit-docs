@@ -3651,10 +3651,10 @@ elif st.session_state.page == "freelance_clorex":
 
     # Quatre images en deux colonnes (2x2)
     clorex_images = [
-        ("Assouplissant magic-01.png", "Assouplissant Magic"),
-        ("Assouplissant naturel-01.png", "Assouplissant Naturel"),
-        ("CLOREX Vaisselle pomme-01.png", "CLOREX Vaisselle Pomme"),
-        ("etiquette gel machine Ariel-01.png", "Étiquette Gel Machine Ariel")
+        ("Assouplissant magic-01.png", "Label 1"),
+        ("Assouplissant naturel-01.png", "Label 2"),
+        ("CLOREX Vaisselle pomme-01.png", "Label 3"),
+        ("etiquette gel machine Ariel-01.png", "Label 4")
     ]
     
     # Première ligne
