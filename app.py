@@ -2704,7 +2704,7 @@ elif st.session_state.page == "medicofi7":
             verso_url = get_image_url(flyer_images[1])
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
-                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Verso</div>
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">sided</div>
                 <img src="{verso_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
@@ -2800,7 +2800,7 @@ elif st.session_state.page == "medicofi7":
             plaquette_verso_url = get_image_url(plaquette_images[1])
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
-                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">sided</div>
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Double</div>
                 <img src="{plaquette_verso_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
@@ -2854,7 +2854,7 @@ elif st.session_state.page == "medicofi7":
             quick_verso_url = get_image_url(quick_images[1])
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
-                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Verso</div>
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">sided</div>
                 <img src="{quick_verso_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
