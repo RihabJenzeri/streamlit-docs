@@ -38,6 +38,15 @@ header {visibility: hidden;}
     font-size: 14px;
     font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+.st-emotion-cache-2fgyt4 {
+    font-family: "Source Sans", sans-serif;
+    font-size: 1rem;
+    margin-bottom: -1rem;
+    color: #ffffff;
+    max-width: 100%;
+    width: 100%;
+    overflow-wrap: break-word;
+}
 /* Supprimer les marges et paddings par défaut */
 .block-container {
     padding-top: 0 !important;
