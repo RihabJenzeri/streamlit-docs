@@ -770,15 +770,15 @@ elif st.session_state.page == "medicofi":
 
         # Liste des 8 boutons pour MEDICOFI avec titre et pays
         projects_medicofi = [
+            ("Tire Lait Express Company", "(in France)", "medicofi8"),
             ("ApniDoc Company   ", "(in France)", "apnidoc"),
             ("Mamivac France Company", "", "medicofi2"),
             ("MC Consulting Company", "(in Tunisia)", "medicofi3"),
             ("MCM Outsourcing Company  ", "(in Madagascar)", "medicofi4"),
             ("Respi Express Company", "(in France)", "medicofi5"),
             ("Sanibiose Company  ", "(in France)", "medicofi6"),
-            ("Seinbiose Company  ", "(in France)", "medicofi7"),
-            ("Tire Lait Express Company", "(in France)", "medicofi8")
-        ]
+            ("Seinbiose Company  ", "(in France)", "medicofi7")
+         ]
 
         for idx, (company_name, country, page_key) in enumerate(projects_medicofi):
             # Créer le label du bouton avec formatage HTML-like
