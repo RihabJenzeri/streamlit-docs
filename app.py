@@ -3918,7 +3918,7 @@ elif st.session_state.page == "tse":
 
     st.markdown("---")  # Séparateur
 
-   # SECTION 2: Images SportsWear Design avec icône t-shirt
+  # SECTION 2: Images SportsWear Design avec icône t-shirt
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3944,13 +3944,30 @@ elif st.session_state.page == "tse":
         "TSE/SportsWear Design/4.png"
     ]
     
-    # CORRECTION : Utiliser votre_ordre_images au lieu de tse_images
+    # Variable pour suivre la proposition
+    current_proposition = None
+    
     # Afficher chaque image dans VOTRE ordre
-    for idx, img_path in enumerate(votre_ordre_images):  # CHANGÉ ICI
+    for idx, img_path in enumerate(votre_ordre_images):
         img_number = idx + 1
+        
+        # Déterminer la proposition (6 premières = Proposition 1, 6 suivantes = Proposition 2)
+        proposition = "Proposition 1" if idx < 6 else "Proposition 2"
+        
+        # Afficher le titre de la proposition quand elle change
+        if proposition != current_proposition:
+            current_proposition = proposition
+            st.markdown(f"""
+            <div style="margin: 40px 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #FBBDFA;">
+                <h3 style="color: #202124; margin: 0; font-size: 24px; font-weight: 600;">{proposition}</h3>
+            </div>
+            """, unsafe_allow_html=True)
         
         try:
             img_url = get_image_url(img_path)
+            
+            # Récupérer le numéro réel du fichier
+            file_number = img_path.split("/")[-1].split(".")[0]
             
             # Conteneur pour chaque image avec son numéro
             st.markdown(f"""
@@ -3959,15 +3976,18 @@ elif st.session_state.page == "tse":
                     <div style="background: #FBBDFA; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
                         {img_number}
                     </div>
-                    <div style="color: #202124; font-weight: 600; font-size: 18px;">Design {img_number}</div>
+                    <div style="color: #202124; font-weight: 600; font-size: 18px;">{proposition} - Image {img_number}</div>
                 </div>
                 <div style="text-align: center;">
                     <img src="{img_url}" style="width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="color: #666; font-size: 14px; margin-top: 10px; font-style: italic;">
+                        File: {file_number}.png
+                    </div>
                 </div>
             </div>
             """, unsafe_allow_html=True)
             
-        except Exception as e:
+        except Exception as e:  # CORRECTION : Cette ligne doit être alignée avec le 'try'
             st.markdown(f"""
             <div style="margin-bottom: 30px; padding: 40px; background: #f9f9f9; border-radius: 10px; text-align: center;">
                 <div style="color: #888; font-size: 16px; margin-bottom: 10px;">
@@ -3976,9 +3996,10 @@ elif st.session_state.page == "tse":
                     </span>
                 </div>
                 <div style="color: #666; font-size: 14px;">{img_path}</div>
-                <div style="color: #999; font-size: 13px; margin-top: 10px;">Design {img_number}</div>
+                <div style="color: #999; font-size: 13px; margin-top: 10px;">{proposition} - Image {img_number}</div>
             </div>
-            """, unsafe_allow_html=True)    
+            """, unsafe_allow_html=True)
+    
     # Note en bas de page
     st.markdown("""
     <div style="text-align: center; margin: 30px 0; padding: 20px; background: #f9f9f9; border-radius: 10px; border-left: 4px solid #FBBDFA;">
@@ -3990,7 +4011,6 @@ elif st.session_state.page == "tse":
         </div>
     </div>
     """, unsafe_allow_html=True)
-
 # La page apnidoc reste la même
 elif st.session_state.page == "apnidoc":
     if st.button("←"):
