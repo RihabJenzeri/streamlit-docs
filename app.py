@@ -4727,7 +4727,7 @@ st.markdown(f"""
     <div class="footer-content">
         <div class="circle-container">
             <!-- Remplacement du SVG par votre image -->
-            <img src="Logo Ines-01.png" alt="INES HARRABI - Graphic Designer" class="logo-img">
+            <img src="mes_documents/Logo Ines-01.png" alt="INES HARRABI - Graphic Designer" class="logo-img">
         </div>
         <h2 class="footer-title">Collaborating Together</h2>
         <p class="footer-subtitle">Innovating design solutions through creative collaboration and partnership</p>
