@@ -3114,7 +3114,7 @@ elif st.session_state.page == "medicofi8":
     # Deuxième image (Image d'origine reçue)
     with col2:
         try:
-            img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/Image d'origine reçue.jpeg"
+            img_path = f"mes_documents/Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/Image d'origine reçue.jpeg"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
@@ -3139,7 +3139,7 @@ elif st.session_state.page == "medicofi8":
     """, unsafe_allow_html=True)
     
     try:
-        img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/Planche de personnage de l'avatar.png"
+        img_path = f"mes_documents/Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/Planche de personnage de l'avatar.png"
         img_url = get_image_url(img_path)
         st.markdown(f"""
         <div style="text-align: center; margin-bottom: 40px;">
