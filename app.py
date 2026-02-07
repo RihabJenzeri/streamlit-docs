@@ -2164,7 +2164,7 @@ elif st.session_state.page == "respi_post_carrousel":
     for idx, img_name in enumerate(groupe1_images):
         if idx < num_cols1:
             try:
-                img_path = f"mes_documents/Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/1/{img_name}"
+                img_path = f"Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/1/{img_name}"
                 img_url = get_image_url(img_path)
                 
                 with cols1[idx]:
