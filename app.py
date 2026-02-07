@@ -3094,7 +3094,7 @@ elif st.session_state.page == "medicofi8":
     # Première image (Avatar Lea)
     with col1:
         try:
-            img_path = f"Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/Avatar Lea.png"
+            img_path = f"mes_documents/Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/Avatar Lea.png"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
