@@ -3031,8 +3031,8 @@ elif st.session_state.page == "medicofi8":
 
     # Trois images - 2 premières côte à côte, 3ème seule
     avatar_images = [
-        ("Avatar Lea.png", "Avatar Lea"),
-        ("Image d'origine reçue.jpeg", "Image d'origine reçue"),
+        ("Avatar Lea.png", "Avatar Design"),
+        ("Image d'origine reçue.jpeg", "Original Image Received"),
         ("Planche de personnage de l'avatar.png", "Planche de personnage de l'avatar")
     ]
     
@@ -3047,8 +3047,8 @@ elif st.session_state.page == "medicofi8":
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                 <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{avatar_images[0][1]}</div>
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
         except:
@@ -3068,8 +3068,8 @@ elif st.session_state.page == "medicofi8":
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                 <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{avatar_images[1][1]}</div>
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
         except:
@@ -3084,7 +3084,7 @@ elif st.session_state.page == "medicofi8":
     # Deuxième ligne : 3ème image seule sur toute la largeur (plus grande)
     st.markdown("""
     <div style="color: #202124; font-weight: 600; margin-top: 40px; margin-bottom: 15px; font-size: 18px; text-align: center;">
-        Planche de personnage de l'avatar
+       Character Model Sheet
     </div>
     """, unsafe_allow_html=True)
     
@@ -3110,7 +3110,7 @@ elif st.session_state.page == "medicofi8":
     st.markdown("""
     <div style="text-align: center; margin: 20px 0 30px 0; padding: 15px; background: #f9f9f9; border-radius: 10px; border-left: 4px solid #FBBDFA;">
         <div style="color: #202124; font-size: 16px; font-weight: 500;">
-            Création réalisée avec Photoshop et des outils d'IA.
+            Designed with Photoshop and AI tools.
         </div>
     </div>
     """, unsafe_allow_html=True)
