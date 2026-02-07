@@ -3650,139 +3650,94 @@ elif st.session_state.page == "freelance_clorex":
     """, unsafe_allow_html=True)
 
     # Quatre images en deux colonnes (2x2)
-  # Quatre images en deux colonnes (2x2) avec labels AU-DESSUS
-clorex_images = [
-    ("Assouplissant magic-01.png", "Label 1"),
-    ("Assouplissant naturel-01.png", "Label 2"),
-    ("CLOREX Vaisselle pomme-01.png", "Label 3"),
-    ("etiquette gel machine Ariel-01.png", "Label 4")
-]
-
-# Première ligne
-col1, col2 = st.columns(2)
-
-with col1:
-    try:
-        img_path = f"Freelance/Clorex Company/{clorex_images[0][0]}"
-        img_url = get_image_url(img_path)
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 20px;">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
-                <div style="background: #FBBDFA; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px;">
-                    1
+    clorex_images = [
+        ("Assouplissant magic-01.png", "Label 1"),
+        ("Assouplissant naturel-01.png", "Label 2"),
+        ("CLOREX Vaisselle pomme-01.png", "Label 3"),
+        ("etiquette gel machine Ariel-01.png", "Label 4")
+    ]
+    
+    # Première ligne
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path = f"Freelance/Clorex Company/{clorex_images[0][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{clorex_images[0][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{clorex_images[0][1]}</div>
                 </div>
-                <div style="color: #202124; font-weight: 700; font-size: 18px;">{clorex_images[0][1]}</div>
             </div>
-            <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        </div>
-        """, unsafe_allow_html=True)
-    except:
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 20px;">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
-                <div style="background: #FBBDFA; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px;">
-                    1
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            img_path = f"Freelance/Clorex Company/{clorex_images[1][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{clorex_images[1][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{clorex_images[1][1]}</div>
                 </div>
-                <div style="color: #202124; font-weight: 700; font-size: 18px;">{clorex_images[0][1]}</div>
             </div>
-            <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
-                <div style="color: #888;">Image non disponible</div>
+            """, unsafe_allow_html=True)
+    
+    # Deuxième ligne
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path = f"Freelance/Clorex Company/{clorex_images[2][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{clorex_images[2][1]}</div>
             </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-with col2:
-    try:
-        img_path = f"Freelance/Clorex Company/{clorex_images[1][0]}"
-        img_url = get_image_url(img_path)
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 20px;">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
-                <div style="background: #FBBDFA; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px;">
-                    2
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{clorex_images[2][1]}</div>
                 </div>
-                <div style="color: #202124; font-weight: 700; font-size: 18px;">{clorex_images[1][1]}</div>
             </div>
-            <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        </div>
-        """, unsafe_allow_html=True)
-    except:
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 20px;">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
-                <div style="background: #FBBDFA; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px;">
-                    2
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            img_path = f"Freelance/Clorex Company/{clorex_images[3][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{clorex_images[3][1]}</div>
                 </div>
-                <div style="color: #202124; font-weight: 700; font-size: 18px;">{clorex_images[1][1]}</div>
             </div>
-            <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
-                <div style="color: #888;">Image non disponible</div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-# Deuxième ligne
-col1, col2 = st.columns(2)
-
-with col1:
-    try:
-        img_path = f"Freelance/Clorex Company/{clorex_images[2][0]}"
-        img_url = get_image_url(img_path)
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 20px;">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
-                <div style="background: #FBBDFA; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px;">
-                    3
-                </div>
-                <div style="color: #202124; font-weight: 700; font-size: 18px;">{clorex_images[2][1]}</div>
-            </div>
-            <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        </div>
-        """, unsafe_allow_html=True)
-    except:
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 20px;">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
-                <div style="background: #FBBDFA; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px;">
-                    3
-                </div>
-                <div style="color: #202124; font-weight: 700; font-size: 18px;">{clorex_images[2][1]}</div>
-            </div>
-            <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
-                <div style="color: #888;">Image non disponible</div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-with col2:
-    try:
-        img_path = f"Freelance/Clorex Company/{clorex_images[3][0]}"
-        img_url = get_image_url(img_path)
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 20px;">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
-                <div style="background: #FBBDFA; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px;">
-                    4
-                </div>
-                <div style="color: #202124; font-weight: 700; font-size: 18px;">{clorex_images[3][1]}</div>
-            </div>
-            <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        </div>
-        """, unsafe_allow_html=True)
-    except:
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 20px;">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
-                <div style="background: #FBBDFA; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px;">
-                    4
-                </div>
-                <div style="color: #202124; font-weight: 700; font-size: 18px;">{clorex_images[3][1]}</div>
-            </div>
-            <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
-                <div style="color: #888;">Image non disponible</div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
 
 # Page Mayar Auto Company
 elif st.session_state.page == "freelance_mayar":
