@@ -816,7 +816,7 @@ elif st.session_state.page == "medicofi":
                 FREELANCE
             </h3>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
-                Projets indépendants
+                Independent Projects ↓
             </p>
         </div>
         """, unsafe_allow_html=True)
@@ -855,7 +855,7 @@ elif st.session_state.page == "medicofi":
                 TSE
             </h3>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
-                Projets TSE
+                Sportswear Design ↓
             </p>
         </div>
         """, unsafe_allow_html=True)
