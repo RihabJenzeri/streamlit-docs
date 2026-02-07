@@ -4613,6 +4613,8 @@ elif st.session_state.page == "device_images":
             st.image(img_url, use_container_width=True)
             st.markdown(f"<p class='caption-text'>{img_name}</p>", unsafe_allow_html=True)
             st.markdown("---")
+# ... (tout votre code existant jusqu'au dernier bloc elif)
+
 elif st.session_state.page == "pdf_viewer":
     if st.button("←"):
         st.session_state.page = "accueil"
@@ -4649,3 +4651,46 @@ elif st.session_state.page == "pdf_viewer":
         if st.button("Open with Google Viewer", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
+
+# ============ AJOUTER LE FOOTER ICI ============
+# Le footer sera visible sur TOUTES les pages, après le contenu principal
+
+st.markdown("""
+<style>
+.footer {
+    background-color: #202124;
+    width: 100vw;
+    padding: 20px 0;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.footer-image {
+    max-width: 80px;
+    height: auto;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-image:hover {
+    opacity: 1;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# URL de l'image pour le footer
+footer_img_url = get_image_url("img.png")
+
+# Afficher le footer - IL SERA VISIBLE SUR TOUTES LES PAGES
+st.markdown(f"""
+<div class="footer">
+    <img src="{footer_img_url}" class="footer-image" alt="Footer Image">
+</div>
+""", unsafe_allow_html=True)
