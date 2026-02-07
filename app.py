@@ -4000,17 +4000,6 @@ elif st.session_state.page == "tse":
             </div>
             """, unsafe_allow_html=True)
     
-    # Note en bas de page
-    st.markdown("""
-    <div style="text-align: center; margin: 30px 0; padding: 20px; background: #f9f9f9; border-radius: 10px; border-left: 4px solid #FBBDFA;">
-        <div style="color: #202124; font-size: 16px; font-weight: 500;">
-            12 designs SportsWear créés pour le projet TSE
-        </div>
-        <div style="color: #666; font-size: 14px; margin-top: 10px;">
-            Images affichées dans l'ordre numérique de 1 à 12
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
 # La page apnidoc reste la même
 elif st.session_state.page == "apnidoc":
     if st.button("←"):
