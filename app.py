@@ -3568,9 +3568,281 @@ elif st.session_state.page == "freelance":
         st.session_state.page = "medicofi"
         st.rerun()
 
-    st.title("👨‍💻 PROJETS FREELANCE")
-    st.write("Contenu des projets Freelance...")
-    # Ajoutez ici votre contenu pour Freelance
+    # Titre principal avec icône
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <h1 style="margin: 0; color: #202124; font-size: 32px; font-weight: 700;">Projets Freelance</h1>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # ========== SECTION 1: CHabeb Ennour (volunteer group) ==========
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; margin-top: 30px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">CHabeb Ennour (volunteer group)</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Deux images en deux colonnes
+    chabeb_images = [
+        ("affiche rentree sdf.jpg", "Affiche rentrée SDF"),
+        ("تغذية صحية للعائلات المعوزة.png", "تغذية صحية للعائلات المعوزة")
+    ]
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path = f"mes_documents/Freelance/CHabeb Ennour (volunteer group)/{chabeb_images[0][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{chabeb_images[0][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{chabeb_images[0][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            img_path = f"mes_documents/Freelance/CHabeb Ennour (volunteer group)/{chabeb_images[1][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{chabeb_images[1][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{chabeb_images[1][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    # ========== SECTION 2: Clorex Company ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Clorex Company</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Quatre images en deux colonnes (2x2)
+    clorex_images = [
+        ("Assouplissant magic-01.png", "Assouplissant Magic"),
+        ("Assouplissant naturel-01.png", "Assouplissant Naturel"),
+        ("CLOREX Vaisselle pomme-01.png", "CLOREX Vaisselle Pomme"),
+        ("etiquette gel machine Ariel-01.png", "Étiquette Gel Machine Ariel")
+    ]
+    
+    # Première ligne
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path = f"mes_documents/Freelance/Clorex Company/{clorex_images[0][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{clorex_images[0][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{clorex_images[0][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            img_path = f"mes_documents/Freelance/Clorex Company/{clorex_images[1][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{clorex_images[1][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{clorex_images[1][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    # Deuxième ligne
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path = f"mes_documents/Freelance/Clorex Company/{clorex_images[2][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{clorex_images[2][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{clorex_images[2][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            img_path = f"mes_documents/Freelance/Clorex Company/{clorex_images[3][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{clorex_images[3][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{clorex_images[3][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    # ========== SECTION 3: Mayar Auto Company ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="7" cy="17" r="2"></circle>
+            <circle cx="17" cy="17" r="2"></circle>
+            <path d="M5 17H3v-6l2-5h9l4 5h5v6h-2m-14 0v-6h14v6"></path>
+            <path d="M9 17v-6h5v6"></path>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Mayar Auto Company</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Quatre images en deux colonnes (2x2)
+    mayar_images = [
+        ("3D 2.jpg", "3D 2"),
+        ("Mar P4.png", "Mar P4"),
+        ("Mayar P4.png", "Mayar P4"),
+        ("Mr P4.png", "Mr P4")
+    ]
+    
+    # Première ligne
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path = f"mes_documents/Freelance/Mayar Auto Company/{mayar_images[0][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{mayar_images[0][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{mayar_images[0][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            img_path = f"mes_documents/Freelance/Mayar Auto Company/{mayar_images[1][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{mayar_images[1][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{mayar_images[1][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    # Deuxième ligne
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            img_path = f"mes_documents/Freelance/Mayar Auto Company/{mayar_images[2][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{mayar_images[2][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{mayar_images[2][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            img_path = f"mes_documents/Freelance/Mayar Auto Company/{mayar_images[3][0]}"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{mayar_images[3][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{mayar_images[3][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
 
 elif st.session_state.page == "tse":
     if st.button("←"):
