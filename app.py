@@ -827,7 +827,7 @@ elif st.session_state.page == "medicofi":
 
         # REMPLACÉ: Trois boutons au lieu d'un seul
         freelance_projects = [
-            ("CHabeb Ennour\n(volunteer group)", "freelance_chabeb"),
+            ("Chabeb Ennour\n(volunteer group)", "freelance_chabeb"),
             ("Clorex        \n    Company", "freelance_clorex"),
             ("Mayar Auto     \n    Company", "freelance_mayar")
         ]
