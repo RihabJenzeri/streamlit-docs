@@ -3213,9 +3213,6 @@ elif st.session_state.page == "medicofi8":
                 <div style="color: #202124; font-weight: 600; font-size: 16px; margin-bottom: 5px;">
                     {description}
                 </div>
-                <div style="color: #666; font-size: 14px;">
-                    Email {idx + 1}
-                </div>
             </div>
             """, unsafe_allow_html=True)
         except:
