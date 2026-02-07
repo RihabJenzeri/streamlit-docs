@@ -1468,12 +1468,11 @@ elif st.session_state.page == "medicofi3":
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div style="color: #666; margin-bottom: 30px;">Carte de Voeux - Greeting Cards</div>', unsafe_allow_html=True)
-    
+     
     # Liste des images pour MC Consulting
     mc_consulting_images = [
-        ("Carte de voeux 2024.png", "Carte de Voeux 2024"),
-        ("Carte de voeux 2025.png", "Carte de Voeux 2025")
+        ("Carte de voeux 2024.png", "2024 New Year Card"),
+        ("Carte de voeux 2025.png", "2025 New Year Card")
     ]
     
     # Première image - Carte de Voeux 2024
@@ -1487,9 +1486,6 @@ elif st.session_state.page == "medicofi3":
         <div style="text-align: center; margin-bottom: 40px;">
             <div style="color: #202124; font-size: 22px; font-weight: 600; margin-bottom: 15px;">
                 {description}
-            </div>
-            <div style="color: #888; font-size: 16px; margin-bottom: 20px;">
-                New Year Greeting Card
             </div>
             <div style="display: flex; justify-content: center; margin-bottom: 15px;">
                 <img src="{img_url}" style="width: 95%; max-width: 900px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
@@ -2443,7 +2439,7 @@ elif st.session_state.page == "medicofi6":
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
             <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Emailing et Newsletters</h4>
+        <h4 style="margin: 0; color: #202124;">Email Marketing</h4>
     </div>
     """, unsafe_allow_html=True)
     
