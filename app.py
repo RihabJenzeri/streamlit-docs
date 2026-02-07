@@ -1884,7 +1884,7 @@ elif st.session_state.page == "medicofi5":
     try:
         # CORRECTION : Société Tire Lait Express (en France) au lieu de Respi Express
         # CORRECTION : Pas de sous-dossier "Kakémono", le fichier est directement dans la société
-        kakemono_url = get_image_url("Medicofi/Société Tire Lait Express (en France)/Kakémono/KakémonoTLE.png")
+        kakemono_url = get_image_url("Medicofi/Société Tire Lait Express (en France)/Kakémono/Kakémono Respi express.png")
         st.markdown(f"""
         <div style="display: flex; justify-content: center; margin: 20px 0;">
             <img src="{kakemono_url}" style="width: 100%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
