@@ -4698,11 +4698,12 @@ st.markdown("""
 }
 
 .footer-title {
-    color: #FFFFFF;
+    color: #bfc7c7;
     font-size: 20px;
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
+    
 }
 
 .footer-subtitle {
