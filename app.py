@@ -2152,7 +2152,7 @@ elif st.session_state.page == "respi_post_carrousel":
             <circle cx="8.5" cy="8.5" r="1.5"></circle>
             <polyline points="21 15 16 10 5 21"></polyline>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Groupe 1</h4>
+        <h4 style="margin: 0; color: #202124;">Carrousel 1</h4>
     </div>
     """, unsafe_allow_html=True)
     
@@ -2195,7 +2195,7 @@ elif st.session_state.page == "respi_post_carrousel":
             <circle cx="8.5" cy="8.5" r="1.5"></circle>
             <polyline points="21 15 16 10 5 21"></polyline>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Groupe 2</h4>
+        <h4 style="margin: 0; color: #202124;">Carrousel 2</h4>
     </div>
     """, unsafe_allow_html=True)
     
@@ -2207,7 +2207,7 @@ elif st.session_state.page == "respi_post_carrousel":
     for idx, img_name in enumerate(groupe2_images):
         if idx < num_cols2:
             try:
-                img_path = f"mes_documents/Freelance/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/2/{img_name}"
+                img_path = f"Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/2/{img_name}"
                 img_url = get_image_url(img_path)
                 
                 with cols2[idx]:
@@ -2238,7 +2238,7 @@ elif st.session_state.page == "respi_post_carrousel":
             <circle cx="8.5" cy="8.5" r="1.5"></circle>
             <polyline points="21 15 16 10 5 21"></polyline>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Groupe 3</h4>
+        <h4 style="margin: 0; color: #202124;">Carrousel 3</h4>
     </div>
     """, unsafe_allow_html=True)
     
@@ -2250,7 +2250,7 @@ elif st.session_state.page == "respi_post_carrousel":
     for idx, img_name in enumerate(groupe3_images):
         if idx < num_cols3:
             try:
-                img_path = f"mes_documents/Freelance/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/3/{img_name}"
+                img_path = f"Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/3/{img_name}"
                 img_url = get_image_url(img_path)
                 
                 with cols3[idx]:
@@ -2281,7 +2281,7 @@ elif st.session_state.page == "respi_post_carrousel":
             <circle cx="8.5" cy="8.5" r="1.5"></circle>
             <polyline points="21 15 16 10 5 21"></polyline>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Groupe 4</h4>
+        <h4 style="margin: 0; color: #202124;">Carrousel 4</h4>
     </div>
     """, unsafe_allow_html=True)
     
@@ -2293,7 +2293,7 @@ elif st.session_state.page == "respi_post_carrousel":
     for idx, img_name in enumerate(groupe4_images):
         if idx < num_cols4:
             try:
-                img_path = f"mes_documents/Freelance/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/4/{img_name}"
+                img_path = f"Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/4/{img_name}"
                 img_url = get_image_url(img_path)
                 
                 with cols4[idx]:
@@ -2324,7 +2324,7 @@ elif st.session_state.page == "respi_post_carrousel":
             <circle cx="8.5" cy="8.5" r="1.5"></circle>
             <polyline points="21 15 16 10 5 21"></polyline>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Groupe 5</h4>
+        <h4 style="margin: 0; color: #202124;">Carrousel 5</h4>
     </div>
     """, unsafe_allow_html=True)
     
@@ -2336,7 +2336,7 @@ elif st.session_state.page == "respi_post_carrousel":
     for idx, img_name in enumerate(groupe5_images):
         if idx < num_cols5:
             try:
-                img_path = f"mes_documents/Freelance/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/5/{img_name}"
+                img_path = f"Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/5/{img_name}"
                 img_url = get_image_url(img_path)
                 
                 with cols5[idx]:
@@ -2367,7 +2367,7 @@ elif st.session_state.page == "respi_post_carrousel":
             <circle cx="8.5" cy="8.5" r="1.5"></circle>
             <polyline points="21 15 16 10 5 21"></polyline>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Groupe 6</h4>
+        <h4 style="margin: 0; color: #202124;">Carrousel 6</h4>
     </div>
     """, unsafe_allow_html=True)
     
@@ -2379,7 +2379,7 @@ elif st.session_state.page == "respi_post_carrousel":
     for idx, img_name in enumerate(groupe6_images):
         if idx < num_cols6:
             try:
-                img_path = f"mes_documents/Freelance/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/6/{img_name}"
+                img_path = f"Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/6/{img_name}"
                 img_url = get_image_url(img_path)
                 
                 with cols6[idx]:
@@ -2410,7 +2410,7 @@ elif st.session_state.page == "respi_post_carrousel":
             <circle cx="8.5" cy="8.5" r="1.5"></circle>
             <polyline points="21 15 16 10 5 21"></polyline>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Groupe 7</h4>
+        <h4 style="margin: 0; color: #202124;">Carrousel 7</h4>
     </div>
     """, unsafe_allow_html=True)
     
@@ -2422,7 +2422,7 @@ elif st.session_state.page == "respi_post_carrousel":
     for idx, img_name in enumerate(groupe7_images):
         if idx < num_cols7:
             try:
-                img_path = f"mes_documents/Freelance/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/7/{img_name}"
+                img_path = f"Medicofi/Société Respi Express (en France)/Réseaux Sociaux/Post carrousel/7/{img_name}"
                 img_url = get_image_url(img_path)
                 
                 with cols7[idx]:
