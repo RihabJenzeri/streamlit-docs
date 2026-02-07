@@ -3030,7 +3030,7 @@ elif st.session_state.page == "medicofi8":
     """, unsafe_allow_html=True)
     
     # Trois images - 2 premières côte à côte, 3ème seule
-    avatar_images = [
+       avatar_images = [
         ("Avatar Lea.png", "Avatar Lea"),
         ("Image d'origine reçue.jpeg", "Image d'origine reçue"),
         ("Planche de personnage de l'avatar.png", "Planche de personnage de l'avatar")
@@ -3062,7 +3062,8 @@ elif st.session_state.page == "medicofi8":
     # Deuxième image (Image d'origine reçue)
     with col2:
         try:
-            img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/{avatar_images[1][0]}"
+            # Si vous avez vraiment besoin de l'apostrophe typographique
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/Image d'origine reçue.jpeg"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
@@ -3087,7 +3088,8 @@ elif st.session_state.page == "medicofi8":
     """, unsafe_allow_html=True)
     
     try:
-        img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/{avatar_images[2][0]}"
+        # Si vous avez vraiment besoin de l'apostrophe typographique
+        img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/Planche de personnage de l'avatar.png"
         img_url = get_image_url(img_path)
         st.markdown(f"""
         <div style="text-align: center; margin-bottom: 30px;">
@@ -3101,8 +3103,7 @@ elif st.session_state.page == "medicofi8":
                 <div style="color: #888; font-size: 14px;">{avatar_images[2][1]}</div>
             </div>
         </div>
-        """, unsafe_allow_html=True)
-    
+        """, unsafe_allow_html=True)    
     # Phrase sous les images
     st.markdown("""
     <div style="text-align: center; margin: 20px 0 30px 0; padding: 15px; background: #f9f9f9; border-radius: 10px; border-left: 4px solid #FBBDFA;">
