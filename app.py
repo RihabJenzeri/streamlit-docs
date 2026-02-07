@@ -1748,7 +1748,7 @@ elif st.session_state.page == "medicofi5":
             <line x1="9" y1="21" x2="15" y2="21"></line>
             <line x1="12" y1="17" x2="12" y2="21"></line>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Dépliants 1 pli 2 volets</h4>
+        <h4 style="margin: 0; color: #202124;">Single-fold - two-panel brochures</h4>
     </div>
     """, unsafe_allow_html=True)
     
@@ -1759,14 +1759,14 @@ elif st.session_state.page == "medicofi5":
             recto_url = get_image_url("Medicofi/Société Respi Express (en France)/Dépliants 1 pli 2 volets/Recto.png")
             st.markdown(f"""
             <div style="text-align: center;">
-                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Recto</div>
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Double</div>
                 <img src="{recto_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
         except:
             st.markdown("""
             <div style="text-align: center;">
-                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Recto</div>
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">sided</div>
                 <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">Image not available</div>
             </div>
             """, unsafe_allow_html=True)
