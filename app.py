@@ -3408,7 +3408,7 @@ elif st.session_state.page == "tle_reseaux_sociaux":
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
         </svg>
-        <h3 style="margin: 0; color: #202124;">Réseaux Sociaux - Tire Lait Express</h3>
+        <h3 style="margin: 0; color: #202124;">Social Media - Tire Lait Express</h3>
     </div>
     """, unsafe_allow_html=True)
 
@@ -3420,7 +3420,7 @@ elif st.session_state.page == "tle_reseaux_sociaux":
             <polygon points="23 7 16 12 23 17 23 7"></polygon>
             <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Vidéo youtube</h4>
+        <h4 style="margin: 0; color: #202124;">YouTube Video</h4>
     </div>
     """, unsafe_allow_html=True)
     
@@ -3444,7 +3444,7 @@ elif st.session_state.page == "tle_reseaux_sociaux":
             <circle cx="8.5" cy="8.5" r="1.5"></circle>
             <polyline points="21 15 16 10 5 21"></polyline>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Post Facebook Instagram et LinkedIn</h4>
+        <h4 style="margin: 0; color: #202124;">Facebook, Instagram, and LinkedIn Posts</h4>
     </div>
     """, unsafe_allow_html=True)
 
@@ -3452,12 +3452,12 @@ elif st.session_state.page == "tle_reseaux_sociaux":
     col1, col2 = st.columns(2)
     
     with col1:
-        if st.button("POST CARROUSEL", use_container_width=True):
+        if st.button("Carousel Post", use_container_width=True):
             st.session_state.page = "tle_post_carrousel"
             st.rerun()
     
     with col2:
-        if st.button("POST STATIQUE", use_container_width=True):
+        if st.button("Single Post", use_container_width=True):
             st.session_state.page = "tle_post_statique"
             st.rerun()
     # Espace après la carte de profil
