@@ -3758,96 +3758,40 @@ elif st.session_state.page == "freelance_mayar":
     </div>
     """, unsafe_allow_html=True)
 
-    # Quatre images en deux colonnes (2x2)
+    # Quatre images dans une seule colonne
     mayar_images = [
-        ("3D 2.jpg", "3D 2"),
-        ("Mar P4.png", "Mar P4"),
-        ("Mayar P4.png", "Mayar P4"),
+        ("3D 2.jpg", "Label 1"),
+        ("Mar P4.png", "Label 2"),
+        ("Mayar P4.png", "Label 3"),
         ("Mr P4.png", "Mr P4")
     ]
     
-    # Première ligne
-    col1, col2 = st.columns(2)
-    
-    with col1:
+    # Conteneur unique pour toutes les images
+    for image_name, image_label in mayar_images:
+        # Label avant l'image
+        st.markdown(f"""
+        <div style="color: #202124; font-weight: 600; margin-top: 25px; margin-bottom: 10px; font-size: 16px; padding-left: 10px;">
+            {image_label}
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Image centrée
         try:
-            img_path = f"Freelance/Mayar Auto Company/{mayar_images[0][0]}"
+            img_path = f"Freelance/Mayar Auto Company/{image_name}"
             img_url = get_image_url(img_path)
             st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{mayar_images[0][1]}</div>
+            <div style="text-align: center; margin-bottom: 30px;">
+                <img src="{img_url}" style="width: 100%; max-width: 500px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
         except:
             st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
-                    <div style="color: #888;">{mayar_images[0][1]}</div>
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="padding: 60px; background: #f9f9f9; border-radius: 10px; max-width: 500px; margin: 0 auto;">
+                    <div style="color: #888; font-size: 14px;">Image non disponible</div>
                 </div>
             </div>
             """, unsafe_allow_html=True)
-    
-    with col2:
-        try:
-            img_path = f"Freelance/Mayar Auto Company/{mayar_images[1][0]}"
-            img_url = get_image_url(img_path)
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{mayar_images[1][1]}</div>
-            </div>
-            """, unsafe_allow_html=True)
-        except:
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
-                    <div style="color: #888;">{mayar_images[1][1]}</div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-    
-    # Deuxième ligne
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        try:
-            img_path = f"Freelance/Mayar Auto Company/{mayar_images[2][0]}"
-            img_url = get_image_url(img_path)
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{mayar_images[2][1]}</div>
-            </div>
-            """, unsafe_allow_html=True)
-        except:
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
-                    <div style="color: #888;">{mayar_images[2][1]}</div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-    
-    with col2:
-        try:
-            img_path = f"Freelance/Mayar Auto Company/{mayar_images[3][0]}"
-            img_url = get_image_url(img_path)
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{mayar_images[3][1]}</div>
-            </div>
-            """, unsafe_allow_html=True)
-        except:
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
-                    <div style="color: #888;">{mayar_images[3][1]}</div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-
 elif st.session_state.page == "tse":
     if st.button("←"):
         st.session_state.page = "medicofi"
