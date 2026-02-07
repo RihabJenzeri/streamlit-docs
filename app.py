@@ -3656,9 +3656,6 @@ elif st.session_state.page == "tse":
     except Exception as e:
         st.error(f"Erreur de chargement du PDF: {str(e)}")
         st.markdown("""
-        <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
-            <div style="color: #888; font-size: 16px;">Guide PDF not available</div>
-        </div>
         """, unsafe_allow_html=True)
 
     # TRIER les images dans l'ordre numérique (1, 2, 3... 12)
