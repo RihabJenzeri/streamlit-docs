@@ -1567,7 +1567,7 @@ elif st.session_state.page == "medicofi4":
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div style="color: #666; margin-bottom: 30px;">Email Marketing Campaign</div>', unsafe_allow_html=True)
+    st.markdown('<div style="color: #666; margin-bottom: 30px;">Email Marketing</div>', unsafe_allow_html=True)
     
     # Chemin de l'image unique
     image_path = "Medicofi/Société MCM Externalisation (à Madagascar)/Emailing/Emailing MCM Externalisation.png"
@@ -1584,17 +1584,7 @@ elif st.session_state.page == "medicofi4":
         </div>
         """, unsafe_allow_html=True)
         
-        # Description de l'image
-        st.markdown("""
-        <div style="text-align: center; margin-bottom: 40px;">
-            <div style="color: #202124; font-size: 20px; font-weight: 600; margin-bottom: 10px;">
-                Email Marketing MCM Externalisation
-            </div>
-            <div style="color: #666; font-size: 16px; max-width: 600px; margin: 0 auto;">
-                Email campaign design for MCM Externalisation  Company based in Madagascar
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+ 
         
     except Exception as e:
         # Placeholder si l'image n'est pas disponible
@@ -1619,29 +1609,6 @@ elif st.session_state.page == "medicofi4":
         </div>
         """, unsafe_allow_html=True)
     
-    # Section d'information supplémentaire
-    st.markdown("""
-    <div style="background: linear-gradient(135deg, rgba(251, 189, 250, 0.1) 0%, rgba(140, 210, 255, 0.1) 100%); 
-                padding: 25px; border-radius: 12px; margin-top: 20px; border: 1px solid rgba(251, 189, 250, 0.3);">
-        <div style="display: flex; align-items: flex-start; gap: 15px;">
-            <div style="background: white; padding: 12px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 2px solid #FBBDFA;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-            </div>
-            <div style="flex: 1;">
-                <h4 style="color: #202124; margin: 0 0 10px 0;">Project Details</h4>
-                <div style="color: #666; font-size: 14px; line-height: 1.6;">
-                    <p><strong>Client:</strong> MCM Externalisation (Madagascar)</p>
-                    <p><strong>Service:</strong> Email marketing campaign design</p>
-                    <p><strong>Objective:</strong> Corporate communication and client engagement</p>
-                    <p><strong>Tools:</strong> Photoshop, Illustrator</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
 # Page Respi Express Company (France)
 elif st.session_state.page == "medicofi5":
     if st.button("←"):
