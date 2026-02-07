@@ -3567,7 +3567,7 @@ elif st.session_state.page == "tle_post_statique":
             <circle cx="8.5" cy="8.5" r="1.5"></circle>
             <polyline points="21 15 16 10 5 21"></polyline>
         </svg>
-        <h3 style="margin: 0; color: #202124;">Post Statique - Tire Lait Express</h3>
+        <h3 style="margin: 0; color: #202124;">Single Post - Tire Lait Express</h3>
     </div>
     """, unsafe_allow_html=True)
 
