@@ -3577,7 +3577,7 @@ elif st.session_state.page == "tse":
         st.session_state.page = "medicofi"
         st.rerun()
 
-    # Titre avec style personnalisé
+    # Titre
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3589,40 +3589,21 @@ elif st.session_state.page == "tse":
     </div>
     """, unsafe_allow_html=True)
 
-    # SECTION 1: PDF Guide mise en page2021
-    st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-            <polyline points="10 9 9 9 8 9"></polyline>
-        </svg>
-        <h3 style="margin: 0; color: #202124;">Guide mise en page 2021</h3>
-    </div>
-    """, unsafe_allow_html=True)
-
-  # PDF Viewer
+    st.markdown("### Guide mise en page 2021")
+    
+    # AFFICHAGE DU PDF
     try:
-        # CHEMIN POUR L'AFFICHAGE (avec get_image_url)
-        display_pdf_path = "TSE/Guide mise en page2021.pdf"
-        
-        # Obtenir l'URL pour l'affichage
-        pdf_url = get_image_url(display_pdf_path)
-        
-        # Encoder l'URL pour Google Viewer
+        display_path = "TSE/Guide mise en page2021.pdf"
+        pdf_url = get_image_url(display_path)
         import urllib.parse
         pdf_encoded = urllib.parse.quote(pdf_url, safe='')
         google_viewer_url = f"https://docs.google.com/viewer?url={pdf_encoded}&embedded=true"
         
-        # Afficher le PDF dans un iframe
         st.markdown(f'<iframe width="100%" height="600" src="{google_viewer_url}"></iframe>', unsafe_allow_html=True)
-        
-    except Exception as e:
-        st.error(f"Erreur d'affichage du PDF: {str(e)}")
+    except:
+        st.write("PDF en cours d'affichage...")
 
-     # LES DEUX BOUTONS IDENTIQUES
+    # LES DEUX BOUTONS IDENTIQUES - STYLE IDENTIQUE
     col1, col2 = st.columns(2)
     
     # Bouton 1: Télécharger
@@ -3631,13 +3612,23 @@ elif st.session_state.page == "tse":
         try:
             with open(download_path, "rb") as f:
                 pdf_data = f.read()
-            st.download_button("Télécharger le Guide", pdf_data, "Guide mise en page 2021.pdf", "application/pdf", use_container_width=True)
-        except:
+            
+            # Même style que le bouton "Ouvrir PDF"
+            if st.button("Télécharger le Guide", use_container_width=True):
+                # Créer un lien de téléchargement
+                import base64
+                b64 = base64.b64encode(pdf_data).decode()
+                href = f'<a href="data:application/pdf;base64,{b64}" download="Guide mise en page 2021.pdf" style="text-decoration: none; color: inherit;">Télécharger en cours...</a>'
+                st.markdown(href, unsafe_allow_html=True)
+        except Exception as e:
             st.button("Télécharger le Guide", disabled=True, use_container_width=True)
     
     # Bouton 2: Ouvrir PDF
     with col2:
-        st.button("Ouvrir PDF", use_container_width=True)
+        if st.button("Ouvrir PDF", use_container_width=True):
+            # Ouvre le PDF dans un nouvel onglet
+            js = f"window.open('{google_viewer_url}', '_blank');"
+            st.markdown(f"<script>{js}</script>", unsafe_allow_html=True)
     # TRIER les images dans l'ordre numérique (1, 2, 3... 12)
     image_numbers = list(range(1, 13))
     tse_images = [f"TSE/SportsWear Design/{num}.png" for num in image_numbers]
