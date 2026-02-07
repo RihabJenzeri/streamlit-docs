@@ -3597,8 +3597,8 @@ elif st.session_state.page == "freelance_chabeb":
 
     # Deux images dans une seule colonne
     chabeb_images = [
-        ("affiche rentree sdf.jpg", "Affiche rentrée SDF"),
-        ("تغذية صحية للعائلات المعوزة.png", "تغذية صحية للعائلات المعوزة")
+        ("affiche rentree sdf.jpg", "Poster 1"),
+        ("تغذية صحية للعائلات المعوزة.png", "Poster 2")
     ]
     
     # Affichage des images dans une seule colonne
@@ -3614,9 +3614,6 @@ elif st.session_state.page == "freelance_chabeb":
                 </div>
                 <div style="display: flex; justify-content: center;">
                     <img src="{img_url}" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 6px 25px rgba(0,0,0,0.1);">
-                </div>
-                <div style="color: #666; font-size: 14px; margin-top: 15px; font-style: italic;">
-                    File: {file_name}
                 </div>
             </div>
             """, unsafe_allow_html=True)
