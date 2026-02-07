@@ -4694,14 +4694,6 @@ st.markdown("""
     border: 2px solid #FBBDFA;
 }
 
-.logo-placeholder {
-    width: 80px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .footer-title {
     color: #FFFFFF;
     font-size: 20px;
@@ -4720,55 +4712,25 @@ st.markdown("""
     padding: 0 20px;
 }
 
-/* Style pour centrer l'image Streamlit */
-.stImage {
-    display: flex;
-    justify-content: center;
-}
-
-.stImage img {
+/* Style pour l'image du logo */
+.logo-img {
+    max-width: 80px;
+    max-height: 80px;
     filter: brightness(0) invert(1); /* Rend le logo blanc si nécessaire */
 }
 </style>
 """, unsafe_allow_html=True)
 
 # Afficher le footer avec VOTRE logo
-st.markdown("""
+st.markdown(f"""
 <div class="footer">
     <div class="footer-content">
         <div class="circle-container">
-            <div class="logo-placeholder">
-                <!-- L'image sera insérée ici -->
-            </div>
+            <!-- Remplacement du SVG par votre image -->
+            <img src="mes_documents/Logo Ines-01.png" alt="INES HARRABI - Graphic Designer" class="logo-img">
         </div>
         <h2 class="footer-title">Collaborating Together</h2>
         <p class="footer-subtitle">Innovating design solutions through creative collaboration and partnership</p>
     </div>
 </div>
 """, unsafe_allow_html=True)
-
-# Charger et afficher l'image
-try:
-    # Utiliser le chemin correct vers votre image
-    image_path = "mes_documents/Logo Ines-01.png"
-    
-    # Créer un conteneur invisible pour l'image
-    with st.container():
-        # Créer des colonnes pour centrer
-        col1, col2, col3 = st.columns([1, 6, 1])
-        with col2:
-            # Afficher l'image centrée
-            st.image(
-                image_path, 
-                width=80,
-                use_column_width=False,
-                output_format="PNG"
-            )
-except Exception as e:
-    st.error(f"Erreur de chargement du logo: {e}")
-    # Option de secours : afficher un texte à la place
-    st.markdown("""
-    <div style="color: white; text-align: center; font-weight: bold;">
-        INES HARRABI
-    </div>
-    """, unsafe_allow_html=True)
