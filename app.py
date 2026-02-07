@@ -3368,7 +3368,7 @@ elif st.session_state.page == "medicofi8":
     """, unsafe_allow_html=True)
 
     # Bouton pour accéder à la page des réseaux sociaux
-    if st.button("RÉSEAUX SOCIAUX", use_container_width=True):
+    if st.button("SOCIAL MADIA", use_container_width=True):
         st.session_state.page = "tle_reseaux_sociaux"
         st.rerun()
 
@@ -3388,9 +3388,6 @@ elif st.session_state.page == "medicofi8":
         st.markdown(f"""
         <div style="display: flex; justify-content: center; margin: 20px 0 40px 0;">
             <img src="{rollup_url}" style="width: 100%; max-width: 500px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        </div>
-        <div style="text-align: center; color: #666; margin-bottom: 20px;">
-            Roll-up TLE recrute
         </div>
         """, unsafe_allow_html=True)
     except:
