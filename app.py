@@ -4659,7 +4659,7 @@ st.markdown("""
 .footer {
     background-color: #202124;
     width: 100vw;
-    padding: 40px 0 25px 0;
+    # padding: 40px 0 25px 0;
     margin-top: 50px;
     display: flex;
     flex-direction: column;
@@ -4714,7 +4714,7 @@ st.markdown("""
 
 /* Style pour l'image du logo */
 .logo-img {
-    max-width: 220px;
+    max-width: 260px;
     max-height: 80px;
     filter: brightness(0) invert(1); /* Rend le logo blanc si nécessaire */
 }
