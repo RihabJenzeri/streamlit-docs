@@ -3571,7 +3571,7 @@ elif st.session_state.page == "tle_post_statique":
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div style="color: #666; margin-bottom: 30px;">Static posts for social media</div>', unsafe_allow_html=True)
+    st.markdown('<div style="color: #666; margin-bottom: 30px;">Single Post for social media</div>', unsafe_allow_html=True)
     
     # Liste des 11 images
     static_images = []
