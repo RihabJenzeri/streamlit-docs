@@ -646,7 +646,7 @@ elif st.session_state.page == "medicofi":
         st.session_state.page = "accueil"
         st.rerun()
 
-    st.title("My Works")
+    st.title("Work Portfolio")
 
     # Créer trois colonnes
     col1, col2, col3 = st.columns(3)
