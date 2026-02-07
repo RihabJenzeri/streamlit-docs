@@ -4145,7 +4145,7 @@ elif st.session_state.page == "pdf_viewer":
             <line x1="16" y1="17" x2="8" y2="17"></line>
             <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        <h1 style="margin: 0; color: #202124; font-size: 32px; font-weight: 700;">PORTFOLIO INES HARRABI 2024</h1>
+        <h1 style="margin: 0; color: #202124; font-size: 32px; font-weight: 700;">Selected Works – (2012–2019)</h1>
     </div>
     """, unsafe_allow_html=True)
 
