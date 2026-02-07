@@ -1551,7 +1551,7 @@ elif st.session_state.page == "medicofi3":
         </div>
     </div>
     """, unsafe_allow_html=True)          
-# Page MCM Outsourcing Company (Madagascar)
+# Page MCM Externalisation  Company (Madagascar)
 elif st.session_state.page == "medicofi4":
     if st.button("←"):
         st.session_state.page = "medicofi"
@@ -1563,11 +1563,11 @@ elif st.session_state.page == "medicofi4":
             <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
         </svg>
-        <h3 style="margin: 0; color: #202124;">MCM Outsourcing Company</h3>
+        <h3 style="margin: 0; color: #202124;">MCM Externalisation Company</h3>
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div style="color: #666; margin-bottom: 30px;">Emailing Campaign</div>', unsafe_allow_html=True)
+    st.markdown('<div style="color: #666; margin-bottom: 30px;">Email Marketing Campaign</div>', unsafe_allow_html=True)
     
     # Chemin de l'image unique
     image_path = "Medicofi/Société MCM Externalisation (à Madagascar)/Emailing/Emailing MCM Externalisation.png"
@@ -1588,10 +1588,10 @@ elif st.session_state.page == "medicofi4":
         st.markdown("""
         <div style="text-align: center; margin-bottom: 40px;">
             <div style="color: #202124; font-size: 20px; font-weight: 600; margin-bottom: 10px;">
-                Emailing MCM Externalisation
+                Email Marketing MCM Externalisation
             </div>
             <div style="color: #666; font-size: 16px; max-width: 600px; margin: 0 auto;">
-                Email campaign design for MCM Outsourcing Company based in Madagascar
+                Email campaign design for MCM Externalisation  Company based in Madagascar
             </div>
         </div>
         """, unsafe_allow_html=True)
