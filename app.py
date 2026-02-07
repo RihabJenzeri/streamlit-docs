@@ -3069,7 +3069,7 @@ elif st.session_state.page == "medicofi8":
     </div>
     """, unsafe_allow_html=True)
 
-    # ========== SECTION 3: Création d'un avatar pour un chatbot IA ==========
+       # ========== SECTION 3: Création d'un avatar pour un chatbot IA (Version 2) ==========
     st.markdown("---")
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
@@ -3094,7 +3094,8 @@ elif st.session_state.page == "medicofi8":
     # Première image (Avatar Lea)
     with col1:
         try:
-            img_path = f"mes_documents/Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/Avatar Lea.png"
+            # CORRECTION : Enlever "mes_documents/" et utiliser l'apostrophe courbe
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d’un avatar pour un chatbot IA/Avatar Lea.png"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
@@ -3114,7 +3115,8 @@ elif st.session_state.page == "medicofi8":
     # Deuxième image (Image d'origine reçue)
     with col2:
         try:
-            img_path = f"mes_documents/Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/Image d'origine reçue.jpeg"
+            # CORRECTION : Enlever "mes_documents/" et utiliser l'apostrophe courbe
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d’un avatar pour un chatbot IA/Image d’origine reçue.jpeg"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
@@ -3139,7 +3141,8 @@ elif st.session_state.page == "medicofi8":
     """, unsafe_allow_html=True)
     
     try:
-        img_path = f"mes_documents/Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/Planche de personnage de l'avatar.png"
+        # CORRECTION : Enlever "mes_documents/" et utiliser l'apostrophe courbe
+        img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d’un avatar pour un chatbot IA/Planche de personnage de l’avatar.png"
         img_url = get_image_url(img_path)
         st.markdown(f"""
         <div style="text-align: center; margin-bottom: 40px;">
