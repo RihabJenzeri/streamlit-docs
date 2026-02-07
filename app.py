@@ -4659,7 +4659,7 @@ st.markdown("""
 .footer {
     background-color: #202124;
     width: 100vw;
-    padding: 30px 0 20px 0;
+    padding: 40px 0 25px 0;
     margin-top: 50px;
     display: flex;
     flex-direction: column;
@@ -4676,32 +4676,33 @@ st.markdown("""
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
     max-width: 600px;
     text-align: center;
 }
 
 .circle-container {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    background: #FBBDFA;
+    background: #202124;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     margin-bottom: 10px;
+    border: 2px solid #FBBDFA;
 }
 
 .circle-container svg {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     filter: brightness(0) invert(1);
 }
 
 .footer-title {
     color: #FFFFFF;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -4709,11 +4710,12 @@ st.markdown("""
 
 .footer-subtitle {
     color: #FFFFFF;
-    font-size: 14px;
+    font-size: 15px;
     opacity: 0.8;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.6;
+    padding: 0 20px;
 }
 </style>
 """, unsafe_allow_html=True)
