@@ -3595,52 +3595,46 @@ elif st.session_state.page == "freelance_chabeb":
     </div>
     """, unsafe_allow_html=True)
 
-    # Deux images en deux colonnes
+    # Deux images dans une seule colonne
     chabeb_images = [
         ("affiche rentree sdf.jpg", "Affiche rentrée SDF"),
         ("تغذية صحية للعائلات المعوزة.png", "تغذية صحية للعائلات المعوزة")
     ]
     
-    col1, col2 = st.columns(2)
-    
-    with col1:
+    # Affichage des images dans une seule colonne
+    for file_name, description in chabeb_images:
         try:
-            img_path = f"Freelance/CHabeb Ennour (volunteer group)/{chabeb_images[0][0]}"
+            img_path = f"Freelance/CHabeb Ennour (volunteer group)/{file_name}"
             img_url = get_image_url(img_path)
+            
             st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{chabeb_images[0][1]}</div>
-            </div>
-            """, unsafe_allow_html=True)
-        except:
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
-                    <div style="color: #888;">{chabeb_images[0][1]}</div>
+            <div style="text-align: center; margin-bottom: 40px; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                <div style="color: #202124; font-weight: 700; font-size: 18px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #FBBDFA;">
+                    {description}
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <img src="{img_url}" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 6px 25px rgba(0,0,0,0.1);">
+                </div>
+                <div style="color: #666; font-size: 14px; margin-top: 15px; font-style: italic;">
+                    File: {file_name}
                 </div>
             </div>
             """, unsafe_allow_html=True)
-    
-    with col2:
-        try:
-            img_path = f"Freelance/CHabeb Ennour (volunteer group)/{chabeb_images[1][0]}"
-            img_url = get_image_url(img_path)
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{chabeb_images[1][1]}</div>
-            </div>
-            """, unsafe_allow_html=True)
+            
         except:
             st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
-                    <div style="color: #888;">{chabeb_images[1][1]}</div>
+            <div style="text-align: center; margin-bottom: 40px; padding: 50px; background: #f9f9f9; border-radius: 12px; border: 2px dashed #FBBDFA;">
+                <div style="color: #888; font-size: 18px; margin-bottom: 15px;">
+                    Image non disponible
+                </div>
+                <div style="color: #202124; font-weight: 600; font-size: 16px; margin-bottom: 10px;">
+                    {description}
+                </div>
+                <div style="color: #666; font-size: 14px;">
+                    {file_name}
                 </div>
             </div>
             """, unsafe_allow_html=True)
-
 # Page Clorex Company
 elif st.session_state.page == "freelance_clorex":
     if st.button("←"):
