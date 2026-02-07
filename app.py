@@ -1729,51 +1729,54 @@ elif st.session_state.page == "medicofi5":
         </div>
         """, unsafe_allow_html=True)
     
-   # ========== SECTION 3: Dépliants 1 pli 2 volets ==========
-st.markdown("---")
-st.markdown("""
-<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="3" width="20" height="18" rx="2" ry="2"></rect>
-        <line x1="9" y1="21" x2="15" y2="21"></line>
-        <line x1="12" y1="17" x2="12" y2="21"></line>
-    </svg>
-    <h4 style="margin: 0; color: #202124;">Single-fold - two-panel brochures</h4>
-</div>
-""", unsafe_allow_html=True)
-
-# Version avec une seule colonne pour chaque image
-try:
-    recto_url = get_image_url("Medicofi/Société Respi Express (en France)/Dépliants 1 pli 2 volets/Recto.png")
-    st.markdown(f"""
-    <div style="text-align: center; margin-bottom: 30px;">
-        <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Double sided</div>
-        <img src="{recto_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-    </div>
-    """, unsafe_allow_html=True)
-except:
+    # ========== SECTION 3: Dépliants 1 pli 2 volets ==========
+    st.markdown("---")
     st.markdown("""
-    <div style="text-align: center; margin-bottom: 30px;">
-        <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Double sided - Recto</div>
-        <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">Image not available</div>
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="18" rx="2" ry="2"></rect>
+            <line x1="9" y1="21" x2="15" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Single-fold - two-panel brochures</h4>
     </div>
     """, unsafe_allow_html=True)
-
-try:
-    verso_url = get_image_url("Medicofi/Société Respi Express (en France)/Dépliants 1 pli 2 volets/Verso.png")
-    st.markdown(f"""
-    <div style="text-align: center;">
-        <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Verso</div>
-        <img src="{verso_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-    </div>
-    """, unsafe_allow_html=True)
-except:
-    st.markdown("""
-    <div style="text-align: center;">
-        <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Verso</div>
-        <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">Image not available</div>
-    </div>
-    """, unsafe_allow_html=True)
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        try:
+            recto_url = get_image_url("Medicofi/Société Respi Express (en France)/Dépliants 1 pli 2 volets/Recto.png")
+            st.markdown(f"""
+            <div style="text-align: center;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Double</div>
+                <img src="{recto_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown("""
+            <div style="text-align: center;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">sided</div>
+                <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">Image not available</div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        try:
+            verso_url = get_image_url("Medicofi/Société Respi Express (en France)/Dépliants 1 pli 2 volets/Verso.png")
+            st.markdown(f"""
+            <div style="text-align: center;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">sided</div>
+                <img src="{verso_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown("""
+            <div style="text-align: center;">
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Verso</div>
+                <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">Image not available</div>
+            </div>
+            """, unsafe_allow_html=True)
     
     # ========== SECTION 4: Emailing et Newsletters ==========
     st.markdown("---")
