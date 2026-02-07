@@ -4115,8 +4115,8 @@ elif st.session_state.page == "device_images":
     device = st.session_state.current_device
     device_icons = {
         "Desktop": "",
-        "iPad": "📱",
-        "Phone": "📱"
+        "iPad": "",
+        "Phone": ""
     }
 
     st.title(f"{device_icons.get(device, '📱')} DESIGN {device.upper()}")
