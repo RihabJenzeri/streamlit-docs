@@ -2811,35 +2811,24 @@ elif st.session_state.page == "medicofi8":
         st.session_state.page = "medicofi"
         st.rerun()
 
-    st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-        </svg>
-        <h3 style="margin: 0; color: #202124;">Tire Lait Express Company (France)</h3>
-    </div>
-    """, unsafe_allow_html=True)
-
     # ========== SECTION 1: Affiche Pour les cabinet Sage-femme ==========
-    st.markdown("---")
-    st.markdown("""
+     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
             <line x1="3" y1="9" x2="21" y2="9"></line>
             <line x1="9" y1="21" x2="9" y2="9"></line>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Affiche Pour les cabinet Sage-femme</h4>
+        <h4 style="margin: 0; color: #202124;">Poster for Midwifery Clinics</h4>
     </div>
     """, unsafe_allow_html=True)
 
     # Quatre images en deux colonnes (2x2)
     affiche_images = [
-        ("Affiche les positions d’allaitements.png", "Affiche les positions d'allaitements"),
-        ("affiche publicitaire.png", "Affiche publicitaire"),
-        ("affiche sein artistique-Lactant.png", "Affiche sein artistique - Lactant"),
-        ("Affiche Taille de téterelles.png", "Affiche Taille de téterelles")
+        ("Affiche les positions d’allaitements.png", "Breastfeeding Positions Poster"),
+        ("affiche publicitaire.png", "Advertising Poster"),
+        ("affiche sein artistique-Lactant.png", "Artistic Poster"),
+        ("Affiche Taille de téterelles.png", "Nipple Size Poster")
     ]
     
     # Première ligne
@@ -2851,8 +2840,8 @@ elif st.session_state.page == "medicofi8":
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{affiche_images[0][1]}</div>            
                 <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{affiche_images[0][1]}</div>
             </div>
             """, unsafe_allow_html=True)
         except:
@@ -2870,8 +2859,8 @@ elif st.session_state.page == "medicofi8":
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                 <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{affiche_images[1][1]}</div>
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
         except:
@@ -2892,8 +2881,8 @@ elif st.session_state.page == "medicofi8":
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                 <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{affiche_images[2][1]}</div>
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
         except:
@@ -2911,8 +2900,8 @@ elif st.session_state.page == "medicofi8":
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                 <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{affiche_images[3][1]}</div>
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
         except:
