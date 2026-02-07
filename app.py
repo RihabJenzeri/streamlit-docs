@@ -1168,7 +1168,7 @@ elif st.session_state.page == "mamivac_social_media":
         </div>
         """, unsafe_allow_html=True)
         
-        if st.button("Post Carrousel", use_container_width=True):
+        if st.button("Carousel post", use_container_width=True):
             st.session_state.page = "mamivac_post_carrousel"
             st.rerun()
 
@@ -1185,7 +1185,7 @@ elif st.session_state.page == "mamivac_social_media":
         </div>
         """, unsafe_allow_html=True)
         
-        if st.button("Post Statique", use_container_width=True):
+        if st.button("single post", use_container_width=True):
             st.session_state.page = "mamivac_post_statique"
             st.rerun()
 
