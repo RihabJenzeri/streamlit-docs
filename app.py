@@ -921,7 +921,7 @@ elif st.session_state.page == "medicofi2":
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
             <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
-        <h3 style="margin: 0; color: #202124;">Email Marketing</h3>
+        <h3 style="margin: 0; color: #202124;">Emailing et Newsletters</h3>
     </div>
     """, unsafe_allow_html=True)
     
@@ -3194,11 +3194,11 @@ elif st.session_state.page == "medicofi8":
 
     # Cinq images dans une seule colonne
     emailing_images = [
-        ("Capture d'écran 2025-06-19 090912.png", ""),
-        ("Dernière relance avant transmission au service contentieux.png", ""),
-        ("Emailing sages femmes Secteur.png", ""),
+        ("Capture d'écran 2025-06-19 090912.png", "Capture d'écran 2025-06-19 090912"),
+        ("Dernière relance avant transmission au service contentieux.png", "Dernière relance avant transmission au service contentieux"),
+        ("Emailing sages femmes Secteur.png", "Emailing sages femmes Secteur"),
         ("La SMAM approche.png", "La SMAM approche"),
-        ("Simplifiez l’allaitement de vos patientes.png", "")
+        ("Simplifiez l’allaitement de vos patientes.png", "Simplifiez l'allaitement de vos patientes")
     ]
     
     for idx, (file_name, description) in enumerate(emailing_images):
