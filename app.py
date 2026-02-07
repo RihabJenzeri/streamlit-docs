@@ -4113,42 +4113,13 @@ elif st.session_state.page == "device_images":
         st.rerun()
 
     device = st.session_state.current_device
-    
-    # Icônes SVG exactement comme dans votre exemple
     device_icons = {
-        "Desktop": """
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FEF">
-            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-            <line x1="8" y1="21" x2="16" y2="21"></line>
-            <line x1="12" y1="17" x2="12" y2="21"></line>
-        </svg>
-        """,
-        "iPad": """
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FEF">
-            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-            <line x1="12" y1="18" x2="12" y2="18"></line>
-        </svg>
-        """,
-        "Phone": """
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FEF">
-            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-            <line x1="12" y1="18" x2="12" y2="18"></line>
-        </svg>
-        """
+        "Desktop": "",
+        "iPad": "📱",
+        "Phone": "📱"
     }
 
-    # Titre avec le design EXACT de votre exemple
-    device_icon = device_icons.get(device, device_icons["Desktop"])
-    
-    st.markdown(f"""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-        {device_icon}
-        <h1 style="margin: 0; color: #202124; font-size: 32px; font-weight: 700;">DESIGN {device.upper()}</h1>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Ajouter la ligne horizontale comme dans votre exemple
-    st.markdown("---")
+    st.title(f"{device_icons.get(device, '📱')} DESIGN {device.upper()}")
 
     # Display images
     if device in design_images:
@@ -4159,7 +4130,6 @@ elif st.session_state.page == "device_images":
             st.image(img_url, use_container_width=True)
             st.markdown(f"<p class='caption-text'>{img_name}</p>", unsafe_allow_html=True)
             st.markdown("---")
-
 elif st.session_state.page == "pdf_viewer":
     if st.button("←"):
         st.session_state.page = "accueil"
