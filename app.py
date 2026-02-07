@@ -3918,7 +3918,7 @@ elif st.session_state.page == "tse":
 
     st.markdown("---")  # Séparateur
 
-    # SECTION 2: Images SportsWear Design avec icône t-shirt
+   # SECTION 2: Images SportsWear Design avec icône t-shirt
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3927,13 +3927,26 @@ elif st.session_state.page == "tse":
         <h3 style="margin: 0; color: #202124;">SportsWear Design</h3>
     </div>
     """, unsafe_allow_html=True)
-
-    # TRIER les images dans l'ordre numérique (1, 2, 3... 12)
-    image_numbers = list(range(1, 13))
-    tse_images = [f"TSE/SportsWear Design/{num}.png" for num in image_numbers]
     
-    # Afficher chaque image dans une colonne unique (pleine largeur)
-    for idx, img_path in enumerate(tse_images):
+    # VOUS ORDONNEZ LES IMAGES COMME VOUS VOULEZ
+    votre_ordre_images = [
+        "TSE/SportsWear Design/3.png",   # Image 3 en premier
+        "TSE/SportsWear Design/1.png",   # Puis image 1
+        "TSE/SportsWear Design/5.png",   # Puis image 5
+        "TSE/SportsWear Design/2.png",   # etc.
+        "TSE/SportsWear Design/4.png",
+        "TSE/SportsWear Design/8.png",
+        "TSE/SportsWear Design/6.png",
+        "TSE/SportsWear Design/10.png",
+        "TSE/SportsWear Design/7.png",
+        "TSE/SportsWear Design/9.png",
+        "TSE/SportsWear Design/11.png",
+        "TSE/SportsWear Design/12.png"
+    ]
+    
+    # CORRECTION : Utiliser votre_ordre_images au lieu de tse_images
+    # Afficher chaque image dans VOTRE ordre
+    for idx, img_path in enumerate(votre_ordre_images):  # CHANGÉ ICI
         img_number = idx + 1
         
         try:
@@ -3965,8 +3978,7 @@ elif st.session_state.page == "tse":
                 <div style="color: #666; font-size: 14px;">{img_path}</div>
                 <div style="color: #999; font-size: 13px; margin-top: 10px;">Design {img_number}</div>
             </div>
-            """, unsafe_allow_html=True)
-    
+            """, unsafe_allow_html=True)    
     # Note en bas de page
     st.markdown("""
     <div style="text-align: center; margin: 30px 0; padding: 20px; background: #f9f9f9; border-radius: 10px; border-left: 4px solid #FBBDFA;">
