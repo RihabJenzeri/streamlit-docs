@@ -4682,7 +4682,7 @@ st.markdown("""
 }
 
 .circle-container {
-    width: 100px;
+    width: 300px;
     height: 100px;
     border-radius: 50%;
     background: #202124;
@@ -4691,7 +4691,7 @@ st.markdown("""
     align-items: center;
     overflow: hidden;
     margin-bottom: 10px;
-    border: 2px solid #FBBDFA;
+    /* border: 2px solid #FBBDFA;
 }
 
 .footer-title {
