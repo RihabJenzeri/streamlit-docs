@@ -1073,7 +1073,7 @@ elif st.session_state.page == "mamivac_propositions":
             <line x1="16" y1="17" x2="8" y2="17"></line>
             <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        <h3 style="margin: 0; color: #202124;">Propositions Coque Sensitive C</h3>
+        <h3 style="margin: 0; color: #202124;">Sensitive C device casing propositions</h3>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1105,13 +1105,13 @@ elif st.session_state.page == "mamivac_propositions":
     col1, col2 = st.columns(2)
     with col1:
         st.markdown(f'<a href="{pdf1_url}" download="Proposition_1_PLANCHE_Sensitive_C.pdf" style="text-decoration: none;">', unsafe_allow_html=True)
-        if st.button("📥 Télécharger PDF 1", use_container_width=True):
+        if st.button("Download PDF 1", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
     
     with col2:
         st.markdown(f'<a href="{google_viewer_url1}" target="_blank" style="text-decoration: none;">', unsafe_allow_html=True)
-        if st.button("🔗 Ouvrir PDF 1", use_container_width=True):
+        if st.button("Open PDF 1", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
     
@@ -1134,13 +1134,13 @@ elif st.session_state.page == "mamivac_propositions":
     col1, col2 = st.columns(2)
     with col1:
         st.markdown(f'<a href="{pdf2_url}" download="Proposition_2_PLANCHE_Sensitive_C.pdf" style="text-decoration: none;">', unsafe_allow_html=True)
-        if st.button("📥 Télécharger PDF 2", use_container_width=True):
+        if st.button("Download PDF 2", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
     
     with col2:
         st.markdown(f'<a href="{google_viewer_url2}" target="_blank" style="text-decoration: none;">', unsafe_allow_html=True)
-        if st.button("🔗 Ouvrir PDF 2", use_container_width=True):
+        if st.button("Open PDF 2", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
 
