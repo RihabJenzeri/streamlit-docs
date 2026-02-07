@@ -890,7 +890,7 @@ elif st.session_state.page == "medicofi2":
             <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
         </svg>
-        <h3 style="margin: 0; color: #202124;">Coque de l'appareil Sensitive C (Design Produit)</h3>
+        <h3 style="margin: 0; color: #202124;">Sensitive C device casing (Product Design)</h3>
     </div>
     """, unsafe_allow_html=True)
     
@@ -898,14 +898,14 @@ elif st.session_state.page == "medicofi2":
     st.markdown("""
     <div style="background: #f9f9f9; padding: 15px; border-radius: 10px; border-left: 4px solid #FBBDFA; margin-bottom: 20px;">
          <div style="color: #666; font-size: 14px; line-height: 1.6;">
-            Cette proposition de design a été conçue dans Photoshop, et non avec un logiciel de modélisation 3D.<br><br>
-            La contrainte principale consiste à conserver l'intérieur du produit tout en modifiant uniquement la coque extérieure.
+            This design proposal was produced using Photoshop, without the use of 3D modeling software.<br><br>
+            The main constraint was to keep the product’s internal components unchanged, modifying only the outer housing.
         </div>
     </div>
     """, unsafe_allow_html=True)
 
     # Bouton pour voir les propositions
-    if st.button("PROPOSITIONS COQUE SENSITIVE C", use_container_width=True):
+    if st.button("Sensitive C device casing propositions", use_container_width=True):
         st.session_state.page = "mamivac_propositions"
         st.rerun()
     
