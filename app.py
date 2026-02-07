@@ -1949,7 +1949,7 @@ elif st.session_state.page == "medicofi5":
         st.session_state.page = "respi_reseaux_sociaux"
         st.rerun()
    # ========== SECTION: Stand Parapluie ==========
-    st.markdown("---")
+        st.markdown("---")
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1960,60 +1960,25 @@ elif st.session_state.page == "medicofi5":
     """, unsafe_allow_html=True)
     
     try:
-        # Supposons que vous avez 3 images pour Stand Parapluie
-        stand_images = [
-            ("Stand Parapluie Respi-express.png", "Stand Parapluie - Vue principale"),
-            ("Stand Parapluie vue2.png", "Stand Parapluie - Vue latérale"),
-            ("Stand Parapluie vue3.png", "Stand Parapluie - Vue de détail")
-        ]
-        
-        # Image 1 seule dans une colonne (grande)
-        col1_full = st.columns(1)[0]
-        with col1_full:
-            img1_url = get_image_url("Medicofi/Société Respi Express (en France)/Stand Parapluie/Stand Parapluie Respi-express.png")
+        # Afficher seulement l'image principale
+        try:
+            img_url = get_image_url("Medicofi/Société Respi Express (en France)/Stand Parapluie/Stand Parapluie Respi-express.png")
             st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 30px;">
-                <img src="{img1_url}" style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{stand_images[0][1]}</div>
+            <div style="text-align: center; margin: 20px 0 40px 0;">
+                <img src="{img_url}" style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+                <div style="color: #202124; font-weight: 600; margin-top: 15px; font-size: 16px;">
+                    Stand Parapluie - Vue principale
+                </div>
             </div>
             """, unsafe_allow_html=True)
-        
-        # Images 2 et 3 dans deux colonnes côte à côte
-        col2, col3 = st.columns(2)
-        
-        # Image 2
-        with col2:
-            try:
-                img2_url = get_image_url("Medicofi/Société Respi Express (en France)/Stand Parapluie/Stand Parapluie vue2.png")
-                st.markdown(f"""
-                <div style="text-align: center; margin-bottom: 20px;">
-                    <img src="{img2_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                    <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{stand_images[1][1]}</div>
+        except Exception as e:
+            st.markdown("""
+            <div style="text-align: center; margin: 20px 0 40px 0;">
+                <div style="padding: 60px; background: #f9f9f9; border-radius: 10px; max-width: 800px; margin: 0 auto;">
+                    <div style="color: #888; font-size: 16px;">Stand Parapluie image not available</div>
                 </div>
-                """, unsafe_allow_html=True)
-            except:
-                st.markdown(f"""
-                <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px;">
-                    <div style="color: #888;">{stand_images[1][1]}</div>
-                </div>
-                """, unsafe_allow_html=True)
-        
-        # Image 3
-        with col3:
-            try:
-                img3_url = get_image_url("Medicofi/Société Respi Express (en France)/Stand Parapluie/Stand Parapluie vue3.png")
-                st.markdown(f"""
-                <div style="text-align: center; margin-bottom: 20px;">
-                    <img src="{img3_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                    <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{stand_images[2][1]}</div>
-                </div>
-                """, unsafe_allow_html=True)
-            except:
-                st.markdown(f"""
-                <div style="text-align: center; padding: 40px; background: #f9f9f9; border-radius: 10px;">
-                    <div style="color: #888;">{stand_images[2][1]}</div>
-                </div>
-                """, unsafe_allow_html=True)
+            </div>
+            """, unsafe_allow_html=True)
                 
     except Exception as e:
         st.error(f"Erreur de chargement du Stand Parapluie: {str(e)}")
