@@ -2412,9 +2412,6 @@ elif st.session_state.page == "medicofi6":
         <div style="display: flex; justify-content: center; margin: 20px 0;">
             <img src="{emailing_url}" style="width: 100%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
         </div>
-        <div style="text-align: center; color: #666; margin-bottom: 20px;">
-            Emailing CBD - Sanibiose
-        </div>
         """, unsafe_allow_html=True)
     except:
         st.markdown("""
@@ -2437,7 +2434,7 @@ elif st.session_state.page == "medicofi6":
             <line x1="17" y1="17" x2="22" y2="17"></line>
             <line x1="17" y1="7" x2="22" y2="7"></line>
         </svg>
-        <h4 style="margin: 0; color: #202124;">étiquettes pour les Produits Sanibiose</h4>
+        <h4 style="margin: 0; color: #202124;">Labels for Sanibiose Products</h4>
     </div>
     """, unsafe_allow_html=True)
     
@@ -2463,7 +2460,7 @@ elif st.session_state.page == "medicofi6":
                         st.markdown(f"""
                         <div style="text-align: center; margin-bottom: 20px;">
                             <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                            <div style="color: #666; font-size: 13px; margin-top: 5px;">Étiquette {img_idx + 1}</div>
+                            <div style="color: #666; font-size: 13px; margin-top: 5px;">Label {img_idx + 1}</div>
                         </div>
                         """, unsafe_allow_html=True)
                     except:
@@ -2482,10 +2479,10 @@ elif st.session_state.page == "medicofi6":
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Réseaux Sociaux</h4>
+        <h4 style="margin: 0; color: #202124;">Social Media</h4>
     </div>
     <div style="color: #666; margin-bottom: 20px; font-size: 14px;">
-        Post statique pour Facebook, Instagram et LinkedIn
+        Single social media post (Facebook, Instagram, LinkedIn)
     </div>
     """, unsafe_allow_html=True)
     
@@ -2530,7 +2527,7 @@ elif st.session_state.page == "medicofi6":
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7"></path>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Stand Parapluie</h4>
+        <h4 style="margin: 0; color: #202124;">Pop-up stand</h4>
     </div>
     """, unsafe_allow_html=True)
     
