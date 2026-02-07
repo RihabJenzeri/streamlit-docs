@@ -2959,6 +2959,237 @@ elif st.session_state.page == "medicofi7":
             st.session_state.page = "seinbiose_story"
             st.rerun()
 
+     # Page Sein Biose - Post Carrousel
+elif st.session_state.page == "seinbiose_post_carrousel":
+    if st.button("←"):
+        st.session_state.page = "seinbiose_reseaux_sociaux"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Carousel post</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div style="color: #666; margin-bottom: 30px;">Carousel posts for Sein Biose social media</div>', unsafe_allow_html=True)
+    
+    # Liste des images de carrousel selon votre structure
+    # Vous avez 3 carrousels avec des images dans les dossiers 1, 2, 3
+    carrousels = [
+        {
+            "name": "Carrousel 1",
+            "images": [
+                "Medicofi/Société Sein Biose/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/1.png",
+                "Medicofi/Société Sein Biose/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/2.png",
+                "Medicofi/Société Sein Biose/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/3.png"
+            ]
+        },
+        {
+            "name": "Carrousel 2",
+            "images": [
+                "Medicofi/Société Sein Biose/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2/1.png",
+                "Medicofi/Société Sein Biose/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2/2.png"
+            ]
+        },
+        {
+            "name": "Carrousel 3",
+            "images": [
+                "Medicofi/Société Sein Biose/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/1.png",
+                "Medicofi/Société Sein Biose/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/2.png",
+                "Medicofi/Société Sein Biose/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/3.png",
+                "Medicofi/Société Sein Biose/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/4.png"
+            ]
+        }
+    ]
+    
+    # Afficher chaque carrousel
+    for carrousel in carrousels:
+        # Titre du carrousel
+        st.markdown(f"""
+        <div style="margin: 30px 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid #FBBDFA;">
+            <h4 style="color: #202124; margin: 0;">{carrousel['name']}</h4>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Afficher les images de ce carrousel
+        num_images = len(carrousel['images'])
+        num_columns = min(4, num_images)  # Maximum 4 colonnes
+        
+        for i in range(0, num_images, num_columns):
+            cols = st.columns(num_columns)
+            
+            for col_idx in range(num_columns):
+                img_idx = i + col_idx
+                
+                if img_idx < num_images:
+                    image_path = carrousel['images'][img_idx]
+                    
+                    with cols[col_idx]:
+                        try:
+                            img_url = get_image_url(image_path)
+                            
+                            st.markdown(f"""
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                                    <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                </div>
+                                <div style="color: #666; font-size: 14px;">Image {col_idx + 1}</div>
+                            </div>
+                            """, unsafe_allow_html=True)
+                        except Exception as e:
+                            st.markdown(f"""
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <div style="display: flex; justify-content: center; align-items: center; height: 200px; background: #f9f9f9; border-radius: 10px; margin-bottom: 10px; border: 2px dashed #ddd;">
+                                    <div style="color: #888;">Image {col_idx + 1}</div>
+                                </div>
+                            </div>
+                            """, unsafe_allow_html=True)
+
+# Page Sein Biose - Post Statique
+elif st.session_state.page == "seinbiose_post_statique":
+    if st.button("←"):
+        st.session_state.page = "seinbiose_reseaux_sociaux"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+            <line x1="17" y1="5" x2="17" y2="19"></line>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Single post</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div style="color: #666; margin-bottom: 30px;">Single posts for Sein Biose social media</div>', unsafe_allow_html=True)
+    
+    # Liste des images pour les posts statiques selon votre structure
+    static_posts = [
+        ("1.png", "Post statique 1"),
+        ("2.png", "Post statique 2"),
+        ("3.png", "Post statique 3"),
+        ("4.png", "Post statique 4"),
+        ("5.png", "Post statique 5"),
+        ("6.png", "Post statique 6"),
+        ("7.png", "Post statique 7"),
+        ("8.png", "Post statique 8"),
+        ("9.png", "Post statique 9"),
+        ("10.png", "Post statique 10"),
+        ("11.png", "Post statique 11"),
+        ("12.png", "Post statique 12"),
+        ("13.png", "Post statique 13"),
+        ("14.png", "Post statique 14"),
+        ("15.png", "Post statique 15"),
+        ("16.png", "Post statique 16")
+    ]
+    
+    # Afficher les images en 3 colonnes
+    num_columns = 3
+    num_images = len(static_posts)
+    
+    for i in range(0, num_images, num_columns):
+        cols = st.columns(num_columns)
+        
+        for col_idx in range(num_columns):
+            img_idx = i + col_idx
+            
+            if img_idx < num_images:
+                file_name, description = static_posts[img_idx]
+                image_path = f"Medicofi/Société Sein Biose/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post statique/{file_name}"
+                
+                with cols[col_idx]:
+                    try:
+                        img_url = get_image_url(image_path)
+                        
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 25px;">
+                            <div style="display: flex; justify-content: center; margin-bottom: 8px;">
+                                <img src="{img_url}" style="width: 100%; max-width: 350px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            </div>
+                            <div style="color: #202124; font-size: 14px; font-weight: 500;">{description}</div>
+                        </div>
+                        """, unsafe_allow_html=True)
+                    except Exception as e:
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 25px;">
+                            <div style="display: flex; justify-content: center; align-items: center; height: 250px; background: #f9f9f9; border-radius: 10px; margin-bottom: 8px; border: 2px dashed #ddd;">
+                                <div style="color: #888;">{description}</div>
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)
+
+# Page Sein Biose - Story
+elif st.session_state.page == "seinbiose_story":
+    if st.button("←"):
+        st.session_state.page = "seinbiose_reseaux_sociaux"
+        st.rerun()
+
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="12" cy="12" r="3"></circle>
+            <line x1="12" y1="5" x2="12" y2="5.01"></line>
+            <line x1="12" y1="19" x2="12" y2="19.01"></line>
+            <line x1="5" y1="12" x2="5.01" y2="12"></line>
+            <line x1="19" y1="12" x2="19.01" y2="12"></line>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Story</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div style="color: #666; margin-bottom: 30px;">Stories for Sein Biose social media</div>', unsafe_allow_html=True)
+    
+    # Liste des images pour les stories selon votre structure
+    story_posts = [
+        ("Story-V5.png", "Story V5"),
+        ("Story-V6.png", "Story V6"),
+        ("Story01.png", "Story 01"),
+        ("Story02.png", "Story 02")
+    ]
+    
+    # Afficher les images en 2 colonnes (format story)
+    num_columns = 2
+    num_images = len(story_posts)
+    
+    for i in range(0, num_images, num_columns):
+        cols = st.columns(num_columns)
+        
+        for col_idx in range(num_columns):
+            img_idx = i + col_idx
+            
+            if img_idx < num_images:
+                file_name, description = story_posts[img_idx]
+                image_path = f"Medicofi/Société Sein Biose/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Story/{file_name}"
+                
+                with cols[col_idx]:
+                    try:
+                        img_url = get_image_url(image_path)
+                        
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <div style="display: flex; justify-content: center; margin-bottom: 15px;">
+                                <img src="{img_url}" style="width: 100%; max-width: 250px; height: 450px; object-fit: cover; border-radius: 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.15);">
+                            </div>
+                            <div style="color: #202124; font-size: 16px; font-weight: 600;">{description}</div>
+                        </div>
+                        """, unsafe_allow_html=True)
+                    except Exception as e:
+                        st.markdown(f"""
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <div style="display: flex; justify-content: center; align-items: center; height: 450px; background: linear-gradient(135deg, #f5f7fa 0%, #f9f9f9 100%); border-radius: 20px; margin-bottom: 15px; border: 2px dashed #FBBDFA;">
+                                <div style="color: #888; font-size: 16px;">{description}</div>
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)       
+
     # ========== SECTION 9: Stand Parapluie ==========
     st.markdown("---")
     st.markdown("""
