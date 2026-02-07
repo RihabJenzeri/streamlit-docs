@@ -3577,7 +3577,7 @@ elif st.session_state.page == "tse":
         st.session_state.page = "medicofi"
         st.rerun()
 
-    # Titre
+    # Titre avec style personnalisé
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3589,36 +3589,68 @@ elif st.session_state.page == "tse":
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("### Guide mise en page 2021")
-    
-    # AFFICHAGE DU PDF
+    # SECTION 1: PDF Guide mise en page2021
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Guide mise en page 2021</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # PDF Viewer
     try:
-        display_path = "TSE/Guide mise en page2021.pdf"
-        pdf_url = get_image_url(display_path)
+        # Chemin du PDF
+        pdf_path = "TSE/Guide mise en page2021.pdf"
+        
+        # Obtenir l'URL pour l'affichage
+        pdf_url = get_image_url(pdf_path)
+        
+        # Encoder l'URL pour Google Viewer
         import urllib.parse
         pdf_encoded = urllib.parse.quote(pdf_url, safe='')
         google_viewer_url = f"https://docs.google.com/viewer?url={pdf_encoded}&embedded=true"
         
+        # Afficher le PDF dans un iframe
         st.markdown(f'<iframe width="100%" height="600" src="{google_viewer_url}"></iframe>', unsafe_allow_html=True)
-    except:
-        st.write("PDF en cours d'affichage...")
-
-    # BOUTONS
-    col1, col2 = st.columns(2)
-    
-    # Bouton Télécharger
-    with col1:
-        download_path = "mes_documents/TSE/Guide mise en page2021.pdf"
-        try:
-            with open(download_path, "rb") as f:
-                pdf_data = f.read()
-            st.download_button("Télécharger", pdf_data, "Guide.pdf", "application/pdf", use_container_width=True)
-        except:
-            st.button("Télécharger", disabled=True, use_container_width=True)
-    
-    # Bouton Ouvrir
-    with col2:
-        st.button("Ouvrir", use_container_width=True)
+        
+        # Boutons d'action - SANS STYLE, SANS EMOJI
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            # Essayer de charger le PDF pour le téléchargement
+            try:
+                with open(pdf_path, "rb") as pdf_file:
+                    pdf_bytes = pdf_file.read()
+                
+                st.download_button(
+                    label="Télécharger le Guide",
+                    data=pdf_bytes,
+                    file_name="Guide mise en page 2021.pdf",
+                    mime="application/pdf",
+                    use_container_width=True
+                )
+            except FileNotFoundError:
+                st.error("Erreur: Fichier non trouvé pour le téléchargement")
+        
+        with col2:
+            # Bouton pour ouvrir en plein écran
+            if st.button("Ouvrir PDF", use_container_width=True):
+                # Code JavaScript pour ouvrir dans un nouvel onglet
+                js = f"""
+                <script>
+                window.open('{google_viewer_url}', '_blank');
+                </script>
+                """
+                st.components.v1.html(js, height=0)
+                
+    except Exception as e:
+        st.error(f"Erreur d'affichage du PDF: {str(e)}")
 
     # TRIER les images dans l'ordre numérique (1, 2, 3... 12)
     image_numbers = list(range(1, 13))
