@@ -817,7 +817,7 @@ elif st.session_state.page == "medicofi":
             <!-- FREELANCE -->
             <div style="color: #202124; font-family: 'Montserrat', sans-serif; padding-bottom: 4px;">
                 <span style="font-size: 18px; font-weight: 600; margin: 0;">FREELANCE</span>
-                <div style="font-size: 14px; font-weight: 500; margin: 2px 0 0 0; height: 19px;">&nbsp;</div>
+                <div style="font-size: 14px; font-weight: 500; margin: 6px 0 0 0; height: 19px;">&nbsp;</div>
             </div>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
                 Independent Projects ↓
