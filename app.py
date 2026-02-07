@@ -3576,13 +3576,13 @@ elif st.session_state.page == "tle_post_statique":
                             </div>
                         </div>
                         """, unsafe_allow_html=True)                    
-# Ajoutez ensuite les pages pour freelance et tse
-elif st.session_state.page == "freelance":
+# Page CHabeb Ennour (volunteer group)
+elif st.session_state.page == "freelance_chabeb":
     if st.button("←"):
         st.session_state.page = "medicofi"
         st.rerun()
 
-    # ========== SECTION 1: CHabeb Ennour (volunteer group) ==========
+    # Titre avec icône
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; margin-top: 30px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3641,10 +3641,15 @@ elif st.session_state.page == "freelance":
             </div>
             """, unsafe_allow_html=True)
 
-    # ========== SECTION 2: Clorex Company ==========
-    st.markdown("---")
+# Page Clorex Company
+elif st.session_state.page == "freelance_clorex":
+    if st.button("←"):
+        st.session_state.page = "medicofi"
+        st.rerun()
+
+    # Titre avec icône
     st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; margin-top: 30px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
@@ -3743,10 +3748,15 @@ elif st.session_state.page == "freelance":
             </div>
             """, unsafe_allow_html=True)
 
-    # ========== SECTION 3: Mayar Auto Company ==========
-    st.markdown("---")
+# Page Mayar Auto Company
+elif st.session_state.page == "freelance_mayar":
+    if st.button("←"):
+        st.session_state.page = "medicofi"
+        st.rerun()
+
+    # Titre avec icône
     st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; margin-top: 30px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="7" cy="17" r="2"></circle>
             <circle cx="17" cy="17" r="2"></circle>
