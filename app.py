@@ -447,7 +447,7 @@ design_images = {
 behance_cover_url = get_image_url("Behance Cover F.jpg")
 profile_image_url = get_image_url("image.jpeg")
 flyer_url = get_image_url("Medicofi/Société ApniDoc (en France)/Flyer ApniDoc.png")
-pdf_url_raw = f"{BASE_URL}mes_documents/Portfolio%20Ines%20HARRABI%202024.pdf"
+pdf_url_raw = f"{BASE_URL}mes_documents/Portfolio%20Ines%20HARRABI%202025.pdf"
 pdf_url_encoded = urllib.parse.quote(pdf_url_raw, safe='')
 google_viewer_url = f"https://docs.google.com/viewer?url={pdf_url_encoded}&embedded=true"
 
