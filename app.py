@@ -3017,7 +3017,7 @@ elif st.session_state.page == "medicofi8":
             </div>
             """, unsafe_allow_html=True)
 
-     # ========== SECTION 3: Création d'un avatar pour un chatbot IA ==========
+        # ========== SECTION 3: Création d'un avatar pour un chatbot IA ==========
     st.markdown("---")
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
@@ -3032,8 +3032,8 @@ elif st.session_state.page == "medicofi8":
     # Trois images - 2 premières côte à côte, 3ème seule
     avatar_images = [
         ("Avatar Lea.png", "Avatar Lea"),
-        ("Image d'origine reçue.jpeg", "Image d'origine reçue"),  # Changé apostrophe
-        ("Planche de personnage de l'avatar.png", "Planche de personnage de l'avatar")  # Changé apostrophe
+        ("Image d'origine reçue.jpeg", "Image d'origine reçue"),
+        ("Planche de personnage de l'avatar.png", "Planche de personnage de l'avatar")
     ]
     
     # Première ligne : 2 premières images côte à côte (col1, col2)
@@ -3042,7 +3042,7 @@ elif st.session_state.page == "medicofi8":
     # Première image (Avatar Lea)
     with col1:
         try:
-            img_path = f"mes_documents/Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/{avatar_images[0][0]}"
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/{avatar_images[0][0]}"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
