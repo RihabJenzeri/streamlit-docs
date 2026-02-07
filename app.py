@@ -3197,7 +3197,7 @@ elif st.session_state.page == "medicofi8":
         ("Capture d'écran 2025-06-19 090912.png", "-"),
         ("Dernière relance avant transmission au service contentieux.png", "-"),
         ("Emailing sages femmes Secteur.png", "-"),
-        ("La SMAM approche.png", "La SMAM approche"),
+        ("La SMAM approche.png", "-"),
         ("Simplifiez l’allaitement de vos patientes.png", "-")
     ]
     
@@ -3242,8 +3242,8 @@ elif st.session_state.page == "medicofi8":
 
     # Deux images en deux colonnes
     flyer_images = [
-        ("Recto.png", "Recto"),
-        ("Verso.png", "Verso")
+        ("Recto.png", "Double"),
+        ("Verso.png", "sided")
     ]
     
     col1, col2 = st.columns(2)
@@ -3254,8 +3254,8 @@ elif st.session_state.page == "medicofi8":
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                 <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{flyer_images[0][1]}</div>
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
         except:
@@ -3273,8 +3273,8 @@ elif st.session_state.page == "medicofi8":
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                 <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{flyer_images[1][1]}</div>
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
         except:
