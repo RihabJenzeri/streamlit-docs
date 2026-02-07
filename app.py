@@ -758,7 +758,7 @@ elif st.session_state.page == "medicofi":
                      alt="MEDICOFI">
             </div>
             <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;padding-bottom: 4px;">
-                MEDICOFI
+                MC Consulting (MEDICOFI)
             </h3>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
                 Medicofi Group  ↓
@@ -852,7 +852,7 @@ elif st.session_state.page == "medicofi":
                      alt="TSE">
             </div>
             <h3 style="color: #202124; margin: 0 0 0px 0; font-size: 18px; font-weight: 600; font-family: 'Montserrat', sans-serif;padding-bottom: 4px;">
-                TSE
+                TSE (Poli)
             </h3>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
                 Sportswear Design ↓
