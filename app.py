@@ -4658,7 +4658,7 @@ st.markdown("""
 <style>
 .footer {
     background-color: #202124;
-    width: 100%;
+    width: 100vw;
     padding: 40px 0 25px 0;
     margin-top: 50px;
     display: flex;
@@ -4666,6 +4666,10 @@ st.markdown("""
     justify-content: center;
     align-items: center;
     position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
 .footer-content {
@@ -4677,7 +4681,7 @@ st.markdown("""
     text-align: center;
 }
 
-.logo-container {
+.circle-container {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -4685,15 +4689,9 @@ st.markdown("""
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     margin-bottom: 10px;
     border: 2px solid #FBBDFA;
-    overflow: hidden;
-}
-
-.footer-logo {
-    max-width: 80px;
-    max-height: 80px;
-    filter: brightness(0) invert(1);
 }
 
 .footer-title {
@@ -4713,105 +4711,26 @@ st.markdown("""
     line-height: 1.6;
     padding: 0 20px;
 }
+
+/* Style pour l'image du logo */
+.logo-img {
+    max-width: 80px;
+    max-height: 80px;
+    filter: brightness(0) invert(1); /* Rend le logo blanc si nécessaire */
+}
 </style>
 """, unsafe_allow_html=True)
 
-# Créer le footer AVEC l'image encodée en base64
-try:
-    import base64
-    import os
-    
-    # Plusieurs chemins possibles pour votre image
-    possible_paths = [
-        "Logo Ines-01.png",  # Dans le dossier principal
-        "mes_documents/Logo Ines-01.png",  # Dans le sous-dossier
-        "TSE/Logo Ines-01.png",  # Dans le dossier TSE
-        "./mes_documents/Logo Ines-01.png",  # Avec chemin relatif
-    ]
-    
-    image_path = None
-    img_base64 = None
-    
-    # Essayer chaque chemin possible
-    for path in possible_paths:
-        if os.path.exists(path):
-            image_path = path
-            break
-    
-    if image_path:
-        # Lire l'image et l'encoder en base64
-        with open(image_path, "rb") as img_file:
-            img_data = img_file.read()
-            img_base64 = base64.b64encode(img_data).decode()
-        
-        # Créer le footer avec l'image en base64
-        st.markdown(f"""
-        <div class="footer">
-            <div class="footer-content">
-                <div class="logo-container">
-                    <img src="data:image/png;base64,{img_base64}" alt="INES HARRABI - Graphic Designer" class="footer-logo">
-                </div>
-                <h2 class="footer-title">Collaborating Together</h2>
-                <p class="footer-subtitle">Innovating design solutions through creative collaboration and partnership</p>
-            </div>
+# Afficher le footer avec VOTRE logo
+st.markdown(f"""
+<div class="footer">
+    <div class="footer-content">
+        <div class="circle-container">
+            <!-- Remplacement du SVG par votre image -->
+            <img src="Logo Ines-01.png" alt="INES HARRABI - Graphic Designer" class="logo-img">
         </div>
-        """, unsafe_allow_html=True)
-        
-        # Optionnel: Afficher un message de confirmation
-        st.markdown(f"""
-        <div style="text-align: center; color: green; font-size: 12px; margin-top: 5px;">
-            ✓ Logo chargé depuis: {image_path}
-        </div>
-        """, unsafe_allow_html=True)
-        
-    else:
-        # Si l'image n'est trouvée nulle part
-        st.markdown("""
-        <div class="footer">
-            <div class="footer-content">
-                <div class="logo-container" style="display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
-                    INES HARRABI
-                </div>
-                <h2 class="footer-title">Collaborating Together</h2>
-                <p class="footer-subtitle">Innovating design solutions through creative collaboration and partnership</p>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Afficher un message d'erreur pour déboguer
-        st.markdown("""
-        <div style="text-align: center; color: red; font-size: 12px; margin-top: 5px;">
-            ⚠ Logo non trouvé. Cherché dans: Logo Ines-01.png, mes_documents/, TSE/
-        </div>
-        """, unsafe_allow_html=True)
-        
-except ImportError:
-    # Si base64 n'est pas disponible (peu probable)
-    st.markdown("""
-    <div class="footer">
-        <div class="footer-content">
-            <div class="logo-container" style="display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
-                INES<br>HARRABI
-            </div>
-            <h2 class="footer-title">Collaborating Together</h2>
-            <p class="footer-subtitle">Innovating design solutions through creative collaboration and partnership</p>
-        </div>
+        <h2 class="footer-title">Collaborating Together</h2>
+        <p class="footer-subtitle">Innovating design solutions through creative collaboration and partnership</p>
     </div>
-    """, unsafe_allow_html=True)
-    
-except Exception as e:
-    # Version de secours en cas d'erreur
-    st.markdown(f"""
-    <div class="footer">
-        <div class="footer-content">
-            <div class="logo-container" style="display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 14px;">
-                INES HARRABI<br>GRAPHIC DESIGNER
-            </div>
-            <h2 class="footer-title">Collaborating Together</h2>
-            <p class="footer-subtitle">Innovating design solutions through creative collaboration and partnership</p>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Afficher l'erreur pour déboguer
-    st.error(f"Erreur lors du chargement du logo: {str(e)}")
+</div>
+""", unsafe_allow_html=True)
