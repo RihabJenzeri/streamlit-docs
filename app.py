@@ -4051,7 +4051,7 @@ elif st.session_state.page == "design_folders":
 
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 8px; margin: 15px 0;">
-        <span style="color: #202124; text-decoration: none; font-weight: 500; font-size: 16px;">Forma Responsive</span>
+        <span style="color: #202124; text-decoration: none; font-weight: 500; font-size: 16px;">Responsive</span>
     </div>
     """, unsafe_allow_html=True)
 
