@@ -1419,9 +1419,8 @@ elif st.session_state.page == "mamivac_story":
             if img_idx < num_images:
                 file_name, description = story_posts[img_idx]
                 
-                # CHEMIN CORRIGÉ selon votre structure de fichiers
-                # Le dossier est "Story" (au singulier) pas "Stories"
-                image_path = f"Medicofi/Société Mamivac France/Story/{file_name}"
+                # Chemin complet de l'image
+                image_path = f"Medicofi/Société Mamivac France/Réseaux Sociaux/Post & story Facebook Instagram et LinkedIn/Story/{file_name}"
                 
                 with cols[col_idx]:
                     # Afficher l'image avec sa description
@@ -1442,20 +1441,16 @@ elif st.session_state.page == "mamivac_story":
                         </div>
                         """, unsafe_allow_html=True)
                     except Exception as e:
-                        # Afficher un message d'erreur pour déboguer
                         st.markdown(f"""
                         <div style="text-align: center; margin-bottom: 30px;">
                             <div style="display: flex; justify-content: center; align-items: center; height: 250px; background: linear-gradient(135deg, #f5f7fa 0%, #f9f9f9 100%); border-radius: 15px; margin-bottom: 10px; border: 2px dashed #FBBDFA;">
-                                <div style="color: #888; font-size: 16px;">Erreur chargement</div>
+                                <div style="color: #888; font-size: 16px;">Story non disponible</div>
                             </div>
                             <div style="color: #202124; font-size: 15px; font-weight: 500; margin-bottom: 8px; padding: 0 10px;">
                                 {description}
                             </div>
                             <div style="color: #888; font-size: 13px; padding: 0 10px;">
                                 {file_name}
-                            </div>
-                            <div style="color: #f44336; font-size: 12px; margin-top: 5px;">
-                                Chemin: {image_path}
                             </div>
                         </div>
                         """, unsafe_allow_html=True)
