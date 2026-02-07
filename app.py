@@ -3606,7 +3606,7 @@ elif st.session_state.page == "tse":
     # PDF Viewer - MÊME STYLE QUE L'EXEMPLE
     try:
         # Chemin corrigé selon votre structure
-        pdf_path = "mes_documents/TSE/Guide mise en page2021.pdf"
+        pdf_path = "TSE/Guide mise en page2021.pdf"
         
         # Obtenir l'URL avec votre fonction get_image_url
         pdf_url = get_image_url(pdf_path)
