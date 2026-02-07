@@ -4694,6 +4694,13 @@ st.markdown("""
     border: 2px solid #FBBDFA;
 }
 
+/* Style spécifique pour l'image dans Streamlit */
+.circle-container img {
+    max-width: 80px;
+    max-height: 80px;
+    filter: brightness(0) invert(1); /* Rend le logo blanc si nécessaire */
+}
+
 .footer-title {
     color: #FFFFFF;
     font-size: 20px;
@@ -4711,13 +4718,6 @@ st.markdown("""
     line-height: 1.6;
     padding: 0 20px;
 }
-
-/* Style pour l'image du logo */
-.logo-img {
-    max-width: 80px;
-    max-height: 80px;
-    filter: brightness(0) invert(1); /* Rend le logo blanc si nécessaire */
-}
 </style>
 """, unsafe_allow_html=True)
 
@@ -4726,11 +4726,27 @@ st.markdown(f"""
 <div class="footer">
     <div class="footer-content">
         <div class="circle-container">
-            <!-- Remplacement du SVG par votre image -->
-            <img src="mes_documents/Logo Ines-01.png" alt="INES HARRABI - Graphic Designer" class="logo-img">
+            <!-- L'image sera insérée ici par Streamlit -->
         </div>
         <h2 class="footer-title">Collaborating Together</h2>
         <p class="footer-subtitle">Innovating design solutions through creative collaboration and partnership</p>
     </div>
 </div>
 """, unsafe_allow_html=True)
+
+# Ajouter l'image avec st.image() - C'EST LA SOLUTION
+try:
+    # Chemin vers votre image
+    image_path = "mes_documents/Logo Ines-01.png"
+    
+    # Créer un conteneur pour positionner l'image dans le footer
+    with st.container():
+        # Centrer l'image horizontalement
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col2:
+            # Afficher l'image avec une largeur spécifique
+            st.image(image_path, width=80, use_column_width=False)
+except FileNotFoundError:
+    st.error("Logo non trouvé. Vérifiez le chemin: mes_documents/Logo Ines-01.png")
+except Exception as e:
+    st.error(f"Erreur lors du chargement de l'image: {e}")
