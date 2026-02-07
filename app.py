@@ -1891,7 +1891,7 @@ elif st.session_state.page == "medicofi5":
     
     # ========== BOUTON: Livret d'accueil ==========
     st.markdown("---")
-    if st.button("Welcome guide", use_container_width=True):
+    if st.button("Welcome Booklet", use_container_width=True):
         st.session_state.page = "respi_livret"
         st.rerun()
     
@@ -2143,53 +2143,14 @@ elif st.session_state.page == "respi_post_carrousel":
 
     st.markdown('<div style="color: #666; margin-bottom: 30px;">Carousel posts for Respi Express social media</div>', unsafe_allow_html=True)
     
-    # Définir les groupes d'images
-    groupes = {
-        "groupe_1": ["1.png", "2.png", "3.png", "4.png", "5.png"],
-        "groupe_2": ["1.png", "2.png", "3.png", "4.png"],
-        "groupe_3": ["01.png", "02.png", "03.png"],
-        "groupe_4": ["1.png", "2.png", "3.png", "4.png"],
-        "groupe_5": ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"],
-        "groupe_6": ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"],
-        "groupe_7": ["1.png", "2.png", "3.png", "4.png", "5.png"]
-    }
-    
-    # Afficher chaque groupe avec son titre stylisé
-    for i, (groupe_key, images) in enumerate(groupes.items(), 1):
-        # ========== Titre du groupe ==========
-        st.markdown("---")
-        st.markdown(f"""
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                <polyline points="21 15 16 10 5 21"></polyline>
-            </svg>
-            <h4 style="margin: 0; color: #202124;">Groupe {i}</h4>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Créer des colonnes pour afficher les images
-        cols = st.columns(min(3, len(images)))
-        
-        for idx, image_name in enumerate(images):
-            col_idx = idx % 3
-            with cols[col_idx]:
-                # Ici, vous devrez charger les images depuis leur chemin réel
-                # Exemple: image_path = f"path/to/images/{groupe_key}/{image_name}"
-                # image = Image.open(image_path)
-                # st.image(image, caption=image_name, use_container_width=True)
-                
-                # Pour l'instant, afficher un placeholder
-                st.markdown(f"""
-                <div style="text-align: center; padding: 20px; background: #f5f5f5; border-radius: 8px; margin: 10px 0;">
-                    <div style="color: #666; font-size: 14px; margin-bottom: 10px;">{image_name}</div>
-                    <div style="color: #999; font-size: 12px;">Image placeholder</div>
-                </div>
-                """, unsafe_allow_html=True)
-        
-        # Ajouter un espace entre les groupes
-        st.markdown("<br>", unsafe_allow_html=True)
+    # Note: Les images du carrousel ne sont pas spécifiées dans votre structure
+    # J'ajoute un placeholder pour cette page
+    st.markdown("""
+    <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 40px 0;">
+        <div style="color: #888; font-size: 18px; margin-bottom: 20px;">Carrousel posts content</div>
+        <div style="color: #666;">Post carrousel images will be displayed here</div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # Page Sanibiose Company (France)
 elif st.session_state.page == "medicofi6":
