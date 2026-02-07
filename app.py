@@ -3199,7 +3199,7 @@ elif st.session_state.page == "seinbiose_post_statique":
             
             if img_idx < num_images:
                 file_name, description = static_posts[img_idx]
-                image_path = f"Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post statique/{file_name}"
+                image_path = f"mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post statique/{file_name}"
                 
                 with cols[col_idx]:
                     try:
