@@ -1776,7 +1776,7 @@ elif st.session_state.page == "medicofi5":
             verso_url = get_image_url("Medicofi/Société Respi Express (en France)/Dépliants 1 pli 2 volets/Verso.png")
             st.markdown(f"""
             <div style="text-align: center;">
-                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Verso</div>
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">sided</div>
                 <img src="{verso_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
