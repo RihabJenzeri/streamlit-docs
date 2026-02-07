@@ -3081,25 +3081,25 @@ elif st.session_state.page == "seinbiose_post_carrousel":
             {
             "name": "Carrousel 1",
             "images": [
-                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/1.png",
-                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/2.png",
-                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/3.png"
+                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/1.png",
+                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/2.png",
+                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/1/3.png"
             ]
         },
         {
             "name": "Carrousel 2",
             "images": [
-                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2/1.png",
-                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2/2.png"
+                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2/1.png",
+                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/2/2.png"
             ]
         },
         {
             "name": "Carrousel 3",
             "images": [
-                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/1.png",
-                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/2.png",
-                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/3.png",
-                "mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/4.png"
+                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/1.png",
+                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/2.png",
+                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/3.png",
+                "Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post carrousel/3/4.png"
             ]
         }
     ]
@@ -3199,7 +3199,7 @@ elif st.session_state.page == "seinbiose_post_statique":
             
             if img_idx < num_images:
                 file_name, description = static_posts[img_idx]
-                image_path = f"mes_documents/Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post statique/{file_name}"
+                image_path = f"Medicofi/Société Seinbiose (en France)/Résaux Sociaux/Post & story Facebook Instagram et LinkedIn/Post statique/{file_name}"
                 
                 with cols[col_idx]:
                     try:
