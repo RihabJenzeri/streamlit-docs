@@ -3863,16 +3863,6 @@ elif st.session_state.page == "tse":
         st.rerun()
 
     # Titre principal
-    st.markdown("""
-    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-            <path d="M2 12h20"></path>
-        </svg>
-        <h1 style="margin: 0; color: #202124; font-size: 32px; font-weight: 700;">SportsWear Design</h1>
-    </div>
-    """, unsafe_allow_html=True)
 
     # SECTION 1: Guide mise en page 2021 avec icône PDF
     st.markdown("""
@@ -3884,7 +3874,7 @@ elif st.session_state.page == "tse":
             <line x1="16" y1="17" x2="8" y2="17"></line>
             <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        <h3 style="margin: 0; color: #202124;">Guide mise en page 2021</h3>
+        <h3 style="margin: 0; color: #202124;">Sportswear Layout</h3>
     </div>
     """, unsafe_allow_html=True)
     
@@ -3917,11 +3907,11 @@ elif st.session_state.page == "tse":
                 href = f'<a href="data:application/pdf;base64,{b64}" download="Guide mise en page 2021.pdf" style="text-decoration: none; color: inherit;">Télécharger en cours...</a>'
                 st.markdown(href, unsafe_allow_html=True)
         except Exception as e:
-            st.button("Télécharger le Guide", disabled=True, use_container_width=True)
+            st.button("Download the guidebook", disabled=True, use_container_width=True)
     
     # Bouton 2: Ouvrir PDF
     with col2:
-        if st.button("Ouvrir PDF", use_container_width=True):
+        if st.button("Open PDF", use_container_width=True):
             # Ouvre le PDF dans un nouvel onglet
             js = f"window.open('{google_viewer_url}', '_blank');"
             st.markdown(f"<script>{js}</script>", unsafe_allow_html=True)
@@ -3934,7 +3924,7 @@ elif st.session_state.page == "tse":
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path>
         </svg>
-        <h3 style="margin: 0; color: #202124;">Designs SportsWear</h3>
+        <h3 style="margin: 0; color: #202124;">SportsWear Design</h3>
     </div>
     """, unsafe_allow_html=True)
 
