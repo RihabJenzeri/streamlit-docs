@@ -3029,78 +3029,36 @@ elif st.session_state.page == "medicofi8":
     </div>
     """, unsafe_allow_html=True)
 
-    # Trois images - les 2 premières côte à côte, la 3ème seule
+    # Trois images dans la même ligne
     avatar_images = [
         ("Avatar Lea.png", "Avatar Lea"),
-        ("Image d'origine reçue.jpeg", "Image d'origine reçue"),
-        ("Planche de personnage de l'avatar.png", "Planche de personnage de l'avatar")
+        ("Image d’origine reçue.jpeg", "Image d'origine reçue"),  # Apostrophe courbe
+        ("Planche de personnage de l’avatar.png", "Planche de personnage de l'avatar")  # Apostrophe courbe
     ]
     
-    # Première ligne : les 2 premières images côte à côte
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     
-    # Première image
-    with col1:
-        try:
-            img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/{avatar_images[0][0]}"
-            img_url = get_image_url(img_path)
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{avatar_images[0][1]}</div>
-            </div>
-            """, unsafe_allow_html=True)
-        except:
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
-                    <div style="color: #888;">{avatar_images[0][1]}</div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-    
-    # Deuxième image
-    with col2:
-        try:
-            img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/{avatar_images[1][0]}"
-            img_url = get_image_url(img_path)
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{avatar_images[1][1]}</div>
-            </div>
-            """, unsafe_allow_html=True)
-        except:
-            st.markdown(f"""
-            <div style="text-align: center; margin-bottom: 20px;">
-                <div style="padding: 50px; background: #f9f9f9; border-radius: 10px;">
-                    <div style="color: #888;">{avatar_images[1][1]}</div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-    
-    # Ligne vide pour espacement
-    st.markdown("<div style='margin-bottom: 30px;'></div>", unsafe_allow_html=True)
-    
-    # Deuxième ligne : la troisième image seule, plus grande
-    try:
-        img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/{avatar_images[2][0]}"
-        img_url = get_image_url(img_path)
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 20px;">
-            <div style="color: #202124; font-weight: 600; margin-bottom: 15px; font-size: 16px; text-align: center;">{avatar_images[2][1]}</div>
-            <img src="{img_url}" style="width: 100%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); margin: 0 auto;">
-        </div>
-        """, unsafe_allow_html=True)
-    except:
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 20px;">
-            <div style="color: #202124; font-weight: 600; margin-bottom: 15px; font-size: 16px; text-align: center;">{avatar_images[2][1]}</div>
-            <div style="padding: 80px; background: #f9f9f9; border-radius: 10px; max-width: 600px; margin: 0 auto;">
-                <div style="color: #888; font-size: 16px;">Image non disponible</div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+    for idx, col in enumerate([col1, col2, col3]):
+        if idx < len(avatar_images):
+            try:
+                img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d’un avatar pour un chatbot IA/{avatar_images[idx][0]}"
+                img_url = get_image_url(img_path)
+                with col:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img src="{img_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                        <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 15px;">{avatar_images[idx][1]}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+            except:
+                with col:
+                    st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">
+                            <div style="color: #888;">{avatar_images[idx][1]}</div>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
     
     # Phrase sous les images
     st.markdown("""
