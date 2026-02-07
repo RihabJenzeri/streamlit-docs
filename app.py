@@ -773,10 +773,10 @@ elif st.session_state.page == "medicofi":
             ("ApniDoc Company   ", "(in France)", "apnidoc"),
             ("Mamivac France Company", "", "medicofi2"),
             ("MC Consulting Company", "(in Tunisia)", "medicofi3"),
-            ("MCM Outsourcing Company", "(in Madagascar)", "medicofi4"),
+            ("MCM Outsourcing Company  ", "(in Madagascar)", "medicofi4"),
             ("Respi Express Company", "(in France)", "medicofi5"),
-            ("Sanibiose Company", "(in France)", "medicofi6"),
-            ("Seinbiose Company", "(in France)", "medicofi7"),
+            ("Sanibiose Company  ", "(in France)", "medicofi6"),
+            ("Seinbiose Company  ", "(in France)", "medicofi7"),
             ("Tire Lait Express Company", "(in France)", "medicofi8")
         ]
 
