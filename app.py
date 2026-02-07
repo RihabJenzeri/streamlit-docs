@@ -788,7 +788,7 @@ elif st.session_state.page == "medicofi":
                 st.session_state.page = page_key
                 st.rerun()
 
-    # Colonne 2: FREELANCE - Utilise img2.png
+     # Colonne 2: FREELANCE - Utilise img2.png
     with col2:
         st.markdown(f"""
         <div class="responsive-card" style="
@@ -825,9 +825,18 @@ elif st.session_state.page == "medicofi":
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("PROJETS FREELANCE", use_container_width=True, key="freelance_btn"):
-            st.session_state.page = "freelance"
-            st.rerun()
+        # REMPLACÉ: Trois boutons au lieu d'un seul
+        freelance_projects = [
+            ("CHabeb Ennour\n(volunteer group)", "freelance_chabeb"),
+            ("Clorex Company", "freelance_clorex"),
+            ("Mayar Auto Company", "freelance_mayar")
+        ]
+
+        for project_name, page_key in freelance_projects:
+            if st.button(project_name, use_container_width=True, key=f"freelance_{page_key}"):
+                st.session_state.page = page_key
+                st.rerun()
+
 
     # Colonne 3: TSE - Utilise img3.png
     with col3:
