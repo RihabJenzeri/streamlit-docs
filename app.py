@@ -3030,7 +3030,7 @@ elif st.session_state.page == "medicofi8":
     """, unsafe_allow_html=True)
     
     # Trois images - 2 premières côte à côte, 3ème seule
-       avatar_images = [
+    avatar_images = [
         ("Avatar Lea.png", "Avatar Lea"),
         ("Image d'origine reçue.jpeg", "Image d'origine reçue"),
         ("Planche de personnage de l'avatar.png", "Planche de personnage de l'avatar")
