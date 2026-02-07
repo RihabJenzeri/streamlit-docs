@@ -3646,7 +3646,7 @@ elif st.session_state.page == "tse":
             """, unsafe_allow_html=True)
             
     except FileNotFoundError:
-        st.error("Fichier PDF non trouvé à l'emplacement : mes_documents/TSE/Guide mise en page2021.pdf")
+        st.error("Fichier PDF non trouvé à l'emplacement : TSE/Guide mise en page2021.pdf")
         st.markdown("""
         <div style="text-align: center; padding: 60px; background: #f9f9f9; border-radius: 10px; margin: 20px 0;">
             <div style="color: #888; font-size: 16px;">Guide PDF not available</div>
