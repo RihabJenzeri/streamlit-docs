@@ -2568,7 +2568,7 @@ elif st.session_state.page == "medicofi7":
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
             <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Emailing</h4>
+        <h4 style="margin: 0; color: #202124;">Email Marketing</h4>
     </div>
     """, unsafe_allow_html=True)
 
@@ -2643,7 +2643,7 @@ elif st.session_state.page == "medicofi7":
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
             <polyline points="14 2 14 8 20 8"></polyline>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Fiche technique</h4>
+        <h4 style="margin: 0; color: #202124;">Technical sheet</h4>
     </div>
     """, unsafe_allow_html=True)
     
@@ -2687,14 +2687,14 @@ elif st.session_state.page == "medicofi7":
             recto_url = get_image_url(flyer_images[0])
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
-                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Recto</div>
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Double</div>
                 <img src="{recto_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
         except:
             st.markdown("""
             <div style="text-align: center; margin-bottom: 20px;">
-                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Recto</div>
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">sided</div>
                 <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">Image not available</div>
             </div>
             """, unsafe_allow_html=True)
@@ -2741,13 +2741,13 @@ elif st.session_state.page == "medicofi7":
         col1, col2 = st.columns(2)
         with col1:
             st.markdown(f'<a href="{pdf_url}" download="Packaging_TL_LIBERTY_Seinbiose.pdf" style="text-decoration: none;">', unsafe_allow_html=True)
-            if st.button("📥 Télécharger PDF", use_container_width=True):
+            if st.button("Download PDF", use_container_width=True):
                 pass
             st.markdown('</a>', unsafe_allow_html=True)
         
         with col2:
             st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none;">', unsafe_allow_html=True)
-            if st.button("🔗 Ouvrir PDF", use_container_width=True):
+            if st.button("Open PDF", use_container_width=True):
                 pass
             st.markdown('</a>', unsafe_allow_html=True)
     except:
@@ -2766,7 +2766,7 @@ elif st.session_state.page == "medicofi7":
             <line x1="9" y1="21" x2="15" y2="21"></line>
             <line x1="12" y1="17" x2="12" y2="21"></line>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Plaquette</h4>
+        <h4 style="margin: 0; color: #202124;">Leaflet</h4>
     </div>
     """, unsafe_allow_html=True)
 
@@ -2790,7 +2790,7 @@ elif st.session_state.page == "medicofi7":
         except:
             st.markdown("""
             <div style="text-align: center; margin-bottom: 20px;">
-                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Recto</div>
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Double</div>
                 <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">Image not available</div>
             </div>
             """, unsafe_allow_html=True)
@@ -2800,7 +2800,7 @@ elif st.session_state.page == "medicofi7":
             plaquette_verso_url = get_image_url(plaquette_images[1])
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
-                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Verso</div>
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">sided</div>
                 <img src="{plaquette_verso_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
@@ -2837,14 +2837,14 @@ elif st.session_state.page == "medicofi7":
             quick_recto_url = get_image_url(quick_images[0])
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
-                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Recto</div>
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Double</div>
                 <img src="{quick_recto_url}" style="width: 100%; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             </div>
             """, unsafe_allow_html=True)
         except:
             st.markdown("""
             <div style="text-align: center; margin-bottom: 20px;">
-                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">Recto</div>
+                <div style="color: #202124; font-weight: 600; margin-bottom: 10px;">sided</div>
                 <div style="padding: 40px; background: #f9f9f9; border-radius: 10px;">Image not available</div>
             </div>
             """, unsafe_allow_html=True)
@@ -2875,7 +2875,7 @@ elif st.session_state.page == "medicofi7":
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Réglette</h4>
+        <h4 style="margin: 0; color: #202124;">Nipple measuring tool</h4>
     </div>
     """, unsafe_allow_html=True)
     
@@ -2900,12 +2900,12 @@ elif st.session_state.page == "medicofi7":
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Réseaux Sociaux</h4>
+        <h4 style="margin: 0; color: #202124;">Social Media</h4>
     </div>
     """, unsafe_allow_html=True)
 
     # Bouton pour accéder à la page des réseaux sociaux
-    if st.button("Post & story Facebook Instagram et LinkedIn", use_container_width=True):
+    if st.button("Post & story Facebook Instagram & LinkedIn", use_container_width=True):
         st.session_state.page = "seinbiose_reseaux_sociaux"
         st.rerun()
 
@@ -2916,7 +2916,7 @@ elif st.session_state.page == "medicofi7":
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7"></path>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Stand Parapluie</h4>
+        <h4 style="margin: 0; color: #202124;">Pop-up stand</h4>
     </div>
     """, unsafe_allow_html=True)
     
