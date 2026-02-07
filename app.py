@@ -3838,7 +3838,7 @@ elif st.session_state.page == "tse":
         st.session_state.page = "medicofi"
         st.rerun()
 
-    # Titre
+    # Titre principal
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3850,13 +3850,24 @@ elif st.session_state.page == "tse":
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("### Guide mise en page 2021")
+    # SECTION 1: Guide mise en page 2021 avec icône PDF
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Guide mise en page 2021</h3>
+    </div>
+    """, unsafe_allow_html=True)
     
     # AFFICHAGE DU PDF
     try:
         display_path = "TSE/Guide mise en page2021.pdf"
         pdf_url = get_image_url(display_path)
-        import urllib.parse
         pdf_encoded = urllib.parse.quote(pdf_url, safe='')
         google_viewer_url = f"https://docs.google.com/viewer?url={pdf_encoded}&embedded=true"
         
@@ -3890,6 +3901,19 @@ elif st.session_state.page == "tse":
             # Ouvre le PDF dans un nouvel onglet
             js = f"window.open('{google_viewer_url}', '_blank');"
             st.markdown(f"<script>{js}</script>", unsafe_allow_html=True)
+
+    st.markdown("---")  # Séparateur
+
+    # SECTION 2: Images SportsWear Design avec icône t-shirt
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path>
+        </svg>
+        <h3 style="margin: 0; color: #202124;">Designs SportsWear</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
     # TRIER les images dans l'ordre numérique (1, 2, 3... 12)
     image_numbers = list(range(1, 13))
     tse_images = [f"TSE/SportsWear Design/{num}.png" for num in image_numbers]
