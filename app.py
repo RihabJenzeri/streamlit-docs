@@ -759,7 +759,7 @@ elif st.session_state.page == "medicofi":
             </div>
             <!-- MC Consulting (MEDICOFI) -->
             <div style="color: #202124; font-family: 'Montserrat', sans-serif; padding-bottom: 4px;">
-                <span style="font-size: 18px; font-weight: 600; margin: 0;">MC Consulting</span>
+                <span style="font-size: 18px; font-weight: 600; margin: 0;">MC CONLUTING</span>
                 <div style="font-size: 14px; font-weight: 500; margin: 2px 0 0 0;">(MEDICOFI)</div>
             </div>
             <p style="color: #666; margin: 0; font-size: 14px; font-family: 'Montserrat', sans-serif;">
@@ -773,7 +773,7 @@ elif st.session_state.page == "medicofi":
             ("Tire Lait Express Company", "(in France)", "medicofi8"),
             ("ApniDoc Company   ", "(in France)", "apnidoc"),
             ("Mamivac France Company", "", "medicofi2"),
-            ("MC CONLUTING Company", "(in Tunisia)", "medicofi3"),
+            ("MC Consulting Company", "(in Tunisia)", "medicofi3"),
             ("MCM Externalisation Company  ", "(in Madagascar)", "medicofi4"),
             ("Respi Express Company", "(in France)", "medicofi5"),
             ("Sanibiose Company  ", "(in France)", "medicofi6"),
