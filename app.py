@@ -4721,16 +4721,67 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Afficher le footer avec VOTRE logo
-st.markdown(f"""
-<div class="footer">
-    <div class="footer-content">
-        <div class="circle-container">
-            <!-- Remplacement du SVG par votre image -->
-            <img src="Logo Ines-01.png" alt="INES HARRABI - Graphic Designer" class="logo-img">
+# Chercher l'image et la convertir en base64
+import base64
+import os
+
+img_base64 = None
+image_path = None
+
+# Essayer différents chemins pour trouver l'image
+possible_paths = [
+    "Logo Ines-01.png",
+    "mes_documents/Logo Ines-01.png",
+    "TSE/Logo Ines-01.png",
+    "./Logo Ines-01.png",
+    "./mes_documents/Logo Ines-01.png",
+    "./TSE/Logo Ines-01.png"
+]
+
+for path in possible_paths:
+    if os.path.exists(path):
+        try:
+            with open(path, "rb") as image_file:
+                img_base64 = base64.b64encode(image_file.read()).decode()
+            image_path = path
+            break
+        except:
+            continue
+
+# Afficher le footer avec VOTRE logo en base64
+if img_base64:
+    st.markdown(f"""
+    <div class="footer">
+        <div class="footer-content">
+            <div class="circle-container">
+                <!-- Logo en base64 -->
+                <img src="data:image/png;base64,{img_base64}" alt="INES HARRABI - Graphic Designer" class="logo-img">
+            </div>
+            <h2 class="footer-title">Collaborating Together</h2>
+            <p class="footer-subtitle">Innovating design solutions through creative collaboration and partnership</p>
         </div>
-        <h2 class="footer-title">Collaborating Together</h2>
-        <p class="footer-subtitle">Innovating design solutions through creative collaboration and partnership</p>
     </div>
-</div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
+else:
+    # Fallback si l'image n'est pas trouvée
+    st.markdown(f"""
+    <div class="footer">
+        <div class="footer-content">
+            <div class="circle-container">
+                <!-- Texte de remplacement -->
+                <div style="color: white; font-weight: bold; font-size: 18px; text-align: center;">
+                    INES<br>HARRABI
+                </div>
+            </div>
+            <h2 class="footer-title">Collaborating Together</h2>
+            <p class="footer-subtitle">Innovating design solutions through creative collaboration and partnership</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Message de débogage (optionnel)
+    st.markdown(f"""
+    <div style="text-align: center; color: #666; font-size: 12px; margin-top: 5px;">
+        Logo non trouvé. Chemins essayés: {', '.join(possible_paths)}
+    </div>
+    """, unsafe_allow_html=True)
