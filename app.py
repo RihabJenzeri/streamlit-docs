@@ -1891,7 +1891,7 @@ elif st.session_state.page == "medicofi5":
     
     # ========== BOUTON: Livret d'accueil ==========
     st.markdown("---")
-    if st.button("Welcome Booklet", use_container_width=True):
+    if st.button("Welcome guide", use_container_width=True):
         st.session_state.page = "respi_livret"
         st.rerun()
     
@@ -2003,12 +2003,12 @@ elif st.session_state.page == "respi_livret":
             <line x1="16" y1="17" x2="8" y2="17"></line>
             <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        <h3 style="margin: 0; color: #202124;">Livret d'accueil Respi Express</h3>
+        <h3 style="margin: 0; color: #202124;">Welcome guide Respi Express</h3>
     </div>
     """, unsafe_allow_html=True)
 
     # URL du PDF
-    pdf_url = get_image_url("Medicofi/Société Respi Express (en France)/Livret d'accueil/Livret d'accueil resp express.pdf")
+    pdf_url = get_image_url("mes_documents/Medicofi/Société Respi Express (en France)/Livret d'accueil/Livret d'accueil resp express.pdf")
     pdf_encoded = urllib.parse.quote(pdf_url, safe='')
     google_viewer_url = f"https://docs.google.com/viewer?url={pdf_encoded}&embedded=true"
 
@@ -2019,13 +2019,13 @@ elif st.session_state.page == "respi_livret":
     col1, col2 = st.columns(2)
     with col1:
         st.markdown(f'<a href="{pdf_url}" download="Livret_accueil_Respi_Express.pdf" style="text-decoration: none;">', unsafe_allow_html=True)
-        if st.button("📥 Télécharger le PDF", use_container_width=True):
+        if st.button("Download PDF", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
     
     with col2:
         st.markdown(f'<a href="{google_viewer_url}" target="_blank" style="text-decoration: none;">', unsafe_allow_html=True)
-        if st.button("Ouvrir dans Google Viewer", use_container_width=True):
+        if st.button("View in Google Viewer", use_container_width=True):
             pass
         st.markdown('</a>', unsafe_allow_html=True)
 
