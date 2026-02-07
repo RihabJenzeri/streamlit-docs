@@ -3610,7 +3610,7 @@ elif st.session_state.page == "freelance":
     
     with col2:
         try:
-            img_path = f"mes_documents/Freelance/CHabeb Ennour (volunteer group)/{chabeb_images[1][0]}"
+            img_path = f"Freelance/CHabeb Ennour (volunteer group)/{chabeb_images[1][0]}"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
@@ -3652,7 +3652,7 @@ elif st.session_state.page == "freelance":
     
     with col1:
         try:
-            img_path = f"mes_documents/Freelance/Clorex Company/{clorex_images[0][0]}"
+            img_path = f"Freelance/Clorex Company/{clorex_images[0][0]}"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
@@ -3671,7 +3671,7 @@ elif st.session_state.page == "freelance":
     
     with col2:
         try:
-            img_path = f"mes_documents/Freelance/Clorex Company/{clorex_images[1][0]}"
+            img_path = f"Freelance/Clorex Company/{clorex_images[1][0]}"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
@@ -3693,7 +3693,7 @@ elif st.session_state.page == "freelance":
     
     with col1:
         try:
-            img_path = f"mes_documents/Freelance/Clorex Company/{clorex_images[2][0]}"
+            img_path = f"Freelance/Clorex Company/{clorex_images[2][0]}"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
@@ -3712,7 +3712,7 @@ elif st.session_state.page == "freelance":
     
     with col2:
         try:
-            img_path = f"mes_documents/Freelance/Clorex Company/{clorex_images[3][0]}"
+            img_path = f"Freelance/Clorex Company/{clorex_images[3][0]}"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
@@ -3756,7 +3756,7 @@ elif st.session_state.page == "freelance":
     
     with col1:
         try:
-            img_path = f"mes_documents/Freelance/Mayar Auto Company/{mayar_images[0][0]}"
+            img_path = f"Freelance/Mayar Auto Company/{mayar_images[0][0]}"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
@@ -3775,7 +3775,7 @@ elif st.session_state.page == "freelance":
     
     with col2:
         try:
-            img_path = f"mes_documents/Freelance/Mayar Auto Company/{mayar_images[1][0]}"
+            img_path = f"Freelance/Mayar Auto Company/{mayar_images[1][0]}"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
@@ -3797,7 +3797,7 @@ elif st.session_state.page == "freelance":
     
     with col1:
         try:
-            img_path = f"mes_documents/Freelance/Mayar Auto Company/{mayar_images[2][0]}"
+            img_path = f"Freelance/Mayar Auto Company/{mayar_images[2][0]}"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
@@ -3816,7 +3816,7 @@ elif st.session_state.page == "freelance":
     
     with col2:
         try:
-            img_path = f"mes_documents/Freelance/Mayar Auto Company/{mayar_images[3][0]}"
+            img_path = f"Freelance/Mayar Auto Company/{mayar_images[3][0]}"
             img_url = get_image_url(img_path)
             st.markdown(f"""
             <div style="text-align: center; margin-bottom: 20px;">
