@@ -3069,7 +3069,100 @@ elif st.session_state.page == "medicofi8":
     </div>
     """, unsafe_allow_html=True)
 
+    # ========== SECTION 3: Création d'un avatar pour un chatbot IA ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Création d'un avatar pour un chatbot IA</h4>
+    </div>
+    """, unsafe_allow_html=True)
 
+    # Trois images - 2 premières côte à côte, 3ème seule
+    avatar_images = [
+        ("Avatar Lea.png", "Avatar Lea"),
+        ("Image d'origine reçue.jpeg", "Image d'origine reçue"),
+        ("Planche de personnage de l'avatar.png", "Planche de personnage de l'avatar")
+    ]
+    
+    # Première ligne : 2 premières images côte à côte (col1, col2)
+    col1, col2 = st.columns(2)
+    
+    # Première image (Avatar Lea)
+    with col1:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/Avatar Lea.png"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{avatar_images[0][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 60px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{avatar_images[0][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    # Deuxième image (Image d'origine reçue)
+    with col2:
+        try:
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/Image d'origine reçue.jpeg"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{avatar_images[1][1]}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 60px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{avatar_images[1][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    # Deuxième ligne : 3ème image seule sur toute la largeur (plus grande)
+    st.markdown("""
+    <div style="color: #202124; font-weight: 600; margin-top: 40px; margin-bottom: 15px; font-size: 18px; text-align: center;">
+        Planche de personnage de l'avatar
+    </div>
+    """, unsafe_allow_html=True)
+    
+    try:
+        img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d'un avatar pour un chatbot IA/Planche de personnage de l'avatar.png"
+        img_url = get_image_url(img_path)
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 40px;">
+            <img src="{img_url}" style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+        </div>
+        """, unsafe_allow_html=True)
+    except:
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div style="padding: 80px; background: #f9f9f9; border-radius: 10px; max-width: 800px; margin: 0 auto;">
+                <div style="color: #888; font-size: 16px;">{avatar_images[2][1]}</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Phrase sous les images
+    st.markdown("""
+    <div style="text-align: center; margin: 20px 0 30px 0; padding: 15px; background: #f9f9f9; border-radius: 10px; border-left: 4px solid #FBBDFA;">
+        <div style="color: #202124; font-size: 16px; font-weight: 500;">
+            Création réalisée avec Photoshop et des outils d'IA.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     # ========== SECTION 4: Dépliant ==========
     st.markdown("---")
     st.markdown("""
