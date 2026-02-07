@@ -2893,20 +2893,70 @@ elif st.session_state.page == "medicofi7":
         </div>
         """, unsafe_allow_html=True)
 
-    # ========== SECTION 8: Réseaux Sociaux ==========
-    st.markdown("---")
+# ========== SECTION 8: Réseaux Sociaux ==========
+st.markdown("---")
+st.markdown("""
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+    </svg>
+    <h4 style="margin: 0; color: #202124;">Social Media</h4>
+</div>
+""", unsafe_allow_html=True)
+
+# Créer 3 colonnes pour les boutons
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    # Bouton Post Carrousel avec icône
     st.markdown("""
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+    <div style="text-align: center; margin-bottom: 10px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
         </svg>
-        <h4 style="margin: 0; color: #202124;">Social Media</h4>
     </div>
     """, unsafe_allow_html=True)
+    
+    if st.button("Carousel post", use_container_width=True):
+        st.session_state.page = "seinbiose_post_carrousel"
+        st.rerun()
 
-    # Bouton pour accéder à la page des réseaux sociaux
-    if st.button("Post & story Facebook Instagram & LinkedIn", use_container_width=True):
-        st.session_state.page = "seinbiose_reseaux_sociaux"
+with col2:
+    # Bouton Post Statique avec icône
+    st.markdown("""
+    <div style="text-align: center; margin-bottom: 10px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+            <line x1="17" y1="5" x2="17" y2="19"></line>
+        </svg>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    if st.button("single post", use_container_width=True):
+        st.session_state.page = "seinbiose_post_statique"
+        st.rerun()
+
+with col3:
+    # Bouton Story avec icône
+    st.markdown("""
+    <div style="text-align: center; margin-bottom: 10px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="12" cy="12" r="3"></circle>
+            <line x1="12" y1="5" x2="12" y2="5.01"></line>
+            <line x1="12" y1="19" x2="12" y2="19.01"></line>
+            <line x1="5" y1="12" x2="5.01" y2="12"></line>
+            <line x1="19" y1="12" x2="19.01" y2="12"></line>
+        </svg>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    if st.button("Story", use_container_width=True):
+        st.session_state.page = "seinbiose_story"
         st.rerun()
 
     # ========== SECTION 9: Stand Parapluie ==========
@@ -2985,6 +3035,8 @@ elif st.session_state.page == "medicofi7":
                 </div>
             </div>
             """, unsafe_allow_html=True)
+
+            
 elif st.session_state.page == "medicofi8":
     if st.button("←"):
         st.session_state.page = "medicofi"
