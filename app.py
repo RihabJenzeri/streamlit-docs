@@ -1893,8 +1893,8 @@ elif st.session_state.page == "medicofi5":
     if st.button("Social Media", use_container_width=True):
         st.session_state.page = "respi_reseaux_sociaux"
         st.rerun()
-   # ========== SECTION: Stand Parapluie ==========
-        st.markdown("---")
+    # ========== SECTION: Stand Parapluie ==========
+    st.markdown("---")  # ← Enlever l'indentation
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
