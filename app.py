@@ -54,15 +54,41 @@ header {visibility: hidden;}
     font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 /* Style pour le slide image */
+# Remplacez le style .slide-container et .profile-card par :
+
 .slide-container {
     position: relative;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
+    margin-top: 30px;  /* ← descend le banner */
     overflow: hidden;
 }
+
 .slide-image {
     width: 100%;
     object-fit: cover;
+}
+
+/* Sur mobile, ajuster la carte de profil */
+@media (max-width: 768px) {
+    .slide-container {
+        margin-top: 35px;  /* ← encore plus de marge sur mobile */
+    }
+    
+    .profile-card {
+        margin: 10px auto 30px auto !important;
+        max-width: 95% !important;
+        padding: 20px !important;
+    }
+    
+    .avatar-circle {
+        width: 110px !important;
+        height: 110px !important;
+    }
+    
+    .profile-title {
+        font-size: 22px !important;
+    }
 }
 /* Style pour la carte de profil */
 .profile-card {
