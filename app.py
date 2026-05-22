@@ -62,17 +62,7 @@ header {visibility: hidden;}
 }
 .slide-image {
     width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-}
-
-@media (max-width: 768px) {
-    .slide-image {
-        object-fit: contain;
-        height: auto;
-        min-height: unset;
-    }
+    object-fit: cover;
 }
 /* Style pour la carte de profil */
 .profile-card {
