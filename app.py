@@ -64,7 +64,6 @@ header {visibility: hidden;}
     width: 100%;
     object-fit: cover;
 }
-@media (max-width: 768px) { .slide-container { margin-top: 30px !important; /* descend le banner */ }}
 /* Style pour la carte de profil */
 .profile-card {
     background: linear-gradient(135deg, rgba(251, 189, 250, 0.1) 0%, rgba(108, 212, 255, 0.1) 100%);
