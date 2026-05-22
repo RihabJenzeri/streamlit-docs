@@ -64,6 +64,7 @@ header {visibility: hidden;}
     width: 100%;
     object-fit: cover;
 }
+@media (max-width: 768px) {.profile-card { margin: 15px auto 30px auto !important; /* réduit le chevauchement négatif */ max-width: 95% !important; }}
 /* Style pour la carte de profil */
 .profile-card {
     background: linear-gradient(135deg, rgba(251, 189, 250, 0.1) 0%, rgba(108, 212, 255, 0.1) 100%);
