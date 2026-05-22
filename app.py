@@ -64,8 +64,26 @@ header {visibility: hidden;}
     width: 100%;
     object-fit: cover;
 }
+/* Ajoutez dans votre hide_default_menu CSS existant */
+
+@media (max-width: 768px) {
+    .slide-container {
+        margin-top: 30px !important; /* descend le banner */
+    }
+    
+    .slide-image {
+        object-position: center center !important;
+        min-height: 180px;
+    }
+    
+    .profile-card {
+        margin: 15px auto 30px auto !important; /* réduit le chevauchement négatif */
+        max-width: 95% !important;
+    }
+}
 /* Style pour la carte de profil */
 .profile-card {
+
     background: linear-gradient(135deg, rgba(251, 189, 250, 0.1) 0%, rgba(108, 212, 255, 0.1) 100%);
     backdrop-filter: blur(10px);
     border-radius: 20px;
