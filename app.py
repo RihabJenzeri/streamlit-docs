@@ -1480,12 +1480,12 @@ elif st.session_state.page == "medicofi3":
 
      
     # Liste des images pour MC Consulting
+    # Liste des images pour MC Consulting
     mc_consulting_images = [
-        ("", ""),
         ("Carte de voeux 2025.png", "2025 New Year Card")
     ]
     
-    # Première image - Carte de Voeux 2024
+    # Image - Carte de Voeux 2025
     file_name, description = mc_consulting_images[0]
     image_path = f"Medicofi/Société MC Consulting (Tunisie)/Carte de Voeux/{file_name}"
     
