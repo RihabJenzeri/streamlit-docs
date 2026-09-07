@@ -3588,7 +3588,7 @@ elif st.session_state.page == "medicofi8":
 
     # Cinq images dans une seule colonne
     emailing_images = [
-        ("Capture d'écran 2025-06-19 090912.png", "-"),
+        # ("Capture d'écran 2025-06-19 090912.png", "-"),
         ("Dernière relance avant transmission au service contentieux.png", "-"),
         ("Emailing sages femmes Secteur.png", "-"),
         ("La SMAM approche.png", "-"),
