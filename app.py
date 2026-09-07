@@ -1513,8 +1513,7 @@ elif st.session_state.page == "medicofi3":
             </div>
         </div>
         """, unsafe_allow_html=True)
-    
-    # Séparateur entre les images
+        # Séparateur entre les images
     st.markdown('<div style="height: 1px; background: linear-gradient(to right, transparent, #FBBDFA, transparent); margin: 40px 0;"></div>', unsafe_allow_html=True)
     
     # Deuxième image - Carte de Voeux 2025
@@ -1534,6 +1533,20 @@ elif st.session_state.page == "medicofi3":
             </div>
             <div style="display: flex; justify-content: center; margin-bottom: 15px;">
                 <img src="{img_url}" style="width: 95%; max-width: 900px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    except Exception as e:
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div style="color: #202124; font-size: 22px; font-weight: 600; margin-bottom: 15px;">
+                {description}
+            </div>
+            <div style="color: #888; font-size: 16px; margin-bottom: 20px;">
+                New Year Greeting Card
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 500px; background: linear-gradient(135deg, #f5f7fa 0%, #f9f9f9 100%); border-radius: 12px; margin-bottom: 15px; border: 3px dashed #FBBDFA;">
+                <div style="color: #888; font-size: 20px;">Image non disponible</div>
             </div>
         </div>
         """, unsafe_allow_html=True)
