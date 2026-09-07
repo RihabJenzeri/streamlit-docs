@@ -3571,12 +3571,12 @@ elif st.session_state.page == "medicofi8":
             </div>
             """, unsafe_allow_html=True)
     
-    # # Deuxième ligne : 3ème image seule sur toute la largeur (plus grande)
-    # st.markdown("""
-    # <div style="color: #202124; font-weight: 600; margin-top: 40px; margin-bottom: 15px; font-size: 18px; text-align: center;">
-    #    Character Model Sheet
-    # </div>
-    # """, unsafe_allow_html=True)
+    # Deuxième ligne : 3ème image seule sur toute la largeur (plus grande)
+    st.markdown("""
+    <div style="color: #202124; font-weight: 600; margin-top: 40px; margin-bottom: 15px; font-size: 18px; text-align: center;">
+       Character Model Sheet
+    </div>
+    """, unsafe_allow_html=True)
     
     try:
         # CORRECTION : Enlever "mes_documents/" et utiliser l'apostrophe courbe
