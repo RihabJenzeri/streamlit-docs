@@ -1480,12 +1480,12 @@ elif st.session_state.page == "medicofi3":
 
      
     # Liste des images pour MC Consulting
-       # Liste des images pour MC Consulting
-mc_consulting_images = [
-    ("Carte de voeux 2025.png", "2025 New Year Card"),
- ]
+    mc_consulting_images = [
+        ("Carte de voeux 2024.png", "2024 New Year Card"),
+        ("Carte de voeux 2025.png", "2025 New Year Card")
+    ]
     
-    # Image unique - Carte de Voeux 2025
+    # Première image - Carte de Voeux 2024
     file_name, description = mc_consulting_images[0]
     image_path = f"Medicofi/Société MC Consulting (Tunisie)/Carte de Voeux/{file_name}"
     
@@ -1513,7 +1513,8 @@ mc_consulting_images = [
             </div>
         </div>
         """, unsafe_allow_html=True)
-        # Séparateur entre les images
+    
+    # Séparateur entre les images
     st.markdown('<div style="height: 1px; background: linear-gradient(to right, transparent, #FBBDFA, transparent); margin: 40px 0;"></div>', unsafe_allow_html=True)
     
     # Deuxième image - Carte de Voeux 2025
@@ -1533,20 +1534,6 @@ mc_consulting_images = [
             </div>
             <div style="display: flex; justify-content: center; margin-bottom: 15px;">
                 <img src="{img_url}" style="width: 95%; max-width: 900px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-    except Exception as e:
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 40px;">
-            <div style="color: #202124; font-size: 22px; font-weight: 600; margin-bottom: 15px;">
-                {description}
-            </div>
-            <div style="color: #888; font-size: 16px; margin-bottom: 20px;">
-                New Year Greeting Card
-            </div>
-            <div style="display: flex; justify-content: center; align-items: center; height: 500px; background: linear-gradient(135deg, #f5f7fa 0%, #f9f9f9 100%); border-radius: 12px; margin-bottom: 15px; border: 3px dashed #FBBDFA;">
-                <div style="color: #888; font-size: 20px;">Image non disponible</div>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -3520,7 +3507,104 @@ elif st.session_state.page == "medicofi8":
             </div>
             """, unsafe_allow_html=True)
 
-              # ========== SECTION 4: Dépliant ==========
+       # ========== SECTION 3: Création d'un avatar pour un chatbot IA (Version 2) ==========
+    st.markdown("---")
+    st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBDFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <h4 style="margin: 0; color: #202124;">Création d'un avatar pour un chatbot IA</h4>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Trois images - 2 premières côte à côte, 3ème seule
+    avatar_images = [
+        ("Avatar Lea.png", "Avatar Design"),
+        ("Image d'origine reçue.jpeg", "Original Image Received"),
+        ("Planche de personnage de l'avatar.png", "Planche de personnage de l'avatar")
+    ]
+    
+    # Première ligne : 2 premières images côte à côte (col1, col2)
+    col1, col2 = st.columns(2)
+    
+    # Première image (Avatar Lea)
+    with col1:
+        try:
+            # CORRECTION : Enlever "mes_documents/" et utiliser l'apostrophe courbe
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d’un avatar pour un chatbot IA/Avatar Lea.png"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{avatar_images[0][1]}</div>
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 60px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{avatar_images[0][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    # Deuxième image (Image d'origine reçue)
+    with col2:
+        try:
+            # CORRECTION : Enlever "mes_documents/" et utiliser l'apostrophe courbe
+            img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d’un avatar pour un chatbot IA/Image d’origine reçue.jpeg"
+            img_url = get_image_url(img_path)
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="color: #202124; font-weight: 600; margin-top: 10px; font-size: 16px;">{avatar_images[1][1]}</div>
+                <img src="{img_url}" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            </div>
+            """, unsafe_allow_html=True)
+        except:
+            st.markdown(f"""
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="padding: 60px; background: #f9f9f9; border-radius: 10px;">
+                    <div style="color: #888;">{avatar_images[1][1]}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    # Deuxième ligne : 3ème image seule sur toute la largeur (plus grande)
+    st.markdown("""
+    <div style="color: #202124; font-weight: 600; margin-top: 40px; margin-bottom: 15px; font-size: 18px; text-align: center;">
+       Character Model Sheet
+    </div>
+    """, unsafe_allow_html=True)
+    
+    try:
+        # CORRECTION : Enlever "mes_documents/" et utiliser l'apostrophe courbe
+        img_path = f"Medicofi/Société Tire Lait Express (en France)/Création d’un avatar pour un chatbot IA/Planche de personnage de l’avatar.png"
+        img_url = get_image_url(img_path)
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 40px;">
+            <img src="{img_url}" style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+        </div>
+        """, unsafe_allow_html=True)
+    except:
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div style="padding: 80px; background: #f9f9f9; border-radius: 10px; max-width: 800px; margin: 0 auto;">
+                <div style="color: #888; font-size: 16px;">{avatar_images[2][1]}</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Phrase sous les images
+    st.markdown("""
+    <div style="text-align: center; margin: 20px 0 30px 0; padding: 15px; background: #f9f9f9; border-radius: 10px; border-left: 4px solid #FBBDFA;">
+        <div style="color: #202124; font-size: 16px; font-weight: 500;">
+            Designed with Photoshop and AI tools.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+       # ========== SECTION 4: Dépliant ==========
     st.markdown("---")
     st.markdown("""
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
@@ -3600,7 +3684,7 @@ elif st.session_state.page == "medicofi8":
 
     # Cinq images dans une seule colonne
     emailing_images = [
-        # ("Capture d'écran 2025-06-19 090912.png", "-"),
+        ("Capture d'écran 2025-06-19 090912.png", "-"),
         ("Dernière relance avant transmission au service contentieux.png", "-"),
         ("Emailing sages femmes Secteur.png", "-"),
         ("La SMAM approche.png", "-"),
